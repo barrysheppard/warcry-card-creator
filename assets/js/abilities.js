@@ -90,20 +90,28 @@ drawAbility = function(id, pixelPosition) {
     getContext().fillStyle = 'black';
     getContext().textAlign = 'left';
 
-    var double      = document.getElementById('ability' + id + '-double'),
-        triple      = document.getElementById('ability' + id + '-triple'),
-        quad        = document.getElementById('ability' + id + '-quad'),
-        name        = document.getElementById('ability' + id + '-name').value,
-        text        = document.getElementById('ability' + id + '-text').value,
-        transDouble = document.getElementById('card-translation-double').value,
-        transTriple = document.getElementById('card-translation-triple').value,
-        transQuad   = document.getElementById('card-translation-quad').value;
+    var reaction      = document.getElementById('ability' + id + '-reaction'),
+        double        = document.getElementById('ability' + id + '-double'),
+        triple        = document.getElementById('ability' + id + '-triple'),
+        quad          = document.getElementById('ability' + id + '-quad'),
+        name          = document.getElementById('ability' + id + '-name').value,
+        text          = document.getElementById('ability' + id + '-text').value,
+        transReaction = document.getElementById('card-translation-reaction').value,
+	transDouble   = document.getElementById('card-translation-double').value,
+        transTriple   = document.getElementById('card-translation-triple').value,
+        transQuad     = document.getElementById('card-translation-quad').value;
 
     // https://stackoverflow.com/a/35119260; http://jsfiddle.net/BaG4J/1/
     var textblock = (function() {
         var txt = '';
 
-        if (double.checked) {
+	if (reaction.checked) {
+            if (transReaction.length) {
+                var txt = '[' + transReaction + '] ' + name + ': ' + text;
+            } else {
+                var txt = '[Reaction] ' + name + ': ' + text;
+            }
+	} else if (double.checked) {
             if (transDouble.length) {
                 var txt = '[' + transDouble + '] ' + name + ': ' + text;
             } else {
@@ -913,6 +921,7 @@ function defaultCardData() {
 
     cardData.cardTitle = 'Iron Golem';
     cardData.cardTranslationAbilities = 'Abilities';
+    cardData.cardTranslationReaction = 'Reaction';
     cardData.cardTranslationDouble = 'Double';
     cardData.cardTranslationTriple = 'Triple';
     cardData.cardTranslationQuad = 'Quad';
