@@ -47,6 +47,12 @@ getBackgroundImage = function() {
     
     } else if (document.getElementById('select-bg-ghur-402').checked) {
         return document.getElementById('bg-ghur-402');
+        
+    } else if (document.getElementById('select-bg-ghur-403').checked) {
+        return document.getElementById('bg-ghur-403');
+    
+    } else if (document.getElementById('select-bg-ghur-404').checked) {
+        return document.getElementById('bg-ghur-404');
     }
 }
 
