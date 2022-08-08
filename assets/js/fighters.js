@@ -480,7 +480,7 @@ function readControls()
     data.imageProperties = getModelImageProperties();
     data.factionRunemark = getSelectedFactionRunemark();
     data.subfactionRunemark = getSelectedSubfactionRunemark();
-    data.fightername = document.getElementById("fighterName").value;
+    data.fighterName = document.getElementById("fighterName").value;
     data.toughness = document.getElementById("toughness").value;
     data.wounds = document.getElementById("numWounds").value;
     data.move = document.getElementById("movement").value;
@@ -562,7 +562,7 @@ function writeControls(fighterData)
     setModelImageProperties(fighterData.imageProperties);
     setSelectedFactionRunemark(fighterData.factionRunemark);
     setSelectedSubfactionRunemark(fighterData.subfactionRunemark);
-    $("#fighterName")[0].value = fighterData.fightername;
+    $("#fighterName")[0].value = fighterData.fighterName;
     $("#toughness")[0].value = fighterData.toughness;
     $("#numWounds")[0].value = fighterData.wounds;
     $("#movement")[0].value = fighterData.move;
