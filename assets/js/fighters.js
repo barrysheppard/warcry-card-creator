@@ -83,6 +83,9 @@ drawCardElementFromInputId = function(inputId, pixelPosition) {
 
 
 drawFighterName = function(value) {
+    getContext().font = '60px rodchenkoctt';
+    getContext().fillStyle = 'black';
+    getContext().textAlign = 'center';
     writeScaled(value, {x: 1050, y: 1300});
 }
 
@@ -480,7 +483,7 @@ function readControls()
     data.imageProperties = getModelImageProperties();
     data.factionRunemark = getSelectedFactionRunemark();
     data.subfactionRunemark = getSelectedSubfactionRunemark();
-    data.fighterName = document.getElementById("fighterName");
+    data.fighterName = document.getElementById("fighterName").value;
     data.toughness = document.getElementById("toughness").value;
     data.wounds = document.getElementById("numWounds").value;
     data.move = document.getElementById("movement").value;
@@ -563,7 +566,7 @@ function writeControls(fighterData)
     setModelImageProperties(fighterData.imageProperties);
     setSelectedFactionRunemark(fighterData.factionRunemark);
     setSelectedSubfactionRunemark(fighterData.subfactionRunemark);
-    $("#fighterName")[0] = fighterData.fighterName;
+    $("#fighterName").value = fighterData.fighterName;
     $("#toughness")[0].value = fighterData.toughness;
     $("#numWounds")[0].value = fighterData.wounds;
     $("#movement")[0].value = fighterData.move;
@@ -579,7 +582,7 @@ function defaultFighterData() {
     fighterData.imageUrl = null;
     fighterData.imageProperties = getDefaultModelImageProperties();
     fighterData.factionRunemark = 'runemarks/white/factions-chaos-iron-golems.svg';
-    fighterData.fighterName = " ";
+    fighterData.fighterName = "Fighter Name";
     fighterData.toughness = 4;
     fighterData.wounds = 15;
     fighterData.move = 5;
