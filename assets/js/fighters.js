@@ -83,7 +83,7 @@ drawCardElementFromInputId = function(inputId, pixelPosition) {
 
 
 drawFighterName = function(value) {
-    writeScaled(value, {x: 1050, y: 1180});
+    writeScaled(value, {x: 1050, y: 1300});
 }
 
 drawToughness = function(value) {
@@ -524,7 +524,6 @@ render = function(fighterData) {
     getContext().textAlign = "right";
 
     drawToughness(fighterData.toughness);
-    drawFighterName(fighterData.fighterName);
 
     getContext().textBaseline = "middle";
     getContext().textAlign = "center";
@@ -535,6 +534,8 @@ render = function(fighterData) {
     getContext().textBaseline = "top";
     getContext().textAlign = "left";
     getContext().fillStyle = "black";
+    
+    drawFighterName(fighterData.fighterName);
 
     if (fighterData.weapon1.enabled && fighterData.weapon2.enabled)
     {
@@ -578,7 +579,7 @@ function defaultFighterData() {
     fighterData.imageUrl = null;
     fighterData.imageProperties = getDefaultModelImageProperties();
     fighterData.factionRunemark = 'runemarks/white/factions-chaos-iron-golems.svg';
-    fighterData.fighterName = "";
+    fighterData.fighterName = " ";
     fighterData.toughness = 4;
     fighterData.wounds = 15;
     fighterData.move = 5;
