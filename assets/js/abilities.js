@@ -199,7 +199,6 @@ drawAbility = function(id, pixelPosition) {
                 {x: pixelPosition.x, y: pixelPosition.y+(i*35)}
             );
         }
-	*/ 
 	    
     })();
 }
