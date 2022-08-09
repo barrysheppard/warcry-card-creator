@@ -83,11 +83,17 @@ drawCardElementFromInputId = function(inputId, pixelPosition) {
 
 
 drawFighterName = function(value) {
-    //getContext().font = '60px rodchenkoctt';
+    getContext().font = '70px rodchenkoctt';
     getContext().fillStyle = 'black';
     getContext().textAlign = 'left';
     writeScaled(value, {x: 1000, y: 1100});
-    //writeScaled(value, {x: 1050, y: 1300});
+}
+
+drawFighterName2 = function(value) {
+    getContext().font = '40px rodchenkoctt';
+    getContext().fillStyle = 'black';
+    getContext().textAlign = 'left';
+    writeScaled(value, {x: 1000, y: 1200});
 }
 
 drawToughness = function(value) {
@@ -485,6 +491,7 @@ function readControls()
     data.factionRunemark = getSelectedFactionRunemark();
     data.subfactionRunemark = getSelectedSubfactionRunemark();
     data.fighterName = document.getElementById("fighterName").value;
+    data.fighterName2 = document.getElementById("fighterName2").value;
     data.toughness = document.getElementById("toughness").value;
     data.wounds = document.getElementById("numWounds").value;
     data.move = document.getElementById("movement").value;
@@ -540,6 +547,7 @@ render = function(fighterData) {
     getContext().fillStyle = "black";
     
     drawFighterName(fighterData.fighterName);
+    drawFighterName2(fighterData.fighterName2);
 
     if (fighterData.weapon1.enabled && fighterData.weapon2.enabled)
     {
@@ -568,6 +576,7 @@ function writeControls(fighterData)
     setSelectedFactionRunemark(fighterData.factionRunemark);
     setSelectedSubfactionRunemark(fighterData.subfactionRunemark);
     $("#fighterName")[0].value = fighterData.fighterName;
+    $("#fighterName2")[0].value = fighterData.fighterName2;
     $("#toughness")[0].value = fighterData.toughness;
     $("#numWounds")[0].value = fighterData.wounds;
     $("#movement")[0].value = fighterData.move;
