@@ -85,8 +85,8 @@ drawCardElementFromInputId = function(inputId, pixelPosition) {
 drawFighterName = function(value) {
     //getContext().font = '60px rodchenkoctt';
     getContext().fillStyle = 'black';
-    getContext().textAlign = 'center';
-    writeScaled(value, {x: 100, y: 500});
+    getContext().textAlign = 'left';
+    writeScaled(value, {x: 750, y: 750});
     //writeScaled(value, {x: 1050, y: 1300});
 }
 
