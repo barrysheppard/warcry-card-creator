@@ -185,7 +185,7 @@ drawAbility = function(id, pixelPosition) {
             );
         }    
 	
-	    /* commented out to text
+	    /* commented out to test
         for (var i = 0; i < lines.length; i++) {
             if (i == 0) {
 		getContext().font = '28px Georgia, serif, bold';    
@@ -330,6 +330,23 @@ function drawTagRunemark(index, runemark, row) {
     var positions = []
 
     if (row == 1 && document.getElementById('ability1-toggle').checked) {
+        positions = [{x: 175, y: 225}, {x: 285, y: 225}, {x: 395, y: 225}];
+    } else if (row == 2 && document.getElementById('ability2-toggle').checked) {
+        positions = [{x: 175, y: 410}, {x: 285, y: 410}, {x: 395, y: 410}];
+    } else if (row == 3 && document.getElementById('ability3-toggle').checked) {
+        positions = [{x: 175, y: 580}, {x: 285, y: 580}, {x: 395, y: 580}];
+    } else if (row == 4 && document.getElementById('ability4-toggle').checked) {
+        positions = [{x: 175, y: 760}, {x: 285, y: 760}, {x: 395, y: 760}];
+    } else if (row == 5 && document.getElementById('ability5-toggle').checked) {
+        positions = [{x: 175, y: 940}, {x: 285, y: 940}, {x: 395, y: 940}];
+    } else if (row == 6 && document.getElementById('ability6-toggle').checked) {
+        positions = [{x: 175, y: 1115}, {x: 285, y: 1115}, {x: 395, y: 1115}];
+    }
+
+/*
+with 4th runemark
+
+    if (row == 1 && document.getElementById('ability1-toggle').checked) {
         positions = [{x: 175, y: 225}, {x: 285, y: 225}, {x: 395, y: 225}, {x: 505, y: 225}];
     } else if (row == 2 && document.getElementById('ability2-toggle').checked) {
         positions = [{x: 175, y: 410}, {x: 285, y: 410}, {x: 395, y: 410}, {x: 505, y: 410}];
@@ -342,7 +359,9 @@ function drawTagRunemark(index, runemark, row) {
     } else if (row == 6 && document.getElementById('ability6-toggle').checked) {
         positions = [{x: 175, y: 1115}, {x: 285, y: 1115}, {x: 395, y: 1115}, {x: 505, y: 1115}];
     }
-
+*/
+	
+	
     if (index >= positions.length) return;
 
     var img = $("#circle")[0],
@@ -612,23 +631,23 @@ render = function(cardData) {
     }
 
     if (document.getElementById('ability2-toggle').checked) {
-        drawAbility(2, {x: 600, y:  400});
+        drawAbility(2, {x: 500, y:  400});
     }
 
     if (document.getElementById('ability3-toggle').checked) {
-        drawAbility(3, {x: 600, y:  575});
+        drawAbility(3, {x: 500, y:  575});
     }
 
     if (document.getElementById('ability4-toggle').checked) {
-        drawAbility(4, {x: 600, y:  750});
+        drawAbility(4, {x: 500, y:  750});
     }
 
     if (document.getElementById('ability5-toggle').checked) {
-        drawAbility(5, {x: 600, y:  925});
+        drawAbility(5, {x: 500, y:  925});
     }
 
     if (document.getElementById('ability6-toggle').checked) {
-        drawAbility(6, {x: 600, y: 1100});
+        drawAbility(6, {x: 500, y: 1100});
     }
 
 
@@ -724,11 +743,6 @@ function defaultCardData() {
     cardData.ability4Text = 'Lorem ipsum dolor sit amet,\nconsectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
     cardData.ability5Text = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
     cardData.ability6Text = 'Lorem ipsum dolor sit amet,\nconsectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
-
-    // cardData.toughness = 4;
-    // cardData.wounds = 15;
-    // cardData.move = 5;
-    // cardData.pointCost = 125;
 
     cardData.tagRunemarksOne = new Array;
     cardData.tagRunemarksOne.push('runemarks/black/fighters-berserker.svg');
