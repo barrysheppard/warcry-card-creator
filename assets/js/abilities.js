@@ -177,7 +177,7 @@ drawAbility = function(id, pixelPosition) {
         var lines = txt.split('\n');
 
         for (var i = 0; i < lines.length; i++) {
-            if (i = 0) {
+            if (i == 0) {
 		getContext().font = '28px Georgia, serif, bold';    
 		writeScaled(txt_suffix, {x: pixelPosition.x, y:pixelPosition.y(i+35)});
 		getContext().font = '28px Georgia, serif';    
