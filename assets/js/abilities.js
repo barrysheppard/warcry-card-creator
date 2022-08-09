@@ -109,7 +109,7 @@ drawAbility = function(id, pixelPosition) {
 
 	if (reaction.checked) {
             if (transReaction.length) {
-                var txt = '[' + transReaction + '] ' + name + ': ' + text;
+                var txt = '<b>[' + transReaction + '] ' + name + ':</b> ' + text;
             } else {
                 var txt = '[Reaction] ' + name + ': ' + text;
             }
