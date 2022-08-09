@@ -86,14 +86,14 @@ drawFighterName = function(value) {
     getContext().font = '70px rodchenkoctt';
     getContext().fillStyle = 'black';
     getContext().textAlign = "center";
-    writeScaled(value, {x: 1200, y: 1100});
+    writeScaled(value, {x: 1300, y: 1100});
 }
 
 drawFighterName2 = function(value) {
     getContext().font = '50px rodchenkoctt';
     getContext().fillStyle = 'black';
     getContext().textAlign = "center";
-    writeScaled(value, {x: 1200, y: 1150});
+    writeScaled(value, {x: 1300, y: 1155});
 }
 
 drawToughness = function(value) {
