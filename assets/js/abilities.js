@@ -66,7 +66,6 @@ drawCardElementFromInputId = function(inputId, pixelPosition) {
 }
 
 
-/* Commenting function out while I try get the suffix as bold text.
 
 drawAbility = function(id, pixelPosition) {
     getContext().font = '28px Georgia, serif';
@@ -124,7 +123,10 @@ drawAbility = function(id, pixelPosition) {
         }
     })();
 }
-*/
+
+/*
+
+Testing
 
 drawAbility = function(id, pixelPosition) {
     getContext().font = '28px Georgia, serif';
@@ -202,6 +204,7 @@ drawAbility = function(id, pixelPosition) {
     })();
 }
 
+*/
 
 drawCardTranslationAbilities = function(value) {
     getContext().font = '28px Georgia, serif';
