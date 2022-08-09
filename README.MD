@@ -1,4 +1,6 @@
-# Warcry Card Creator 2.0 – Fighters and Abilities
+# Warcry Card Creator 2.1 – Fighters and Abilities
+
+Updates for new version of Warcry (Heart of Ghur) by @barrysheppard.
 
 ****
 
