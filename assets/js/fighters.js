@@ -518,7 +518,34 @@ function drawSubfactionRunemark(image)
 render = function(fighterData) {
     drawBackground();
 
-    drawModel(fighterData.imageUrl, fighterData.imageProperties);
+   // drawModel(fighterData.imageUrl, fighterData.imageProperties);
+    
+   // Section added below to try have text above uploaded image
+    
+    if (fighterData.imageUrl != null)
+    {
+        var image = new Image();
+        image.onload = function(){
+            var position = scalePixelPosition({x: 590 + fighterData.imageProperties.offsetX, y: fighterData.imageProperties.offsetY});
+            var scale = fighterData.imageProperties.scalePercent/100.0;
+            var width = image.width * scale;
+            var height = image.height * scale;
+            getContext().drawImage(image, position.x, position.y, width, height);
+
+            // These are the texts to overlay
+            drawFighterName(fighterData.fighterName);
+            drawFighterName2(fighterData.fighterName2);
+
+            URL.revokeObjectURL(image.src);
+        };
+        image.src = fighterData.imageUrl;
+    } else {
+        drawFighterName(fighterData.fighterName);
+        drawFighterName2(fighterData.fighterName2);
+    }
+    
+    // section added above
+    
     drawFactionRunemark(fighterData.factionRunemark);
     drawSubfactionRunemark(fighterData.subfactionRunemark);
 
@@ -546,8 +573,9 @@ render = function(fighterData) {
     getContext().textAlign = "left";
     getContext().fillStyle = "black";
     
-    drawFighterName(fighterData.fighterName);
-    drawFighterName2(fighterData.fighterName2);
+    // moved up
+    //drawFighterName(fighterData.fighterName);
+    //drawFighterName2(fighterData.fighterName2);
 
     if (fighterData.weapon1.enabled && fighterData.weapon2.enabled)
     {
