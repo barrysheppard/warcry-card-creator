@@ -65,27 +65,8 @@ drawCardElementFromInputId = function(inputId, pixelPosition) {
     drawCardElementFromInput(document.getElementById(inputId), pixelPosition);
 }
 
-// drawToughness = function(value) {
-//     writeScaled(value, {x: 545, y: 391});
-// }
-//
-// drawWounds = function(value) {
-//     writeScaled(value, {x: 380, y: 510});
-// }
-//
-// drawMove = function(value) {
-//     writeScaled(value, {x: 220, y: 391});
-// }
-//
-// drawPointCost = function(value) {
-//     writeScaled(value, {x: 805, y: 160});
-// }
 
-
-
-
-
-
+/* Commenting function out while I try get the suffix as bold text.
 
 drawAbility = function(id, pixelPosition) {
     getContext().font = '28px Georgia, serif';
@@ -109,7 +90,7 @@ drawAbility = function(id, pixelPosition) {
 
 	if (reaction.checked) {
             if (transReaction.length) {
-                var txt = '<b>[' + transReaction + '] ' + name + ':</b> ' + text;
+                var txt = '[' + transReaction + '] ' + name + ': ' + text;
             } else {
                 var txt = '[Reaction] ' + name + ': ' + text;
             }
@@ -143,6 +124,67 @@ drawAbility = function(id, pixelPosition) {
         }
     })();
 }
+*/
+
+drawAbility = function(id, pixelPosition) {
+    getContext().font = '28px Georgia, serif';
+    getContext().fillStyle = 'black';
+    getContext().textAlign = 'left';
+
+    var reaction      = document.getElementById('ability' + id + '-reaction'),
+        double        = document.getElementById('ability' + id + '-double'),
+        triple        = document.getElementById('ability' + id + '-triple'),
+        quad          = document.getElementById('ability' + id + '-quad'),
+        name          = document.getElementById('ability' + id + '-name').value,
+        text          = document.getElementById('ability' + id + '-text').value,
+        transReaction = document.getElementById('card-translation-reaction').value,
+	transDouble   = document.getElementById('card-translation-double').value,
+        transTriple   = document.getElementById('card-translation-triple').value,
+        transQuad     = document.getElementById('card-translation-quad').value;
+
+    // https://stackoverflow.com/a/35119260; http://jsfiddle.net/BaG4J/1/
+    var textblock = (function() {
+        var txt = '';
+
+	if (reaction.checked) {
+            if (transReaction.length) {
+                var txt = '[' + transReaction + '] ' + name + ': ';
+            } else {
+                var txt = '[Reaction] ' + name + ': ';
+            }
+	} else if (double.checked) {
+            if (transDouble.length) {
+                var txt = '[' + transDouble + '] ' + name + ': ';
+            } else {
+                var txt = '[Double] ' + name + ': ';
+            }
+        } else if (triple.checked) {
+            if (transTriple.length) {
+                var txt = '[' + transTriple + '] ' + name + ': ';
+            } else {
+                var txt = '[Triple] ' + name + ': ';
+            }
+        } else if (quad.checked) {
+            if (transQuad.length) {
+                var txt = '[' + transQuad + '] ' + name + ': ';
+            } else {
+                var txt = '[Quad] ' + name + ': ';
+            }
+        }
+	// suffix separated out for use later as bold text
+	txt_suffix = txt;	
+	txt = txt + text;
+        var lines = txt.split('\n');
+
+        for (var i = 0; i < lines.length; i++) {
+            writeScaled(
+                lines[i],
+                {x: pixelPosition.x, y: pixelPosition.y+(i*35)}
+            );
+        }
+    })();
+}
+
 
 drawCardTranslationAbilities = function(value) {
     getContext().font = '28px Georgia, serif';
@@ -160,65 +202,6 @@ drawCardTitle = function(value) {
 
 
 
-
-
-
-
-// getWeaponStatblockImage = function() {
-//     return document.getElementById("weapon-profile");
-// }
-
-// drawWeaponStatblock = function(pixelPosition) {
-//     var image = getWeaponStatblockImage();
-//     var scaledPosition = scalePixelPosition(pixelPosition);
-//     // var scaledSize = scalePixelPosition({x: image.width, y: image.height});
-//     // getContext().drawImage(
-//     //     image,
-//     //     scaledPosition.x,
-//     //     scaledPosition.y,
-//     //     scaledSize.x,
-//     //     scaledSize.y);
-// }
-
-// drawWeapon = function(weaponData, pixelPosition) {
-//     drawWeaponStatblock(pixelPosition);
-//
-//     var statsPosY = pixelPosition.y + 95;
-//
-//     var range = (weaponData.rangeMin > 0 ? (weaponData.rangeMin + "-") : "") + weaponData.rangeMax;
-//
-//     getContext().textAlign = "center";
-//
-//     writeScaled(range, {x: pixelPosition.x + 250, y: statsPosY});
-//
-//     writeScaled(
-//         weaponData.attacks,
-//         {x: pixelPosition.x + 440, y: statsPosY});
-//
-//     writeScaled(
-//         weaponData.strength,
-//         {x: pixelPosition.x + 620, y: statsPosY});
-//
-//     writeScaled(
-//         weaponData.damageBase + "/" + weaponData.damageCrit,
-//         {x: pixelPosition.x + 790, y: statsPosY});
-//
-//     var position = scalePixelPosition({x: pixelPosition.x + 20, y: pixelPosition.y + 30});
-//     var size = scalePixelPosition({x: 120, y: 120});
-//     drawImageSrc(position, size, weaponData.runemark);
-// }
-
-// function getWeapon(weaponId) {
-//     return $(weaponId).find("#weaponEnabled")[0].checked ? $(weaponId) : null;
-// }
-//
-// function getWeapon1() {
-//     return getWeapon("#weapon1");
-// }
-//
-// function getWeapon2() {
-//     return getWeapon("#weapon2");
-// }
 
 function getLabel(element)
 {
@@ -239,49 +222,9 @@ function getSelectedRunemark(radioDiv) {
     }
     return null;
 }
-/*
-function setSelectedRunemark(radioDiv, runemark, radioGroupName, bgColor)
-{
-    // uncheck all
-    {
-        var checked = $(radioDiv).find('input:checked');
-        for (var i = 0; i < checked.length; i++)
-        {
-            checked[i].checked = false;
-        }
-        var icons = $(radioDiv).find('img');
-        for (var i = 0; i < icons.length; i++)
-        {
-            icons[i].style.backgroundColor = bgColor;
-        }
-    }
 
-    if (runemark != null)
-    {
-        var queryString = "img[src='"+ runemark +"']";
-        var img = $(radioDiv).find(queryString);
-        if (img.length > 0)
-        {
-            var radioButton = $(img[0].parentNode.parentNode).find("input")[0];
-            radioButton.checked = true;
-            // img[0].style.backgroundColor = "tomato";
-            img[0].style.backgroundColor = "#00bc8c";
-        }
-        else
-        {
-            var newDiv =
-                addToImageRadioSelector(
-                    runemark,
-                    radioDiv,
-                    radioGroupName,
-                    bgColor);
-            // $(newDiv).find("img")[0].style.backgroundColor = "tomato";
-            $(newDiv).find("img")[0].style.backgroundColor = "#00bc8c";
-            $(newDiv).find("input")[0].checked = true;
-        }
-    }
-}
-*/
+
+
 function setSelectedFactionRunemark(runemark){
     var factionRunemarksDiv = $("#factionRunemarkSelect");
     {
@@ -399,25 +342,6 @@ function drawTagRunemark(index, runemark, row) {
 
 
 
-
-// function drawModel(imageUrl, imageProps)
-// {
-//     if (imageUrl != null)
-//     {
-//         var image = new Image();
-//         image.onload = function(){
-//             var position = scalePixelPosition({x: 590 + imageProps.offsetX, y: imageProps.offsetY});
-//             var scale = imageProps.scalePercent/100.0;
-//             var width = image.width * scale;
-//             var height = image.height * scale;
-//             getContext().drawImage(image, position.x, position.y, width, height);
-//
-//             URL.revokeObjectURL(image.src);
-//         };
-//         image.src = imageUrl;
-//     }
-// }
-
 function getName()
 {
     var textInput = $("#saveNameInput")[0];
@@ -430,118 +354,6 @@ function setName(name)
     textInput.value = name;
 }
 
-// function getModelImage()
-// {
-//     var imageSelect = $("#imageSelect")[0];
-//
-//     // if (imageSelect.files.length > 0)
-//     // {
-//     //     return URL.createObjectURL(imageSelect.files[0]);
-//     // }
-//
-//     return null;
-// }
-
-// function setModelImage(image)
-// {
-//     var imageSelect = $("#imageSelect")[0];
-//
-//     if (image != null)
-//     {
-//         // TODO: Not sure how to do this. It might not even be possible! Leave it for now...
-//         // imageSelect.files[0] = image;
-//     }
-//     else
-//     {
-//         // imageSelect.value = null;
-//     }
-// }
-
-// function getDefaultModelImageProperties()
-// {
-//     return {
-//         offsetX: 0,
-//         offsetY: 0,
-//         scalePercent: 100
-//     };
-// }
-
-// function getModelImageProperties()
-// {
-//     return {
-//         // offsetX: $("#imageOffsetX")[0].valueAsNumber,
-//         // offsetY: $("#imageOffsetY")[0].valueAsNumber,
-//         // scalePercent: $("#imageScalePercent")[0].valueAsNumber
-//     };
-// }
-
-// function setModelImageProperties(modelImageProperties)
-// {
-//     // $("#imageOffsetX")[0].value = modelImageProperties.offsetX;
-//     // $("#imageOffsetY")[0].value = modelImageProperties.offsetY;
-//     // $("#imageScalePercent")[0].value = modelImageProperties.scalePercent;
-// }
-
-// function getDefaultWeaponData()
-// {
-//     var weaponData = new Object;
-//     weaponData.enabled = true;
-//     weaponData.rangeMin = 0;
-//     weaponData.rangeMax = 1;
-//     weaponData.attacks = 1;
-//     weaponData.strength = 3;
-//     weaponData.damageBase = 1;
-//     weaponData.damageCrit = 2;
-//     weaponData.runemark = null;
-//     return weaponData;
-// }
-//
-// function getDefaultWeaponData1()
-// {
-//     var data = getDefaultWeaponData();
-//     data.enabled = true;
-//     return data;
-// }
-//
-// function getDefaultWeaponData2()
-// {
-//     var data = getDefaultWeaponData();
-//     data.enabled = false;
-//     return data;
-// }
-//
-// function readWeaponControls(weaponId)
-// {
-//     var weaponData = new Object;
-//     var weaponDiv = $(weaponId);
-//     // weaponData.enabled = weaponDiv.find("#weaponEnabled")[0].checked;
-//     // weaponData.rangeMin = weaponDiv.find("#rangeMin")[0].value;
-//     // weaponData.rangeMax = weaponDiv.find("#rangeMax")[0].value;
-//     // weaponData.attacks = weaponDiv.find("#attacks")[0].value;
-//     // weaponData.strength = weaponDiv.find("#strength")[0].value;
-//     // weaponData.damageBase = weaponDiv.find("#damageBase")[0].value;
-//     // weaponData.damageCrit = weaponDiv.find("#damageCrit")[0].value;
-//     weaponData.runemark = getSelectedRunemark(weaponDiv.find("#weaponRunemarkSelect")[0]);
-//     return weaponData;
-// }
-//
-// function writeWeaponControls(weaponId, weaponData, weaponName)
-// {
-//     weaponDiv = $(weaponId);
-//     // weaponDiv.find("#weaponEnabled")[0].checked = weaponData.enabled;
-//     // weaponDiv.find("#weaponInputs")[0].style.display = weaponData.enabled ? "block" : "none";
-//     // weaponDiv.find("#rangeMin")[0].value = weaponData.rangeMin;
-//     // weaponDiv.find("#rangeMax")[0].value = weaponData.rangeMax;
-//     // weaponDiv.find("#attacks")[0].value = weaponData.attacks;
-//     // weaponDiv.find("#strength")[0].value = weaponData.strength;
-//     // weaponDiv.find("#damageBase")[0].value = weaponData.damageBase;
-//     // weaponDiv.find("#damageCrit")[0].value = weaponData.damageCrit;
-//     setSelectedRunemark(
-//         weaponDiv.find("#weaponRunemarkSelect")[0],
-//         weaponData.runemark,
-//         weaponName,
-//         "white");
-// }
 
 
 function readtagRunemarksOne() {
@@ -661,10 +473,6 @@ function readControls()
     data.ability5Text = document.getElementById('ability5-text').value;
     data.ability6Text = document.getElementById('ability6-text').value;
 
-    // data.toughness = document.getElementById("toughness").value;
-    // data.wounds = document.getElementById("numWounds").value;
-    // data.move = document.getElementById("movement").value;
-    // data.pointCost = document.getElementById("pointCost").value;
 
     data.tagRunemarksOne = readtagRunemarksOne();
     data.tagRunemarksTwo = readTagRunemarksTwo();
@@ -673,8 +481,6 @@ function readControls()
     data.tagRunemarksFive = readTagRunemarksFive();
     data.tagRunemarksSix = readTagRunemarksSix();
 
-    // data.weapon1 = readWeaponControls("#weapon1");
-    // data.weapon2 = readWeaponControls("#weapon2");
     return data;
 }
 
@@ -783,19 +589,6 @@ render = function(cardData) {
     drawFactionRunemark(cardData.factionRunemark);
     drawSubfactionRunemark(cardData.subfactionRunemark);
 
-    // getContext().font = "92px rodchenkoctt";
-    // getContext().fillStyle = "white";
-
-    // getContext().textBaseline = "middle";
-    // getContext().textAlign = "left";
-
-    // drawMove(cardData.move);
-    // drawWounds(cardData.wounds);
-
-    // getContext().textBaseline = "middle";
-    // getContext().textAlign = "right";
-
-    // drawToughness(cardData.toughness);
 
     if (document.getElementById('ability1-toggle').checked) {
         drawAbility(1, {x: 600, y:  225});
@@ -821,29 +614,6 @@ render = function(cardData) {
         drawAbility(6, {x: 600, y: 1100});
     }
 
-    // getContext().textBaseline = "middle";
-    // getContext().textAlign = "center";
-
-    // drawPointCost(cardData.pointCost);
-
-    // getContext().font = "70px rodchenkoctt";
-    // getContext().textBaseline = "top";
-    // getContext().textAlign = "left";
-    // getContext().fillStyle = "black";
-
-    // if (cardData.weapon1.enabled && cardData.weapon2.enabled)
-    // {
-    //     drawWeapon(cardData.weapon1, {x: 50, y: 750}); // Default was x:29, y:397
-    //     drawWeapon(cardData.weapon2, {x: 50, y: 950}); // Default was x:29, y:564
-    // }
-    // else if (cardData.weapon1.enabled)
-    // {
-    //     drawWeapon(cardData.weapon1, {x: 50, y: 850}); // Default was x:29, y:463
-    // }
-    // else if (cardData.weapon2.enabled)
-    // {
-    //     drawWeapon(cardData.weapon2, {x: 50, y: 850}); // Default was x:29, y:463
-    // }
 
     for (i = 0; i < cardData.tagRunemarksOne.length; i++) {
         drawTagRunemark(i, cardData.tagRunemarksOne[i], 1);
@@ -896,11 +666,6 @@ function writeControls(cardData)
      $('#ability5-text').text(cardData.ability5Text);
      $('#ability6-text').text(cardData.ability6Text);
 
-    // $("#toughness")[0].value = cardData.toughness;
-    // $("#numWounds")[0].value = cardData.wounds;
-    // $("#movement")[0].value = cardData.move;
-    // $("#pointCost")[0].value = cardData.pointCost;
-
     var runes_one = cardData.tagRunemarksOne,
         runes_two = cardData.tagRunemarksTwo,
         runes_three = cardData.tagRunemarksThree,
@@ -911,8 +676,6 @@ function writeControls(cardData)
 
     setSelectedTagRunemarks(tagRuneMarks);
 
-    // writeWeaponControls("#weapon1", cardData.weapon1, "weapon1");
-    // writeWeaponControls("#weapon2", cardData.weapon2, "weapon2");
 }
 
 function defaultCardData() {
