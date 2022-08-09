@@ -178,7 +178,7 @@ drawAbility = function(id, pixelPosition) {
 
 	    
 	 for (var i = 0; i < lines.length; i++) {
-	    getContext().font = '28px Georgia, serif, bold'; 
+	    getContext().font = 'bold, 28px Georgia, serif'; 
             writeScaled(
                 lines[i],
                 {x: pixelPosition.x, y: pixelPosition.y+(i*35)}
@@ -608,7 +608,7 @@ render = function(cardData) {
 
 
     if (document.getElementById('ability1-toggle').checked) {
-        drawAbility(1, {x: 600, y:  225});
+        drawAbility(1, {x: 500, y:  225});
     }
 
     if (document.getElementById('ability2-toggle').checked) {
