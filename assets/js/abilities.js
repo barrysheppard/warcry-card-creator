@@ -172,12 +172,17 @@ drawAbility = function(id, pixelPosition) {
             }
         }
 	// suffix separated out for use later as bold text
-	txt_suffix = txt;	
+	txt_suffix = txt;
 	txt = txt + text;
         var lines = txt.split('\n');
 
         for (var i = 0; i < lines.length; i++) {
-            writeScaled(
+            if (i = 0) {
+		getContext().font = '28px Georgia, serif, bold';    
+		writeScaled(txt_suffix, {x: pixelPosition.x, y:pixelPosition.y(i+35)});
+		getContext().font = '28px Georgia, serif';    
+		writeScaled(lines[i], {x: pixelPosition.x + txt_suffix.length, y:pixelPosition.y(i+35)});
+	    } else writeScaled(
                 lines[i],
                 {x: pixelPosition.x, y: pixelPosition.y+(i*35)}
             );
