@@ -56,17 +56,17 @@ drawCardElementFromInputId = function (inputId, pixelPosition) {
 }
 
 drawObjectTitle = function (value) {
-    getContext().font = '9px rodchenkoctt';
+    getContext().font = '10px rodchenkoctt';
     getContext().fillStyle = "#E0DDDC";
     getContext().textAlign = 'center';
     writeScaled(value, { x: 88, y: 12 });
 }
 
 drawObjectName = function (value) {
-    getContext().font = '14px rodchenkoctt';
+    getContext().font = '20px rodchenkoctt';
     getContext().fillStyle = "#E0DDDC";
     getContext().textAlign = 'center ';
-    writeScaled(value, { x: 88, y: 24 });
+    writeScaled(value, { x: 88, y: 28 });
 }
 
 drawObjectText = function (value) {
