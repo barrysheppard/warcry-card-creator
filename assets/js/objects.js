@@ -274,9 +274,9 @@ function defaultCardData() {
     cardData.imageUrl = null;
     cardData.imageProperties = getDefaultModelImageProperties();
 
-    cardData.objectName = 'Lord Flashheart';
-    cardData.objectTitle = 'Wing Commander';
-    cardData.objectText = 'This is the text';
+    cardData.objectName = 'Healing Potion';
+    cardData.objectTitle = 'Lesser Artefact';
+    cardData.objectText = "[Consumable] Discard this card\nafter use.\nBonus Action: Heal 1d6 damage\nfrom this fighter.";
 
     return cardData;
 }
