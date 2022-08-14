@@ -59,14 +59,14 @@ drawObjectTitle = function (value) {
     getContext().font = '9px rodchenkoctt';
     getContext().fillStyle = "#E0DDDC";
     getContext().textAlign = 'center';
-    writeScaled(value, { x: 88, y: 140 });
+    writeScaled(value, { x: 88, y: 12 });
 }
 
 drawObjectName = function (value) {
     getContext().font = '14px rodchenkoctt';
     getContext().fillStyle = "#E0DDDC";
     getContext().textAlign = 'center ';
-    writeScaled(value, { x: 88, y: 153 });
+    writeScaled(value, { x: 88, y: 24 });
 }
 
 drawObjectText = function (value) {
@@ -76,7 +76,7 @@ drawObjectText = function (value) {
 
     var lines = value.split('\n');
     for (var i = 0; i < lines.length; i++) {
-        writeScaled(lines[i], { x: 20, y: 180 + (i * 10) });
+        writeScaled(lines[i], { x: 20, y: 150 + (i * 10) });
     }
 }
 
@@ -233,14 +233,14 @@ function readControls() {
 
 
 
-render = function (objectCardData) {
+render = function (cardData) {
     drawBackground();
 
-    if (objectCardData.imageUrl != null) {
+    if (cardData.imageUrl != null) {
         var image = new Image();
         image.onload = function () {
-            var position = scalePixelPosition({ x: objectCardData.imageProperties.offsetX, y: objectCardData.imageProperties.offsetY });
-            var scale = objectCardData.imageProperties.scalePercent / 100.0;
+            var position = scalePixelPosition({ x: cardData.imageProperties.offsetX, y: cardData.imageProperties.offsetY });
+            var scale = cardData.imageProperties.scalePercent / 100.0;
             var width = image.width * scale;
             var height = image.height * scale;
             getContext().drawImage(image, position.x, position.y, width, height);
@@ -249,44 +249,44 @@ render = function (objectCardData) {
 
             URL.revokeObjectURL(image.src);
         };
-        image.src = objectCardData.imageUrl;
+        image.src = cardData.imageUrl;
     }
 
-    drawObjectTitle(objectCardData.objectTitle);
-    drawObjectName(objectCardData.objectName);
-    drawObjectText(objectCardData.objectText);
+    drawObjectTitle(cardData.objectTitle);
+    drawObjectName(cardData.objectName);
+    drawObjectText(cardData.objectText);
 
 };
 
-function writeControls(objectCardData) {
-    setName(objectCardData.name);
-    setModelImage(objectCardData.imageUrl);
-    setModelImageProperties(objectCardData.imageProperties);
+function writeControls(cardData) {
+    setName(cardData.name);
+    setModelImage(cardData.imageUrl);
+    setModelImageProperties(cardData.imageProperties);
 
-    $('#object-title').value = objectCardData.objectTitle;
-    $('#object-name').value = objectCardData.objectName;
-    $('#object-text').value = objectCardData.objectText;
+    $('#object-title').value = cardData.objectTitle;
+    $('#object-name').value = cardData.objectName;
+    $('#object-text').value = cardData.objectText;
 }
 
 function defaultCardData() {
-    var objectCardData = new Object;
-    objectCardData.name = 'Default';
-    objectCardData.imageUrl = null;
-    objectCardData.imageProperties = getDefaultModelImageProperties();
+    var cardData = new Object;
+    cardData.name = 'Default';
+    cardData.imageUrl = null;
+    cardData.imageProperties = getDefaultModelImageProperties();
 
-    objectCardData.objectName = 'Lord Flashheart';
-    objectCardData.objectTitle = 'Wing Commander';
-    objectCardData.objectText = 'This is the text';
+    cardData.objectName = 'Lord Flashheart';
+    cardData.objectTitle = 'Wing Commander';
+    cardData.objectText = 'This is the text';
 
-    return objectCardData;
+    return cardData;
 }
 
 function saveCardDataMap(newMap) {
-    window.localStorage.setItem("objectCardDataMap", JSON.stringify(newMap));
+    window.localStorage.setItem("cardDataMap", JSON.stringify(newMap));
 }
 
 function loadCardDataMap() {
-    var storage = window.localStorage.getItem("objectCardDataMap");
+    var storage = window.localStorage.getItem("cardDataMap");
     if (storage != null) {
         return JSON.parse(storage);
     }
@@ -319,23 +319,23 @@ function loadLatestCardData() {
 }
 
 function saveLatestCardData() {
-    var objectCardData = readControls();
-    if (!objectCardData.name) {
+    var cardData = readControls();
+    if (!cardData.name) {
         return;
     }
 
-    window.localStorage.setItem("latestObjectName", objectCardData.name);
-    saveCardData(objectCardData);
+    window.localStorage.setItem("latestObjectName", cardData.name);
+    saveCardData(cardData);
 }
 
-function loadCardData(objectCardDataName) {
-    if (!objectCardDataName) {
+function loadCardData(cardDataName) {
+    if (!cardDataName) {
         return null;
     }
 
     var map = loadCardDataMap();
-    if (map[objectCardDataName]) {
-        return map[objectCardDataName];
+    if (map[cardDataName]) {
+        return map[cardDataName];
     }
 
     return null;
@@ -380,17 +380,17 @@ async function handleImageUrlFromDisk(imageUrl) {
     return imageUrl;
 }
 
-async function saveCardData(objectCardData) {
+async function saveCardData(cardData) {
     var finishSaving = function () {
         var map = loadCardDataMap();
-        map[objectCardData.name] = objectCardData;
-        window.localStorage.setItem("objectCardDataMap", JSON.stringify(map));
+        map[cardData.name] = cardData;
+        window.localStorage.setItem("cardDataMap", JSON.stringify(map));
     };
 
-    if (objectCardData != null &&
-        objectCardData.name) {
+    if (cardData != null &&
+        cardData.name) {
         // handle images we may have loaded from disk...
-        objectCardData.imageUrl = await handleImageUrlFromDisk(objectCardData.imageUrl);
+        cardData.imageUrl = await handleImageUrlFromDisk(cardData.imageUrl);
 
 
         finishSaving();
@@ -403,15 +403,15 @@ function getLatestCardDataName() {
 
 window.onload = function () {
     //window.localStorage.clear();
-    var objectCardData = loadLatestCardData();
-    writeControls(objectCardData);
-    render(objectCardData);
+    var cardData = loadLatestCardData();
+    writeControls(cardData);
+    render(cardData);
     refreshSaveSlots();
 }
 
 onAnyChange = function () {
-    var objectCardData = readControls();
-    render(objectCardData);
+    var cardData = readControls();
+    render(cardData);
     saveLatestCardData();
 }
 
@@ -449,23 +449,23 @@ function onClearCache() {
 }
 
 function onResetToDefault() {
-    var objectCardData = defaultCardData();
-    writeControls(objectCardData);
-    render(objectCardData);
+    var cardData = defaultCardData();
+    writeControls(cardData);
+    render(cardData);
 }
 
 function refreshSaveSlots() {
     // Remove all
     $('select').children('option').remove();
 
-    var objectCardDataName = readControls().name;
+    var cardDataName = readControls().name;
 
     var map = loadCardDataMap();
 
     for (let [key, value] of Object.entries(map)) {
         var selected = false;
-        if (objectCardDataName &&
-            key == objectCardDataName) {
+        if (cardDataName &&
+            key == cardDataName) {
             selected = true;
         }
         var newOption = new Option(key, key, selected, selected);
@@ -474,28 +474,28 @@ function refreshSaveSlots() {
 }
 
 function onSaveClicked() {
-    var objectCardData = readControls();
-    console.log("Saving '" + objectCardData.name + "'...");
-    saveCardData(objectCardData);
+    var cardData = readControls();
+    console.log("Saving '" + cardData.name + "'...");
+    saveCardData(cardData);
     refreshSaveSlots();
 }
 
 function onLoadClicked() {
-    var objectCardDataName = $('#saveSlotsSelect').find(":selected").text();
-    console.log("Loading '" + objectCardDataName + "'...");
-    objectCardData = loadCardData(objectCardDataName);
-    writeControls(objectCardData);
-    render(objectCardData);
+    var cardDataName = $('#saveSlotsSelect').find(":selected").text();
+    console.log("Loading '" + cardDataName + "'...");
+    cardData = loadCardData(cardDataName);
+    writeControls(cardData);
+    render(cardData);
     refreshSaveSlots();
 }
 
 function onDeleteClicked() {
-    var objectCardDataName = $('#saveSlotsSelect').find(":selected").text();
+    var cardDataName = $('#saveSlotsSelect').find(":selected").text();
 
-    console.log("Deleting '" + objectCardDataName + "'...");
+    console.log("Deleting '" + cardDataName + "'...");
 
     var map = loadCardDataMap();
-    delete map[objectCardDataName];
+    delete map[cardDataName];
 
     saveCardDataMap(map);
 
@@ -509,7 +509,7 @@ function onDeleteClicked() {
 function saveCardAsImage() {
     var element = document.createElement('a');
     element.setAttribute('href', document.getElementById('canvas').toDataURL('image/png'));
-    element.setAttribute('download', 'warcry-object-card.png');
+    element.setAttribute('download', 'aeronautica-object-card.png');
     element.style.display = 'none';
     document.body.appendChild(element);
     element.click();
