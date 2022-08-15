@@ -254,7 +254,7 @@ function defaultCardData() {
 
     cardData.objectName = 'Healing Potion';
     cardData.objectTitle = 'Lesser Artefact';
-    cardData.objectText = "[Consumable] Discard this card\nafter use.\nBonus Action: Heal 1d6 damage\nfrom this fighter.";
+    cardData.objectText = "\n\n\n[Consumable] Discard this card\nafter use.\nBonus Action: Heal 1d6 damage\nfrom this fighter.";
 
     return cardData;
 }
