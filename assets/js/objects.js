@@ -91,7 +91,7 @@ drawObjectText = function (value) {
     }
 }
 
-drawItalicObjectText = function (value) {
+drawObjectItalicText = function (value) {
     getContext().font = 'italic 9px helvetica';
     getContext().fillStyle = 'black';
     getContext().textAlign = 'left';
