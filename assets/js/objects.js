@@ -68,7 +68,7 @@ drawObjectTitle = function (value) {
 }
 
 drawObjectName = function (value) {
-    getContext().font = '20px rodchenkoctt';
+    getContext().font = '18px rodchenkoctt';
     getContext().fillStyle = "#E0DDDC";
     getContext().textAlign = 'center ';
     writeScaled(value, { x: 88, y: 36 });
