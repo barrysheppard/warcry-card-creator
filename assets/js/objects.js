@@ -87,7 +87,7 @@ drawObjectText = function (value) {
 
     var lines = value.split('\n');
     for (var i = 0; i < lines.length; i++) {
-        writeScaled(lines[i], { x: 20, y: 150 + (i * 10) });
+        writeScaled(lines[i], { x: 20, y: 40 + (i * 10) });
     }
 }
 
