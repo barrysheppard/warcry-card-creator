@@ -255,9 +255,9 @@ render = function (cardData) {
             var width = image.width * scale;
             var height = image.height * scale;
             // opacity
-            ctx.globalAlpha = 0.4;
+            getContext().globalAlpha = 0.4;
             getContext().drawImage(image, position.x, position.y, width, height);
-            ctx.globalAlpha = 1;
+            getContext().globalAlpha = 1;
             // These are the texts to go over the image
             drawObjectTitle(cardData.objectTitle);
             drawObjectName(cardData.objectName);
