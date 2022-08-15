@@ -91,9 +91,8 @@ drawObjectText = function (value) {
     }
 }
 
-
 drawItalicObjectText = function (value) {
-    getContext().font = '9px helvetica italic';
+    getContext().font = 'italic 9px helvetica';
     getContext().fillStyle = 'black';
     getContext().textAlign = 'left';
 
@@ -216,7 +215,7 @@ function readControls() {
     data.objectTitle = document.getElementById('object-title').value;
     data.objectName = document.getElementById('object-name').value;
     data.objectText = document.getElementById('object-text').value;
-    data.objectText = document.getElementById('object-italic-text').value;
+    data.objectItalicText = document.getElementById('object-italic-text').value;
     return data;
 }
 
@@ -238,7 +237,7 @@ render = function (cardData) {
             drawObjectTitle(cardData.objectTitle);
             drawObjectName(cardData.objectName);
             drawObjectText(cardData.objectText);
-            drawObjectText(cardData.objectItalicText);
+            drawObjectItalicText(cardData.objectItalicText);
             URL.revokeObjectURL(image.src);
         };
         image.src = cardData.imageUrl;
@@ -247,7 +246,7 @@ render = function (cardData) {
         drawObjectTitle(cardData.objectTitle);
         drawObjectName(cardData.objectName);
         drawObjectText(cardData.objectText);
-        drawObjectText(cardData.objectItalicText);
+        drawObjectItalicText(cardData.objectItalicText);
     }
 };
 
