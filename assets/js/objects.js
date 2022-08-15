@@ -147,7 +147,7 @@ function getModelImageProperties() {
         offsetX: $("#imageOffsetX")[0].valueAsNumber,
         offsetY: $("#imageOffsetY")[0].valueAsNumber,
         scalePercent: $("#imageScalePercent")[0].valueAsNumber,
-        opacity: $("#opacity")[0].valueAsNumber
+        opacity: $("#imageOpacity")[0].valueAsNumber
     };
 }
 
@@ -155,7 +155,7 @@ function setModelImageProperties(modelImageProperties) {
     $("#imageOffsetX")[0].value = modelImageProperties.offsetX;
     $("#imageOffsetY")[0].value = modelImageProperties.offsetY;
     $("#imageScalePercent")[0].value = modelImageProperties.scalePercent;
-    $("#opacity")[0].value = modelImageProperties.opacity;
+    $("#imageOpacity")[0].value = modelImageProperties.opacity;
 }
 
 
