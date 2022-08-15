@@ -138,6 +138,7 @@ function getDefaultModelImageProperties() {
         offsetX: 0,
         offsetY: 0,
         scalePercent: 100
+        opacityt: 1
     };
 }
 
@@ -146,6 +147,7 @@ function getModelImageProperties() {
         offsetX: $("#imageOffsetX")[0].valueAsNumber,
         offsetY: $("#imageOffsetY")[0].valueAsNumber,
         scalePercent: $("#imageScalePercent")[0].valueAsNumber
+        opacity: $("#opacity")[0].valueAsNumber
     };
 }
 
@@ -153,6 +155,7 @@ function setModelImageProperties(modelImageProperties) {
     $("#imageOffsetX")[0].value = modelImageProperties.offsetX;
     $("#imageOffsetY")[0].value = modelImageProperties.offsetY;
     $("#imageScalePercent")[0].value = modelImageProperties.scalePercent;
+    $("#opacity")[0].value = modelImageProperties.opacity;
 }
 
 
@@ -192,44 +195,6 @@ function getModelImage() {
     return null;
 }
 
-
-
-
-function setModelImage(image) {
-    var imageSelect = $("#imageSelect")[0];
-
-    if (image != null) {
-        // TODO: Not sure how to do this. It might not even be possible! Leave it for now...
-        // imageSelect.files[0] = image;
-    }
-    else {
-        imageSelect.value = null;
-    }
-}
-
-function getDefaultModelImageProperties() {
-    return {
-        offsetX: 0,
-        offsetY: 0,
-        scalePercent: 100
-    };
-}
-
-function getModelImageProperties() {
-    return {
-        offsetX: $("#imageOffsetX")[0].valueAsNumber,
-        offsetY: $("#imageOffsetY")[0].valueAsNumber,
-        scalePercent: $("#imageScalePercent")[0].valueAsNumber
-    };
-}
-
-function setModelImageProperties(modelImageProperties) {
-    $("#imageOffsetX")[0].value = modelImageProperties.offsetX;
-    $("#imageOffsetY")[0].value = modelImageProperties.offsetY;
-    $("#imageScalePercent")[0].value = modelImageProperties.scalePercent;
-}
-
-
 function readControls() {
     var data = new Object;
     data.name = getName();
@@ -242,8 +207,6 @@ function readControls() {
     return data;
 }
 
-
-
 render = function (cardData) {
     drawBackground();
 
@@ -254,8 +217,8 @@ render = function (cardData) {
             var scale = cardData.imageProperties.scalePercent / 100.0;
             var width = image.width * scale;
             var height = image.height * scale;
-            // opacity
-            getContext().globalAlpha = 0.4;
+            // opacity variable goes from 0 to 1, need to add new variable to let user scale this
+            getContext().globalAlpha = cardData.imageProperties.opacity;
             getContext().drawImage(image, position.x, position.y, width, height);
             getContext().globalAlpha = 1;
             // These are the texts to go over the image
