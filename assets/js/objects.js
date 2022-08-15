@@ -33,6 +33,12 @@ getBackgroundImage = function () {
     if (document.getElementById('select_warcry_object_green').checked) {
         return document.getElementById('warcry_object_green');
     }
+    if (document.getElementById('select_warcry_object_black').checked) {
+        return document.getElementById('warcry_object_black');
+    }
+    if (document.getElementById('select_warcry_object_fire').checked) {
+        return document.getElementById('warcry_object_fire');
+    }
 }
 
 drawBackground = function () {
@@ -514,7 +520,7 @@ function onDeleteClicked() {
 function saveCardAsImage() {
     var element = document.createElement('a');
     element.setAttribute('href', document.getElementById('canvas').toDataURL('image/png'));
-    element.setAttribute('download', 'aeronautica-object-card.png');
+    element.setAttribute('download', 'wawrcry-object-card.png');
     element.style.display = 'none';
     document.body.appendChild(element);
     element.click();
