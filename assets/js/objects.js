@@ -27,7 +27,12 @@ getBackgroundImage = function () {
     if (document.getElementById('select_warcry_object_ghur').checked) {
         return document.getElementById('warcry_object_ghur');
     }
-
+    if (document.getElementById('select_warcry_object_red').checked) {
+        return document.getElementById('warcry_object_red');
+    }
+    if (document.getElementById('select_warcry_object_green').checked) {
+        return document.getElementById('warcry_object_green');
+    }
 }
 
 drawBackground = function () {
