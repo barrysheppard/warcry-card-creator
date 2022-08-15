@@ -137,8 +137,8 @@ function getDefaultModelImageProperties() {
     return {
         offsetX: 0,
         offsetY: 0,
-        scalePercent: 100
-        opacityt: 1
+        scalePercent: 100,
+        opacity: 1
     };
 }
 
@@ -146,7 +146,7 @@ function getModelImageProperties() {
     return {
         offsetX: $("#imageOffsetX")[0].valueAsNumber,
         offsetY: $("#imageOffsetY")[0].valueAsNumber,
-        scalePercent: $("#imageScalePercent")[0].valueAsNumber
+        scalePercent: $("#imageScalePercent")[0].valueAsNumber,
         opacity: $("#opacity")[0].valueAsNumber
     };
 }
