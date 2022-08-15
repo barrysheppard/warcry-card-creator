@@ -87,6 +87,18 @@ drawObjectText = function (value) {
 
     var lines = value.split('\n');
     for (var i = 0; i < lines.length; i++) {
+        writeScaled(lines[i], { x: 20, y: 80 + (i * 10) });
+    }
+}
+
+
+drawItalicObjectText = function (value) {
+    getContext().font = '9px helvetica italic';
+    getContext().fillStyle = 'black';
+    getContext().textAlign = 'left';
+
+    var lines = value.split('\n');
+    for (var i = 0; i < lines.length; i++) {
         writeScaled(lines[i], { x: 20, y: 60 + (i * 10) });
     }
 }
@@ -204,6 +216,7 @@ function readControls() {
     data.objectTitle = document.getElementById('object-title').value;
     data.objectName = document.getElementById('object-name').value;
     data.objectText = document.getElementById('object-text').value;
+    data.objectText = document.getElementById('object-italic-text').value;
     return data;
 }
 
@@ -225,6 +238,7 @@ render = function (cardData) {
             drawObjectTitle(cardData.objectTitle);
             drawObjectName(cardData.objectName);
             drawObjectText(cardData.objectText);
+            drawObjectText(cardData.objectItalicText);
             URL.revokeObjectURL(image.src);
         };
         image.src = cardData.imageUrl;
@@ -233,6 +247,7 @@ render = function (cardData) {
         drawObjectTitle(cardData.objectTitle);
         drawObjectName(cardData.objectName);
         drawObjectText(cardData.objectText);
+        drawObjectText(cardData.objectItalicText);
     }
 };
 
@@ -244,6 +259,7 @@ function writeControls(cardData) {
     $('#object-title').value = cardData.objectTitle;
     $('#object-name').value = cardData.objectName;
     $('#object-text').value = cardData.objectText;
+    $('#object-italic-text').value = cardData.objectItalicText;
 }
 
 function defaultCardData() {
@@ -255,6 +271,7 @@ function defaultCardData() {
     cardData.objectName = 'Healing Potion';
     cardData.objectTitle = 'Lesser Artefact';
     cardData.objectText = "\n\n\n[Consumable] Discard this card\nafter use.\nBonus Action: Heal 1d6 damage\nfrom this fighter.";
+    cardData.objectItalicText = "\nFlavour text in italics.";
 
     return cardData;
 }
