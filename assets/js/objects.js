@@ -254,19 +254,23 @@ render = function (cardData) {
             var scale = cardData.imageProperties.scalePercent / 100.0;
             var width = image.width * scale;
             var height = image.height * scale;
+            // opacity
+            ctx.globalAlpha = 0.4;
             getContext().drawImage(image, position.x, position.y, width, height);
-
-            // These are the texts to overlay
-
+            ctx.globalAlpha = 1;
+            // These are the texts to go over the image
+            drawObjectTitle(cardData.objectTitle);
+            drawObjectName(cardData.objectName);
+            drawObjectText(cardData.objectText);
             URL.revokeObjectURL(image.src);
         };
         image.src = cardData.imageUrl;
+    } else {
+        // draw the same texts without the image
+        drawObjectTitle(cardData.objectTitle);
+        drawObjectName(cardData.objectName);
+        drawObjectText(cardData.objectText);
     }
-
-    drawObjectTitle(cardData.objectTitle);
-    drawObjectName(cardData.objectName);
-    drawObjectText(cardData.objectText);
-
 };
 
 function writeControls(cardData) {
