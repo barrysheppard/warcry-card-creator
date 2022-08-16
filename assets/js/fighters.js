@@ -458,7 +458,7 @@ function readControls() {
     data.imageProperties = getModelImageProperties();
     data.factionRunemark = getSelectedFactionRunemark();
     data.subfactionRunemark = getSelectedSubfactionRunemark();
-    //data.deploymentRunemark = getSelectedDeploymentRunemark();
+    data.deploymentRunemark = getSelectedDeploymentRunemark();
     data.fighterName = document.getElementById("fighterName").value;
     data.fighterName2 = document.getElementById("fighterName2").value;
     data.toughness = document.getElementById("toughness").value;
@@ -523,7 +523,7 @@ render = function (fighterData) {
 
     drawFactionRunemark(fighterData.factionRunemark);
     drawSubfactionRunemark(fighterData.subfactionRunemark);
-    //drawDeploymentRunemark(fighterData.deploymentRunemark);
+    drawDeploymentRunemark(fighterData.deploymentRunemark);
 
     getContext().font = "92px rodchenkoctt";
     getContext().fillStyle = "white";
@@ -574,7 +574,7 @@ function writeControls(fighterData) {
     setModelImageProperties(fighterData.imageProperties);
     setSelectedFactionRunemark(fighterData.factionRunemark);
     setSelectedSubfactionRunemark(fighterData.subfactionRunemark);
-    //getSelectedDeploymentRunemark(fighterData.deploymentRunemark);
+    getSelectedDeploymentRunemark(fighterData.deploymentRunemark);
     $("#fighterName")[0].value = fighterData.fighterName;
     $("#fighterName2")[0].value = fighterData.fighterName2;
     $("#toughness")[0].value = fighterData.toughness;
@@ -717,7 +717,7 @@ async function saveFighterData(fighterData) {
         fighterData.imageUrl = await handleImageUrlFromDisk(fighterData.imageUrl);
         fighterData.factionRunemark = await handleImageUrlFromDisk(fighterData.factionRunemark);
         fighterData.subfactionRunemark = await handleImageUrlFromDisk(fighterData.subfactionRunemark);
-        //fighterData.deploymentRunemark = await handleImageUrlFromDisk(fighterData.deploymentRunemark);
+        fighterData.deploymentRunemark = await handleImageUrlFromDisk(fighterData.deploymentRunemark);
         for (i = 0; i < fighterData.tagRunemarks.length; i++) {
             fighterData.tagRunemarks[i] = await handleImageUrlFromDisk(fighterData.tagRunemarks[i]);
         }
