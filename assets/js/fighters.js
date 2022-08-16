@@ -781,7 +781,7 @@ onRunemarkSelectionChanged = function (radioButton, backgroundColor) {
 }
 
 onDeploymentRunemarkSelectionChanged = function (radioButton, backgroundColor) {
-    //var radioSection = radioButton.parentNode.parentNode;
+    var radioSection = radioButton.parentNode.parentNode;
     //var allRadioButtons = $('input', radioSection);
     //for (i = 0; i < allRadioButtons.length; i++) {
     //    getImage(getLabel(allRadioButtons[i])).style.backgroundColor = backgroundColor;
@@ -795,6 +795,8 @@ onDeploymentRunemarkSelectionChanged = function (radioButton, backgroundColor) {
 }
 
 onTagRunemarkSelectionChanged = function (checkbox, backgroundColor) {
+    var radioSection = radioButton.parentNode.parentNode;
+    var allRadioButtons = $('input', radioSection);
     // getImage(getLabel(checkbox)).style.backgroundColor = checkbox.checked ? "tomato" : backgroundColor;
     getImage(getLabel(checkbox)).style.backgroundColor = checkbox.checked ? "#00bc8c" : backgroundColor;
 
