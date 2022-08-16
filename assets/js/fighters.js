@@ -780,6 +780,20 @@ onRunemarkSelectionChanged = function (radioButton, backgroundColor) {
     onAnyChange();
 }
 
+onDeploymentRunemarkSelectionChanged = function (radioButton, backgroundColor) {
+    //var radioSection = radioButton.parentNode.parentNode;
+    //var allRadioButtons = $('input', radioSection);
+    //for (i = 0; i < allRadioButtons.length; i++) {
+    //    getImage(getLabel(allRadioButtons[i])).style.backgroundColor = backgroundColor;
+    //}
+
+    // getImage(getLabel(radioButton)).style.backgroundColor = "tomato";
+    //getImage(getLabel(radioButton)).style.backgroundColor = "#00bc8c";
+    getImage(getLabel(checkbox)).style.backgroundColor = checkbox.checked ? "#00bc8c" : backgroundColor;
+
+    onAnyChange();
+}
+
 onTagRunemarkSelectionChanged = function (checkbox, backgroundColor) {
     // getImage(getLabel(checkbox)).style.backgroundColor = checkbox.checked ? "tomato" : backgroundColor;
     getImage(getLabel(checkbox)).style.backgroundColor = checkbox.checked ? "#00bc8c" : backgroundColor;
