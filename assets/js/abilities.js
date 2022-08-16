@@ -93,7 +93,7 @@ drawAbility = function (id, pixelPosition) {
                 //var txt = '[' + transReaction + '] ' + name + ': ' + text;
                 // new title variable for the text to be in bold
                 var title = '[' + transReaction + '] ' + name + ': ';
-                // this adds spaces equal to the title to the text
+                // this adds spaces equal to twice the title length (as it's bold) to the text
                 var txt = '  '.repeat(title.length) + text;
             } else {
                 var title = '[Reaction] ' + name + ': ';
@@ -102,21 +102,39 @@ drawAbility = function (id, pixelPosition) {
             }
         } else if (double.checked) {
             if (transDouble.length) {
-                var txt = '[' + transDouble + '] ' + name + ': ' + text;
+                //var txt = '[' + transDouble + '] ' + name + ': ' + text;
+                // new title variable for the text to be in bold
+                var title = '[' + transDouble + '] ' + name + ': ';
+                // this adds spaces equal to twice the title length (as it's bold) to the text
+                var txt = '  '.repeat(title.length) + text;
             } else {
-                var txt = '[Double] ' + name + ': ' + text;
+                //var txt = '[Double] ' + name + ': ' + text;
+                var title = '[Double] ' + name + ': ';
+                var txt = ' '.repeat(title.length) + text;
             }
         } else if (triple.checked) {
             if (transTriple.length) {
-                var txt = '[' + transTriple + '] ' + name + ': ' + text;
+                //var txt = '[' + transTriple + '] ' + name + ': ' + text;
+                // new title variable for the text to be in bold
+                var title = '[' + transTriple + '] ' + name + ': ';
+                // this adds spaces equal to twice the title length (as it's bold) to the text
+                var txt = '  '.repeat(title.length) + text;
             } else {
-                var txt = '[Triple] ' + name + ': ' + text;
+                //var txt = '[Triple] ' + name + ': ' + text;
+                var title = '[Triple] ' + name + ': ';
+                var txt = ' '.repeat(title.length) + text;
             }
         } else if (quad.checked) {
             if (transQuad.length) {
-                var txt = '[' + transQuad + '] ' + name + ': ' + text;
+                //var txt = '[' + transQuad + '] ' + name + ': ' + text;
+                // new title variable for the text to be in bold
+                var title = '[' + transQuad + '] ' + name + ': ';
+                // this adds spaces equal to twice the title length (as it's bold) to the text
+                var txt = '  '.repeat(title.length) + text;
             } else {
-                var txt = '[Quad] ' + name + ': ' + text;
+                //var txt = '[Quad] ' + name + ': ' + text;
+                var title = '[Quad] ' + name + ': ';
+                var txt = ' '.repeat(title.length) + text;
             }
         }
 
