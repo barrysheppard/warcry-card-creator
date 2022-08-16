@@ -523,7 +523,7 @@ render = function (fighterData) {
 
     drawFactionRunemark(fighterData.factionRunemark);
     drawSubfactionRunemark(fighterData.subfactionRunemark);
-    drawDeploymentRunemark(fighterData.deploymentRunemark);
+    //drawDeploymentRunemark(fighterData.deploymentRunemark);
 
     getContext().font = "92px rodchenkoctt";
     getContext().fillStyle = "white";
