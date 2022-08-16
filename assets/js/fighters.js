@@ -484,7 +484,7 @@ function drawSubfactionRunemark(image) {
 }
 
 function drawDeploymentRunemark(image) {
-    var position = scalePixelPosition({ x: 1350, y: 27.5 });
+    var position = scalePixelPosition({ x: 1400, y: 27.5 });
     var size = scalePixelPosition({ x: 120, y: 120 });
     drawImageSrc(position, size, image);
 }
@@ -781,7 +781,7 @@ onRunemarkSelectionChanged = function (radioButton, backgroundColor) {
 }
 
 onDeploymentRunemarkSelectionChanged = function (radioButton, backgroundColor) {
-    var radioSection = radioButton.parentNode;
+    var radioSection = radioButton.parentNode.parentNode;
     var allRadioButtons = $('input', radioSection);
     for (i = 0; i < allRadioButtons.length; i++) {
         getImage(getLabel(allRadioButtons[i])).style.backgroundColor = backgroundColor;
