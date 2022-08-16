@@ -792,7 +792,7 @@ onDeploymentRunemarkSelectionChanged = function (radioButton, backgroundColor) {
 
 
     // testing
-    var textcase = getImage(getLabel(radioButton)).style.backgroundColor
+    getImage(getLabel(radioButton)).style.backgroundColor = radioButton.checked ? "#00bc8c" : backgroundColor;
     //getImage(getLabel(radioButton)).style.backgroundColor = checkbox.checked ? "#00bc8c" : backgroundColor;
 
     onAnyChange();
