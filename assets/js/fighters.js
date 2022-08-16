@@ -237,7 +237,7 @@ function setSelectedSubfactionRunemark(runemark) {
 }
 
 function getSelectedDeploymentRunemark() {
-    return getSelectedDeployment($('#deploymentRunemarkSelect')[0]);
+    return getSelectedRunemark($('#deploymentRunemarkSelect')[0]);
 }
 
 function setSelectedDeploymentRunemark(runemark) {
