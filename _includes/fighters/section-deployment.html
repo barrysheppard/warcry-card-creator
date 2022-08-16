@@ -4,11 +4,7 @@
         <h2 class="h5 mb-0">
             <button class="btn btn-link" data-toggle="collapse" data-target="#fightersCollapseEight"
                 aria-expanded="false" aria-controls="fightersCollapseEight">
-<<<<<<< HEAD
                 Deployment
-=======
-                Deployment - Shield, Dagger, Hammer
->>>>>>> bac9f1d6043b800995ddf084dcc70dd23b69cc01
             </button>
         </h2>
     </div>
@@ -16,7 +12,45 @@
     <div class="collapse" id="fightersCollapseEight">
         <div class="card-body">
             <div id="deploymentRunemarkSelect" class="d-flex flex-wrap">
-                {% include fighters/factionRunemarkSelectDeployment.html %}
+
+                <div>
+                    <label for="checkbox-runemarks/deployment-shield.svg">
+                        <img src="runemarks/white/deployment-shield.svg" alt="Deployment Shield" data-toggle="tooltip"
+                            title="Deployment Shield" width="50" height="50" />
+                    </label>
+                    <input type="radio" id="checkbox-runemarks/deployment-dagger.svg" name="deployment"
+                        onchange="onRunemarkSelectionChanged(this, 'black')" style="display:none;">
+                </div>
+
+                <div>
+                    <label for="checkbox-runemarks/deployment-dagger.svg">
+                        <img src="runemarks/white/deployment-dagger.svg" alt="Deployment Dagger" data-toggle="tooltip"
+                            title="Deployment Dagger" width="50" height="50" />
+                    </label>
+                    <input type="radio" id="checkbox-runemarks/deployment-dagger.svg" name="deployment"
+                        onchange="onRunemarkSelectionChanged(this, 'black')" style="display:none;">
+                </div>
+
+                <div>
+                    <label for="checkbox-runemarks/deployment-hammer.svg">
+                        <img src="runemarks/white/deployment-hammer.svg" alt="Deployment Hammer" data-toggle="tooltip"
+                            title="Deployment Hammer" width="50" height="50" />
+                    </label>
+                    <input type="radio" id="checkbox-runemarks/deployment-hammer.svg" name="deployment"
+                        onchange="onRunemarkSelectionChanged(this, 'black')" style="display:none;">
+                </div>
+
+                <div>
+                    <label for="deployment-runemarks/none/blank.gif">
+                        <img src="assets/img/blank.gif" alt="None" data-toggle="tooltip" title="None" width="50"
+                            height="50" />
+                    </label>
+                    <input type="radio" id="deployment-runemarks/none/blank.gif" name="deployment"
+                        onchange="onRunemarkSelectionChanged(this, 'black')" style="display:none;">
+                </div>
+
+
+
             </div>
 
         </div>
