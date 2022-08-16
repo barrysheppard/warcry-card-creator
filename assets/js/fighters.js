@@ -240,7 +240,7 @@ function getSelectedDeploymentRunemark() {
     return getSelectedDeployment($('#deploymentRunemarkSelect')[0]);
 }
 
-function setSelectedDeploymentnRunemark(runemark) {
+function setSelectedDeploymentRunemark(runemark) {
     setSelectedRunemark($('#deploymentRunemarkSelect')[0], runemark, "deployment", "black");
 }
 
@@ -574,7 +574,7 @@ function writeControls(fighterData) {
     setModelImageProperties(fighterData.imageProperties);
     setSelectedFactionRunemark(fighterData.factionRunemark);
     setSelectedSubfactionRunemark(fighterData.subfactionRunemark);
-    setSelectedDeploymentRunemark(fighterData.deploymentRunemark);
+    getSelectedDeploymentRunemark(fighterData.deploymentRunemark);
     $("#fighterName")[0].value = fighterData.fighterName;
     $("#fighterName2")[0].value = fighterData.fighterName2;
     $("#toughness")[0].value = fighterData.toughness;
