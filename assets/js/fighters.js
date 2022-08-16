@@ -1,6 +1,6 @@
-writeValue = function(ctx, value, pos) {
+writeValue = function (ctx, value, pos) {
     var scale = getScalingFactor(getCanvas(), getBackgroundImage());
-    pos = {x: pos.x / scale.x, y: pos.y / scale.y };
+    pos = { x: pos.x / scale.x, y: pos.y / scale.y };
 
     ctx.save();
     ctx.scale(scale.x, scale.y);
@@ -8,22 +8,22 @@ writeValue = function(ctx, value, pos) {
     ctx.restore();
 }
 
-getScalingFactor = function(canvas, warcryCardOne) {
+getScalingFactor = function (canvas, warcryCardOne) {
     return {
-        x: canvas.width  / warcryCardOne.width,
+        x: canvas.width / warcryCardOne.width,
         y: canvas.height / warcryCardOne.height
     };
 }
 
-getCanvas = function() {
+getCanvas = function () {
     return document.getElementById("canvas");
 }
 
-getContext = function() {
+getContext = function () {
     return getCanvas().getContext("2d");
 }
 
-getBackgroundImage = function() {
+getBackgroundImage = function () {
     if (document.getElementById('select-bg-dark-102').checked) {
         return document.getElementById('bg-dark-102');
 
@@ -41,85 +41,85 @@ getBackgroundImage = function() {
 
     } else if (document.getElementById('select-bg-fire-112').checked) {
         return document.getElementById('bg-fire-112');
-        
+
     } else if (document.getElementById('select-bg-ghur-401').checked) {
         return document.getElementById('bg-ghur-401');
-    
+
     } else if (document.getElementById('select-bg-ghur-402').checked) {
         return document.getElementById('bg-ghur-402');
-        
+
     } else if (document.getElementById('select-bg-ghur-403').checked) {
         return document.getElementById('bg-ghur-403');
-    
+
     } else if (document.getElementById('select-bg-ghur-404').checked) {
         return document.getElementById('bg-ghur-404');
     }
 }
 
-drawBackground = function() {
+drawBackground = function () {
     getContext().drawImage(
         getBackgroundImage(), 0, 0, getCanvas().width, getCanvas().height);
 }
 
-scalePixelPosition = function(pixelPosition) {
+scalePixelPosition = function (pixelPosition) {
     var scalingFactor = getScalingFactor(getCanvas(), getBackgroundImage());
-    var scaledPosition = {x: pixelPosition.x * scalingFactor.x, y: pixelPosition.y * scalingFactor.y};
+    var scaledPosition = { x: pixelPosition.x * scalingFactor.x, y: pixelPosition.y * scalingFactor.y };
     return scaledPosition;
 }
 
-writeScaled = function(value, pixelPos) {
+writeScaled = function (value, pixelPos) {
     var scaledPos = scalePixelPosition(pixelPos);
     writeValue(getContext(), value, scaledPos);
 }
 
-drawCardElementFromInput = function(inputElement, pixelPosition) {
+drawCardElementFromInput = function (inputElement, pixelPosition) {
     var value = inputElement.value;
     writeScaled(value, pixelPosition);
 }
 
-drawCardElementFromInputId = function(inputId, pixelPosition) {
+drawCardElementFromInputId = function (inputId, pixelPosition) {
     drawCardElementFromInput(document.getElementById(inputId), pixelPosition);
 }
 
 
-drawFighterName = function(value) {
+drawFighterName = function (value) {
     getContext().font = '70px rodchenkoctt';
     getContext().fillStyle = 'black';
     getContext().textAlign = "center";
-    writeScaled(value, {x: 1350, y: 1100});
+    writeScaled(value, { x: 1350, y: 1100 });
 }
 
-drawFighterName2 = function(value) {
+drawFighterName2 = function (value) {
     getContext().font = '50px rodchenkoctt';
     getContext().fillStyle = 'black';
     getContext().textAlign = "center";
-    writeScaled(value, {x: 1350, y: 1155});
+    writeScaled(value, { x: 1350, y: 1155 });
 }
 
-drawToughness = function(value) {
-    writeScaled(value, {x: 545, y: 391});
+drawToughness = function (value) {
+    writeScaled(value, { x: 545, y: 391 });
 }
 
-drawWounds = function(value) {
-    writeScaled(value, {x: 380, y: 510});
+drawWounds = function (value) {
+    writeScaled(value, { x: 380, y: 510 });
 }
 
-drawMove = function(value) {
-    writeScaled(value, {x: 220, y: 391});
+drawMove = function (value) {
+    writeScaled(value, { x: 220, y: 391 });
 }
 
-drawPointCost = function(value) {
-    writeScaled(value, {x: 805, y: 160});
+drawPointCost = function (value) {
+    writeScaled(value, { x: 805, y: 160 });
 }
 
-getWeaponStatblockImage = function() {
+getWeaponStatblockImage = function () {
     return document.getElementById("weapon-profile");
 }
 
-drawWeaponStatblock = function(pixelPosition) {
+drawWeaponStatblock = function (pixelPosition) {
     var image = getWeaponStatblockImage();
     var scaledPosition = scalePixelPosition(pixelPosition);
-    var scaledSize = scalePixelPosition({x: image.width, y: image.height});
+    var scaledSize = scalePixelPosition({ x: image.width, y: image.height });
     getContext().drawImage(
         image,
         scaledPosition.x,
@@ -128,7 +128,7 @@ drawWeaponStatblock = function(pixelPosition) {
         scaledSize.y);
 }
 
-drawWeapon = function(weaponData, pixelPosition) {
+drawWeapon = function (weaponData, pixelPosition) {
     drawWeaponStatblock(pixelPosition);
 
     var statsPosY = pixelPosition.y + 95;
@@ -137,22 +137,22 @@ drawWeapon = function(weaponData, pixelPosition) {
 
     getContext().textAlign = "center";
 
-    writeScaled(range, {x: pixelPosition.x + 250, y: statsPosY});
+    writeScaled(range, { x: pixelPosition.x + 250, y: statsPosY });
 
     writeScaled(
         weaponData.attacks,
-        {x: pixelPosition.x + 440, y: statsPosY});
+        { x: pixelPosition.x + 440, y: statsPosY });
 
     writeScaled(
         weaponData.strength,
-        {x: pixelPosition.x + 620, y: statsPosY});
+        { x: pixelPosition.x + 620, y: statsPosY });
 
     writeScaled(
         weaponData.damageBase + "/" + weaponData.damageCrit,
-        {x: pixelPosition.x + 790, y: statsPosY});
+        { x: pixelPosition.x + 790, y: statsPosY });
 
-    var position = scalePixelPosition({x: pixelPosition.x + 20, y: pixelPosition.y + 30});
-    var size = scalePixelPosition({x: 120, y: 120});
+    var position = scalePixelPosition({ x: pixelPosition.x + 20, y: pixelPosition.y + 30 });
+    var size = scalePixelPosition({ x: 120, y: 120 });
     drawImageSrc(position, size, weaponData.runemark);
 }
 
@@ -168,54 +168,45 @@ function getWeapon2() {
     return getWeapon("#weapon2");
 }
 
-function getLabel(element)
-{
+function getLabel(element) {
     return $(element).prop("labels")[0];
 }
 
-function getImage(element)
-{
+function getImage(element) {
     return $(element).find("img")[0];
 }
 
 function getSelectedRunemark(radioDiv) {
     var checked = $(radioDiv).find('input:checked');
-    if (checked.length > 0)
-    {
+    if (checked.length > 0) {
         return getImage(getLabel(checked[0])).getAttribute("src");
     }
     return null;
 }
 
-function setSelectedRunemark(radioDiv, runemark, radioGroupName, bgColor)
-{
+function setSelectedRunemark(radioDiv, runemark, radioGroupName, bgColor) {
     // uncheck all
     {
         var checked = $(radioDiv).find('input:checked');
-        for (var i = 0; i < checked.length; i++)
-        {
+        for (var i = 0; i < checked.length; i++) {
             checked[i].checked = false;
         }
         var icons = $(radioDiv).find('img');
-        for (var i = 0; i < icons.length; i++)
-        {
+        for (var i = 0; i < icons.length; i++) {
             icons[i].style.backgroundColor = bgColor;
         }
     }
 
-    if (runemark != null)
-    {
-        var queryString = "img[src='"+ runemark +"']";
+    if (runemark != null) {
+        var queryString = "img[src='" + runemark + "']";
         var img = $(radioDiv).find(queryString);
-        if (img.length > 0)
-        {
+        if (img.length > 0) {
             var radioButton = $(img[0].parentNode.parentNode).find("input")[0];
             radioButton.checked = true;
             // img[0].style.backgroundColor = "tomato";
             img[0].style.backgroundColor = "#00bc8c";
         }
-        else
-        {
+        else {
             var newDiv =
                 addToImageRadioSelector(
                     runemark,
@@ -245,54 +236,55 @@ function setSelectedSubfactionRunemark(runemark) {
     setSelectedRunemark($('#subfactionRunemarkSelect')[0], runemark, "subfaction", "black");
 }
 
-function drawImage(scaledPosition, scaledSize, image)
-{
-    if (image != null)
-    {
-        if (image.complete)
-        {
+function getSelectedDeploymentRunemark() {
+    return getSelectedDeployment($('#deploymentRunemarkSelect')[0]);
+}
+
+function setSelectedDeploymentnRunemark(runemark) {
+    setSelectedRunemark($('#deploymentRunemarkSelect')[0], runemark, "deployment", "black");
+}
+
+
+function drawImage(scaledPosition, scaledSize, image) {
+    if (image != null) {
+        if (image.complete) {
             getContext().drawImage(image, scaledPosition.x, scaledPosition.y, scaledSize.x, scaledSize.y);
         }
-        else
-        {
-            image.onload = function(){ drawImage(scaledPosition, scaledSize, image); };
+        else {
+            image.onload = function () { drawImage(scaledPosition, scaledSize, image); };
         }
     }
 }
 
-function drawImageSrc(scaledPosition, scaledSize, imageSrc)
-{
-    if (imageSrc != null)
-    {
+function drawImageSrc(scaledPosition, scaledSize, imageSrc) {
+    if (imageSrc != null) {
         var image = new Image();
-        image.onload = function(){ drawImage(scaledPosition, scaledSize, image); };
+        image.onload = function () { drawImage(scaledPosition, scaledSize, image); };
         image.src = imageSrc;
     }
 }
 
 function drawTagRunemark(index, runemark) {
-    var positions = [{x: 575, y: 545}, {x: 750, y: 545}, {x: 662.5, y: 395}, {x: 662.5, y: 690}];
+    var positions = [{ x: 575, y: 545 }, { x: 750, y: 545 }, { x: 662.5, y: 395 }, { x: 662.5, y: 690 }];
     if (index >= positions.length) return;
 
     var img = $("#circle")[0];
 
     var position = scalePixelPosition(positions[index]);
-    var size = scalePixelPosition({x: 160, y: 160});
+    var size = scalePixelPosition({ x: 160, y: 160 });
     getContext().drawImage(img, position.x, position.y, size.x, size.y);
 
-    position = scalePixelPosition({x: positions[index].x + 15, y: positions[index].y + 15});
-    size = scalePixelPosition({x: 130, y: 130});
+    position = scalePixelPosition({ x: positions[index].x + 15, y: positions[index].y + 15 });
+    size = scalePixelPosition({ x: 130, y: 130 });
     drawImageSrc(position, size, runemark);
 }
 
-function drawModel(imageUrl, imageProps)
-{
-    if (imageUrl != null)
-    {
+function drawModel(imageUrl, imageProps) {
+    if (imageUrl != null) {
         var image = new Image();
-        image.onload = function(){
-            var position = scalePixelPosition({x: 590 + imageProps.offsetX, y: imageProps.offsetY});
-            var scale = imageProps.scalePercent/100.0;
+        image.onload = function () {
+            var position = scalePixelPosition({ x: 590 + imageProps.offsetX, y: imageProps.offsetY });
+            var scale = imageProps.scalePercent / 100.0;
             var width = image.width * scale;
             var height = image.height * scale;
             getContext().drawImage(image, position.x, position.y, width, height);
@@ -303,47 +295,39 @@ function drawModel(imageUrl, imageProps)
     }
 }
 
-function getName()
-{
+function getName() {
     var textInput = $("#saveNameInput")[0];
     return textInput.value;
 }
 
-function setName(name)
-{
+function setName(name) {
     var textInput = $("#saveNameInput")[0];
     textInput.value = name;
 }
 
-function getModelImage()
-{
+function getModelImage() {
     var imageSelect = $("#imageSelect")[0];
 
-    if (imageSelect.files.length > 0)
-    {
+    if (imageSelect.files.length > 0) {
         return URL.createObjectURL(imageSelect.files[0]);
     }
 
     return null;
 }
 
-function setModelImage(image)
-{
+function setModelImage(image) {
     var imageSelect = $("#imageSelect")[0];
 
-    if (image != null)
-    {
+    if (image != null) {
         // TODO: Not sure how to do this. It might not even be possible! Leave it for now...
         // imageSelect.files[0] = image;
     }
-    else
-    {
+    else {
         imageSelect.value = null;
     }
 }
 
-function getDefaultModelImageProperties()
-{
+function getDefaultModelImageProperties() {
     return {
         offsetX: 0,
         offsetY: 0,
@@ -351,8 +335,7 @@ function getDefaultModelImageProperties()
     };
 }
 
-function getModelImageProperties()
-{
+function getModelImageProperties() {
     return {
         offsetX: $("#imageOffsetX")[0].valueAsNumber,
         offsetY: $("#imageOffsetY")[0].valueAsNumber,
@@ -360,15 +343,13 @@ function getModelImageProperties()
     };
 }
 
-function setModelImageProperties(modelImageProperties)
-{
+function setModelImageProperties(modelImageProperties) {
     $("#imageOffsetX")[0].value = modelImageProperties.offsetX;
     $("#imageOffsetY")[0].value = modelImageProperties.offsetY;
     $("#imageScalePercent")[0].value = modelImageProperties.scalePercent;
 }
 
-function getDefaultWeaponData()
-{
+function getDefaultWeaponData() {
     var weaponData = new Object;
     weaponData.enabled = true;
     weaponData.rangeMin = 0;
@@ -381,22 +362,19 @@ function getDefaultWeaponData()
     return weaponData;
 }
 
-function getDefaultWeaponData1()
-{
+function getDefaultWeaponData1() {
     var data = getDefaultWeaponData();
     data.enabled = true;
     return data;
 }
 
-function getDefaultWeaponData2()
-{
+function getDefaultWeaponData2() {
     var data = getDefaultWeaponData();
     data.enabled = false;
     return data;
 }
 
-function readWeaponControls(weaponId)
-{
+function readWeaponControls(weaponId) {
     var weaponData = new Object;
     var weaponDiv = $(weaponId);
     weaponData.enabled = weaponDiv.find("#weaponEnabled")[0].checked;
@@ -410,8 +388,7 @@ function readWeaponControls(weaponId)
     return weaponData;
 }
 
-function writeWeaponControls(weaponId, weaponData, weaponName)
-{
+function writeWeaponControls(weaponId, weaponData, weaponName) {
     weaponDiv = $(weaponId);
     weaponDiv.find("#weaponEnabled")[0].checked = weaponData.enabled;
     weaponDiv.find("#weaponInputs")[0].style.display = weaponData.enabled ? "block" : "none";
@@ -428,48 +405,40 @@ function writeWeaponControls(weaponId, weaponData, weaponName)
         "white");
 }
 
-function readTagRunemarks()
-{
+function readTagRunemarks() {
     var array = new Array;
     var checkedBoxes = $("#tagRunemarkSelect").find('input:checked');
-    for (i = 0; i < checkedBoxes.length; i++)
-    {
+    for (i = 0; i < checkedBoxes.length; i++) {
         array.push(getImage(getLabel(checkedBoxes[i])).getAttribute("src"));
     }
     return array;
 }
 
-function setSelectedTagRunemarks(selectedRunemarksArray)
-{
+function setSelectedTagRunemarks(selectedRunemarksArray) {
     var tagRunemarksDiv = $("#tagRunemarkSelect");
     // uncheck all
     {
         var checked = tagRunemarksDiv.find('input:checked');
-        for (var i = 0; i < checked.length; i++)
-        {
+        for (var i = 0; i < checked.length; i++) {
             checked[i].checked = false;
         }
         var icons = tagRunemarksDiv.find('img');
-        for (var i = 0; i < icons.length; i++)
-        {
+        for (var i = 0; i < icons.length; i++) {
             icons[i].style.backgroundColor = "white";
         }
     }
 
-    for (var i = 0; i < selectedRunemarksArray.length; i++)
-    {
+    for (var i = 0; i < selectedRunemarksArray.length; i++) {
         var runemark = selectedRunemarksArray[i];
-        var queryString = "img[src='"+ runemark +"']";
+        var queryString = "img[src='" + runemark + "']";
         var imgs = tagRunemarksDiv.find(queryString);
-        if (imgs.length > 0)
-        {
+        if (imgs.length > 0) {
             var checkbox = $(imgs[0].parentNode.parentNode).find("input")[0];
             checkbox.checked = true;
             // imgs[0].style.backgroundColor = "tomato";
             imgs[0].style.backgroundColor = "#00bc8c";
         }
-        else
-        {
+        else {
             var newDiv =
                 addToImageCheckboxSelector(
                     runemark,
@@ -482,14 +451,14 @@ function setSelectedTagRunemarks(selectedRunemarksArray)
     }
 }
 
-function readControls()
-{
+function readControls() {
     var data = new Object;
     data.name = getName();
     data.imageUrl = getModelImage();
     data.imageProperties = getModelImageProperties();
     data.factionRunemark = getSelectedFactionRunemark();
     data.subfactionRunemark = getSelectedSubfactionRunemark();
+    data.deploymentRunemark = getSelectedDeploymentRunemark();
     data.fighterName = document.getElementById("fighterName").value;
     data.fighterName2 = document.getElementById("fighterName2").value;
     data.toughness = document.getElementById("toughness").value;
@@ -503,31 +472,37 @@ function readControls()
     return data;
 }
 
-function drawFactionRunemark(image)
-{
-    var position = scalePixelPosition({x: 67.5, y: 67.5});
-    var size = scalePixelPosition({x: 190, y: 190});
+function drawFactionRunemark(image) {
+    var position = scalePixelPosition({ x: 67.5, y: 67.5 });
+    var size = scalePixelPosition({ x: 190, y: 190 });
     drawImageSrc(position, size, image);
 }
-function drawSubfactionRunemark(image)
-{
-    var position = scalePixelPosition({x: 267.5, y: 27.5});
-    var size = scalePixelPosition({x: 120, y: 120});
+function drawSubfactionRunemark(image) {
+    var position = scalePixelPosition({ x: 267.5, y: 27.5 });
+    var size = scalePixelPosition({ x: 120, y: 120 });
     drawImageSrc(position, size, image);
 }
-render = function(fighterData) {
+
+function drawDeploymentRunemark(image) {
+    var position = scalePixelPosition({ x: 1350, y: 27.5 });
+    var size = scalePixelPosition({ x: 120, y: 120 });
+    drawImageSrc(position, size, image);
+}
+
+
+
+render = function (fighterData) {
     drawBackground();
 
-   // drawModel(fighterData.imageUrl, fighterData.imageProperties);
-    
-   // Section added below to try have text above uploaded image
-    
-    if (fighterData.imageUrl != null)
-    {
+    // drawModel(fighterData.imageUrl, fighterData.imageProperties);
+
+    // Section added below to try have text above uploaded image
+
+    if (fighterData.imageUrl != null) {
         var image = new Image();
-        image.onload = function(){
-            var position = scalePixelPosition({x: 590 + fighterData.imageProperties.offsetX, y: fighterData.imageProperties.offsetY});
-            var scale = fighterData.imageProperties.scalePercent/100.0;
+        image.onload = function () {
+            var position = scalePixelPosition({ x: 590 + fighterData.imageProperties.offsetX, y: fighterData.imageProperties.offsetY });
+            var scale = fighterData.imageProperties.scalePercent / 100.0;
             var width = image.width * scale;
             var height = image.height * scale;
             getContext().drawImage(image, position.x, position.y, width, height);
@@ -543,11 +518,12 @@ render = function(fighterData) {
         drawFighterName(fighterData.fighterName);
         drawFighterName2(fighterData.fighterName2);
     }
-    
+
     // section added above
-    
+
     drawFactionRunemark(fighterData.factionRunemark);
     drawSubfactionRunemark(fighterData.subfactionRunemark);
+    drawDeploymentRunemark(fighterData.deploymentRunemark);
 
     getContext().font = "92px rodchenkoctt";
     getContext().fillStyle = "white";
@@ -572,37 +548,33 @@ render = function(fighterData) {
     getContext().textBaseline = "top";
     getContext().textAlign = "left";
     getContext().fillStyle = "black";
-    
+
     // moved up
     //drawFighterName(fighterData.fighterName);
     //drawFighterName2(fighterData.fighterName2);
 
-    if (fighterData.weapon1.enabled && fighterData.weapon2.enabled)
-    {
-        drawWeapon(fighterData.weapon1, {x: 50, y: 750}); // Default was x:29, y:397
-        drawWeapon(fighterData.weapon2, {x: 50, y: 950}); // Default was x:29, y:564
+    if (fighterData.weapon1.enabled && fighterData.weapon2.enabled) {
+        drawWeapon(fighterData.weapon1, { x: 50, y: 750 }); // Default was x:29, y:397
+        drawWeapon(fighterData.weapon2, { x: 50, y: 950 }); // Default was x:29, y:564
     }
-    else if (fighterData.weapon1.enabled)
-    {
-        drawWeapon(fighterData.weapon1, {x: 50, y: 850}); // Default was x:29, y:463
+    else if (fighterData.weapon1.enabled) {
+        drawWeapon(fighterData.weapon1, { x: 50, y: 850 }); // Default was x:29, y:463
     }
-    else if (fighterData.weapon2.enabled)
-    {
-        drawWeapon(fighterData.weapon2, {x: 50, y: 850}); // Default was x:29, y:463
+    else if (fighterData.weapon2.enabled) {
+        drawWeapon(fighterData.weapon2, { x: 50, y: 850 }); // Default was x:29, y:463
     }
-    for (i = 0; i < fighterData.tagRunemarks.length; i++)
-    {
+    for (i = 0; i < fighterData.tagRunemarks.length; i++) {
         drawTagRunemark(i, fighterData.tagRunemarks[i]);
     }
 }
 
-function writeControls(fighterData)
-{
+function writeControls(fighterData) {
     setName(fighterData.name);
     setModelImage(fighterData.imageUrl);
     setModelImageProperties(fighterData.imageProperties);
     setSelectedFactionRunemark(fighterData.factionRunemark);
     setSelectedSubfactionRunemark(fighterData.subfactionRunemark);
+    setSelectedDeploymentRunemark(fighterData.deploymentRunemark);
     $("#fighterName")[0].value = fighterData.fighterName;
     $("#fighterName2")[0].value = fighterData.fighterName2;
     $("#toughness")[0].value = fighterData.toughness;
@@ -633,16 +605,13 @@ function defaultFighterData() {
     return fighterData;
 }
 
-function saveFighterDataMap(newMap)
-{
+function saveFighterDataMap(newMap) {
     window.localStorage.setItem("fighterDataMap", JSON.stringify(newMap));
 }
 
-function loadFighterDataMap()
-{
+function loadFighterDataMap() {
     var storage = window.localStorage.getItem("fighterDataMap");
-    if (storage != null)
-    {
+    if (storage != null) {
         return JSON.parse(storage);
     }
     // Set up the map.
@@ -652,11 +621,9 @@ function loadFighterDataMap()
     return map;
 }
 
-function loadLatestFighterData()
-{
+function loadLatestFighterData() {
     var latestFighterName = window.localStorage.getItem("latestFighterName");
-    if (latestFighterName == null)
-    {
+    if (latestFighterName == null) {
         latestFighterName = "Default";
     }
 
@@ -664,24 +631,20 @@ function loadLatestFighterData()
 
     var data = loadFighterData(latestFighterName);
 
-    if (data)
-    {
+    if (data) {
         console.log("Loaded data:");
         console.log(data);
     }
-    else
-    {
+    else {
         console.log("Failed to load a fighter data.");
     }
 
     return data;
 }
 
-function saveLatestFighterData()
-{
+function saveLatestFighterData() {
     var fighterData = readControls();
-    if (!fighterData.name)
-    {
+    if (!fighterData.name) {
         return;
     }
 
@@ -689,16 +652,13 @@ function saveLatestFighterData()
     saveFighterData(fighterData);
 }
 
-function loadFighterData(fighterDataName)
-{
-    if (!fighterDataName)
-    {
+function loadFighterData(fighterDataName) {
+    if (!fighterDataName) {
         return null;
     }
 
     var map = loadFighterDataMap();
-    if (map[fighterDataName])
-    {
+    if (map[fighterDataName]) {
         return map[fighterDataName];
     }
 
@@ -718,14 +678,14 @@ function getBase64Image(img) {
     return dataURL;
 }
 
-function onload2promise(obj){
+function onload2promise(obj) {
     return new Promise((resolve, reject) => {
         obj.onload = () => resolve(obj);
         obj.onerror = reject;
     });
 }
 
-async function getBase64ImgFromUrl(imgUrl){
+async function getBase64ImgFromUrl(imgUrl) {
     let img = new Image();
     let imgpromise = onload2promise(img); // see comment of T S why you should do it this way.
     img.src = imgUrl;
@@ -734,11 +694,9 @@ async function getBase64ImgFromUrl(imgUrl){
     return imgData;
 }
 
-async function handleImageUrlFromDisk(imageUrl)
-{
+async function handleImageUrlFromDisk(imageUrl) {
     if (imageUrl &&
-        imageUrl.startsWith("blob:"))
-    {
+        imageUrl.startsWith("blob:")) {
         // The image was loaded from disk. So we can load it later, we need to stringify it.
         imageUrl = await getBase64ImgFromUrl(imageUrl);
     }
@@ -746,24 +704,21 @@ async function handleImageUrlFromDisk(imageUrl)
     return imageUrl;
 }
 
-async function saveFighterData(fighterData)
-{
-    var finishSaving = function()
-    {
+async function saveFighterData(fighterData) {
+    var finishSaving = function () {
         var map = loadFighterDataMap();
         map[fighterData.name] = fighterData;
         window.localStorage.setItem("fighterDataMap", JSON.stringify(map));
     };
 
     if (fighterData != null &&
-        fighterData.name)
-    {
+        fighterData.name) {
         // handle images we may have loaded from disk...
         fighterData.imageUrl = await handleImageUrlFromDisk(fighterData.imageUrl);
         fighterData.factionRunemark = await handleImageUrlFromDisk(fighterData.factionRunemark);
         fighterData.subfactionRunemark = await handleImageUrlFromDisk(fighterData.subfactionRunemark);
-        for (i = 0; i < fighterData.tagRunemarks.length; i++)
-        {
+        fighterData.deploymentRunemark = await handleImageUrlFromDisk(fighterData.deploymentRunemark);
+        for (i = 0; i < fighterData.tagRunemarks.length; i++) {
             fighterData.tagRunemarks[i] = await handleImageUrlFromDisk(fighterData.tagRunemarks[i]);
         }
         fighterData.weapon1.runemark = await handleImageUrlFromDisk(fighterData.weapon1.runemark);
@@ -773,12 +728,11 @@ async function saveFighterData(fighterData)
     }
 }
 
-function getLatestFighterDataName()
-{
+function getLatestFighterDataName() {
     return "latestFighterData";
 }
 
-window.onload = function() {
+window.onload = function () {
     //window.localStorage.clear();
     var fighterData = loadLatestFighterData();
     writeControls(fighterData);
@@ -786,7 +740,7 @@ window.onload = function() {
     refreshSaveSlots();
 }
 
-onAnyChange = function() {
+onAnyChange = function () {
     var fighterData = readControls();
     render(fighterData);
     saveLatestFighterData();
@@ -799,26 +753,24 @@ function onWeaponControlsToggled(weaponCheckbox) {
     onAnyChange();
 }
 
-onWeaponMinRangeChanged = function(minRange) {
+onWeaponMinRangeChanged = function (minRange) {
     var maxRange = $(minRange.parentNode).find("#rangeMax")[0];
     maxRange.value = Math.max(minRange.value, maxRange.value);
 
     onAnyChange();
 }
 
-onWeaponMaxRangeChanged = function(maxRange) {
+onWeaponMaxRangeChanged = function (maxRange) {
     var minRange = $(maxRange.parentNode).find("#rangeMin")[0];
     minRange.value = Math.min(maxRange.value, minRange.value);
 
     onAnyChange();
 }
 
-onRunemarkSelectionChanged = function(radioButton, backgroundColor)
-{
+onRunemarkSelectionChanged = function (radioButton, backgroundColor) {
     var radioSection = radioButton.parentNode.parentNode;
     var allRadioButtons = $('input', radioSection);
-    for (i = 0; i < allRadioButtons.length; i++)
-    {
+    for (i = 0; i < allRadioButtons.length; i++) {
         getImage(getLabel(allRadioButtons[i])).style.backgroundColor = backgroundColor;
     }
 
@@ -828,99 +780,94 @@ onRunemarkSelectionChanged = function(radioButton, backgroundColor)
     onAnyChange();
 }
 
-onTagRunemarkSelectionChanged = function(checkbox, backgroundColor)
-{
+onTagRunemarkSelectionChanged = function (checkbox, backgroundColor) {
     // getImage(getLabel(checkbox)).style.backgroundColor = checkbox.checked ? "tomato" : backgroundColor;
     getImage(getLabel(checkbox)).style.backgroundColor = checkbox.checked ? "#00bc8c" : backgroundColor;
 
     onAnyChange();
 }
 
-addToImageRadioSelector = function(imageSrc, imageSelector, radioGroupName, bgColor)
-{
+addToImageRadioSelector = function (imageSrc, imageSelector, radioGroupName, bgColor) {
     var div = document.createElement('div');
     div.setAttribute('class', 'mr-0');
     div.innerHTML = `
-        <label for="${ radioGroupName }-${ imageSrc }"><img src="${ imageSrc }" width="50" height="50" alt="" style="background-color:${ bgColor };"></label>
-        <input type="radio" style="display:none;" name="${ radioGroupName }" id="${ radioGroupName }-${ imageSrc }" onchange="onRunemarkSelectionChanged(this, '${ bgColor }')">
+        <label for="${radioGroupName}-${imageSrc}"><img src="${imageSrc}" width="50" height="50" alt="" style="background-color:${bgColor};"></label>
+        <input type="radio" style="display:none;" name="${radioGroupName}" id="${radioGroupName}-${imageSrc}" onchange="onRunemarkSelectionChanged(this, '${bgColor}')">
     `;
     imageSelector.appendChild(div);
     return div;
 }
 
-onFactionRunemarkFileSelect = function()
-{
+onFactionRunemarkFileSelect = function () {
     var imageSelect = $("#additionalFactionMarkSelect")[0];
     var selectGrid = $("#factionRunemarkSelect")[0];
 
-    for (i = 0; i < imageSelect.files.length; i++)
-    {
+    for (i = 0; i < imageSelect.files.length; i++) {
         addToImageRadioSelector(URL.createObjectURL(imageSelect.files[i]), selectGrid, "faction", "black");
     }
 }
 
-onSubfactionRunemarkFileSelect = function()
-{
+onSubfactionRunemarkFileSelect = function () {
     var imageSelect = $("#additionalSubfactionMarkSelect")[0];
     var selectGrid = $("#subfactionRunemarkSelect")[0];
 
-    for (i = 0; i < imageSelect.files.length; i++)
-    {
+    for (i = 0; i < imageSelect.files.length; i++) {
         addToImageRadioSelector(URL.createObjectURL(imageSelect.files[i]), selectGrid, "subfaction", "black");
     }
 }
 
-onWeaponRunemarkFileSelect = function(input, weaponName)
-{
+onDeploymentRunemarkFileSelect = function () {
+    var imageSelect = $("#additionalDeploymentMarkSelect")[0];
+    var selectGrid = $("#deploymentRunemarkSelect")[0];
+
+    for (i = 0; i < imageSelect.files.length; i++) {
+        addToImageRadioSelector(URL.createObjectURL(imageSelect.files[i]), selectGrid, "deployment", "black");
+    }
+}
+
+onWeaponRunemarkFileSelect = function (input, weaponName) {
     var grid = $(input.parentNode).find("#weaponRunemarkSelect")[0];
 
-    for (i = 0; i < input.files.length; i++)
-    {
+    for (i = 0; i < input.files.length; i++) {
         addToImageRadioSelector(URL.createObjectURL(input.files[i]), grid, weaponName, "white");
     }
 }
 
-function addToImageCheckboxSelector(imgSrc, grid, bgColor)
-{
+function addToImageCheckboxSelector(imgSrc, grid, bgColor) {
     var div = document.createElement('div');
     div.setAttribute('class', 'mr-0');
     div.innerHTML = `
-    <label for="checkbox-${ imgSrc }">
-        <img src="${ imgSrc }" width="50" height="50" alt="" style="background-color:${ bgColor };">
+    <label for="checkbox-${imgSrc}">
+        <img src="${imgSrc}" width="50" height="50" alt="" style="background-color:${bgColor};">
     </label>
-    <input type="checkbox" style="display:none;" id="checkbox-${ imgSrc }" onchange="onTagRunemarkSelectionChanged(this, '${ bgColor }')">
+    <input type="checkbox" style="display:none;" id="checkbox-${imgSrc}" onchange="onTagRunemarkSelectionChanged(this, '${bgColor}')">
     `;
     grid.appendChild(div);
     return div;
 }
 
-function onTagRunemarkFileSelect()
-{
+function onTagRunemarkFileSelect() {
     var imageSelect = $("#additionalTagMarkSelect")[0];
     var selectGrid = $("#tagRunemarkSelect")[0];
 
-    for (i = 0; i < imageSelect.files.length; i++)
-    {
+    for (i = 0; i < imageSelect.files.length; i++) {
         addToImageCheckboxSelector(URL.createObjectURL(imageSelect.files[i]), selectGrid, "white");
     }
 }
 
-function onClearCache()
-{
+function onClearCache() {
     window.localStorage.clear();
     location.reload();
     return false;
 }
 
-function onResetToDefault()
-{
+function onResetToDefault() {
     var fighterData = defaultFighterData();
     writeControls(fighterData);
     render(fighterData);
 }
 
-function refreshSaveSlots()
-{
+function refreshSaveSlots() {
     // Remove all
     $('select').children('option').remove();
 
@@ -931,8 +878,7 @@ function refreshSaveSlots()
     for (let [key, value] of Object.entries(map)) {
         var selected = false;
         if (fighterDataName &&
-            key == fighterDataName)
-        {
+            key == fighterDataName) {
             selected = true;
         }
         var newOption = new Option(key, key, selected, selected);
@@ -940,16 +886,14 @@ function refreshSaveSlots()
     }
 }
 
-function onSaveClicked()
-{
+function onSaveClicked() {
     var fighterData = readControls();
     console.log("Saving '" + fighterData.name + "'...");
     saveFighterData(fighterData);
     refreshSaveSlots();
 }
 
-function onLoadClicked()
-{
+function onLoadClicked() {
     var fighterDataName = $('#saveSlotsSelect').find(":selected").text();
     console.log("Loading '" + fighterDataName + "'...");
     fighterData = loadFighterData(fighterDataName);
@@ -958,8 +902,7 @@ function onLoadClicked()
     refreshSaveSlots();
 }
 
-function onDeleteClicked()
-{
+function onDeleteClicked() {
     var fighterDataName = $('#saveSlotsSelect').find(":selected").text();
 
     console.log("Deleting '" + fighterDataName + "'...");
@@ -986,10 +929,10 @@ function saveCardAsImage() {
     document.body.removeChild(element);
 }
 
-$(document).ready(function() {
-    var c=document.getElementById('canvas');
-    var ctx=c.getContext('2d');
+$(document).ready(function () {
+    var c = document.getElementById('canvas');
+    var ctx = c.getContext('2d');
     ctx.beginPath();
-    ctx.arc(95,50,40,0,2*Math.PI);
+    ctx.arc(95, 50, 40, 0, 2 * Math.PI);
     // ctx.stroke();
 });
