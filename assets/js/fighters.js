@@ -574,7 +574,7 @@ function writeControls(fighterData) {
     setModelImageProperties(fighterData.imageProperties);
     setSelectedFactionRunemark(fighterData.factionRunemark);
     setSelectedSubfactionRunemark(fighterData.subfactionRunemark);
-    getSelectedDeploymentRunemark(fighterData.deploymentRunemark);
+    setSelectedDeploymentRunemark(fighterData.deploymentRunemark);
     $("#fighterName")[0].value = fighterData.fighterName;
     $("#fighterName2")[0].value = fighterData.fighterName2;
     $("#toughness")[0].value = fighterData.toughness;
