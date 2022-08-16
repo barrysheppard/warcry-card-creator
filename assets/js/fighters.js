@@ -781,7 +781,7 @@ onRunemarkSelectionChanged = function (radioButton, backgroundColor) {
 }
 
 onDeploymentRunemarkSelectionChanged = function (radioButton, backgroundColor) {
-    var radioSection = radioButton.parentNode.parentNode;
+    var radioSection = radioButton.parentNode;
     var allRadioButtons = $('input', radioSection);
     for (i = 0; i < allRadioButtons.length; i++) {
         getImage(getLabel(allRadioButtons[i])).style.backgroundColor = backgroundColor;
