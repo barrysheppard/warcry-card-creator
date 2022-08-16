@@ -7,10 +7,10 @@
     font-weight: normal;
     src: url("../fonts/rodchenkoctt.eot");
     src: url("../fonts/rodchenkoctt.eot?#iefix") format("embedded-opentype"),
-         url("../fonts/rodchenkoctt.woff2") format("woff2"),
-         url("../fonts/rodchenkoctt.woff") format("woff"),
-         url("../fonts/rodchenkoctt.ttf") format("truetype"),
-         url("../fonts/rodchenkoctt.svg#rodchenkoctt") format("svg");
+        url("../fonts/rodchenkoctt.woff2") format("woff2"),
+        url("../fonts/rodchenkoctt.woff") format("woff"),
+        url("../fonts/rodchenkoctt.ttf") format("truetype"),
+        url("../fonts/rodchenkoctt.svg#rodchenkoctt") format("svg");
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -54,9 +54,10 @@ canvas {
 
 @media (prefers-color-scheme: dark) {
     .navbar-toggler {
-        color: rgba(255,255,255,.5);
-        border-color: rgba(255,255,255,.1);
+        color: rgba(255, 255, 255, .5);
+        border-color: rgba(255, 255, 255, .1);
     }
+
     .navbar .navbar-toggler-icon {
         background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.6%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
     }
@@ -64,9 +65,10 @@ canvas {
 
 @media (prefers-color-scheme: light) {
     .navbar-toggler {
-        color: rgba(0,0,0,.5);
-        border-color: rgba(0,0,0,.1);
+        color: rgba(0, 0, 0, .5);
+        border-color: rgba(0, 0, 0, .1);
     }
+
     .navbar .navbar-toggler-icon {
         background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2834, 34, 34, 0.7%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
     }
@@ -134,27 +136,28 @@ canvas {
 
 @media (prefers-color-scheme: dark) {
     .scroll-area-fade:before {
-        background: rgb(34,34,34);
-        background: -moz-linear-gradient(bottom, rgba(34,34,34,1) 0%, rgba(255,255,255,0) 100%);
-        background: -webkit-linear-gradient(bottom, rgba(34,34,34,1) 0%,rgba(255,255,255,0) 100%);
-        background: linear-gradient(to top, rgba(34,34,34,1) 0%,rgba(255,255,255,0) 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#222222', endColorstr='transparent',GradientType=1);
+        background: rgb(34, 34, 34);
+        background: -moz-linear-gradient(bottom, rgba(34, 34, 34, 1) 0%, rgba(255, 255, 255, 0) 100%);
+        background: -webkit-linear-gradient(bottom, rgba(34, 34, 34, 1) 0%, rgba(255, 255, 255, 0) 100%);
+        background: linear-gradient(to top, rgba(34, 34, 34, 1) 0%, rgba(255, 255, 255, 0) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#222222', endColorstr='transparent', GradientType=1);
     }
 }
 
 @media (prefers-color-scheme: light) {
     .scroll-area-fade:before {
-        background: rgb(255,255,255);
-        background: -moz-linear-gradient(bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
-        background: -webkit-linear-gradient(bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
-        background: linear-gradient(to top, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='transparent',GradientType=1);
+        background: rgb(255, 255, 255);
+        background: -moz-linear-gradient(bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+        background: -webkit-linear-gradient(bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+        background: linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='transparent', GradientType=1);
     }
 }
 
 #factionRunemarkSelect label,
 #subfactionRunemarkSelect label,
 #tagRunemarkSelect label,
+#deployentRunemarkSelect label,
 *[id^='tagRunemarkSelect_'] label,
 #weaponInputs label {
     margin: 0;
