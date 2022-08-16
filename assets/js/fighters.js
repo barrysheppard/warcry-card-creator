@@ -486,7 +486,7 @@ function drawSubfactionRunemark(image) {
 }
 
 function drawDeploymentRunemark(image) {
-    var position = scalePixelPosition({ x: 1500, y: 27.5 });
+    var position = scalePixelPosition({ x: 1550, y: 27.5 });
     var size = scalePixelPosition({ x: 120, y: 120 });
     drawImageSrc(position, size, image);
 }
