@@ -94,7 +94,7 @@ drawAbility = function (id, pixelPosition) {
                 // new title variable for the text to be in bold
                 var title = '[' + transReaction + '] ' + name + ': ';
                 // this adds spaces equal to the title to the text
-                var txt = ' '.repeat(title.length) + text;
+                var txt = '  '.repeat(title.length) + text;
             } else {
                 var title = '[Reaction] ' + name + ': ';
                 var txt = ' '.repeat(title.length) + text;
