@@ -86,6 +86,7 @@ drawFighterName = function (value) {
     getContext().font = '70px rodchenkoctt';
     getContext().fillStyle = 'black';
     getContext().textAlign = "center";
+    getContext().textBaseline = "middle";
     writeScaled(value, { x: 1350, y: 1100 });
 }
 
@@ -93,6 +94,7 @@ drawFighterName2 = function (value) {
     getContext().font = '50px rodchenkoctt';
     getContext().fillStyle = 'black';
     getContext().textAlign = "center";
+    getContext().textBaseline = "middle";
     writeScaled(value, { x: 1350, y: 1155 });
 }
 
@@ -484,7 +486,7 @@ function drawSubfactionRunemark(image) {
 }
 
 function drawDeploymentRunemark(image) {
-    var position = scalePixelPosition({ x: 1450, y: 27.5 });
+    var position = scalePixelPosition({ x: 1500, y: 27.5 });
     var size = scalePixelPosition({ x: 120, y: 120 });
     drawImageSrc(position, size, image);
 }
