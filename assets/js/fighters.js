@@ -458,7 +458,7 @@ function readControls() {
     data.imageProperties = getModelImageProperties();
     data.factionRunemark = getSelectedFactionRunemark();
     data.subfactionRunemark = getSelectedSubfactionRunemark();
-    data.deploymentRunemark = getSelectedDeploymentRunemark();
+    //data.deploymentRunemark = getSelectedDeploymentRunemark();
     data.fighterName = document.getElementById("fighterName").value;
     data.fighterName2 = document.getElementById("fighterName2").value;
     data.toughness = document.getElementById("toughness").value;
@@ -574,7 +574,7 @@ function writeControls(fighterData) {
     setModelImageProperties(fighterData.imageProperties);
     setSelectedFactionRunemark(fighterData.factionRunemark);
     setSelectedSubfactionRunemark(fighterData.subfactionRunemark);
-    getSelectedDeploymentRunemark(fighterData.deploymentRunemark);
+    //getSelectedDeploymentRunemark(fighterData.deploymentRunemark);
     $("#fighterName")[0].value = fighterData.fighterName;
     $("#fighterName2")[0].value = fighterData.fighterName2;
     $("#toughness")[0].value = fighterData.toughness;
