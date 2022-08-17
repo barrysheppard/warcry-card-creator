@@ -796,8 +796,6 @@ onDeploymentRunemarkSelectionChanged = function (radioButton, backgroundColor) {
 }
 
 onTagRunemarkSelectionChanged = function (checkbox, backgroundColor) {
-    var radioSection = radioButton.parentNode.parentNode;
-    var allRadioButtons = $('input', radioSection);
     // getImage(getLabel(checkbox)).style.backgroundColor = checkbox.checked ? "tomato" : backgroundColor;
     getImage(getLabel(checkbox)).style.backgroundColor = checkbox.checked ? "#00bc8c" : backgroundColor;
 
