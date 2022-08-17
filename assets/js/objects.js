@@ -503,7 +503,7 @@ function onDeleteClicked() {
 function saveCardAsImage() {
     var element = document.createElement('a');
     element.setAttribute('href', document.getElementById('canvas').toDataURL('image/png'));
-    element.setAttribute('download', 'wawrcry-object-card.png');
+    element.setAttribute('download', 'warcry-object-card.png');
     element.style.display = 'none';
     document.body.appendChild(element);
     element.click();
