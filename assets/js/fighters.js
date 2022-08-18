@@ -53,6 +53,9 @@ getBackgroundImage = function () {
 
     } else if (document.getElementById('select-bg-ghur-404').checked) {
         return document.getElementById('bg-ghur-404');
+
+    } else if (document.getElementById('select-bg-ghur-501').checked) {
+        return document.getElementById('bg-ghur-501');
     }
 }
 
