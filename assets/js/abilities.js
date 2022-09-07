@@ -38,6 +38,15 @@ getBackgroundImage = function () {
 
     } else if (document.getElementById('select-bg-ghur-402').checked) {
         return document.getElementById('bg-ghur-402');
+
+    } else if (document.getElementById('select-bg-dark-303').checked) {
+        return document.getElementById('bg-dark-303');
+
+    } else if (document.getElementById('select-bg-dark-103').checked) {
+        return document.getElementById('bg-dark-103');
+
+    } else if (document.getElementById('select-bg-fire-103').checked) {
+        return document.getElementById('bg-fire-103');
     }
 }
 
