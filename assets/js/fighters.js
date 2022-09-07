@@ -561,10 +561,16 @@ render = function (fighterData) {
     drawFactionRunemark(fighterData.factionRunemark);
 
     if (!(document.getElementById('subfaction-runemarks/none/blank.gif').checked)) {
-        drawSubfactionRunemark(fighterData.subfactionRunemark);
+        if (fighterData.subfactionRunemark != null) {
+            drawSubfactionRunemark(fighterData.subfactionRunemark);
+        }
     }
+
+
     if (!(document.getElementById('checkbox-assets/img/blank2.gif').checked)) {
-        drawDeploymentRunemark(fighterData.deploymentRunemark);
+        if (fighterData.deploymentRunemark != null) {
+            drawDeploymentRunemark(fighterData.deploymentRunemark);
+        }
     }
     getContext().font = "92px rodchenkoctt";
     getContext().fillStyle = "white";
@@ -643,6 +649,9 @@ function defaultFighterData() {
     fighterData.tagRunemarks.push('runemarks/black/fighters-berserker.svg');
     fighterData.weapon1 = getDefaultWeaponData1();
     fighterData.weapon2 = getDefaultWeaponData2();
+    fighterData.subfactionRunemark = null;
+    fighterData.deploymentRunemark = null;
+
     return fighterData;
 }
 
