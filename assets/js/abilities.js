@@ -611,6 +611,7 @@ render = function (cardData) {
 
     if (document.getElementById('ability7-toggle').checked) {
         drawImageSrc({ x: 92.5, y: 35 }, { x: 135, y: 135 }, cardData.factionRunemark);
+        drawImageSrc({ x: 224, y: 58 }, { x: 90, y: 90 }, cardData.subfactionRunemark);
     }
     else {
         drawFactionRunemark(cardData.factionRunemark);
