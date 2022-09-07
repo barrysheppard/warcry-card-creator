@@ -483,12 +483,44 @@ function drawFactionRunemark(image) {
     drawImageSrc(position, size, image);
 }
 function drawSubfactionRunemark(image) {
+
+    // draw the background circle first
+
+    // white border
+    var img = $("#circle")[0];
+    var position = scalePixelPosition({ x: 260, y: 20 });
+    var size = scalePixelPosition({ x: 135, y: 135 });
+    getContext().drawImage(img, position.x, position.y, size.x, size.y);
+    // black centre
+    var img = $("#circle_black")[0];
+    var position = scalePixelPosition({ x: 267.5, y: 27.5 });
+    var size = scalePixelPosition({ x: 120, y: 120 });
+    getContext().drawImage(img, position.x, position.y, size.x, size.y);
+
+
+    // draw the runemark
     var position = scalePixelPosition({ x: 267.5, y: 27.5 });
     var size = scalePixelPosition({ x: 120, y: 120 });
     drawImageSrc(position, size, image);
 }
 
 function drawDeploymentRunemark(image) {
+
+    // draw the background circle first
+
+    // white border
+    var img = $("#circle")[0];
+    var position = scalePixelPosition({ x: 1592.5, y: 20 });
+    var size = scalePixelPosition({ x: 135, y: 135 });
+    getContext().drawImage(img, position.x, position.y, size.x, size.y);
+    // black centre
+    var img = $("#circle_black")[0];
+    var position = scalePixelPosition({ x: 1600, y: 27.5 });
+    var size = scalePixelPosition({ x: 120, y: 120 });
+    getContext().drawImage(img, position.x, position.y, size.x, size.y);
+
+
+
     var position = scalePixelPosition({ x: 1600, y: 27.5 });
     var size = scalePixelPosition({ x: 120, y: 120 });
     drawImageSrc(position, size, image);
@@ -527,9 +559,13 @@ render = function (fighterData) {
     // section added above
 
     drawFactionRunemark(fighterData.factionRunemark);
-    drawSubfactionRunemark(fighterData.subfactionRunemark);
-    drawDeploymentRunemark(fighterData.deploymentRunemark);
 
+    if (!(document.getElementById('subfaction-runemarks/none/blank.gif').checked)) {
+        drawSubfactionRunemark(fighterData.subfactionRunemark);
+    }
+    if (!(document.getElementById('checkbox-assets/img/blank2.gif').checked)) {
+        drawDeploymentRunemark(fighterData.deploymentRunemark);
+    }
     getContext().font = "92px rodchenkoctt";
     getContext().fillStyle = "white";
 
