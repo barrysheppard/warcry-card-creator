@@ -35,9 +35,10 @@ getBackgroundImage = function () {
 
     } else if (document.getElementById('select-bg-ghur-401').checked) {
         return document.getElementById('bg-ghur-401');
+
+    } else if (document.getElementById('select-bg-ghur-402').checked) {
+        return document.getElementById('bg-ghur-402');
     }
-
-
 }
 
 drawBackground = function () {
@@ -157,87 +158,6 @@ drawAbility = function (id, pixelPosition) {
     })();
 }
 
-/*
-
-Testing
-
-drawAbility = function(id, pixelPosition) {
-    getContext().font = '28px Georgia, serif';
-    getContext().fillStyle = 'black';
-    getContext().textAlign = 'left';
-
-    var reaction      = document.getElementById('ability' + id + '-reaction'),
-        double        = document.getElementById('ability' + id + '-double'),
-        triple        = document.getElementById('ability' + id + '-triple'),
-        quad          = document.getElementById('ability' + id + '-quad'),
-        name          = document.getElementById('ability' + id + '-name').value,
-        text          = document.getElementById('ability' + id + '-text').value,
-        transReaction = document.getElementById('card-translation-reaction').value,
-    transDouble   = document.getElementById('card-translation-double').value,
-        transTriple   = document.getElementById('card-translation-triple').value,
-        transQuad     = document.getElementById('card-translation-quad').value;
-
-    // https://stackoverflow.com/a/35119260; http://jsfiddle.net/BaG4J/1/
-    var textblock = (function() {
-        var txt = '';
-
-    if (reaction.checked) {
-            if (transReaction.length) {
-                var txt = '[' + transReaction + '] ' + name + ': ';
-            } else {
-                var txt = '[Reaction] ' + name + ': ';
-            }
-    } else if (double.checked) {
-            if (transDouble.length) {
-                var txt = '[' + transDouble + '] ' + name + ': ';
-            } else {
-                var txt = '[Double] ' + name + ': ';
-            }
-        } else if (triple.checked) {
-            if (transTriple.length) {
-                var txt = '[' + transTriple + '] ' + name + ': ';
-            } else {
-                var txt = '[Triple] ' + name + ': ';
-            }
-        } else if (quad.checked) {
-            if (transQuad.length) {
-                var txt = '[' + transQuad + '] ' + name + ': ';
-            } else {
-                var txt = '[Quad] ' + name + ': ';
-            }
-        }
-    // suffix separated out for use later as bold text
-    txt_suffix = txt;
-    txt = txt + text;
-        var lines = txt.split('\n');
-
-        
-     for (var i = 0; i < lines.length; i++) {
-        getContext().font = 'bold, 28px Georgia, serif'; 
-            writeScaled(
-                lines[i],
-                {x: pixelPosition.x, y: pixelPosition.y+(i*35)}
-            );
-        }    
-	
-        /* commented out to test
-        for (var i = 0; i < lines.length; i++) {
-            if (i == 0) {
-        getContext().font = '28px Georgia, serif, bold';    
-        writeScaled(txt_suffix, {x: pixelPosition.x, y:pixelPosition.y(i+35)});
-        getContext().font = '28px Georgia, serif';    
-        writeScaled(lines[i], {x: pixelPosition.x + txt_suffix.length, y:pixelPosition.y(i+35)});
-        } else writeScaled(
-                lines[i],
-                {x: pixelPosition.x, y: pixelPosition.y+(i*35)}
-            );
-        }
-        
-    })();
-}
-
-*/
-
 drawCardTranslationAbilities = function (value) {
     getContext().font = '28px Georgia, serif';
     getContext().fillStyle = 'white';
@@ -355,19 +275,40 @@ function drawTagRunemark(index, runemark, row) {
     // draw the runemarks
     var positions = []
 
-    if (row == 1 && document.getElementById('ability1-toggle').checked) {
-        positions = [{ x: 175, y: 225 }, { x: 285, y: 225 }, { x: 395, y: 225 }];
-    } else if (row == 2 && document.getElementById('ability2-toggle').checked) {
-        positions = [{ x: 175, y: 410 }, { x: 285, y: 410 }, { x: 395, y: 410 }];
-    } else if (row == 3 && document.getElementById('ability3-toggle').checked) {
-        positions = [{ x: 175, y: 580 }, { x: 285, y: 580 }, { x: 395, y: 580 }];
-    } else if (row == 4 && document.getElementById('ability4-toggle').checked) {
-        positions = [{ x: 175, y: 760 }, { x: 285, y: 760 }, { x: 395, y: 760 }];
-    } else if (row == 5 && document.getElementById('ability5-toggle').checked) {
-        positions = [{ x: 175, y: 940 }, { x: 285, y: 940 }, { x: 395, y: 940 }];
-    } else if (row == 6 && document.getElementById('ability6-toggle').checked) {
-        positions = [{ x: 175, y: 1115 }, { x: 285, y: 1115 }, { x: 395, y: 1115 }];
+    if (document.getElementById('ability7-toggle').checked) {
+
+        if (row == 1 && document.getElementById('ability1-toggle').checked) {
+            positions = [{ x: 75, y: 225 }, { x: 185, y: 225 }, { x: 295, y: 225 }];
+        } else if (row == 2 && document.getElementById('ability2-toggle').checked) {
+            positions = [{ x: 75, y: 375 }, { x: 185, y: 375 }, { x: 295, y: 375 }];
+        } else if (row == 3 && document.getElementById('ability3-toggle').checked) {
+            positions = [{ x: 75, y: 525 }, { x: 185, y: 525 }, { x: 295, y: 525 }];
+        } else if (row == 4 && document.getElementById('ability4-toggle').checked) {
+            positions = [{ x: 75, y: 675 }, { x: 185, y: 675 }, { x: 295, y: 675 }];
+        } else if (row == 5 && document.getElementById('ability5-toggle').checked) {
+            positions = [{ x: 75, y: 800 }, { x: 185, y: 800 }, { x: 295, y: 800 }];
+        } else if (row == 6 && document.getElementById('ability6-toggle').checked) {
+            positions = [{ x: 75, y: 950 }, { x: 185, y: 950 }, { x: 295, y: 950 }];
+        } else if (row == 7 && document.getElementById('ability7-toggle').checked) {
+            positions = [{ x: 75, y: 1100 }, { x: 185, y: 1100 }, { x: 295, y: 1100 }];
+        }
     }
+    else {
+        if (row == 1 && document.getElementById('ability1-toggle').checked) {
+            positions = [{ x: 175, y: 225 }, { x: 285, y: 225 }, { x: 395, y: 225 }];
+        } else if (row == 2 && document.getElementById('ability2-toggle').checked) {
+            positions = [{ x: 175, y: 410 }, { x: 285, y: 410 }, { x: 395, y: 410 }];
+        } else if (row == 3 && document.getElementById('ability3-toggle').checked) {
+            positions = [{ x: 175, y: 580 }, { x: 285, y: 580 }, { x: 395, y: 580 }];
+        } else if (row == 4 && document.getElementById('ability4-toggle').checked) {
+            positions = [{ x: 175, y: 760 }, { x: 285, y: 760 }, { x: 395, y: 760 }];
+        } else if (row == 5 && document.getElementById('ability5-toggle').checked) {
+            positions = [{ x: 175, y: 940 }, { x: 285, y: 940 }, { x: 395, y: 940 }];
+        } else if (row == 6 && document.getElementById('ability6-toggle').checked) {
+            positions = [{ x: 175, y: 1115 }, { x: 285, y: 1115 }, { x: 395, y: 1115 }];
+        }
+    }
+
 
     /*
     with 4th runemark
@@ -477,6 +418,17 @@ function readTagRunemarksSix() {
     return array;
 }
 
+function readTagRunemarksSeven() {
+    var array = new Array;
+
+    var checkedBoxes = $("#tagRunemarkSelect_abilitiesCollapseFourSeventh").find('input:checked');
+
+    for (i = 0; i < checkedBoxes.length; i++) {
+        array.push(getImage(getLabel(checkedBoxes[i])).getAttribute("src"));
+    }
+    return array;
+}
+
 function setSelectedTagRunemarks(selectedRunemarksArray) {
     // var tagRunemarksDiv = $('#tagRunemarkSelect');
     var tagRunemarksDiv = $("[id^='tagRunemarkSelect_']");
@@ -524,6 +476,7 @@ function readControls() {
     data.ability4Name = document.getElementById('ability4-name').value;
     data.ability5Name = document.getElementById('ability5-name').value;
     data.ability6Name = document.getElementById('ability6-name').value;
+    data.ability7Name = document.getElementById('ability7-name').value;
 
     data.ability1Text = document.getElementById('ability1-text').value;
     data.ability2Text = document.getElementById('ability2-text').value;
@@ -531,6 +484,7 @@ function readControls() {
     data.ability4Text = document.getElementById('ability4-text').value;
     data.ability5Text = document.getElementById('ability5-text').value;
     data.ability6Text = document.getElementById('ability6-text').value;
+    data.ability7Text = document.getElementById('ability7-text').value;
 
 
     data.tagRunemarksOne = readtagRunemarksOne();
@@ -539,6 +493,7 @@ function readControls() {
     data.tagRunemarksFour = readTagRunemarksFour();
     data.tagRunemarksFive = readTagRunemarksFive();
     data.tagRunemarksSix = readTagRunemarksSix();
+    data.tagRunemarksSeven = readTagRunemarksSeven();
 
     return data;
 }
@@ -645,34 +600,68 @@ render = function (cardData) {
     drawCardTranslationAbilities(cardData.cardTranslationAbilities);
     drawCardTitle(cardData.cardTitle);
 
-    drawFactionRunemark(cardData.factionRunemark);
-    drawSubfactionRunemark(cardData.subfactionRunemark);
-
-
-    if (document.getElementById('ability1-toggle').checked) {
-        drawAbility(1, { x: 500, y: 225 });
+    if (document.getElementById('ability7-toggle').checked) {
+        drawImageSrc({ x: 92.5, y: 35 }, { x: 135, y: 135 }, cardData.factionRunemark);
+    }
+    else {
+        drawFactionRunemark(cardData.factionRunemark);
+        drawSubfactionRunemark(cardData.subfactionRunemark);
     }
 
-    if (document.getElementById('ability2-toggle').checked) {
-        drawAbility(2, { x: 500, y: 400 });
-    }
+    if (document.getElementById('ability7-toggle').checked) {
+        if (document.getElementById('ability1-toggle').checked) {
+            drawAbility(1, { x: 400, y: 225 });
+        }
 
-    if (document.getElementById('ability3-toggle').checked) {
-        drawAbility(3, { x: 500, y: 575 });
-    }
+        if (document.getElementById('ability2-toggle').checked) {
+            drawAbility(2, { x: 400, y: 375 });
+        }
 
-    if (document.getElementById('ability4-toggle').checked) {
-        drawAbility(4, { x: 500, y: 750 });
-    }
+        if (document.getElementById('ability3-toggle').checked) {
+            drawAbility(3, { x: 400, y: 525 });
+        }
 
-    if (document.getElementById('ability5-toggle').checked) {
-        drawAbility(5, { x: 500, y: 925 });
-    }
+        if (document.getElementById('ability4-toggle').checked) {
+            drawAbility(4, { x: 400, y: 675 });
+        }
 
-    if (document.getElementById('ability6-toggle').checked) {
-        drawAbility(6, { x: 500, y: 1100 });
-    }
+        if (document.getElementById('ability5-toggle').checked) {
+            drawAbility(5, { x: 400, y: 800 });
+        }
 
+        if (document.getElementById('ability6-toggle').checked) {
+            drawAbility(6, { x: 400, y: 950 });
+        }
+
+        if (document.getElementById('ability7-toggle').checked) {
+            drawAbility(7, { x: 400, y: 1100 });
+        }
+    } else {
+        if (document.getElementById('ability1-toggle').checked) {
+            drawAbility(1, { x: 500, y: 225 });
+        }
+
+        if (document.getElementById('ability2-toggle').checked) {
+            drawAbility(2, { x: 500, y: 400 });
+        }
+
+        if (document.getElementById('ability3-toggle').checked) {
+            drawAbility(3, { x: 500, y: 575 });
+        }
+
+        if (document.getElementById('ability4-toggle').checked) {
+            drawAbility(4, { x: 500, y: 750 });
+        }
+
+        if (document.getElementById('ability5-toggle').checked) {
+            drawAbility(5, { x: 500, y: 925 });
+        }
+
+        if (document.getElementById('ability6-toggle').checked) {
+            drawAbility(6, { x: 500, y: 1100 });
+        }
+
+    }
 
     for (i = 0; i < cardData.tagRunemarksOne.length; i++) {
         drawTagRunemark(i, cardData.tagRunemarksOne[i], 1);
@@ -692,6 +681,10 @@ render = function (cardData) {
     for (i = 0; i < cardData.tagRunemarksSix.length; i++) {
         drawTagRunemark(i, cardData.tagRunemarksSix[i], 6);
     }
+    for (i = 0; i < cardData.tagRunemarksSeven.length; i++) {
+        drawTagRunemark(i, cardData.tagRunemarksSeven[i], 7);
+    }
+
 
 };
 
@@ -716,6 +709,7 @@ function writeControls(cardData) {
     $('#ability4-name').value = cardData.ability4Name;
     $('#ability5-name').value = cardData.ability5Name;
     $('#ability6-name').value = cardData.ability6Name;
+    $('#ability7-name').value = cardData.ability7Name;
 
     $('#ability1-text').text(cardData.ability1Text);
     $('#ability2-text').text(cardData.ability2Text);
@@ -723,6 +717,7 @@ function writeControls(cardData) {
     $('#ability4-text').text(cardData.ability4Text);
     $('#ability5-text').text(cardData.ability5Text);
     $('#ability6-text').text(cardData.ability6Text);
+    $('#ability7-text').text(cardData.ability7Text);
 
     var runes_one = cardData.tagRunemarksOne,
         runes_two = cardData.tagRunemarksTwo,
@@ -730,7 +725,8 @@ function writeControls(cardData) {
         runes_four = cardData.tagRunemarksFour,
         runes_five = cardData.tagRunemarksFive,
         runes_six = cardData.tagRunemarksSix
-    var tagRuneMarks = $.merge(runes_one, runes_two, runes_three, runes_four, runes_five, runes_six)
+    runes_seven = cardData.tagRunemarksSeven
+    var tagRuneMarks = $.merge(runes_one, runes_two, runes_three, runes_four, runes_five, runes_six, runes_seven)
 
     setSelectedTagRunemarks(tagRuneMarks);
 
@@ -758,13 +754,15 @@ function defaultCardData() {
     cardData.ability4Name = 'Fourth ability name';
     cardData.ability5Name = 'Fifth ability name';
     cardData.ability6Name = 'Sixth ability name';
+    cardData.ability7Name = 'Seventh ability name';
 
-    cardData.ability1Text = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\nAenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis\ndis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque\neu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel.';
-    cardData.ability2Text = 'Lorem ipsum dolor sit amet,\nconsectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
-    cardData.ability3Text = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
-    cardData.ability4Text = 'Lorem ipsum dolor sit amet,\nconsectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
-    cardData.ability5Text = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
-    cardData.ability6Text = 'Lorem ipsum dolor sit amet,\nconsectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
+    cardData.ability1Text = '    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
+    cardData.ability2Text = '    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
+    cardData.ability3Text = '    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
+    cardData.ability4Text = '    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
+    cardData.ability5Text = '    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
+    cardData.ability6Text = '    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
+    cardData.ability7Text = '    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
 
     cardData.tagRunemarksOne = new Array;
     cardData.tagRunemarksOne.push('runemarks/black/fighters-berserker.svg');
@@ -774,6 +772,7 @@ function defaultCardData() {
     cardData.tagRunemarksFour = new Array;
     cardData.tagRunemarksFive = new Array;
     cardData.tagRunemarksSix = new Array;
+    cardData.tagRunemarksSeven = new Array;
 
     // cardData.weapon1 = getDefaultWeaponData1();
     // cardData.weapon2 = getDefaultWeaponData2();
@@ -911,7 +910,9 @@ async function saveCardData(cardData) {
         for (i = 0; i < cardData.tagRunemarksSix.length; i++) {
             cardData.tagRunemarksSix[i] = await handleImageUrlFromDisk(cardData.tagRunemarksSix[i]);
         }
-
+        for (i = 0; i < cardData.tagRunemarksSeven.length; i++) {
+            cardData.tagRunemarksSeven[i] = await handleImageUrlFromDisk(cardData.tagRunemarksSeven[i]);
+        }
         // cardData.weapon1.runemark = await handleImageUrlFromDisk(cardData.weapon1.runemark);
         // cardData.weapon2.runemark = await handleImageUrlFromDisk(cardData.weapon2.runemark);
 
