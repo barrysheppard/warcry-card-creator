@@ -24,29 +24,29 @@ getContext = function () {
 }
 
 getBackgroundImage = function () {
-    if (document.getElementById('select-bg-dark-102').checked) {
+    if (document.getElementById('bg-01').checked) {
         return document.getElementById('bg-dark-102');
 
-    } else if (document.getElementById('select-bg-dark-302').checked) {
+    } else if (document.getElementById('bg-02').checked) {
         return document.getElementById('bg-dark-302');
 
-    } else if (document.getElementById('select-bg-fire-102').checked) {
+    } else if (document.getElementById('bg-03').checked) {
         return document.getElementById('bg-fire-102');
 
-    } else if (document.getElementById('select-bg-ghur-401').checked) {
+    } else if (document.getElementById('bg-04').checked) {
         return document.getElementById('bg-ghur-401');
 
-    } else if (document.getElementById('select-bg-ghur-402').checked) {
-        return document.getElementById('bg-ghur-402');
-
-    } else if (document.getElementById('select-bg-dark-303').checked) {
-        return document.getElementById('bg-dark-303');
-
-    } else if (document.getElementById('select-bg-dark-103').checked) {
+    } else if (document.getElementById('bg-05').checked) {
         return document.getElementById('bg-dark-103');
 
-    } else if (document.getElementById('select-bg-fire-103').checked) {
+    } else if (document.getElementById('bg-06').checked) {
+        return document.getElementById('bg-dark-303');
+
+    } else if (document.getElementById('bg-07').checked) {
         return document.getElementById('bg-fire-103');
+
+    } else if (document.getElementById('bg-08').checked) {
+        return document.getElementById('bg-ghur-402');
     }
 }
 
@@ -181,9 +181,6 @@ drawCardTitle = function (value) {
     writeScaled(value, { x: (1772 / 2), y: 135 });
 }
 
-
-
-
 function getLabel(element) {
     return $(element).prop("labels")[0];
 }
@@ -200,8 +197,6 @@ function getSelectedRunemark(radioDiv) {
     }
     return null;
 }
-
-
 
 function setSelectedFactionRunemark(runemark) {
     var factionRunemarksDiv = $("#factionRunemarkSelect");
@@ -227,6 +222,7 @@ function setSelectedFactionRunemark(runemark) {
         $(newDiv).find('input')[0].checked = true;
     }
 }
+
 function setSelectedSubfactionRunemark(runemark) {
     var subfactionRunemarksDiv = $("#subfactionRunemarkSelect");
     {
@@ -251,6 +247,7 @@ function setSelectedSubfactionRunemark(runemark) {
         $(newDiv).find('input')[0].checked = true;
     }
 }
+
 function getSelectedFactionRunemark() {
     return getSelectedRunemark($('#factionRunemarkSelect')[0]);
 }
@@ -277,8 +274,6 @@ function drawImageSrc(scaledPosition, scaledSize, imageSrc) {
         image.src = imageSrc;
     }
 }
-
-
 
 function drawTagRunemark(index, runemark, row) {
     // draw the runemarks
@@ -318,7 +313,6 @@ function drawTagRunemark(index, runemark, row) {
         }
     }
 
-
     /*
     with 4th runemark
     
@@ -337,7 +331,6 @@ function drawTagRunemark(index, runemark, row) {
         }
     */
 
-
     if (index >= positions.length) return;
 
     var img = $("#circle")[0],
@@ -352,25 +345,19 @@ function drawTagRunemark(index, runemark, row) {
     drawImageSrc(position, size, runemark);
 }
 
-
-
 function getName() {
-    var textInput = $("#saveNameInput")[0];
-    return textInput.value;
+    //var textInput = $("#saveNameInput")[0];
+    return "Default";
 }
 
 function setName(name) {
-    var textInput = $("#saveNameInput")[0];
-    textInput.value = name;
+    //var textInput = $("#saveNameInput")[0];
+    //textInput.value = name;
 }
-
-
 
 function readtagRunemarksOne() {
     var array = new Array;
-
     var checkedBoxes = $("#tagRunemarkSelect_abilitiesCollapseFourOne").find('input:checked');
-
     for (i = 0; i < checkedBoxes.length; i++) {
         array.push(getImage(getLabel(checkedBoxes[i])).getAttribute("src"));
     }
@@ -442,15 +429,16 @@ function setSelectedTagRunemarks(selectedRunemarksArray) {
     // var tagRunemarksDiv = $('#tagRunemarkSelect');
     var tagRunemarksDiv = $("[id^='tagRunemarkSelect_']");
     {
-        var checked = tagRunemarksDiv.find('input:checked');
-        for (var i = 0; i < checked.length; i++) {
-            checked[i].checked = false;
-        }
+        // var checked = tagRunemarksDiv.find('input:checked');
+        // for (var i = 0; i < checked.length; i++) {
+        //     checked[i].checked = false;
+        // }
         var icons = tagRunemarksDiv.find('img');
         for (var i = 0; i < icons.length; i++) {
             icons[i].style.backgroundColor = 'white';
         }
     }
+    /* due to some issues, taking this out for the time being
     for (var i = 0; i < selectedRunemarksArray.length; i++) {
         var runemark = selectedRunemarksArray[i];
         var queryString = "img[src='" + runemark + "']";
@@ -465,7 +453,9 @@ function setSelectedTagRunemarks(selectedRunemarksArray) {
             $(newDiv).find('input')[0].checked = true;
         }
     }
+    */
 }
+
 
 function readControls() {
     var data = new Object;
@@ -478,6 +468,14 @@ function readControls() {
 
     data.factionRunemark = getSelectedFactionRunemark();
     data.subfactionRunemark = getSelectedSubfactionRunemark();
+
+    data.ability1checked = document.getElementById('ability1-toggle').checked;
+    data.ability2checked = document.getElementById('ability2-toggle').checked;
+    data.ability3checked = document.getElementById('ability3-toggle').checked;
+    data.ability4checked = document.getElementById('ability4-toggle').checked;
+    data.ability5checked = document.getElementById('ability5-toggle').checked;
+    data.ability6checked = document.getElementById('ability6-toggle').checked;
+    data.ability7checked = document.getElementById('ability7-toggle').checked;
 
     data.ability1Name = document.getElementById('ability1-name').value;
     data.ability2Name = document.getElementById('ability2-name').value;
@@ -495,7 +493,6 @@ function readControls() {
     data.ability6Text = document.getElementById('ability6-text').value;
     data.ability7Text = document.getElementById('ability7-text').value;
 
-
     data.tagRunemarksOne = readtagRunemarksOne();
     data.tagRunemarksTwo = readTagRunemarksTwo();
     data.tagRunemarksThree = readTagRunemarksThree();
@@ -503,6 +500,15 @@ function readControls() {
     data.tagRunemarksFive = readTagRunemarksFive();
     data.tagRunemarksSix = readTagRunemarksSix();
     data.tagRunemarksSeven = readTagRunemarksSeven();
+
+    data.bg01 = document.getElementById('bg-01').checked;
+    data.bg02 = document.getElementById('bg-02').checked;
+    data.bg03 = document.getElementById('bg-03').checked;
+    data.bg04 = document.getElementById('bg-04').checked;
+    data.bg05 = document.getElementById('bg-05').checked;
+    data.bg06 = document.getElementById('bg-06').checked;
+    data.bg07 = document.getElementById('bg-07').checked;
+    data.bg08 = document.getElementById('bg-08').checked;
 
     return data;
 }
@@ -699,9 +705,9 @@ render = function (cardData) {
 };
 
 function writeControls(cardData) {
+
     setName(cardData.name);
-    // setModelImage(cardData.imageUrl);
-    // setModelImageProperties(cardData.imageProperties);
+    console.log(cardData);
 
     $('#card-title').value = cardData.cardTitle;
     $('#card-translation-abilities').value = cardData.cardTranslationAbilities;
@@ -710,35 +716,130 @@ function writeControls(cardData) {
     $('#card-translation-quad').value = cardData.cardTranslationQuad;
 
     setSelectedFactionRunemark(cardData.factionRunemark);
-
     setSelectedSubfactionRunemark(cardData.subfactionRunemark);
 
-    $('#ability1-name').value = cardData.ability1Name;
-    $('#ability2-name').value = cardData.ability2Name;
-    $('#ability3-name').value = cardData.ability3Name;
-    $('#ability4-name').value = cardData.ability4Name;
-    $('#ability5-name').value = cardData.ability5Name;
-    $('#ability6-name').value = cardData.ability6Name;
-    $('#ability7-name').value = cardData.ability7Name;
+    // check and uncheck if needed
+    document.getElementById('ability1-toggle').checked = cardData.ability1checked;
+    document.getElementById('ability2-toggle').checked = cardData.ability2checked;
+    document.getElementById('ability3-toggle').checked = cardData.ability3checked;
+    document.getElementById('ability4-toggle').checked = cardData.ability4checked;
+    document.getElementById('ability5-toggle').checked = cardData.ability5checked;
+    document.getElementById('ability6-toggle').checked = cardData.ability6checked;
+    document.getElementById('ability7-toggle').checked = cardData.ability7checked;
 
-    $('#ability1-text').text(cardData.ability1Text);
-    $('#ability2-text').text(cardData.ability2Text);
-    $('#ability3-text').text(cardData.ability3Text);
-    $('#ability4-text').text(cardData.ability4Text);
-    $('#ability5-text').text(cardData.ability5Text);
-    $('#ability6-text').text(cardData.ability6Text);
-    $('#ability7-text').text(cardData.ability7Text);
+    document.getElementById("ability1-name").value = cardData.ability1Name;
+    document.getElementById("ability2-name").value = cardData.ability2Name;
+    document.getElementById("ability3-name").value = cardData.ability3Name;
+    document.getElementById("ability4-name").value = cardData.ability4Name;
+    document.getElementById("ability5-name").value = cardData.ability5Name;
+    document.getElementById("ability6-name").value = cardData.ability6Name;
+    document.getElementById("ability7-name").value = cardData.ability7Name;
 
+    document.getElementById("ability1-text").value = cardData.ability1Text;
+    document.getElementById("ability2-text").value = cardData.ability2Text;
+    document.getElementById("ability3-text").value = cardData.ability3Text;
+    document.getElementById("ability4-text").value = cardData.ability4Text;
+    document.getElementById("ability5-text").value = cardData.ability5Text;
+    document.getElementById("ability6-text").value = cardData.ability6Text;
+    document.getElementById("ability7-text").value = cardData.ability7Text;
+
+
+    // this doesn't appear to work
     var runes_one = cardData.tagRunemarksOne,
         runes_two = cardData.tagRunemarksTwo,
         runes_three = cardData.tagRunemarksThree,
         runes_four = cardData.tagRunemarksFour,
         runes_five = cardData.tagRunemarksFive,
-        runes_six = cardData.tagRunemarksSix
-    runes_seven = cardData.tagRunemarksSeven
-    var tagRuneMarks = $.merge(runes_one, runes_two, runes_three, runes_four, runes_five, runes_six, runes_seven)
+        runes_six = cardData.tagRunemarksSix,
+        runes_seven = cardData.tagRunemarksSeven;
+    //var tagRuneMarks = $.merge(runes_one, runes_two, runes_three, runes_four, runes_five, runes_six, runes_seven);
 
-    setSelectedTagRunemarks(tagRuneMarks);
+    // amended the below function to cut out everything put marking backgrounds as white
+    //setSelectedTagRunemarks(tagRuneMarks);
+    /*
+        onTagRunemarkSelectionChanged = function (checkbox, backgroundColor) {
+            // getImage(getLabel(checkbox)).style.backgroundColor = checkbox.checked ? "tomato" : backgroundColor;
+            getImage(getLabel(checkbox)).style.backgroundColor = checkbox.checked ? "#00bc8c" : backgroundColor;
+            onAnyChange();
+        }
+    */
+
+    // first we clear all the ability runetags
+    tagPrefix = ["one", "two", "three", "four", "five", "six", "seven"];
+    tagSuffix = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten",
+        "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen",
+        "Nineteen", "Twenty", "Twentyone", "Twentytwo", "Twentythree", "Twentyfour", "Twentyfive"];
+
+    for (i in tagPrefix) {
+        for (j in tagSuffix) {
+            rune_id = tagPrefix[i] + tagSuffix[j];
+            document.getElementById(rune_id).checked = false;
+            getImage(getLabel(document.getElementById(rune_id))).style.backgroundColor = "#FFFFFF";
+        }
+    }
+
+    // this next section will select the required tags
+    if (runes_one.length > 0) {
+        for (i in runes_one) {
+            rune_id = getTagRunemarkId(runes_one[i], "one");
+            console.log(rune_id + ": " + runes_one[i]);
+            document.getElementById(rune_id).checked = true;
+            getImage(getLabel(document.getElementById(rune_id))).style.backgroundColor = "#00bc8c";
+        }
+    }
+    if (runes_two.length > 0) {
+        for (i in runes_two) {
+            rune_id = getTagRunemarkId(runes_two[i], "two");
+            document.getElementById(rune_id).checked = true;
+            getImage(getLabel(document.getElementById(rune_id))).style.backgroundColor = "#00bc8c";
+        }
+    }
+    if (runes_three.length > 0) {
+        for (i in runes_three) {
+            rune_id = getTagRunemarkId(runes_three[i], "three");
+            document.getElementById(rune_id).checked = true;
+            getImage(getLabel(document.getElementById(rune_id))).style.backgroundColor = "#00bc8c";
+        }
+    }
+    if (runes_four.length > 0) {
+        for (i in runes_four) {
+            rune_id = getTagRunemarkId(runes_four[i], "four");
+            document.getElementById(rune_id).checked = true;
+            getImage(getLabel(document.getElementById(rune_id))).style.backgroundColor = "#00bc8c";
+        }
+    }
+    if (runes_five.length > 0) {
+        for (i in runes_five) {
+            rune_id = getTagRunemarkId(runes_five[i], "five");
+            document.getElementById(rune_id).checked = true;
+            getImage(getLabel(document.getElementById(rune_id))).style.backgroundColor = "#00bc8c";
+        }
+    }
+    if (runes_six.length > 0) {
+        for (i in runes_six) {
+            rune_id = getTagRunemarkId(runes_six[i], "six");
+            document.getElementById(rune_id).checked = true;
+            getImage(getLabel(document.getElementById(rune_id))).style.backgroundColor = "#00bc8c";
+        }
+    }
+    if (runes_seven.length > 0) {
+        for (i in runes_seven) {
+            rune_id = getTagRunemarkId(runes_seven[i], "seven");
+            document.getElementById(rune_id).checked = true;
+            getImage(getLabel(document.getElementById(rune_id))).style.backgroundColor = "#00bc8c";
+        }
+    }
+
+
+    // check and uncheck backgrounds if needed
+    document.getElementById('bg-01').checked = cardData.bg01;
+    document.getElementById('bg-02').checked = cardData.bg02;
+    document.getElementById('bg-03').checked = cardData.bg03;
+    document.getElementById('bg-04').checked = cardData.bg04;
+    document.getElementById('bg-05').checked = cardData.bg05;
+    document.getElementById('bg-06').checked = cardData.bg06;
+    document.getElementById('bg-07').checked = cardData.bg07;
+    document.getElementById('bg-08').checked = cardData.bg08;
 
 }
 
@@ -758,6 +859,14 @@ function defaultCardData() {
     cardData.factionRunemark = 'runemarks/white/factions-chaos-iron-golems.svg';
     cardData.subfactionRunemark = 'assets/img/blank.gif';
 
+    cardData.ability1checked = true;
+    cardData.ability2checked = true;
+    cardData.ability3checked = true;
+    cardData.ability4checked = true;
+    cardData.ability5checked = true;
+    cardData.ability6checked = true;
+    cardData.ability7checked = false;
+
     cardData.ability1Name = 'First ability name';
     cardData.ability2Name = 'Second ability name';
     cardData.ability3Name = 'Third ability name';
@@ -776,7 +885,6 @@ function defaultCardData() {
 
     cardData.tagRunemarksOne = new Array;
     cardData.tagRunemarksOne.push('runemarks/black/fighters-berserker.svg');
-
     cardData.tagRunemarksTwo = new Array;
     cardData.tagRunemarksThree = new Array;
     cardData.tagRunemarksFour = new Array;
@@ -784,8 +892,15 @@ function defaultCardData() {
     cardData.tagRunemarksSix = new Array;
     cardData.tagRunemarksSeven = new Array;
 
-    // cardData.weapon1 = getDefaultWeaponData1();
-    // cardData.weapon2 = getDefaultWeaponData2();
+    cardData.bg01 = false;
+    cardData.bg02 = false;
+    cardData.bg03 = false;
+    cardData.bg04 = true;
+    cardData.bg05 = false;
+    cardData.bg06 = false;
+    cardData.bg07 = false;
+    cardData.bg08 = false;
+
     return cardData;
 }
 
@@ -923,8 +1038,6 @@ async function saveCardData(cardData) {
         for (i = 0; i < cardData.tagRunemarksSeven.length; i++) {
             cardData.tagRunemarksSeven[i] = await handleImageUrlFromDisk(cardData.tagRunemarksSeven[i]);
         }
-        // cardData.weapon1.runemark = await handleImageUrlFromDisk(cardData.weapon1.runemark);
-        // cardData.weapon2.runemark = await handleImageUrlFromDisk(cardData.weapon2.runemark);
 
         finishSaving();
     }
@@ -1080,11 +1193,21 @@ function refreshSaveSlots() {
     }
 }
 
-function onSaveClicked() {
-    var cardData = readControls();
-    console.log("Saving '" + cardData.name + "'...");
-    saveCardData(cardData);
-    refreshSaveSlots();
+async function onSaveClicked() {
+
+    data = readControls();
+    console.log(data);
+    var exportObj = JSON.stringify(data, null, 4);
+
+    var exportName = data.cardTitle;
+
+    var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(exportObj);
+    var downloadAnchorNode = document.createElement('a');
+    downloadAnchorNode.setAttribute("href", dataStr);
+    downloadAnchorNode.setAttribute("download", "warcry_abilities_" + exportName + ".json");
+    document.body.appendChild(downloadAnchorNode); // required for firefox
+    downloadAnchorNode.click();
+    downloadAnchorNode.remove();
 }
 
 function onLoadClicked() {
@@ -1098,20 +1221,12 @@ function onLoadClicked() {
 
 function onDeleteClicked() {
     var cardDataName = $('#saveSlotsSelect').find(":selected").text();
-
     console.log("Deleting '" + cardDataName + "'...");
-
     var map = loadCardDataMap();
     delete map[cardDataName];
-
     saveCardDataMap(map);
-
     refreshSaveSlots();
 }
-
-// …
-// …
-// …
 
 function saveCardAsImage() {
     var element = document.createElement('a');
@@ -1130,3 +1245,117 @@ $(document).ready(function () {
     ctx.arc(95, 50, 40, 0, 2 * Math.PI);
     // ctx.stroke();
 });
+
+async function readJSONFile(file) {
+    // Function will return a new Promise which will resolve or reject based on whether the JSON file is read and parsed successfully
+    return new Promise((resolve, reject) => {
+        // Define a FileReader Object to read the file
+        let fileReader = new FileReader();
+        // Specify what the FileReader should do on the successful read of a file
+        fileReader.onload = event => {
+            // If successfully read, resolve the Promise with JSON parsed contents of the file
+            resolve(JSON.parse(event.target.result))
+        };
+        // If the file is not successfully read, reject with the error
+        fileReader.onerror = error => reject(error);
+        // Read from the file, which will kick-off the onload or onerror events defined above based on the outcome
+        fileReader.readAsText(file);
+    });
+}
+
+async function fileChange(file) {
+    // Function to be triggered when file input changes
+    // As readJSONFile is a promise, it must resolve before the contents can be read - in this case logged to the console
+    //readJSONFile(file).then(json => data);
+    readJSONFile(file).then(json =>
+        writeControls(json)
+    );
+    readJSONFile(file).then(json =>
+        render(json)
+    );
+}
+
+function getTagRunemarkId(runemark, ability) {
+    // the id starts with the ability number in text form, one to seven lower case
+    var result = ability;
+    // the second part is One to Twentyfive each starting with a capital
+    // each runemark is in order, so we can get the second part based on 
+    if (runemark == "runemarks/black/fighters-agile.svg") {
+        result = result + "One"
+    }
+    else if (runemark == "runemarks/black/fighters-ally.svg") {
+        result = result + "Two"
+    }
+    else if (runemark == "runemarks/black/fighters-beast.svg") {
+        result = result + "Three"
+    }
+    else if (runemark == "runemarks/black/fighters-berserker.svg") {
+        result = result + "Four"
+    }
+    else if (runemark == "runemarks/black/fighters-brute.svg") {
+        result = result + "Five"
+    }
+    else if (runemark == "runemarks/black/fighters-bulwark.svg") {
+        result = result + "Six"
+    }
+    else if (runemark == "runemarks/black/fighters-champion.svg") {
+        result = result + "Seven"
+    }
+    else if (runemark == "runemarks/black/fighters-destroyer.svg") {
+        result = result + "Eight"
+    }
+    else if (runemark == "runemarks/black/fighters-elite.svg") {
+        result = result + "Nine"
+    }
+    else if (runemark == "runemarks/black/fighters-ferocious.svg") {
+        result = result + "Ten"
+    }
+    else if (runemark == "runemarks/black/fighters-fly.svg") {
+        result = result + "Eleven"
+    }
+    else if (runemark == "runemarks/black/fighters-frenzied.svg") {
+        result = result + "Twelve"
+    }
+    else if (runemark == "runemarks/black/fighters-gargantuan.svg") {
+        result = result + "Thirteen"
+    }
+    // leader became hero so went back one messing up the order
+    else if (runemark == "runemarks/black/fighters-leader.svg") {
+        result = result + "Fifteen"
+    }
+    else if (runemark == "runemarks/black/fighters-icon-bearer.svg") {
+        result = result + "Fourteen"
+    }
+    else if (runemark == "runemarks/black/fighters-minion.svg") {
+        result = result + "Sixteen"
+    }
+    else if (runemark == "runemarks/black/fighters-mount.svg") {
+        result = result + "Seventeen"
+    }
+    else if (runemark == "runemarks/black/fighters-mystic.svg") {
+        result = result + "Eighteen"
+    }
+    else if (runemark == "runemarks/black/fighters-priest.svg") {
+        result = result + "Ninteen"
+    }
+    else if (runemark == "runemarks/black/fighters-scout.svg") {
+        result = result + "Twenty"
+    }
+    else if (runemark == "runemarks/black/fighters-sentience.svg") {
+        result = result + "Twentyone"
+    }
+    else if (runemark == "runemarks/black/fighters-terrifying.svg") {
+        result = result + "Twentytwo"
+    }
+    else if (runemark == "runemarks/black/fighters-thrall.svg") {
+        result = result + "Twentythree"
+    }
+    else if (runemark == "runemarks/black/fighters-trapper.svg") {
+        result = result + "Twentyfour"
+    }
+    else if (runemark == "runemarks/black/fighters-warrior.svg") {
+        result = result + "Twentyfive"
+    }
+
+    return result;
+}

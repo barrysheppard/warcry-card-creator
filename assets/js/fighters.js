@@ -24,37 +24,37 @@ getContext = function () {
 }
 
 getBackgroundImage = function () {
-    if (document.getElementById('select-bg-dark-102').checked) {
+    if (document.getElementById('bg-01').checked) {
         return document.getElementById('bg-dark-102');
 
-    } else if (document.getElementById('select-bg-dark-112').checked) {
+    } else if (document.getElementById('bg-02').checked) {
         return document.getElementById('bg-dark-112');
 
-    } else if (document.getElementById('select-bg-dark-302').checked) {
+    } else if (document.getElementById('bg-03').checked) {
         return document.getElementById('bg-dark-302');
 
-    } else if (document.getElementById('select-bg-dark-312').checked) {
+    } else if (document.getElementById('bg-04').checked) {
         return document.getElementById('bg-dark-312');
 
-    } else if (document.getElementById('select-bg-fire-102').checked) {
+    } else if (document.getElementById('bg-05').checked) {
         return document.getElementById('bg-fire-102');
 
-    } else if (document.getElementById('select-bg-fire-112').checked) {
+    } else if (document.getElementById('bg-06').checked) {
         return document.getElementById('bg-fire-112');
 
-    } else if (document.getElementById('select-bg-ghur-401').checked) {
+    } else if (document.getElementById('bg-07').checked) {
         return document.getElementById('bg-ghur-401');
 
-    } else if (document.getElementById('select-bg-ghur-402').checked) {
+    } else if (document.getElementById('bg-08').checked) {
         return document.getElementById('bg-ghur-402');
 
-    } else if (document.getElementById('select-bg-ghur-403').checked) {
+    } else if (document.getElementById('bg-09').checked) {
         return document.getElementById('bg-ghur-403');
 
-    } else if (document.getElementById('select-bg-ghur-404').checked) {
+    } else if (document.getElementById('bg-10').checked) {
         return document.getElementById('bg-ghur-404');
 
-    } else if (document.getElementById('select-bg-ghur-501').checked) {
+    } else if (document.getElementById('bg-11').checked) {
         return document.getElementById('bg-ghur-501');
     }
 }
@@ -83,7 +83,6 @@ drawCardElementFromInput = function (inputElement, pixelPosition) {
 drawCardElementFromInputId = function (inputId, pixelPosition) {
     drawCardElementFromInput(document.getElementById(inputId), pixelPosition);
 }
-
 
 drawFighterName = function (value) {
     getContext().font = '70px rodchenkoctt';
@@ -249,7 +248,6 @@ function setSelectedDeploymentRunemark(runemark) {
     setSelectedRunemark($('#deploymentRunemarkSelect')[0], runemark, "deployment", "black");
 }
 
-
 function drawImage(scaledPosition, scaledSize, image) {
     if (image != null) {
         if (image.complete) {
@@ -301,13 +299,13 @@ function drawModel(imageUrl, imageProps) {
 }
 
 function getName() {
-    var textInput = $("#saveNameInput")[0];
-    return textInput.value;
+    //var textInput = $("#saveNameInput")[0];
+    return "Default";
 }
 
 function setName(name) {
-    var textInput = $("#saveNameInput")[0];
-    textInput.value = name;
+    //var textInput = $("#saveNameInput")[0];
+    //textInput.value = name;
 }
 
 function getModelImage() {
@@ -473,7 +471,17 @@ function readControls() {
     data.tagRunemarks = readTagRunemarks();
     data.weapon1 = readWeaponControls("#weapon1");
     data.weapon2 = readWeaponControls("#weapon2");
-
+    data.bg01 = document.getElementById('bg-01').checked;
+    data.bg02 = document.getElementById('bg-02').checked;
+    data.bg03 = document.getElementById('bg-03').checked;
+    data.bg04 = document.getElementById('bg-04').checked;
+    data.bg05 = document.getElementById('bg-05').checked;
+    data.bg06 = document.getElementById('bg-06').checked;
+    data.bg07 = document.getElementById('bg-07').checked;
+    data.bg08 = document.getElementById('bg-08').checked;
+    data.bg09 = document.getElementById('bg-09').checked;
+    data.bg10 = document.getElementById('bg-10').checked;
+    data.bg11 = document.getElementById('bg-11').checked;
     return data;
 }
 
@@ -519,14 +527,10 @@ function drawDeploymentRunemark(image) {
     var size = scalePixelPosition({ x: 120, y: 120 });
     getContext().drawImage(img, position.x, position.y, size.x, size.y);
 
-
-
     var position = scalePixelPosition({ x: 1600, y: 27.5 });
     var size = scalePixelPosition({ x: 120, y: 120 });
     drawImageSrc(position, size, image);
 }
-
-
 
 render = function (fighterData) {
     drawBackground();
@@ -565,7 +569,6 @@ render = function (fighterData) {
             drawSubfactionRunemark(fighterData.subfactionRunemark);
         }
     }
-
 
     if (!(document.getElementById('checkbox-assets/img/blank2.gif').checked)) {
         if (fighterData.deploymentRunemark != null) {
@@ -631,6 +634,21 @@ function writeControls(fighterData) {
     setSelectedTagRunemarks(fighterData.tagRunemarks);
     writeWeaponControls("#weapon1", fighterData.weapon1, "weapon1");
     writeWeaponControls("#weapon2", fighterData.weapon2, "weapon2");
+
+    // check and uncheck if needed
+    document.getElementById('bg-01').checked = fighterData.bg01;
+    document.getElementById('bg-02').checked = fighterData.bg02;
+    document.getElementById('bg-03').checked = fighterData.bg03;
+    document.getElementById('bg-04').checked = fighterData.bg04;
+    document.getElementById('bg-05').checked = fighterData.bg05;
+    document.getElementById('bg-06').checked = fighterData.bg06;
+    document.getElementById('bg-07').checked = fighterData.bg07;
+    document.getElementById('bg-08').checked = fighterData.bg08;
+    document.getElementById('bg-09').checked = fighterData.bg09;
+    document.getElementById('bg-10').checked = fighterData.bg10;
+    document.getElementById('bg-11').checked = fighterData.bg11;
+
+
 }
 
 function defaultFighterData() {
@@ -651,6 +669,18 @@ function defaultFighterData() {
     fighterData.weapon2 = getDefaultWeaponData2();
     fighterData.subfactionRunemark = null;
     fighterData.deploymentRunemark = null;
+
+    fighterData.bg01 = false;
+    fighterData.bg02 = false;
+    fighterData.bg03 = false;
+    fighterData.bg04 = false;
+    fighterData.bg05 = false;
+    fighterData.bg06 = false;
+    fighterData.bg07 = false;
+    fighterData.bg08 = false;
+    fighterData.bg09 = true;
+    fighterData.bg10 = false;
+    fighterData.bg11 = false;
 
     return fighterData;
 }
@@ -949,11 +979,32 @@ function refreshSaveSlots() {
     }
 }
 
-function onSaveClicked() {
-    var fighterData = readControls();
-    console.log("Saving '" + fighterData.name + "'...");
-    saveFighterData(fighterData);
-    refreshSaveSlots();
+async function onSaveClicked() {
+    //var fighterData = readControls();
+    //console.log("Saving '" + fighterData.name + "'...");
+    //saveFighterData(fighterData);
+    //refreshSaveSlots();
+
+    data = readControls();
+    // temp null while I work out image saving
+    data.imageUrl = null;
+    var exportObj = JSON.stringify(data, ['name', 'imageUrl', 'imageProperties', 'offsetX', 'offsetY',
+        'scalePercent', 'factionRunemark', 'subfactionRunemark', 'deploymentRunemark', 'fighterName', 'fighterName2',
+        'toughness', 'wounds', 'move', 'pointCost', 'tagRunemarks', 'weapon1', 'attacks', 'damageBase', 'damageCrit',
+        'enabled', 'rangeMax', 'rangeMin', 'runemark', 'strength', 'weapon2', 'attacks', 'damageBase', 'damageCrit',
+        'enabled', 'rangeMax', 'rangeMin', 'runemark', 'strength',
+        'bg01', 'bg02', 'bg03', 'bg04', 'bg05', 'bg06', 'bg07', 'bg08', 'bg09', 'bg10', 'bg11'], 4);
+
+    var exportName = data.fighterName;
+
+    var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(exportObj);
+    var downloadAnchorNode = document.createElement('a');
+    downloadAnchorNode.setAttribute("href", dataStr);
+    downloadAnchorNode.setAttribute("download", "warcry_fighter_" + exportName + ".json");
+    document.body.appendChild(downloadAnchorNode); // required for firefox
+    downloadAnchorNode.click();
+    downloadAnchorNode.remove();
+
 }
 
 function onLoadClicked() {
@@ -999,3 +1050,35 @@ $(document).ready(function () {
     ctx.arc(95, 50, 40, 0, 2 * Math.PI);
     // ctx.stroke();
 });
+
+
+async function readJSONFile(file) {
+    // Function will return a new Promise which will resolve or reject based on whether the JSON file is read and parsed successfully
+    return new Promise((resolve, reject) => {
+        // Define a FileReader Object to read the file
+        let fileReader = new FileReader();
+        // Specify what the FileReader should do on the successful read of a file
+        fileReader.onload = event => {
+            // If successfully read, resolve the Promise with JSON parsed contents of the file
+            resolve(JSON.parse(event.target.result))
+        };
+        // If the file is not successfully read, reject with the error
+        fileReader.onerror = error => reject(error);
+        // Read from the file, which will kick-off the onload or onerror events defined above based on the outcome
+        fileReader.readAsText(file);
+    });
+
+}
+
+async function fileChange(file) {
+    // Function to be triggered when file input changes
+    // As readJSONFile is a promise, it must resolve before the contents can be read - in this case logged to the console
+    //readJSONFile(file).then(json => data);
+    readJSONFile(file).then(json =>
+        writeControls(json)
+    );
+    readJSONFile(file).then(json =>
+        render(json)
+    );
+
+}

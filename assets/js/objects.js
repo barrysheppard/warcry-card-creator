@@ -24,19 +24,19 @@ getContext = function () {
 }
 
 getBackgroundImage = function () {
-    if (document.getElementById('select_warcry_object_ghur').checked) {
+    if (document.getElementById('bg_ghur').checked) {
         return document.getElementById('warcry_object_ghur');
     }
-    if (document.getElementById('select_warcry_object_red').checked) {
+    if (document.getElementById('bg_red').checked) {
         return document.getElementById('warcry_object_red');
     }
-    if (document.getElementById('select_warcry_object_green').checked) {
+    if (document.getElementById('bg_green').checked) {
         return document.getElementById('warcry_object_green');
     }
-    if (document.getElementById('select_warcry_object_black').checked) {
+    if (document.getElementById('bg_black').checked) {
         return document.getElementById('warcry_object_black');
     }
-    if (document.getElementById('select_warcry_object_fire').checked) {
+    if (document.getElementById('bg_fire').checked) {
         return document.getElementById('warcry_object_fire');
     }
 }
@@ -187,13 +187,13 @@ function drawModel(imageUrl, imageProps) {
 }
 
 function getName() {
-    var textInput = $("#saveNameInput")[0];
-    return textInput.value;
+    //var textInput = $("#saveNameInput")[0];
+    return "Default";
 }
 
 function setName(name) {
-    var textInput = $("#saveNameInput")[0];
-    textInput.value = name;
+    //var textInput = $("#saveNameInput")[0];
+    //textInput.value = name;
 }
 
 function getModelImage() {
@@ -216,6 +216,13 @@ function readControls() {
     data.objectName = document.getElementById('object-name').value;
     data.objectText = document.getElementById('object-text').value;
     data.objectItalicText = document.getElementById('object-italic-text').value;
+
+    data.bg_ghur = document.getElementById('bg_ghur').checked;
+    data.bg_red = document.getElementById('bg_red').checked;
+    data.bg_green = document.getElementById('bg_green').checked;
+    data.bg_black = document.getElementById('bg_black').checked;
+    data.bg_fire = document.getElementById('bg_fire').checked;
+
     return data;
 }
 
@@ -259,6 +266,13 @@ function writeControls(cardData) {
     $('#object-name').value = cardData.objectName;
     $('#object-text').value = cardData.objectText;
     $('#object-italic-text').value = cardData.objectItalicText;
+
+    // check and uncheck if needed
+    document.getElementById('bg_ghur').checked = cardData.bg_ghur;
+    document.getElementById('bg_red').checked = cardData.bg_red;
+    document.getElementById('bg_green').checked = cardData.bg_green;
+    document.getElementById('bg_black').checked = cardData.bg_black;
+    document.getElementById('bg_fire').checked = cardData.bg_fire;
 }
 
 function defaultCardData() {
@@ -271,6 +285,12 @@ function defaultCardData() {
     cardData.objectTitle = 'Lesser Artefact';
     cardData.objectText = "\n\n\n[Consumable] Discard this card\nafter use.\nBonus Action: Heal 1d6 damage\nfrom this fighter.";
     cardData.objectItalicText = "\nFlavour text in italics.";
+
+    cardData.bg_ghur = true;
+    cardData.bg_red = false;
+    cardData.bg_green = false;
+    cardData.bg_black = false;
+    cardData.bg_fire = false;
 
     return cardData;
 }
@@ -517,3 +537,61 @@ $(document).ready(function () {
     ctx.arc(95, 50, 40, 0, 2 * Math.PI);
     // ctx.stroke();
 });
+
+
+
+
+
+async function readJSONFile(file) {
+    // Function will return a new Promise which will resolve or reject based on whether the JSON file is read and parsed successfully
+    return new Promise((resolve, reject) => {
+        // Define a FileReader Object to read the file
+        let fileReader = new FileReader();
+        // Specify what the FileReader should do on the successful read of a file
+        fileReader.onload = event => {
+            // If successfully read, resolve the Promise with JSON parsed contents of the file
+            resolve(JSON.parse(event.target.result))
+        };
+        // If the file is not successfully read, reject with the error
+        fileReader.onerror = error => reject(error);
+        // Read from the file, which will kick-off the onload or onerror events defined above based on the outcome
+        fileReader.readAsText(file);
+    });
+
+}
+
+
+async function fileChange(file) {
+    // Function to be triggered when file input changes
+    // As readJSONFile is a promise, it must resolve before the contents can be read - in this case logged to the console
+    //readJSONFile(file).then(json => data);
+    readJSONFile(file).then(json =>
+        writeControls(json)
+    );
+    readJSONFile(file).then(json =>
+        render(json)
+    );
+
+}
+
+
+async function onSaveClicked() {
+
+    data = readControls();
+    // temp null while I work out image saving
+    data.imageUrl = null;
+    console.log(data);
+    var exportObj = JSON.stringify(data, null, 4);
+
+    var exportName = data.objectName;
+
+    var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(exportObj);
+    var downloadAnchorNode = document.createElement('a');
+    downloadAnchorNode.setAttribute("href", dataStr);
+    downloadAnchorNode.setAttribute("download", "warcry_object_" + exportName + ".json");
+    document.body.appendChild(downloadAnchorNode); // required for firefox
+    downloadAnchorNode.click();
+    downloadAnchorNode.remove();
+
+    console.log(data);
+}
