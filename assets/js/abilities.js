@@ -75,8 +75,6 @@ drawCardElementFromInputId = function (inputId, pixelPosition) {
     drawCardElementFromInput(document.getElementById(inputId), pixelPosition);
 }
 
-
-
 drawAbility = function (id, pixelPosition) {
     getContext().font = '28px Georgia, serif';
     getContext().fillStyle = 'black';
@@ -278,38 +276,39 @@ function drawImageSrc(scaledPosition, scaledSize, imageSrc) {
 function drawTagRunemark(index, runemark, row) {
     // draw the runemarks
     var positions = []
+    y_pos = 210;
 
     if (document.getElementById('ability7-toggle').checked) {
 
         if (row == 1 && document.getElementById('ability1-toggle').checked) {
-            positions = [{ x: 175, y: 225 }, { x: 285, y: 225 }, { x: 395, y: 225 }];
+            positions = [{ x: 175, y: 210 }, { x: 285, y: 210 }, { x: 395, y: 210 }];
         } else if (row == 2 && document.getElementById('ability2-toggle').checked) {
-            positions = [{ x: 175, y: 375 }, { x: 285, y: 375 }, { x: 395, y: 375 }];
+            positions = [{ x: 175, y: 360 }, { x: 285, y: 360 }, { x: 395, y: 360 }];
         } else if (row == 3 && document.getElementById('ability3-toggle').checked) {
-            positions = [{ x: 175, y: 525 }, { x: 285, y: 525 }, { x: 395, y: 525 }];
+            positions = [{ x: 175, y: 510 }, { x: 285, y: 510 }, { x: 395, y: 510 }];
         } else if (row == 4 && document.getElementById('ability4-toggle').checked) {
-            positions = [{ x: 175, y: 675 }, { x: 285, y: 675 }, { x: 395, y: 675 }];
+            positions = [{ x: 175, y: 660 }, { x: 285, y: 660 }, { x: 395, y: 660 }];
         } else if (row == 5 && document.getElementById('ability5-toggle').checked) {
-            positions = [{ x: 175, y: 825 }, { x: 285, y: 825 }, { x: 395, y: 825 }];
+            positions = [{ x: 175, y: 810 }, { x: 285, y: 810 }, { x: 395, y: 810 }];
         } else if (row == 6 && document.getElementById('ability6-toggle').checked) {
-            positions = [{ x: 175, y: 975 }, { x: 285, y: 975 }, { x: 395, y: 975 }];
+            positions = [{ x: 175, y: 960 }, { x: 285, y: 960 }, { x: 395, y: 960 }];
         } else if (row == 7 && document.getElementById('ability7-toggle').checked) {
-            positions = [{ x: 175, y: 1125 }, { x: 285, y: 1125 }, { x: 395, y: 1125 }];
+            positions = [{ x: 175, y: 1110 }, { x: 285, y: 1110 }, { x: 395, y: 1110 }];
         }
     }
     else {
         if (row == 1 && document.getElementById('ability1-toggle').checked) {
-            positions = [{ x: 175, y: 225 }, { x: 285, y: 225 }, { x: 395, y: 225 }];
+            positions = [{ x: 175, y: 210 }, { x: 285, y: 210 }, { x: 395, y: 210 }];
         } else if (row == 2 && document.getElementById('ability2-toggle').checked) {
-            positions = [{ x: 175, y: 410 }, { x: 285, y: 410 }, { x: 395, y: 410 }];
+            positions = [{ x: 175, y: 385 }, { x: 285, y: 385 }, { x: 395, y: 385 }];
         } else if (row == 3 && document.getElementById('ability3-toggle').checked) {
-            positions = [{ x: 175, y: 580 }, { x: 285, y: 580 }, { x: 395, y: 580 }];
+            positions = [{ x: 175, y: 560 }, { x: 285, y: 560 }, { x: 395, y: 560 }];
         } else if (row == 4 && document.getElementById('ability4-toggle').checked) {
-            positions = [{ x: 175, y: 760 }, { x: 285, y: 760 }, { x: 395, y: 760 }];
+            positions = [{ x: 175, y: 735 }, { x: 285, y: 735 }, { x: 395, y: 735 }];
         } else if (row == 5 && document.getElementById('ability5-toggle').checked) {
-            positions = [{ x: 175, y: 940 }, { x: 285, y: 940 }, { x: 395, y: 940 }];
+            positions = [{ x: 175, y: 900 }, { x: 285, y: 900 }, { x: 395, y: 900 }];
         } else if (row == 6 && document.getElementById('ability6-toggle').checked) {
-            positions = [{ x: 175, y: 1115 }, { x: 285, y: 1115 }, { x: 395, y: 1115 }];
+            positions = [{ x: 175, y: 1075 }, { x: 285, y: 1075 }, { x: 395, y: 1075 }];
         }
     }
 
@@ -517,7 +516,7 @@ function drawFactionRunemark(image, inc) {
     // drawImageSrc({x: 57.5, y: 57.5}, {x: 100, y: 100}, image);
     // if we have 6 items then it's different spacing to seven
     // both start here
-    y_pos = 225;
+    y_pos = 205;
     // for 7 spacing its + 150 for 6 spacing it's + 175
     drawImageSrc({ x: 92.5, y: 35 }, { x: 135, y: 135 }, image);
     if (getSelectedSubfactionRunemark() == null || getSelectedSubfactionRunemark() == 'assets/img/blank.gif') {
@@ -576,7 +575,7 @@ function drawSubfactionRunemark(image, inc) {
     // drawImageSrc({x: 57.5, y: 57.5}, {x: 90, y: 90}, image);
     // if we have 6 items then it's different spacing to seven
     // both start here
-    y_pos = 225;
+    y_pos = 210;
     // for 7 spacing its + 150 for 6 spacing it's + 175
     drawImageSrc({ x: 224, y: 58 }, { x: 90, y: 90 }, image);
 
@@ -631,12 +630,12 @@ render = function (cardData) {
     drawCardTitle(cardData.cardTitle);
 
     if (document.getElementById('ability7-toggle').checked) {
-        drawFactionRunemark(cardData.factionRunemark, 150);
-        drawSubfactionRunemark(cardData.subfactionRunemark, 150);
+        drawFactionRunemark(cardData.factionRunemark, 151);
+        drawSubfactionRunemark(cardData.subfactionRunemark, 151);
     }
     else {
-        drawFactionRunemark(cardData.factionRunemark, 175);
-        drawSubfactionRunemark(cardData.subfactionRunemark, 175);
+        drawFactionRunemark(cardData.factionRunemark, 174);
+        drawSubfactionRunemark(cardData.subfactionRunemark, 174);
     }
 
     // idea here is to check the number of runemarks being used per row
@@ -656,57 +655,60 @@ render = function (cardData) {
     if (max_tagRunemarks > 2) {
         x_value = 500;
     }
+    y_value = 210;
+    // for 7 spacing its + 150 for 6 spacing it's + 175
+
     if (document.getElementById('ability7-toggle').checked) {
         if (document.getElementById('ability1-toggle').checked) {
-            drawAbility(1, { x: x_value, y: 225 });
+            drawAbility(1, { x: x_value, y: y_value });
         }
-
+        y_value += 150;
         if (document.getElementById('ability2-toggle').checked) {
-            drawAbility(2, { x: x_value, y: 375 });
+            drawAbility(2, { x: x_value, y: y_value });
         }
-
+        y_value += 150;
         if (document.getElementById('ability3-toggle').checked) {
-            drawAbility(3, { x: x_value, y: 525 });
+            drawAbility(3, { x: x_value, y: y_value });
         }
-
+        y_value += 150;
         if (document.getElementById('ability4-toggle').checked) {
-            drawAbility(4, { x: x_value, y: 675 });
+            drawAbility(4, { x: x_value, y: y_value });
         }
-
+        y_value += 150;
         if (document.getElementById('ability5-toggle').checked) {
-            drawAbility(5, { x: x_value, y: 800 });
+            drawAbility(5, { x: x_value, y: y_value });
         }
-
+        y_value += 150;
         if (document.getElementById('ability6-toggle').checked) {
-            drawAbility(6, { x: x_value, y: 950 });
+            drawAbility(6, { x: x_value, y: y_value });
         }
-
+        y_value += 150;
         if (document.getElementById('ability7-toggle').checked) {
-            drawAbility(7, { x: x_value, y: 1100 });
+            drawAbility(7, { x: x_value, y: y_value });
         }
     } else {
         if (document.getElementById('ability1-toggle').checked) {
-            drawAbility(1, { x: x_value, y: 225 });
+            drawAbility(1, { x: x_value, y: y_value });
         }
-
+        y_value += 175;
         if (document.getElementById('ability2-toggle').checked) {
-            drawAbility(2, { x: x_value, y: 400 });
+            drawAbility(2, { x: x_value, y: y_value });
         }
-
+        y_value += 175;
         if (document.getElementById('ability3-toggle').checked) {
-            drawAbility(3, { x: x_value, y: 575 });
+            drawAbility(3, { x: x_value, y: y_value });
         }
-
+        y_value += 175;
         if (document.getElementById('ability4-toggle').checked) {
-            drawAbility(4, { x: x_value, y: 750 });
+            drawAbility(4, { x: x_value, y: y_value });
         }
-
+        y_value += 175;
         if (document.getElementById('ability5-toggle').checked) {
-            drawAbility(5, { x: x_value, y: 925 });
+            drawAbility(5, { x: x_value, y: y_value });
         }
-
+        y_value += 175;
         if (document.getElementById('ability6-toggle').checked) {
-            drawAbility(6, { x: x_value, y: 1100 });
+            drawAbility(6, { x: x_value, y: y_value });
         }
 
     }
@@ -774,7 +776,6 @@ function writeControls(cardData) {
     document.getElementById("ability5-text").value = cardData.ability5Text;
     document.getElementById("ability6-text").value = cardData.ability6Text;
     document.getElementById("ability7-text").value = cardData.ability7Text;
-
 
     // this doesn't appear to work
     var runes_one = cardData.tagRunemarksOne,
@@ -861,7 +862,6 @@ function writeControls(cardData) {
             getImage(getLabel(document.getElementById(rune_id))).style.backgroundColor = "#00bc8c";
         }
     }
-
 
     // check and uncheck backgrounds if needed
     document.getElementById('bg-01').checked = cardData.bg01;
