@@ -649,7 +649,6 @@ function onResetToDefault() {
 async function onSaveClicked() {
 
     data = readControls();
-    console.log(data);
     var exportObj = JSON.stringify(data, null, 4);
     var exportName = data.cardTitle;
     var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(exportObj);
@@ -664,7 +663,6 @@ async function onSaveClicked() {
 function readTagRunemark(num) {
     var array = new Array;
     mark_name = "#tagRunemarkSelect_abilitiesCollapseFour" + num;
-    console.log(mark_name);
     var checkedBoxes = $(mark_name).find('input:checked');
     for (i = 0; i < checkedBoxes.length; i++) {
         array.push(getImage(getLabel(checkedBoxes[i])).getAttribute("src"));
@@ -838,9 +836,9 @@ function render(cardData) {
     cardData.tagRunemarksSix, cardData.tagRunemarksSeven];
     // draw the runemarks
     for (x in tagRunemark) {
-        for (i = 0; i < tagRunemark[x].length; i++) {
+        for (i in tagRunemark[x]) {
             // this will only draw the first 3 runemarks per row
-            drawTagRunemark(i, tagRunemark[x][i], parseInt(x) + 1);
+            drawTagRunemark(parseInt(i), tagRunemark[x][i], parseInt(x) + 1);
         }
     }
 }
@@ -1042,7 +1040,6 @@ function writeControls(cardData) {
         if (all_runes[i].length > 0) {
             for (j in all_runes[i]) {
                 rune_id = getTagRunemarkId(all_runes[i][j], tagPrefix[i]);
-                //console.log(rune_id + ": " +  all_runes[i][j]);
                 document.getElementById(rune_id).checked = true;
                 getImage(getLabel(document.getElementById(rune_id))).style.backgroundColor = "#00bc8c";
             }

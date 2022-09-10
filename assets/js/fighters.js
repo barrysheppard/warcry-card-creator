@@ -136,21 +136,15 @@ drawWeapon = function (weaponData, pixelPosition) {
     drawWeaponStatblock(pixelPosition);
 
     var statsPosY = pixelPosition.y + 95;
-
     var range = (weaponData.rangeMin > 0 ? (weaponData.rangeMin + "-") : "") + weaponData.rangeMax;
-
     getContext().textAlign = "center";
-
     writeScaled(range, { x: pixelPosition.x + 250, y: statsPosY });
-
     writeScaled(
         weaponData.attacks,
         { x: pixelPosition.x + 440, y: statsPosY });
-
     writeScaled(
         weaponData.strength,
         { x: pixelPosition.x + 620, y: statsPosY });
-
     writeScaled(
         weaponData.damageBase + "/" + weaponData.damageCrit,
         { x: pixelPosition.x + 790, y: statsPosY });
@@ -482,6 +476,9 @@ function readControls() {
     data.bg09 = document.getElementById('bg-09').checked;
     data.bg10 = document.getElementById('bg-10').checked;
     data.bg11 = document.getElementById('bg-11').checked;
+
+    //data.fighterImg = $("#imageSelect")[0];
+    console.log(data.imageUrl);
     return data;
 }
 
@@ -647,8 +644,6 @@ function writeControls(fighterData) {
     document.getElementById('bg-09').checked = fighterData.bg09;
     document.getElementById('bg-10').checked = fighterData.bg10;
     document.getElementById('bg-11').checked = fighterData.bg11;
-
-
 }
 
 function defaultFighterData() {
@@ -938,7 +933,7 @@ function addToImageCheckboxSelector(imgSrc, grid, bgColor) {
     grid.appendChild(div);
     return div;
 }
-
+/*
 function onTagRunemarkFileSelect() {
     var imageSelect = $("#additionalTagMarkSelect")[0];
     var selectGrid = $("#tagRunemarkSelect")[0];
@@ -947,7 +942,7 @@ function onTagRunemarkFileSelect() {
         addToImageCheckboxSelector(URL.createObjectURL(imageSelect.files[i]), selectGrid, "white");
     }
 }
-
+*/
 function onClearCache() {
     window.localStorage.clear();
     location.reload();
@@ -980,21 +975,16 @@ function refreshSaveSlots() {
 }
 
 async function onSaveClicked() {
-    //var fighterData = readControls();
-    //console.log("Saving '" + fighterData.name + "'...");
-    //saveFighterData(fighterData);
-    //refreshSaveSlots();
-
     data = readControls();
     // temp null while I work out image saving
     data.imageUrl = null;
+    // need to be explicit due to sub arrays
     var exportObj = JSON.stringify(data, ['name', 'imageUrl', 'imageProperties', 'offsetX', 'offsetY',
         'scalePercent', 'factionRunemark', 'subfactionRunemark', 'deploymentRunemark', 'fighterName', 'fighterName2',
         'toughness', 'wounds', 'move', 'pointCost', 'tagRunemarks', 'weapon1', 'attacks', 'damageBase', 'damageCrit',
         'enabled', 'rangeMax', 'rangeMin', 'runemark', 'strength', 'weapon2', 'attacks', 'damageBase', 'damageCrit',
         'enabled', 'rangeMax', 'rangeMin', 'runemark', 'strength',
         'bg01', 'bg02', 'bg03', 'bg04', 'bg05', 'bg06', 'bg07', 'bg08', 'bg09', 'bg10', 'bg11'], 4);
-
     var exportName = data.fighterName;
 
     var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(exportObj);
@@ -1004,34 +994,7 @@ async function onSaveClicked() {
     document.body.appendChild(downloadAnchorNode); // required for firefox
     downloadAnchorNode.click();
     downloadAnchorNode.remove();
-
 }
-
-function onLoadClicked() {
-    var fighterDataName = $('#saveSlotsSelect').find(":selected").text();
-    console.log("Loading '" + fighterDataName + "'...");
-    fighterData = loadFighterData(fighterDataName);
-    writeControls(fighterData);
-    render(fighterData);
-    refreshSaveSlots();
-}
-
-function onDeleteClicked() {
-    var fighterDataName = $('#saveSlotsSelect').find(":selected").text();
-
-    console.log("Deleting '" + fighterDataName + "'...");
-
-    var map = loadFighterDataMap();
-    delete map[fighterDataName];
-
-    saveFighterDataMap(map);
-
-    refreshSaveSlots();
-}
-
-// …
-// …
-// …
 
 function saveCardAsImage() {
     var element = document.createElement('a');
@@ -1051,7 +1014,6 @@ $(document).ready(function () {
     // ctx.stroke();
 });
 
-
 async function readJSONFile(file) {
     // Function will return a new Promise which will resolve or reject based on whether the JSON file is read and parsed successfully
     return new Promise((resolve, reject) => {
@@ -1067,7 +1029,6 @@ async function readJSONFile(file) {
         // Read from the file, which will kick-off the onload or onerror events defined above based on the outcome
         fileReader.readAsText(file);
     });
-
 }
 
 async function fileChange(file) {
@@ -1080,5 +1041,4 @@ async function fileChange(file) {
     readJSONFile(file).then(json =>
         render(json)
     );
-
 }
