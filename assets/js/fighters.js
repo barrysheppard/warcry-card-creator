@@ -101,14 +101,23 @@ drawFighterName2 = function (value) {
 }
 
 drawToughness = function (value) {
+    if (value == "0") {
+        value = "*";
+    }
     writeScaled(value, { x: 545, y: 391 });
 }
 
 drawWounds = function (value) {
+    if (value == "0") {
+        value = "*";
+    }
     writeScaled(value, { x: 380, y: 510 });
 }
 
 drawMove = function (value) {
+    if (value == "0") {
+        value = "*";
+    }
     writeScaled(value, { x: 220, y: 391 });
 }
 
@@ -134,6 +143,14 @@ drawWeaponStatblock = function (pixelPosition) {
 
 drawWeapon = function (weaponData, pixelPosition) {
     drawWeaponStatblock(pixelPosition);
+
+    if (weaponData.damageBase == "0") {
+        weaponData.damageBase = "*";
+    }
+
+    if (weaponData.damageCrit == "0") {
+        weaponData.damageCrit = "*";
+    }
 
     var statsPosY = pixelPosition.y + 95;
     var range = (weaponData.rangeMin > 0 ? (weaponData.rangeMin + "-") : "") + weaponData.rangeMax;
