@@ -1,6 +1,17 @@
 @import url("../vendors/bootswatch-darkly.min.css") (prefers-color-scheme: dark);
 @import url("../vendors/bootswatch-flatly.min.css") (prefers-color-scheme: light);
 
+::-moz-selection {
+    /* Code for Firefox */
+    color: black;
+    background: lightblue;
+}
+
+::selection {
+    color: black;
+    background: lightblue;
+}
+
 @font-face {
     font-family: "rodchenkoctt";
     font-style: normal;
