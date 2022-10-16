@@ -85,7 +85,8 @@ drawObjectText = function (value) {
     getContext().fillStyle = 'black';
     getContext().textAlign = 'left';
 
-    var lines = value.split('\n');
+    lines = splitWordWrap(getContext(), value, 150);
+
     for (var i = 0; i < lines.length; i++) {
         writeScaled(lines[i], { x: 20, y: 80 + (i * 10) });
     }
@@ -96,11 +97,38 @@ drawObjectItalicText = function (value) {
     getContext().fillStyle = 'black';
     getContext().textAlign = 'left';
 
-    var lines = value.split('\n');
+    lines = splitWordWrap(getContext(), value, 150);
+
     for (var i = 0; i < lines.length; i++) {
-        writeScaled(lines[i], { x: 20, y: 60 + (i * 10) });
+        writeScaled(lines[i], { x: 20, y: 70 + (i * 10) });
     }
 }
+
+drawBodyText = function (italicText, normalText) {
+
+    getContext().font = 'italic 9px helvetica';
+    getContext().fillStyle = 'black';
+    getContext().textAlign = 'center';
+
+    currentPrintLine = 70; // The y for the first line
+    nextLineSize = 10; // The amount to add to y for next line
+
+    lines = splitWordWrap(getContext(), italicText, 150);
+    for (var i = 0; i < lines.length; i++) {
+        writeScaled(lines[i], { x: 88, y: currentPrintLine });
+        currentPrintLine = currentPrintLine + nextLineSize;
+    }
+
+    // Same again but this time without italics
+    getContext().font = '9px helvetica';
+
+    lines = splitWordWrap(getContext(), normalText, 150);
+    for (var i = 0; i < lines.length; i++) {
+        writeScaled(lines[i], { x: 88, y: currentPrintLine });
+        currentPrintLine = currentPrintLine + nextLineSize;
+    }
+}
+
 
 function getLabel(element) {
     return $(element).prop("labels")[0];
@@ -243,8 +271,7 @@ render = function (cardData) {
             // These are the texts to go over the image
             drawObjectTitle(cardData.objectTitle);
             drawObjectName(cardData.objectName);
-            drawObjectText(cardData.objectText);
-            drawObjectItalicText(cardData.objectItalicText);
+            drawBodyText(cardData.objectItalicText, cardData.objectText);
             URL.revokeObjectURL(image.src);
         };
         image.src = cardData.imageUrl;
@@ -252,8 +279,7 @@ render = function (cardData) {
         // draw the same texts without the image
         drawObjectTitle(cardData.objectTitle);
         drawObjectName(cardData.objectName);
-        drawObjectText(cardData.objectText);
-        drawObjectItalicText(cardData.objectItalicText);
+        drawBodyText(cardData.objectItalicText, cardData.objectText);
     }
 };
 
@@ -283,8 +309,8 @@ function defaultCardData() {
 
     cardData.objectName = 'Healing Potion';
     cardData.objectTitle = 'Lesser Artefact';
-    cardData.objectText = "\n\n\n[Consumable] Discard this card\nafter use.\nBonus Action: Heal 1d6 damage\nfrom this fighter.";
-    cardData.objectItalicText = "\nFlavour text in italics.";
+    cardData.objectText = "[Consumable] Discard this card after use.\nBonus Action: Heal 1d6 damage from this fighter.";
+    cardData.objectItalicText = "Flavour text in italics.";
 
     cardData.bg_ghur = true;
     cardData.bg_red = false;
@@ -594,4 +620,43 @@ async function onSaveClicked() {
     downloadAnchorNode.remove();
 
     console.log(data);
+}
+
+
+function splitWordWrap(context, text, fitWidth) {
+    // this was modified from the print version to only return the text array
+    return_array = [];
+    var lines = text.split('\n');
+    lineNum = 0;
+    for (var i = 0; i < lines.length; i++) {
+        fitWidth = fitWidth || 0;
+        if (fitWidth <= 0) {
+            return_array.push(lines[i]);
+            lineNum++;
+        }
+        var words = lines[i].split(' ');
+        var idx = 1;
+        while (words.length > 0 && idx <= words.length) {
+            var str = words.slice(0, idx).join(' ');
+            var w = context.measureText(str).width;
+
+            if (w > fitWidth) {
+                if (idx == 1) {
+                    idx = 2;
+                }
+                return_array.push(words.slice(0, idx - 1).join(' '));
+                lineNum++;
+                words = words.splice(idx - 1);
+                idx = 1;
+            }
+            else {
+                idx++;
+            }
+        }
+        if (idx > 0) {
+            return_array.push(words.join(' '));
+            lineNum++;
+        }
+    }
+    return return_array;
 }
