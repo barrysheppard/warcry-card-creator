@@ -51,13 +51,13 @@ function defaultCardData() {
     cardData.ability6Name = 'Sixth ability name';
     cardData.ability7Name = 'Seventh ability name';
 
-    cardData.ability1Text = '    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
-    cardData.ability2Text = '    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
-    cardData.ability3Text = '    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
-    cardData.ability4Text = '    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
-    cardData.ability5Text = '    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
-    cardData.ability6Text = '    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
-    cardData.ability7Text = '    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
+    cardData.ability1Text = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
+    cardData.ability2Text = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
+    cardData.ability3Text = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
+    cardData.ability4Text = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
+    cardData.ability5Text = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
+    cardData.ability6Text = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
+    cardData.ability7Text = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
 
     cardData.tagRunemarksOne = new Array;
     cardData.tagRunemarksOne.push('runemarks/black/fighters-berserker.svg');
@@ -97,66 +97,75 @@ function drawAbility(id, pixelPosition) {
         transQuad = document.getElementById('card-translation-quad').value;
 
     // https://stackoverflow.com/a/35119260; http://jsfiddle.net/BaG4J/1/
-    var textblock = (function () {
-        var txt = '';
-        var title = '';
+    //var textblock = (function () {
+    var txt = '';
+    var title = '';
 
-        if (reaction.checked) {
-            if (transReaction.length) {
-                //var txt = '[' + transReaction + '] ' + name + ': ' + text;
-                // new title variable for the text to be in bold
-                var title = '[' + transReaction + '] ' + name + ': ';
-                // this adds spaces equal to twice the title length (as it's bold) to the text
-                var txt = '  '.repeat(title.length) + text;
-            } else {
-                var title = '[Reaction] ' + name + ': ';
-                var txt = ' '.repeat(title.length) + text;
-                //var txt = '[Reaction] ' + name + ': ' + text;
-            }
-        } else if (double.checked) {
-            if (transDouble.length) {
-                var title = '[' + transDouble + '] ' + name + ': ';
-                var txt = '  '.repeat(title.length) + text;
-            } else {
-                var title = '[Double] ' + name + ': ';
-                var txt = ' '.repeat(title.length) + text;
-            }
-        } else if (triple.checked) {
-            if (transTriple.length) {
-                var title = '[' + transTriple + '] ' + name + ': ';
-                var txt = '  '.repeat(title.length) + text;
-            } else {
-                var title = '[Triple] ' + name + ': ';
-                var txt = ' '.repeat(title.length) + text;
-            }
-        } else if (quad.checked) {
-            if (transQuad.length) {
-                var title = '[' + transQuad + '] ' + name + ': ';
-                var txt = '  '.repeat(title.length) + text;
-            } else {
-                var title = '[Quad] ' + name + ': ';
-                var txt = ' '.repeat(title.length) + text;
-            }
+    if (reaction.checked) {
+        if (transReaction.length) {
+            //var txt = '[' + transReaction + '] ' + name + ': ' + text;
+            // new title variable for the text to be in bold
+            var title = '[' + transReaction + '] ' + name + ': ';
+        } else {
+            var title = '[Reaction] ' + name + ': ';
         }
-
-        // Print new title variable
-        getContext().font = 'bold 28px Georgia, serif';
-        writeScaled(title,
-            { x: pixelPosition.x, y: pixelPosition.y }
-        );
-        getContext().font = '28px Georgia, serif';
-
-        // allow carriage returns in the ability text
-        var lines = txt.split('\n');
-
-        for (var i = 0; i < lines.length; i++) {
-            writeScaled(
-                lines[i],
-                { x: pixelPosition.x, y: pixelPosition.y + (i * 35) }
-            );
+    } else if (double.checked) {
+        if (transDouble.length) {
+            var title = '[' + transDouble + '] ' + name + ': ';
+        } else {
+            var title = '[Double] ' + name + ': ';
         }
-    })();
+    } else if (triple.checked) {
+        if (transTriple.length) {
+            var title = '[' + transTriple + '] ' + name + ': ';
+        } else {
+            var title = '[Triple] ' + name + ': ';
+        }
+    } else if (quad.checked) {
+        if (transQuad.length) {
+            var title = '[' + transQuad + '] ' + name + ': ';
+        } else {
+            var title = '[Quad] ' + name + ': ';
+        }
+    }
+
+    // Print new title variable
+    getContext().font = 'bold 28px Georgia, serif';
+    writeScaled(title, { x: pixelPosition.x, y: pixelPosition.y });
+    // record the bold width for later use
+    var titleWidth = getContext().measureText(title).width;
+    getContext().font = '28px Georgia, serif';
+
+
+    // Get how many runemarks are tick
+    // This will determine how far the word wrap should go
+    max_tagRunemarks = Math.max(readTagRunemark("One").length, readTagRunemark("Two").length,
+        readTagRunemark("Three").length, readTagRunemark("Four").length,
+        readTagRunemark("Five").length, readTagRunemark("Six").length,
+        readTagRunemark("Seven").length);
+    if (max_tagRunemarks < 2) {
+        fitWidth = 1400;
+    }
+    if (max_tagRunemarks == 2) {
+        fitWidth = 1300;
+    }
+    if (max_tagRunemarks > 2) {
+        fitWidth = 1200;
+    }
+
+    // this will add carriage turns if needed
+    lines = splitWordWrap(getContext(), text, fitWidth, titleWidth);
+
+
+    for (var i = 0; i < lines.length; i++) {
+        if (i == 0) {
+            writeScaled(lines[i], { x: pixelPosition.x + titleWidth, y: pixelPosition.y + (i * 35) });
+        } else {
+            writeScaled(lines[i], { x: pixelPosition.x, y: pixelPosition.y + (i * 35) });
+        }
+    }
 }
+
 
 function drawBackground() {
     getContext().drawImage(
@@ -1085,3 +1094,44 @@ function writeValue(ctx, value, pos) {
     ctx.fillText(value, pos.x, pos.y);
     ctx.restore();
 }
+
+
+function splitWordWrap(context, text, fitWidth, titleWidth) {
+    // this was modified from the print version to only return the text array
+    return_array = [];
+    var lines = text.split('\n');
+    lineNum = 0;
+    for (var i = 0; i < lines.length; i++) {
+        fitWidth = fitWidth || 0;
+        if (fitWidth <= 0) {
+            return_array.push(lines[i]);
+            lineNum++;
+        }
+        var words = lines[i].split(' ');
+        var idx = 1;
+        while (words.length > 0 && idx <= words.length) {
+            var str = words.slice(0, idx).join(' ');
+            var w = context.measureText(str).width;
+            // by multipling titleWidth by boolean,
+            // it will only substract for the first line
+            if (w > fitWidth - titleWidth * (lineNum == 0)) {
+                if (idx == 1) {
+                    idx = 2;
+                }
+                return_array.push(words.slice(0, idx - 1).join(' '));
+                lineNum++;
+                words = words.splice(idx - 1);
+                idx = 1;
+            }
+            else {
+                idx++;
+            }
+        }
+        if (idx > 0) {
+            return_array.push(words.join(' '));
+            lineNum++;
+        }
+    }
+    return return_array;
+}
+
