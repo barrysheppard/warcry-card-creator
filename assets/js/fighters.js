@@ -563,7 +563,7 @@ render = function (fighterData) {
 
     // Section added below to try have text above uploaded image
 
-    if (fighterData.imageUrl != null) {
+    if (fighterData.imageUrl) {
         var image = new Image();
         image.onload = function () {
             var position = scalePixelPosition({ x: 590 + fighterData.imageProperties.offsetX, y: fighterData.imageProperties.offsetY });
