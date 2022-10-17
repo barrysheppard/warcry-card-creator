@@ -2,7 +2,8 @@
 
     <div class="card-header" id="fightersHeadingTwo">
         <h2 class="h5 mb-0">
-            <button class="btn btn-link" data-toggle="collapse" data-target="#fightersCollapseTwo" aria-expanded="false" aria-controls="fightersCollapseTwo">
+            <button class="btn btn-link" data-toggle="collapse" data-target="#fightersCollapseTwo" aria-expanded="false"
+                aria-controls="fightersCollapseTwo">
                 Fighter image
             </button>
         </h2>
@@ -13,8 +14,10 @@
 
             <div class="form-group">
                 <label for="imageSelect">Load image</label>
-                <input class="form-control-file" id="imageSelect" oninput="onAnyChange()" type="file">
+                <input class="form-control-file" id="imageSelect" oninput="onFighterImageUpload()" type="file">
             </div>
+
+            <input type="hidden" id="fighterImageUrl" name="fighterImageUrl" value="">
 
             <div class="form-group">
                 <label for="imageOffsetX">X offset (&#8596;)</label>
@@ -28,7 +31,8 @@
 
             <div class="form-group">
                 <label for="imageScalePercent">Scale (%)</label>
-                <input class="form-control" id="imageScalePercent" min="0" max="300" oninput="onAnyChange()" type="number" value="100" />
+                <input class="form-control" id="imageScalePercent" min="0" max="300" oninput="onAnyChange()"
+                    type="number" value="100" />
             </div>
 
         </div>

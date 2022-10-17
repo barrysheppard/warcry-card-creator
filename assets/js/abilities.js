@@ -24,7 +24,7 @@ function addToImageRadioSelector(imageSrc, imageSelector, radioGroupName, bgColo
 
 function defaultCardData() {
     var cardData = new Object;
-    cardData.name = 'Default'; // want to remove this eventually
+    cardData.name = "Warcry_Abliities"; // want to remove this eventually
 
     cardData.cardTitle = 'Iron Golem';
     cardData.cardTranslationAbilities = 'Abilities';
@@ -394,7 +394,7 @@ function getLatestCardDataName() {
 
 function getName() {
     //var textInput = $("#saveNameInput")[0];
-    return "Default";
+    return "Warcry_Abliities";
 }
 
 function getScalingFactor(canvas, warcryCardOne) {
@@ -535,15 +535,15 @@ function loadCardDataMap() {
     }
     // Set up the map.
     var map = new Object;
-    map["Default"] = defaultCardData();
+    map["Warcry_Abliities"] = defaultCardData();
     saveCardDataMap(map);
     return map;
 }
 
 function loadLatestCardData() {
-    var latestFighterName = window.localStorage.getItem("latestFighterName");
+    var latestFighterName = window.localStorage.getItem("latestAbilitiesName");
     if (latestFighterName == null) {
-        latestFighterName = "Default";
+        latestFighterName = "Warcry_Abliities";
     }
 
     console.log("Loading '" + latestFighterName + "'...");
@@ -555,7 +555,8 @@ function loadLatestCardData() {
         console.log(data);
     }
     else {
-        console.log("Failed to load a fighter data.");
+        console.log("Failed to load data - loading default");
+        data = defaultCardData();
     }
 
     return data;
@@ -872,7 +873,7 @@ function saveLatestCardData() {
         return;
     }
 
-    window.localStorage.setItem("latestFighterName", cardData.name);
+    window.localStorage.setItem("latestAbilitiesName", cardData.name);
     saveCardData(cardData);
 }
 
@@ -979,7 +980,7 @@ function setName(name) {
 
 function writeControls(cardData) {
     // Saving all the data from cardData into the selections in the webpage
-    setName(cardData.name); // want to remove this eventually
+    //setName(cardData.name); // want to remove this eventually
 
     $('#card-title').value = cardData.cardTitle;
     $('#card-translation-abilities').value = cardData.cardTranslationAbilities;
@@ -1063,12 +1064,14 @@ function writeControls(cardData) {
     document.getElementById('bg-06').checked = cardData.bg06;
     document.getElementById('bg-07').checked = cardData.bg07;
     document.getElementById('bg-08').checked = cardData.bg08;
+
+    // render the updated info
+    render(cardData);
 }
 
 window.onload = function () {
     var cardData = loadLatestCardData();
     writeControls(cardData);
-    render(cardData);
     refreshSaveSlots();
 }
 

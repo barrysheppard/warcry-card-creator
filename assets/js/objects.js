@@ -216,7 +216,7 @@ function drawModel(imageUrl, imageProps) {
 
 function getName() {
     //var textInput = $("#saveNameInput")[0];
-    return "Default";
+    return "Warcry_Object";
 }
 
 function setName(name) {
@@ -303,7 +303,7 @@ function writeControls(cardData) {
 
 function defaultCardData() {
     var cardData = new Object;
-    cardData.name = 'Default';
+    cardData.name = "Warcry_Object";
     cardData.imageUrl = null;
     cardData.imageProperties = getDefaultModelImageProperties();
 
@@ -332,7 +332,7 @@ function loadCardDataMap() {
     }
     // Set up the map.
     var map = new Object;
-    map["Default"] = defaultCardData();
+    map["Warcry_Object"] = defaultCardData();
     saveCardDataMap(map);
     return map;
 }
@@ -340,7 +340,7 @@ function loadCardDataMap() {
 function loadLatestCardData() {
     var latestObjectName = window.localStorage.getItem("latestObjectName");
     if (latestObjectName == null) {
-        latestObjectName = "Default";
+        latestObjectName = "Warcry_Object";
     }
 
     console.log("Loading '" + latestObjectName + "'...");

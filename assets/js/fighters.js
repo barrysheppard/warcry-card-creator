@@ -302,8 +302,7 @@ function drawModel(imageUrl, imageProps) {
             var width = image.width * scale;
             var height = image.height * scale;
             getContext().drawImage(image, position.x, position.y, width, height);
-
-            URL.revokeObjectURL(image.src);
+            //URL.revokeObjectURL(image.src);
         };
         image.src = imageUrl;
     }
@@ -311,12 +310,26 @@ function drawModel(imageUrl, imageProps) {
 
 function getName() {
     //var textInput = $("#saveNameInput")[0];
-    return "Default";
+    return "Warcry_Fighter_Card";
 }
 
 function setName(name) {
     //var textInput = $("#saveNameInput")[0];
     //textInput.value = name;
+}
+
+
+function setModelImage(image) {
+    console.log("setModelImage:" + image);
+    $("#fighterImageUrl")[0].value = image;
+
+    //  if (image != null) {
+    // TODO: Not sure how to do this. It might not even be possible! Leave it for now...
+    //    imageSelect.value = image;
+    // }
+    // else {
+    //    imageSelect.value = null;
+    // }
 }
 
 function getModelImage() {
@@ -325,20 +338,16 @@ function getModelImage() {
     if (imageSelect.files.length > 0) {
         return URL.createObjectURL(imageSelect.files[0]);
     }
-
     return null;
 }
 
-function setModelImage(image) {
-    var imageSelect = $("#imageSelect")[0];
 
-    if (image != null) {
-        // TODO: Not sure how to do this. It might not even be possible! Leave it for now...
-        // imageSelect.files[0] = image;
-    }
-    else {
-        imageSelect.value = null;
-    }
+function getFighterImageUrl() {
+    var imageSelect = $("#fighterImageUrl")[0].value;
+    // if (imageSelect.files.length > 0) {
+    //return URL.createObjectURL(imageSelect.files[0]);
+    // }
+    return imageSelect;
 }
 
 function getDefaultModelImageProperties() {
@@ -468,7 +477,7 @@ function setSelectedTagRunemarks(selectedRunemarksArray) {
 function readControls() {
     var data = new Object;
     data.name = getName();
-    data.imageUrl = getModelImage();
+    data.imageUrl = getFighterImageUrl();
     data.imageProperties = getModelImageProperties();
     data.factionRunemark = getSelectedFactionRunemark();
     data.subfactionRunemark = getSelectedSubfactionRunemark();
@@ -494,8 +503,6 @@ function readControls() {
     data.bg10 = document.getElementById('bg-10').checked;
     data.bg11 = document.getElementById('bg-11').checked;
 
-    //data.fighterImg = $("#imageSelect")[0];
-    console.log(data.imageUrl);
     return data;
 }
 
@@ -547,6 +554,9 @@ function drawDeploymentRunemark(image) {
 }
 
 render = function (fighterData) {
+    console.log("Render:");
+    console.log(fighterData);
+
     drawBackground();
 
     // drawModel(fighterData.imageUrl, fighterData.imageProperties);
@@ -565,8 +575,7 @@ render = function (fighterData) {
             // These are the texts to overlay
             drawFighterName(fighterData.fighterName);
             drawFighterName2(fighterData.fighterName2);
-
-            URL.revokeObjectURL(image.src);
+            //URL.revokeObjectURL(image.src);
         };
         image.src = fighterData.imageUrl;
     } else {
@@ -632,8 +641,25 @@ render = function (fighterData) {
     }
 }
 
-function writeControls(fighterData) {
-    setName(fighterData.name);
+async function writeControls(fighterData) {
+    //setName("Warcry_Fighter_Card"); // Always default, trying to move away from this
+
+    // here we check for base64 loaded image and convert it back to imageUrl
+    if (fighterData.base64Image != null) {
+
+        // first convert to blob
+        const dataToBlob = async (imageData) => {
+            return await (await fetch(imageData)).blob();
+        };
+        const blob = await dataToBlob(fighterData.base64Image);
+        // then create URL object
+        fighterData.imageUrl = URL.createObjectURL(blob);
+        // Now that's saved, clear out the base64 so we don't reassign
+        fighterData.base64Image = null;
+    } else {
+        fighterData.imageUrl = null;
+    }
+
     setModelImage(fighterData.imageUrl);
     setModelImageProperties(fighterData.imageProperties);
     setSelectedFactionRunemark(fighterData.factionRunemark);
@@ -661,11 +687,14 @@ function writeControls(fighterData) {
     document.getElementById('bg-09').checked = fighterData.bg09;
     document.getElementById('bg-10').checked = fighterData.bg10;
     document.getElementById('bg-11').checked = fighterData.bg11;
+
+    // render the updated info
+    render(fighterData);
 }
 
 function defaultFighterData() {
     var fighterData = new Object;
-    fighterData.name = 'Default';
+    fighterData.name = "Warcry_Fighter_Card";
     fighterData.imageUrl = null;
     fighterData.imageProperties = getDefaultModelImageProperties();
     fighterData.factionRunemark = 'runemarks/white/factions-chaos-iron-golems.svg';
@@ -708,7 +737,7 @@ function loadFighterDataMap() {
     }
     // Set up the map.
     var map = new Object;
-    map["Default"] = defaultFighterData();
+    map["Warcry_Fighter_Card"] = defaultFighterData();
     saveFighterDataMap(map);
     return map;
 }
@@ -716,7 +745,7 @@ function loadFighterDataMap() {
 function loadLatestFighterData() {
     var latestFighterName = window.localStorage.getItem("latestFighterName");
     if (latestFighterName == null) {
-        latestFighterName = "Default";
+        latestFighterName = "Warcry_Fighter_Card";
     }
 
     console.log("Loading '" + latestFighterName + "'...");
@@ -741,7 +770,7 @@ function saveLatestFighterData() {
     }
 
     window.localStorage.setItem("latestFighterName", fighterData.name);
-    saveFighterData(fighterData);
+    //saveFighterData(fighterData);
 }
 
 function loadFighterData(fighterDataName) {
@@ -795,7 +824,7 @@ async function handleImageUrlFromDisk(imageUrl) {
 
     return imageUrl;
 }
-
+/*
 async function saveFighterData(fighterData) {
     var finishSaving = function () {
         var map = loadFighterDataMap();
@@ -819,7 +848,7 @@ async function saveFighterData(fighterData) {
         finishSaving();
     }
 }
-
+*/
 function getLatestFighterDataName() {
     return "latestFighterData";
 }
@@ -828,11 +857,18 @@ window.onload = function () {
     //window.localStorage.clear();
     var fighterData = loadLatestFighterData();
     writeControls(fighterData);
-    render(fighterData);
     refreshSaveSlots();
 }
 
 onAnyChange = function () {
+    var fighterData = readControls();
+    render(fighterData);
+    saveLatestFighterData();
+}
+
+onFighterImageUpload = function () {
+    image = getModelImage();
+    setModelImage(image);
     var fighterData = readControls();
     render(fighterData);
     saveLatestFighterData();
@@ -950,16 +986,7 @@ function addToImageCheckboxSelector(imgSrc, grid, bgColor) {
     grid.appendChild(div);
     return div;
 }
-/*
-function onTagRunemarkFileSelect() {
-    var imageSelect = $("#additionalTagMarkSelect")[0];
-    var selectGrid = $("#tagRunemarkSelect")[0];
 
-    for (i = 0; i < imageSelect.files.length; i++) {
-        addToImageCheckboxSelector(URL.createObjectURL(imageSelect.files[i]), selectGrid, "white");
-    }
-}
-*/
 function onClearCache() {
     window.localStorage.clear();
     location.reload();
@@ -969,7 +996,6 @@ function onClearCache() {
 function onResetToDefault() {
     var fighterData = defaultFighterData();
     writeControls(fighterData);
-    render(fighterData);
 }
 
 function refreshSaveSlots() {
@@ -993,15 +1019,21 @@ function refreshSaveSlots() {
 
 async function onSaveClicked() {
     data = readControls();
+
+    // here is where we should be changing the imageUrl to base64
+    data.base64Image = await handleImageUrlFromDisk(data.imageUrl)
+
     // temp null while I work out image saving
-    data.imageUrl = null;
+    //data.imageUrl = null;
+
     // need to be explicit due to sub arrays
     var exportObj = JSON.stringify(data, ['name', 'imageUrl', 'imageProperties', 'offsetX', 'offsetY',
         'scalePercent', 'factionRunemark', 'subfactionRunemark', 'deploymentRunemark', 'fighterName', 'fighterName2',
         'toughness', 'wounds', 'move', 'pointCost', 'tagRunemarks', 'weapon1', 'attacks', 'damageBase', 'damageCrit',
         'enabled', 'rangeMax', 'rangeMin', 'runemark', 'strength', 'weapon2', 'attacks', 'damageBase', 'damageCrit',
         'enabled', 'rangeMax', 'rangeMin', 'runemark', 'strength',
-        'bg01', 'bg02', 'bg03', 'bg04', 'bg05', 'bg06', 'bg07', 'bg08', 'bg09', 'bg10', 'bg11'], 4);
+        'bg01', 'bg02', 'bg03', 'bg04', 'bg05', 'bg06', 'bg07', 'bg08', 'bg09', 'bg10', 'bg11',
+        'base64Image'], 4);
     var exportName = data.fighterName;
 
     var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(exportObj);
@@ -1050,12 +1082,16 @@ async function readJSONFile(file) {
 
 async function fileChange(file) {
     // Function to be triggered when file input changes
-    // As readJSONFile is a promise, it must resolve before the contents can be read - in this case logged to the console
-    //readJSONFile(file).then(json => data);
+    // As readJSONFile is a promise, it must resolve before the contents can be read
+    // in this case logged to the console
+
+    var saveJson = function (json) {
+        writeControls(json);
+    };
+
     readJSONFile(file).then(json =>
-        writeControls(json)
+        saveJson(json)
     );
-    readJSONFile(file).then(json =>
-        render(json)
-    );
+
 }
+
