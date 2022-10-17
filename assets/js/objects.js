@@ -291,13 +291,33 @@ render = function (cardData) {
 
 async function writeControls(cardData) {
     //setName(cardData.name);
+
+    console.log("writeControls");
+    console.log(cardData);
+
+    // here we check for base64 loaded image and convert it back to imageUrl
+    if (cardData.base64Image != null) {
+
+        // first convert to blob
+        const dataToBlob = async (imageData) => {
+            return await (await fetch(imageData)).blob();
+        };
+        const blob = await dataToBlob(cardData.base64Image);
+        // then create URL object
+        cardData.imageUrl = URL.createObjectURL(blob);
+        // Now that's saved, clear out the base64 so we don't reassign
+        cardData.base64Image = null;
+    } else {
+        cardData.imageUrl = null;
+    }
+
     setModelImage(cardData.imageUrl);
     setModelImageProperties(cardData.imageProperties);
 
-    $('#object-title').value = cardData.objectTitle;
-    $('#object-name').value = cardData.objectName;
-    $('#object-text').value = cardData.objectText;
-    $('#object-italic-text').value = cardData.objectItalicText;
+    $('#object-title')[0].value = cardData.objectTitle;
+    $('#object-name')[0].value = cardData.objectName;
+    $('#object-text')[0].value = cardData.objectText;
+    $('#object-italic-text')[0].value = cardData.objectItalicText;
 
     // check and uncheck if needed
     document.getElementById('bg_ghur').checked = cardData.bg_ghur;
@@ -495,6 +515,7 @@ function onClearCache() {
 }
 
 function onResetToDefault() {
+    onClearCache();
     var cardData = defaultCardData();
     writeControls(cardData);
     render(cardData);
@@ -519,11 +540,25 @@ function refreshSaveSlots() {
     }
 }
 
-function onSaveClicked() {
-    var cardData = readControls();
-    console.log("Saving '" + cardData.name + "'...");
-    //saveCardData(cardData);
-    refreshSaveSlots();
+async function onSaveClicked() {
+    data = readControls();
+    data.base64Image = null;
+    console.log("onSaveClicked:");
+    console.log(data);
+
+    // here is where we should be changing the imageUrl to base64
+    data.base64Image = await handleImageUrlFromDisk(data.imageUrl);
+
+    var exportObj = JSON.stringify(data, null, 4);
+    var exportName = data.objectName;
+
+    var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(exportObj);
+    var downloadAnchorNode = document.createElement('a');
+    downloadAnchorNode.setAttribute("href", dataStr);
+    downloadAnchorNode.setAttribute("download", "warcry_object_" + exportName + ".json");
+    document.body.appendChild(downloadAnchorNode); // required for firefox
+    downloadAnchorNode.click();
+    downloadAnchorNode.remove();
 }
 
 function onLoadClicked() {
@@ -600,31 +635,7 @@ async function fileChange(file) {
     readJSONFile(file).then(json =>
         writeControls(json)
     );
-    readJSONFile(file).then(json =>
-        render(json)
-    );
-
 }
-
-
-async function onSaveClicked() {
-
-    data = readControls();
-    // temp null while I work out image saving
-    data.imageUrl = null;
-    var exportObj = JSON.stringify(data, null, 4);
-
-    var exportName = data.objectName;
-
-    var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(exportObj);
-    var downloadAnchorNode = document.createElement('a');
-    downloadAnchorNode.setAttribute("href", dataStr);
-    downloadAnchorNode.setAttribute("download", "warcry_object_" + exportName + ".json");
-    document.body.appendChild(downloadAnchorNode); // required for firefox
-    downloadAnchorNode.click();
-    downloadAnchorNode.remove();
-}
-
 
 function splitWordWrap(context, text, fitWidth) {
     // this was modified from the print version to only return the text array
