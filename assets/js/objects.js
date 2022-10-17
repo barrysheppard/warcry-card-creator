@@ -161,7 +161,6 @@ function drawImageSrc(scaledPosition, scaledSize, imageSrc) {
 
 
 function setModelImage(image) {
-
     console.log("setModelImage:" + image);
     $("#objectImageUrl")[0].value = image;
 
@@ -255,14 +254,16 @@ function readControls() {
     data.bg_green = document.getElementById('bg_green').checked;
     data.bg_black = document.getElementById('bg_black').checked;
     data.bg_fire = document.getElementById('bg_fire').checked;
-
     return data;
 }
 
 render = function (cardData) {
+
+    console.log(cardData);
+
     drawBackground();
 
-    if (cardData.imageUrl != null) {
+    if (cardData.imageUrl) {
         var image = new Image();
         image.onload = function () {
             var position = scalePixelPosition({ x: cardData.imageProperties.offsetX, y: cardData.imageProperties.offsetY });
@@ -277,7 +278,7 @@ render = function (cardData) {
             drawObjectTitle(cardData.objectTitle);
             drawObjectName(cardData.objectName);
             drawBodyText(cardData.objectItalicText, cardData.objectText);
-            URL.revokeObjectURL(image.src);
+            //URL.revokeObjectURL(image.src);
         };
         image.src = cardData.imageUrl;
     } else {
@@ -288,8 +289,8 @@ render = function (cardData) {
     }
 };
 
-function writeControls(cardData) {
-    setName(cardData.name);
+async function writeControls(cardData) {
+    //setName(cardData.name);
     setModelImage(cardData.imageUrl);
     setModelImageProperties(cardData.imageProperties);
 
@@ -304,6 +305,9 @@ function writeControls(cardData) {
     document.getElementById('bg_green').checked = cardData.bg_green;
     document.getElementById('bg_black').checked = cardData.bg_black;
     document.getElementById('bg_fire').checked = cardData.bg_fire;
+
+    // render the updated info
+    render(cardData);
 }
 
 function defaultCardData() {
@@ -314,7 +318,7 @@ function defaultCardData() {
 
     cardData.objectName = 'Healing Potion';
     cardData.objectTitle = 'Lesser Artefact';
-    cardData.objectText = "[Consumable] Discard this card after use.\nBonus Action: Heal 1d6 damage from this fighter.";
+    cardData.objectText = "[Consumable] Discard this card after use. Bonus Action: Heal 1d6 damage from this fighter.";
     cardData.objectItalicText = "Flavour text in italics.";
 
     cardData.bg_ghur = true;
@@ -354,10 +358,10 @@ function loadLatestCardData() {
 
     if (data) {
         console.log("Loaded data:");
-        console.log(data);
     }
     else {
-        console.log("Failed to load a fighter data.");
+        console.log("Failed to load data, loading default.");
+        data = defaultCardData();
     }
 
     return data;
@@ -370,7 +374,7 @@ function saveLatestCardData() {
     }
 
     window.localStorage.setItem("latestObjectName", cardData.name);
-    saveCardData(cardData);
+    //saveCardData(cardData);
 }
 
 function loadCardData(cardDataName) {
@@ -424,7 +428,7 @@ async function handleImageUrlFromDisk(imageUrl) {
 
     return imageUrl;
 }
-
+/*
 async function saveCardData(cardData) {
     var finishSaving = function () {
         var map = loadCardDataMap();
@@ -432,16 +436,14 @@ async function saveCardData(cardData) {
         window.localStorage.setItem("cardDataMap", JSON.stringify(map));
     };
 
-    if (cardData != null &&
-        cardData.name) {
+    if (cardData != null && cardData.name) {
         // handle images we may have loaded from disk...
         cardData.imageUrl = await handleImageUrlFromDisk(cardData.imageUrl);
-
 
         finishSaving();
     }
 }
-
+*/
 function getLatestCardDataName() {
     return "latestCardData";
 }
@@ -450,7 +452,6 @@ window.onload = function () {
     //window.localStorage.clear();
     var cardData = loadLatestCardData();
     writeControls(cardData);
-    render(cardData);
     refreshSaveSlots();
 }
 
@@ -521,7 +522,7 @@ function refreshSaveSlots() {
 function onSaveClicked() {
     var cardData = readControls();
     console.log("Saving '" + cardData.name + "'...");
-    saveCardData(cardData);
+    //saveCardData(cardData);
     refreshSaveSlots();
 }
 
@@ -611,7 +612,6 @@ async function onSaveClicked() {
     data = readControls();
     // temp null while I work out image saving
     data.imageUrl = null;
-    console.log(data);
     var exportObj = JSON.stringify(data, null, 4);
 
     var exportName = data.objectName;
@@ -623,8 +623,6 @@ async function onSaveClicked() {
     document.body.appendChild(downloadAnchorNode); // required for firefox
     downloadAnchorNode.click();
     downloadAnchorNode.remove();
-
-    console.log(data);
 }
 
 
@@ -668,8 +666,22 @@ function splitWordWrap(context, text, fitWidth) {
 
 function getObjectImageUrl() {
     var imageSelect = $("#objectImageUrl")[0].value;
-    // if (imageSelect.files.length > 0) {
-    //return URL.createObjectURL(imageSelect.files[0]);
-    // }
     return imageSelect;
+}
+
+onObjectImageUpload = function () {
+    image = getModelImage();
+    setModelImage(image);
+    var objectData = readControls();
+    render(objectData);
+    saveLatestObjectData();
+}
+
+function saveLatestObjectData() {
+    var objectData = readControls();
+    if (!objectData.name) {
+        return;
+    }
+    window.localStorage.setItem("latestObjectName", objectData.name);
+    //saveObjectData(objectData);
 }
