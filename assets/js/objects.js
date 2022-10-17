@@ -161,15 +161,20 @@ function drawImageSrc(scaledPosition, scaledSize, imageSrc) {
 
 
 function setModelImage(image) {
-    var imageSelect = $("#imageSelect")[0];
 
-    if (image != null) {
-        // TODO: Not sure how to do this. It might not even be possible! Leave it for now...
-        // imageSelect.files[0] = image;
-    }
-    else {
-        imageSelect.value = null;
-    }
+    console.log("setModelImage:" + image);
+    $("#objectImageUrl")[0].value = image;
+
+
+    //    var imageSelect = $("#imageSelect")[0];
+
+    //    if (image != null) {
+    // TODO: Not sure how to do this. It might not even be possible! Leave it for now...
+    // imageSelect.files[0] = image;
+    //    }
+    //    else {
+    //        imageSelect.value = null;
+    //    }
 }
 
 function getDefaultModelImageProperties() {
@@ -237,7 +242,7 @@ function getModelImage() {
 function readControls() {
     var data = new Object;
     data.name = getName();
-    data.imageUrl = getModelImage();
+    data.imageUrl = getObjectImageUrl();
     data.imageProperties = getModelImageProperties();
 
     data.objectTitle = document.getElementById('object-title').value;
@@ -659,4 +664,12 @@ function splitWordWrap(context, text, fitWidth) {
         }
     }
     return return_array;
+}
+
+function getObjectImageUrl() {
+    var imageSelect = $("#objectImageUrl")[0].value;
+    // if (imageSelect.files.length > 0) {
+    //return URL.createObjectURL(imageSelect.files[0]);
+    // }
+    return imageSelect;
 }
