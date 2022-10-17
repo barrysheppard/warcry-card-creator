@@ -757,7 +757,8 @@ function loadLatestFighterData() {
         console.log(data);
     }
     else {
-        console.log("Failed to load a fighter data.");
+        console.log("Failed to load data - loading default");
+        data = defaultCardData();
     }
 
     return data;
