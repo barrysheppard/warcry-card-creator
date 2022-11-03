@@ -1035,21 +1035,21 @@ async function onSaveClicked() {
         'enabled', 'rangeMax', 'rangeMin', 'runemark', 'strength',
         'bg01', 'bg02', 'bg03', 'bg04', 'bg05', 'bg06', 'bg07', 'bg08', 'bg09', 'bg10', 'bg11',
         'base64Image'], 4);
-    var exportName = data.fighterName;
 
     var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(exportObj);
     var downloadAnchorNode = document.createElement('a');
     downloadAnchorNode.setAttribute("href", dataStr);
-    downloadAnchorNode.setAttribute("download", "warcry_fighter_" + exportName + ".json");
+    downloadAnchorNode.setAttribute("download", "warcry_fighter_" + data.fighterName.replace(/ /g, "_") + ".json");
     document.body.appendChild(downloadAnchorNode); // required for firefox
     downloadAnchorNode.click();
     downloadAnchorNode.remove();
 }
 
 function saveCardAsImage() {
+    data = readControls();
     var element = document.createElement('a');
     element.setAttribute('href', document.getElementById('canvas').toDataURL('image/png'));
-    element.setAttribute('download', 'warcry-fighter-card.png');
+    element.setAttribute("download", "warcry_fighter_" + data.fighterName.replace(/ /g, "_") + ".png");
     element.style.display = 'none';
     document.body.appendChild(element);
     element.click();

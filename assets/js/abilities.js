@@ -660,11 +660,10 @@ async function onSaveClicked() {
 
     data = readControls();
     var exportObj = JSON.stringify(data, null, 4);
-    var exportName = data.cardTitle;
     var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(exportObj);
     var downloadAnchorNode = document.createElement('a');
     downloadAnchorNode.setAttribute("href", dataStr);
-    downloadAnchorNode.setAttribute("download", "warcry_abilities_" + exportName + ".json");
+    downloadAnchorNode.setAttribute("download", "warcry_abilities_" + data.cardTitle.replace(/ /g, "_") + ".json");
     document.body.appendChild(downloadAnchorNode); // required for firefox
     downloadAnchorNode.click();
     downloadAnchorNode.remove();
@@ -854,9 +853,11 @@ function render(cardData) {
 }
 
 function saveCardAsImage() {
+    data = readControls();
     var element = document.createElement('a');
     element.setAttribute('href', document.getElementById('canvas').toDataURL('image/png'));
-    element.setAttribute('download', 'warcry-ability-card.png');
+    element.setAttribute("download", "warcry_abilities_" + data.cardTitle.replace(/ /g, "_") + ".png");
+
     element.style.display = 'none';
     document.body.appendChild(element);
     element.click();
