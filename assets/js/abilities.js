@@ -198,7 +198,6 @@ function drawCardTranslationAbilities(value) {
 function drawFactionRunemark(image, inc) {
 
     // for 7 spacing its + 150 for 6 spacing it's + 175
-    drawImageSrc({ x: 92.5, y: 35 }, { x: 135, y: 135 }, image);
 
     // if we have 6 items then it's different spacing to seven both start here
     y_pos = 205;
@@ -785,11 +784,17 @@ function render(cardData) {
 
     // sybmols at the top
     if (document.getElementById('ability7-toggle').checked) {
-        drawFactionRunemark(cardData.factionRunemark, 151);
+        drawImageSrc({ x: 92.5, y: 35 }, { x: 135, y: 135 }, cardData.factionRunemark);
+        if (cardData.subfactionRunemark == 'assets/img/blank.gif') {
+            drawFactionRunemark(cardData.factionRunemark, 151);
+        }
         drawSubfactionRunemark(cardData.subfactionRunemark, 151);
     }
     else {
-        drawFactionRunemark(cardData.factionRunemark, 174);
+        drawImageSrc({ x: 92.5, y: 35 }, { x: 135, y: 135 }, cardData.factionRunemark);
+        if (cardData.subfactionRunemark == 'assets/img/blank.gif') {
+            drawFactionRunemark(cardData.factionRunemark, 174);
+        }
         drawSubfactionRunemark(cardData.subfactionRunemark, 174);
     }
 
