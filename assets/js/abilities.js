@@ -683,6 +683,10 @@ function readControls() {
     data.name = getName();
 
     data.cardTranslationAbilities = document.getElementById('card-translation-abilities').value;
+    data.cardTranslationDouble = document.getElementById("card-translation-double").value;
+    data.cardTranslationTriple = document.getElementById("card-translation-triple").value;
+    data.cardTranslationQuad = document.getElementById("card-translation-quad").value;
+
     data.cardTitle = document.getElementById('card-title').value;
 
     data.factionRunemark = getSelectedFactionRunemark();
@@ -989,10 +993,44 @@ function writeControls(cardData) {
     //setName(cardData.name); // want to remove this eventually
 
     $('#card-title').value = cardData.cardTitle;
+    document.getElementById("card-title").value = cardData.cardTitle;
+
     $('#card-translation-abilities').value = cardData.cardTranslationAbilities;
-    $('#card-translation-double').value = cardData.cardTranslationDouble;
-    $('#card-translation-triple').value = cardData.cardTranslationTriple;
-    $('#card-translation-quad').value = cardData.cardTranslationQuad;
+    document.getElementById("card-translation-abilities").value = cardData.cardTranslationAbilities;
+
+    // the double, triple, and quad names were missing from earlier json exports
+    // the below sets the ability name to the default if it's not included
+
+    if (cardData.cardTranslationDouble == null) {
+        $('#card-translation-double').value = "Double";
+        document.getElementById("card-translation-double").value = "Double";
+
+    } else {
+        $('#card-translation-double').value = cardData.cardTranslationDouble;
+        document.getElementById("card-translation-double").value = cardData.cardTranslationDouble;
+    }
+
+    if (cardData.cardTranslationTriple == null) {
+        $('#card-translation-triple').value = "Triple";
+        document.getElementById("card-translation-triple").value = "Triple";
+
+    } else {
+        $('#card-translation-triple').value = cardData.cardTranslationTriple;
+        document.getElementById("card-translation-triple").value = cardData.cardTranslationTriple;
+    }
+
+    if (cardData.cardTranslationQuad == null) {
+        $('#card-translation-quad').value = "Quad";
+        document.getElementById("card-translation-quad").value = "Quad";
+
+    } else {
+        $('#card-translation-quad').value = cardData.cardTranslationQuad;
+        document.getElementById("card-translation-quad").value = cardData.cardTranslationQuad;
+    }
+
+
+
+
 
     setSelectedFactionRunemark(cardData.factionRunemark);
     setSelectedSubfactionRunemark(cardData.subfactionRunemark);
