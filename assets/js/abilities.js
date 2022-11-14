@@ -717,6 +717,43 @@ function readControls() {
     data.ability7Text = document.getElementById('ability7-text').value;
 
 
+    data.ability1ReactionChecked = document.getElementById('ability1-reaction').checked;
+    data.ability1DoubleChecked = document.getElementById('ability1-double').checked;
+    data.ability1TripleChecked = document.getElementById('ability1-triple').checked;
+    data.ability1QuadChecked = document.getElementById('ability1-quad').checked;
+
+    data.ability2ReactionChecked = document.getElementById('ability2-reaction').checked;
+    data.ability2DoubleChecked = document.getElementById('ability2-double').checked;
+    data.ability2TripleChecked = document.getElementById('ability2-triple').checked;
+    data.ability2QuadChecked = document.getElementById('ability2-quad').checked;
+
+    data.ability3ReactionChecked = document.getElementById('ability3-reaction').checked;
+    data.ability3DoubleChecked = document.getElementById('ability3-double').checked;
+    data.ability3TripleChecked = document.getElementById('ability3-triple').checked;
+    data.ability3QuadChecked = document.getElementById('ability3-quad').checked;
+
+    data.ability4ReactionChecked = document.getElementById('ability4-reaction').checked;
+    data.ability4DoubleChecked = document.getElementById('ability4-double').checked;
+    data.ability4TripleChecked = document.getElementById('ability4-triple').checked;
+    data.ability4QuadChecked = document.getElementById('ability4-quad').checked;
+
+    data.ability5ReactionChecked = document.getElementById('ability5-reaction').checked;
+    data.ability5DoubleChecked = document.getElementById('ability5-double').checked;
+    data.ability5TripleChecked = document.getElementById('ability5-triple').checked;
+    data.ability5QuadChecked = document.getElementById('ability5-quad').checked;
+
+    data.ability6ReactionChecked = document.getElementById('ability6-reaction').checked;
+    data.ability6DoubleChecked = document.getElementById('ability6-double').checked;
+    data.ability6TripleChecked = document.getElementById('ability6-triple').checked;
+    data.ability6QuadChecked = document.getElementById('ability6-quad').checked;
+
+    data.ability7ReactionChecked = document.getElementById('ability7-reaction').checked;
+    data.ability7DoubleChecked = document.getElementById('ability7-double').checked;
+    data.ability7TripleChecked = document.getElementById('ability7-triple').checked;
+    data.ability7QuadChecked = document.getElementById('ability7-quad').checked;
+
+
+
     data.tagRunemarksOne = readTagRunemark("One");
     data.tagRunemarksTwo = readTagRunemark("Two");
     data.tagRunemarksThree = readTagRunemark("Three");
@@ -1059,6 +1096,76 @@ function writeControls(cardData) {
     document.getElementById("ability5-text").value = cardData.ability5Text;
     document.getElementById("ability6-text").value = cardData.ability6Text;
     document.getElementById("ability7-text").value = cardData.ability7Text;
+
+
+
+    // if the variable isn't in cardData then the default is set to true
+    if (cardData.ability1ReactionChecked == null) {
+        document.getElementById('ability1-reaction').checked = true;
+    } else {
+        document.getElementById('ability1-reaction').checked = cardData.ability1ReactionChecked;
+    }
+    document.getElementById('ability1-double').checked = cardData.ability1DoubleChecked;
+    document.getElementById('ability1-triple').checked = cardData.ability1TripleChecked;
+    document.getElementById('ability1-quad').checked = cardData.ability1QuadChecked;
+
+    document.getElementById('ability2-reaction').checked = cardData.ability2ReactionChecked;
+    if (cardData.ability2DoubleChecked == null) {
+        document.getElementById('ability2-double').checked = true;
+    } else {
+        document.getElementById('ability2-double').checked = cardData.ability2DoubleChecked;
+    }
+    document.getElementById('ability2-triple').checked = cardData.ability2TripleChecked;
+    document.getElementById('ability2-quad').checked = cardData.ability2QuadChecked;
+
+    document.getElementById('ability3-reaction').checked = cardData.ability3ReactionChecked;
+    if (cardData.ability3DoubleChecked == null) {
+        document.getElementById('ability3-double').checked = true;
+    } else {
+        document.getElementById('ability3-double').checked = cardData.ability3DoubleChecked;
+    }
+    document.getElementById('ability3-triple').checked = cardData.ability3TripleChecked;
+    document.getElementById('ability3-quad').checked = cardData.ability3QuadChecked;
+
+    document.getElementById('ability4-reaction').checked = cardData.ability4ReactionChecked;
+    document.getElementById('ability4-double').checked = cardData.ability4DoubleChecked;
+    if (cardData.ability4DoubleChecked == null) {
+        document.getElementById('ability4-double').checked = true;
+    } else {
+        document.getElementById('ability4-double').checked = cardData.ability4DoubleChecked;
+    }
+    document.getElementById('ability4-triple').checked = cardData.ability4TripleChecked;
+
+    document.getElementById('ability4-quad').checked = cardData.ability4QuadChecked;
+
+    document.getElementById('ability5-reaction').checked = cardData.ability5ReactionChecked;
+    document.getElementById('ability5-double').checked = cardData.ability5DoubleChecked;
+    if (cardData.ability5TripleChecked == null) {
+        document.getElementById('ability5-triple').checked = true;
+    } else {
+        document.getElementById('ability5-triple').checked = cardData.ability5TripleChecked;
+    }
+    document.getElementById('ability5-quad').checked = cardData.ability5QuadChecked;
+
+    document.getElementById('ability6-reaction').checke = cardData.ability6ReactionChecked;
+    document.getElementById('ability6-double').checked = cardData.ability6DoubleChecked;
+    if (cardData.ability6TripleChecked == null) {
+        document.getElementById('ability6-triple').checked = true;
+    } else {
+        document.getElementById('ability6-triple').checked = cardData.ability6TripleChecked;
+    }
+    document.getElementById('ability6-quad').checked = cardData.ability6QuadChecked;
+
+    document.getElementById('ability7-reaction').checked = cardData.ability7ReactionChecked;
+    document.getElementById('ability7-double').checked = cardData.ability7DoubleChecked;
+    document.getElementById('ability7-triple').checked = cardData.ability7TripleChecked;
+    if (cardData.ability7QuadChecked == null) {
+        document.getElementById('ability7-quad').checked = true;
+    } else {
+        document.getElementById('ability7-quad').checked = cardData.ability7QuadChecked;
+    }
+
+
 
     // in this section we get the current runemarks data
     // then we clear all the selections, and reselect them per data
