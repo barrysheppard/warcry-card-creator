@@ -129,6 +129,25 @@ function drawAbility(id, pixelPosition) {
         }
     }
 
+
+    // idea here is to check the number of runemarks being used per row
+    // then adjust the text size to account.
+    // would need to check cardData.tagRunemarksOne
+
+    max_tagRunemarks = Math.max(readTagRunemark("One").length, readTagRunemark("Two").length,
+        readTagRunemark("Three").length, readTagRunemark("Four").length,
+        readTagRunemark("Five").length, readTagRunemark("Six").length,
+        readTagRunemark("Seven").length);
+    if (max_tagRunemarks < 2) {
+        pixelPosition.x = pixelPosition.x;
+    }
+    if (max_tagRunemarks == 2) {
+        pixelPosition.x = pixelPosition.x + 100;
+    }
+    if (max_tagRunemarks > 2) {
+        pixelPosition.x = pixelPosition.x + 200;
+    }
+
     // Print new title variable
     getContext().font = 'bold 28px Georgia, serif';
     writeScaled(title, { x: pixelPosition.x, y: pixelPosition.y });
@@ -166,6 +185,97 @@ function drawAbility(id, pixelPosition) {
     }
 }
 
+
+
+function drawAbilityLarge(id, pixelPosition) {
+    getContext().font = '48px Georgia, serif';
+    getContext().fillStyle = 'black';
+    getContext().textAlign = 'left';
+
+    var reaction = document.getElementById('ability' + id + '-reaction'),
+        double = document.getElementById('ability' + id + '-double'),
+        triple = document.getElementById('ability' + id + '-triple'),
+        quad = document.getElementById('ability' + id + '-quad'),
+        name = document.getElementById('ability' + id + '-name').value,
+        text = document.getElementById('ability' + id + '-text').value,
+        transReaction = document.getElementById('card-translation-reaction').value,
+        transDouble = document.getElementById('card-translation-double').value,
+        transTriple = document.getElementById('card-translation-triple').value,
+        transQuad = document.getElementById('card-translation-quad').value;
+
+    // https://stackoverflow.com/a/35119260; http://jsfiddle.net/BaG4J/1/
+    //var textblock = (function () {
+    var txt = '';
+    var title = '';
+
+    if (reaction.checked) {
+        if (transReaction.length) {
+            //var txt = '[' + transReaction + '] ' + name + ': ' + text;
+            // new title variable for the text to be in bold
+            var title = '[' + transReaction + '] ' + name + ': ';
+        } else {
+            var title = '[Reaction] ' + name + ': ';
+        }
+    } else if (double.checked) {
+        if (transDouble.length) {
+            var title = '[' + transDouble + '] ' + name + ': ';
+        } else {
+            var title = '[Double] ' + name + ': ';
+        }
+    } else if (triple.checked) {
+        if (transTriple.length) {
+            var title = '[' + transTriple + '] ' + name + ': ';
+        } else {
+            var title = '[Triple] ' + name + ': ';
+        }
+    } else if (quad.checked) {
+        if (transQuad.length) {
+            var title = '[' + transQuad + '] ' + name + ': ';
+        } else {
+            var title = '[Quad] ' + name + ': ';
+        }
+    }
+
+
+
+    // Get how many runemarks are tick
+    // This will determine how far the word wrap should go
+    max_tagRunemarks = Math.max(readTagRunemark("One").length, readTagRunemark("Two").length,
+        readTagRunemark("Three").length, readTagRunemark("Four").length,
+        readTagRunemark("Five").length, readTagRunemark("Six").length,
+        readTagRunemark("Seven").length);
+    if (max_tagRunemarks == 0) {
+        fitWidth = 1400;
+    }
+    else if (max_tagRunemarks == 1) {
+        fitWidth = 1200;
+        pixelPosition.x = pixelPosition.x + 180;
+    }
+    if (max_tagRunemarks >= 2) {
+        fitWidth = 1100;
+        pixelPosition.x = pixelPosition.x + 350;
+    }
+
+    // Print new title variable
+    getContext().font = 'bold 48px Georgia, serif';
+    writeScaled(title, { x: pixelPosition.x, y: pixelPosition.y });
+    // record the bold width for later use
+    var titleWidth = getContext().measureText(title).width;
+    getContext().font = '48px Georgia, serif';
+
+
+    // this will add carriage turns if needed
+    lines = splitWordWrap(getContext(), text, fitWidth, titleWidth);
+
+
+    for (var i = 0; i < lines.length; i++) {
+        if (i == 0) {
+            writeScaled(lines[i], { x: pixelPosition.x + titleWidth, y: pixelPosition.y + (i * 60) });
+        } else {
+            writeScaled(lines[i], { x: pixelPosition.x, y: pixelPosition.y + (i * 60) });
+        }
+    }
+}
 
 function drawBackground() {
     getContext().drawImage(
@@ -217,6 +327,28 @@ function drawFactionRunemark(image, inc) {
     }
 }
 
+function drawFactionRunemarkLarge(image, inc) {
+
+    // for 7 spacing its + 150 for 6 spacing it's + 175
+
+    // if we have 6 items then it's different spacing to seven both start here
+    y_pos = 205;
+
+    ability = ['ability1-toggle', 'ability2-toggle', 'ability3-toggle', 'ability4-toggle',
+        'ability5-toggle', 'ability6-toggle', 'ability7-toggle'];
+
+    // for 7 spacing its + 150 for 6 spacing it's + 175
+    for (x in ability) {
+        if (document.getElementById(ability[x]).checked) {
+            var positions = { x: 65, y: y_pos },
+                replacedImage = image.replace('white', 'black');
+            drawImage(positions, { x: 180, y: 180 }, $("#circle")[0]);
+            drawImageSrc(positions, { x: 180, y: 180 }, replacedImage);
+        }
+        y_pos += inc;
+    }
+}
+
 function drawImage(scaledPosition, scaledSize, image) {
     if (image != null) {
         if (image.complete) {
@@ -261,11 +393,56 @@ function drawSubfactionRunemark(image, inc) {
     }
 }
 
+
+function drawSubfactionRunemarkLarge(image, inc) {
+
+    // draw image on header
+    drawImageSrc({ x: 224, y: 58 }, { x: 90, y: 90 }, image);
+
+    // if we have 6 items then it's different spacing to seven both start here
+    y_pos = 205;
+
+    ability = ['ability1-toggle', 'ability2-toggle', 'ability3-toggle', 'ability4-toggle',
+        'ability5-toggle', 'ability6-toggle', 'ability7-toggle'];
+
+    // for 7 spacing its + 150 for 6 spacing it's + 175
+
+
+    for (x in ability) {
+        if (document.getElementById(ability[x]).checked) {
+            var positions = { x: 65, y: y_pos },
+                replacedImage = image.replace('white', 'black');
+            drawImage(positions, { x: 180, y: 180 }, $("#circle")[0]);
+            drawImageSrc(positions, { x: 180, y: 180 }, replacedImage);
+        }
+        y_pos += inc;
+    }
+}
+
 function drawTagRunemark(index, runemark, row) {
+
+    // Check for only the first 3 checked
+    tripleCheck = (document.getElementById('ability1-toggle').checked ||
+        document.getElementById('ability2-toggle').checked ||
+        document.getElementById('ability3-toggle').checked) &&
+        !document.getElementById('ability4-toggle').checked &&
+        !document.getElementById('ability5-toggle').checked &&
+        !document.getElementById('ability6-toggle').checked &&
+        !document.getElementById('ability7-toggle').checked;
+
     // draw the runemarks
     // this will only draw 3 per row at most
     var positions = []
-    if (document.getElementById('ability7-toggle').checked) {
+    if (tripleCheck) {
+        if (row == 1 && document.getElementById('ability1-toggle').checked) {
+            positions = [{ x: 255, y: 210 }, { x: 440, y: 210 }];
+        } else if (row == 2 && document.getElementById('ability2-toggle').checked) {
+            positions = [{ x: 255, y: 510 }, { x: 440, y: 510 }];
+        } else if (row == 3 && document.getElementById('ability3-toggle').checked) {
+            positions = [{ x: 255, y: 810 }, { x: 440, y: 810 }];
+        }
+    }
+    else if (document.getElementById('ability7-toggle').checked) {
         if (row == 1 && document.getElementById('ability1-toggle').checked) {
             positions = [{ x: 175, y: 210 }, { x: 285, y: 210 }, { x: 395, y: 210 }];
         } else if (row == 2 && document.getElementById('ability2-toggle').checked) {
@@ -300,13 +477,23 @@ function drawTagRunemark(index, runemark, row) {
 
     if (index >= positions.length) return;
 
-    var img = $("#circle")[0],
-        position = scalePixelPosition(positions[index]),
-        size = scalePixelPosition({ x: 90, y: 90 });
+    if (tripleCheck) {
+        var img = $("#circle")[0],
+            position = scalePixelPosition(positions[index]),
+            size = scalePixelPosition({ x: 180, y: 180 });
+    } else {
+        var img = $("#circle")[0],
+            position = scalePixelPosition(positions[index]),
+            size = scalePixelPosition({ x: 90, y: 90 });
+    }
 
     position = scalePixelPosition({ x: positions[index].x, y: positions[index].y });
+    if (tripleCheck) {
+        drawImage(position, { x: 180, y: 180 }, img);
+    } else {
+        drawImage(position, { x: 90, y: 90 }, img);
 
-    drawImage(position, { x: 90, y: 90 }, img);
+    }
     drawImageSrc(position, size, runemark);
 }
 
@@ -823,8 +1010,24 @@ function render(cardData) {
     drawCardTranslationAbilities(cardData.cardTranslationAbilities);
     drawCardTitle(cardData.cardTitle);
 
+    // Check for only the first 3 checked
+    tripleCheck = (document.getElementById('ability1-toggle').checked ||
+        document.getElementById('ability2-toggle').checked ||
+        document.getElementById('ability3-toggle').checked) &&
+        !document.getElementById('ability4-toggle').checked &&
+        !document.getElementById('ability5-toggle').checked &&
+        !document.getElementById('ability6-toggle').checked &&
+        !document.getElementById('ability7-toggle').checked;
+
     // sybmols at the top
-    if (document.getElementById('ability7-toggle').checked) {
+    if (tripleCheck) {
+        drawImageSrc({ x: 92.5, y: 35 }, { x: 135, y: 135 }, cardData.factionRunemark);
+        if (cardData.subfactionRunemark == 'assets/img/blank.gif') {
+            drawFactionRunemarkLarge(cardData.factionRunemark, 302);
+        }
+        drawSubfactionRunemarkLarge(cardData.subfactionRunemark, 302);
+    }
+    else if (document.getElementById('ability7-toggle').checked) {
         drawImageSrc({ x: 92.5, y: 35 }, { x: 135, y: 135 }, cardData.factionRunemark);
         if (cardData.subfactionRunemark == 'assets/img/blank.gif') {
             drawFactionRunemark(cardData.factionRunemark, 151);
@@ -843,27 +1046,26 @@ function render(cardData) {
     // then adjust the text size to account.
     // would need to check cardData.tagRunemarksOne
 
-    max_tagRunemarks = Math.max(cardData.tagRunemarksOne.length, cardData.tagRunemarksTwo.length,
-        cardData.tagRunemarksThree.length, cardData.tagRunemarksFour.length,
-        cardData.tagRunemarksFive.length, cardData.tagRunemarksSix.length,
-        cardData.tagRunemarksSeven.length);
-    if (max_tagRunemarks < 2) {
-        x_value = 300;
-    }
-    if (max_tagRunemarks == 2) {
-        x_value = 400;
-    }
-    if (max_tagRunemarks > 2) {
-        x_value = 500;
-    }
+    x_value = 300;
 
     // for 7 spacing its + 150 for 6 spacing it's + 175
 
     ability = ['ability1-toggle', 'ability2-toggle', 'ability3-toggle', 'ability4-toggle',
         'ability5-toggle', 'ability6-toggle', 'ability7-toggle'];
 
+    // Drawing the ability text if we have 3 abilities
+    if (tripleCheck) {
+        y_value = 250;
+        for (i in ability) {
+            if (document.getElementById(ability[i]).checked) {
+                num = parseInt(i) + 1;
+                drawAbilityLarge(num, { x: x_value, y: y_value });
+            }
+            y_value += 304;
+        }
+    }
     // Drawing the ability text if we have 7 abilities
-    if (document.getElementById('ability7-toggle').checked) {
+    else if (document.getElementById('ability7-toggle').checked) {
         y_value = 210;
         for (i in ability) {
             if (document.getElementById(ability[i]).checked) {
