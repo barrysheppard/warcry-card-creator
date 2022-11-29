@@ -578,10 +578,12 @@ render = function (fighterData) {
             //URL.revokeObjectURL(image.src);
         };
         image.src = fighterData.imageUrl;
-    } else {
-        drawFighterName(fighterData.fighterName);
-        drawFighterName2(fighterData.fighterName2);
     }
+
+    // Drawn if no image, or when file is loaded but no image included
+    drawFighterName(fighterData.fighterName);
+    drawFighterName2(fighterData.fighterName2);
+
 
     // section added above
 
@@ -622,9 +624,6 @@ render = function (fighterData) {
     getContext().textAlign = "left";
     getContext().fillStyle = "black";
 
-    // moved up
-    //drawFighterName(fighterData.fighterName);
-    //drawFighterName2(fighterData.fighterName2);
 
     if (fighterData.weapon1.enabled && fighterData.weapon2.enabled) {
         drawWeapon(fighterData.weapon1, { x: 50, y: 750 }); // Default was x:29, y:397
