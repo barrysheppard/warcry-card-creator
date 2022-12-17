@@ -56,7 +56,11 @@ getBackgroundImage = function () {
 
     } else if (document.getElementById('bg-11').checked) {
         return document.getElementById('bg-ghur-501');
+
+    } else if (document.getElementById('bg-12').checked) {
+        return document.getElementById('bg-christmas-001');
     }
+
 }
 
 drawBackground = function () {
@@ -1019,6 +1023,10 @@ function refreshSaveSlots() {
 
 async function onSaveClicked() {
     data = readControls();
+
+    // weird situation where when no image is saved, but json is then saved
+    // when the json is loaded a blank image loads and if you try save json
+    // again, this section will hang.
 
     // here is where we should be changing the imageUrl to base64
     data.base64Image = await handleImageUrlFromDisk(data.imageUrl)

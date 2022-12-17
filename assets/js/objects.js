@@ -39,6 +39,12 @@ getBackgroundImage = function () {
     if (document.getElementById('bg_fire').checked) {
         return document.getElementById('warcry_object_fire');
     }
+    if (document.getElementById('bg_ice').checked) {
+        return document.getElementById('warcry_object_ice');
+    }
+    if (document.getElementById('bg_xmas').checked) {
+        return document.getElementById('warcry_object_xmas');
+    }
 }
 
 drawBackground = function () {
