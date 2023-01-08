@@ -12,6 +12,19 @@
     background: lightblue;
 }
 
+
+@font-face {
+    font-family: "schoensperger";
+    font-style: normal;
+    font-weight: normal;
+    src: url("../fonts/schoensperger.eot");
+    src: url("../fonts/schoensperger.eot?#iefix") format("embedded-opentype"),
+        url("../fonts/schoensperger.woff2") format("woff2"),
+        url("../fonts/schoensperger.woff") format("woff"),
+        url("../fonts/schoensperger.ttf") format("truetype"),
+        url("../fonts/schoensperger.svg#schoensperger") format("svg");
+}
+
 @font-face {
     font-family: "rodchenkoctt";
     font-style: normal;

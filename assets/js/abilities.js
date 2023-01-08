@@ -71,11 +71,12 @@ function defaultCardData() {
     cardData.bg01 = false;
     cardData.bg02 = false;
     cardData.bg03 = false;
-    cardData.bg04 = true;
+    cardData.bg04 = false;
     cardData.bg05 = false;
     cardData.bg06 = false;
     cardData.bg07 = false;
-    cardData.bg08 = false;
+    cardData.bg08 = true;
+    cardData.bg09 = false;
 
     return cardData;
 }
@@ -292,7 +293,11 @@ function drawCardElementFromInputId(inputId, pixelPosition) {
 }
 
 function drawCardTitle(value) {
-    getContext().font = '92px rodchenkoctt';
+    if (document.getElementById('bg-09').checked) {
+        getContext().font = '92px schoensperger';
+    } else {
+        getContext().font = '92px rodchenkoctt';
+    }
     getContext().fillStyle = 'white';
     getContext().textAlign = 'center';
     writeScaled(value, { x: (1772 / 2), y: 135 });
@@ -533,6 +538,9 @@ function getBackgroundImage() {
 
     } else if (document.getElementById('bg-08').checked) {
         return document.getElementById('bg-ghur-402');
+
+    } else if (document.getElementById('bg-09').checked) {
+        return document.getElementById('bg-mordheim-101');
     }
 }
 
@@ -965,6 +973,7 @@ function readControls() {
     data.bg06 = document.getElementById('bg-06').checked;
     data.bg07 = document.getElementById('bg-07').checked;
     data.bg08 = document.getElementById('bg-08').checked;
+    data.bg09 = document.getElementById('bg-09').checked;
 
     return data;
 }
@@ -1417,6 +1426,7 @@ function writeControls(cardData) {
     document.getElementById('bg-06').checked = cardData.bg06;
     document.getElementById('bg-07').checked = cardData.bg07;
     document.getElementById('bg-08').checked = cardData.bg08;
+    document.getElementById('bg-09').checked = cardData.bg09;
 
     // render the updated info
     render(cardData);

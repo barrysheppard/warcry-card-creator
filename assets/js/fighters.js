@@ -59,6 +59,9 @@ getBackgroundImage = function () {
 
     } else if (document.getElementById('bg-12').checked) {
         return document.getElementById('bg-christmas-001');
+    
+    } else if (document.getElementById('bg-13').checked) {
+        return document.getElementById('mordheim01');
     }
 
 }
@@ -89,7 +92,12 @@ drawCardElementFromInputId = function (inputId, pixelPosition) {
 }
 
 drawFighterName = function (value) {
-    getContext().font = '70px rodchenkoctt';
+    if (document.getElementById('bg-13').checked){
+        getContext().font = '70px schoensperger';
+    } else {
+        getContext().font = '70px rodchenkoctt';
+    }
+    
     getContext().fillStyle = 'black';
     getContext().textAlign = "center";
     getContext().textBaseline = "middle";
@@ -97,7 +105,11 @@ drawFighterName = function (value) {
 }
 
 drawFighterName2 = function (value) {
-    getContext().font = '50px rodchenkoctt';
+    if (document.getElementById('bg-13').checked){
+        getContext().font = '50px schoensperger';
+    } else {
+        getContext().font = '50px rodchenkoctt';
+    }
     getContext().fillStyle = 'black';
     getContext().textAlign = "center";
     getContext().textBaseline = "middle";
@@ -506,6 +518,8 @@ function readControls() {
     data.bg09 = document.getElementById('bg-09').checked;
     data.bg10 = document.getElementById('bg-10').checked;
     data.bg11 = document.getElementById('bg-11').checked;
+    data.bg12 = document.getElementById('bg-12').checked;
+    data.bg13 = document.getElementById('bg-13').checked;
 
     return data;
 }
@@ -690,6 +704,8 @@ async function writeControls(fighterData) {
     document.getElementById('bg-09').checked = fighterData.bg09;
     document.getElementById('bg-10').checked = fighterData.bg10;
     document.getElementById('bg-11').checked = fighterData.bg11;
+    document.getElementById('bg-12').checked = fighterData.bg12;
+    document.getElementById('bg-13').checked = fighterData.bg13;
 
     // render the updated info
     render(fighterData);
@@ -725,6 +741,8 @@ function defaultFighterData() {
     fighterData.bg09 = true;
     fighterData.bg10 = false;
     fighterData.bg11 = false;
+    fighterData.bg12 = false;
+    fighterData.bg13 = false;
 
     return fighterData;
 }
@@ -1040,7 +1058,7 @@ async function onSaveClicked() {
         'toughness', 'wounds', 'move', 'pointCost', 'tagRunemarks', 'weapon1', 'attacks', 'damageBase', 'damageCrit',
         'enabled', 'rangeMax', 'rangeMin', 'runemark', 'strength', 'weapon2', 'attacks', 'damageBase', 'damageCrit',
         'enabled', 'rangeMax', 'rangeMin', 'runemark', 'strength',
-        'bg01', 'bg02', 'bg03', 'bg04', 'bg05', 'bg06', 'bg07', 'bg08', 'bg09', 'bg10', 'bg11',
+        'bg01', 'bg02', 'bg03', 'bg04', 'bg05', 'bg06', 'bg07', 'bg08', 'bg09', 'bg10', 'bg11','bg12','bg13',
         'base64Image'], 4);
 
     var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(exportObj);
