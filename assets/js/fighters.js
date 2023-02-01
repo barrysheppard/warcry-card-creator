@@ -1283,7 +1283,7 @@ function getFactionRunemark(warband){
     else if(warband == "Idoneth Deepkin") {runemark = "runemarks/white/factions-order-idoneth-deepkin.svg";}
     else if(warband == "Khainite Shadowstalkers") {runemark = "runemarks/white/factions-order-khainite-shadowstalkers.svg";}
     else if(warband == "Kharadron Overlords") {runemark = "runemarks/white/factions-order-kharadron-overlords.svg";}
-    else if(warband == "Lumineth Realmlords") {runemark = "runemarks/white/factions-order-lumineth-realmlords.svg";}
+    else if(warband == "Lumineth Realm-lords") {runemark = "runemarks/white/factions-order-lumineth-realmlords.svg";}
     else if(warband == "Seraphon") {runemark = "runemarks/white/factions-order-seraphon.svg";}
     //else if(warband = "Chaos Legionnaaires") {runemark = "runemarks/white/factions-order-stormcast-eternals-alternative.svg";}
     else if(warband == "SCE:Sacrosanct") {runemark = "runemarks/white/factions-order-stormcast-eternals-sacrosanct.svg";}
