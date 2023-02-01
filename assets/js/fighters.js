@@ -1258,7 +1258,7 @@ function getFactionRunemark(warband){
     else if(warband == "Untamed Beasts") {runemark = "runemarks/white/factions-chaos-untamed-beasts.svg";}
     else if(warband == "Flesh-eater Courts") {runemark = "runemarks/white/factions-death-flesh-eater-courts.svg";}
     else if(warband == "Legions of Nagash") {runemark = "runemarks/white/factions-death-legions-of-nagash.svg";}
-    else if(warband == "Nighthaunt") {runemark = "frunemarks/white/actions-death-nighthaunt.svg";}
+    else if(warband == "Nighthaunt") {runemark = "frunemarks/white/factions-death-nighthaunt.svg";}
     else if(warband == "Ossiarch Bonereapers") {runemark = "runemarks/white/factions-death-ossiarch-bonereapers.svg";}
     else if(warband == "Soulblight Gravelords") {runemark = "runemarks/white/factions-death-soulblight-gravelords.svg";}
     else if(warband == "Destruction Bonesplitterz") {runemark = "runemarks/white/factions-destruction-bonesplitterz.svg";}
@@ -1292,6 +1292,9 @@ function getFactionRunemark(warband){
     else if(warband == "SCE:Warrior") {runemark = "runemarks/white/factions-order-stormcast-eternals-warrior.svg";}
     //else if(warband = "Chaos Legionnaaires") {runemark = "runemarks/white/factions-order-sylvaneth-alternative.svg";}
     else if(warband == "Sylvaneth") {runemark = "runemarks/white/factions-order-sylvaneth.svg";}
+    else if(warband == "Askurgan Trueblades") {runemark = "factions-death-askurgan-trueblades.svg";}
+    else if(warband == "Claws of Karanak") {runemark = "runemarks/white/factions-chaos-claws-of-karanak.svg";}
+
     else { runemark = "runemarks/white/factions-chaos-everchosen.svg";}
     return runemark;
 }
