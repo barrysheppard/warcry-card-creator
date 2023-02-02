@@ -1336,9 +1336,6 @@ function getRunemarks(runemarks){
     if (runemarks.includes("Hero")){
         tagRunemarks.push('runemarks/black/fighters-leader.svg');
     }
-    if (runemarks.includes("Bulwark")){
-        tagRunemarks.push('runemarks/black/fighters-bulwark.svg');
-    }
     if (runemarks.includes("Mystic")){
         tagRunemarks.push('runemarks/black/fighters-mystic.svg');
     }
