@@ -1172,7 +1172,13 @@ function saveFighterFromList(fighter){
     var fighterData = new Object;
     fighterData.name = "Warcry_Fighter_Card";
     fighterData.imageUrl = null;
-    fighterData.imageProperties = getDefaultModelImageProperties();
+    fighterData.imageProperties = {
+            offsetX: 250,
+            offsetY: 50,
+            scalePercent: 200
+        };
+    
+
     fighterData.factionRunemark = getFactionRunemark(fighter.Warband);    
     fighterData.fighterName = fighter.Name;
     fighterData.fighterName2 = "";
@@ -1239,7 +1245,7 @@ function getFactionRunemark(warband){
     else if(warband == "Horns of Hashut") {runemark = "runemarks/white/factions-chaos-horns-of-hashut.svg";}
     else if(warband == "Iron GOlems") {runemark = "runemarks/white/factions-chaos-iron-golems.svg";}
     else if(warband == "Jade Obelisk") {runemark = "runemarks/white/factions-chaos-jade-obelisk.svg";}
-    else if(warband == "Khorne Blkoodbound") {runemark = "runemarks/white/factions-chaos-khorne-bloodbound.svg";}
+    else if(warband == "Khorne Bloodbound") {runemark = "runemarks/white/factions-chaos-khorne-bloodbound.svg";}
     else if(warband == "Khorne Daemons") {runemark = "runemarks/white/factions-chaos-khorne-daemons.svg";}
     else if(warband == "Nurgle Daemons") {runemark = "runemarks/white/factions-chaos-nurgle-daemons.svg";}
     else if(warband == "Nurgle Rotbringers") {runemark = "runemarks/white/factions-chaos-nurgle-rotbringers.svg";}
@@ -1258,10 +1264,10 @@ function getFactionRunemark(warband){
     else if(warband == "Untamed Beasts") {runemark = "runemarks/white/factions-chaos-untamed-beasts.svg";}
     else if(warband == "Flesh-eater Courts") {runemark = "runemarks/white/factions-death-flesh-eater-courts.svg";}
     else if(warband == "Legions of Nagash") {runemark = "runemarks/white/factions-death-legions-of-nagash.svg";}
-    else if(warband == "Nighthaunt") {runemark = "frunemarks/white/factions-death-nighthaunt.svg";}
+    else if(warband == "Nighthaunt") {runemark = "runemarks/white/factions-death-nighthaunt.svg";}
     else if(warband == "Ossiarch Bonereapers") {runemark = "runemarks/white/factions-death-ossiarch-bonereapers.svg";}
     else if(warband == "Soulblight Gravelords") {runemark = "runemarks/white/factions-death-soulblight-gravelords.svg";}
-    else if(warband == "Destruction Bonesplitterz") {runemark = "runemarks/white/factions-destruction-bonesplitterz.svg";}
+    else if(warband == "Bonesplitterz") {runemark = "runemarks/white/factions-destruction-bonesplitterz.svg";}
     else if(warband == "Gloomspite Gitz") {runemark = "runemarks/white/factions-destruction-gloomspite-gitz.svg";}
     else if(warband == "Ironjawz") {runemark = "runemarks/white/factions-destruction-ironjawz.svg";}
     else if(warband == "Kruleboyz") {runemark = "runemarks/white/factions-destruction-kruleboyz.svg";}
@@ -1302,9 +1308,14 @@ function getFactionRunemark(warband){
 function getRunemarks(runemarks){
     tagRunemarks = new Array;
 
-
+    if (runemarks.includes("Agile")){
+        tagRunemarks.push('runemarks/black/fighters-agile.svg');
+        }
+    if (runemarks.includes("Fly")){
+       tagRunemarks.push('runemarks/black/fighters-fly.svg');
+        }
     if (runemarks.includes("Beast")){
-    tagRunemarks.push('runemarks/black/fighters-beast.svg');
+        tagRunemarks.push('runemarks/black/fighters-beast.svg');
     }
     if (runemarks.includes("Berserker")){
         tagRunemarks.push('runemarks/black/fighters-berserker.svg');
