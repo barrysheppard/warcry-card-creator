@@ -1299,7 +1299,7 @@ function getFactionRunemark(warband){
     else if(warband == "SCE:Warrior") {runemark = "runemarks/white/factions-order-stormcast-eternals-warrior.svg";}
     //else if(warband = "Chaos Legionnaaires") {runemark = "runemarks/white/factions-order-sylvaneth-alternative.svg";}
     else if(warband == "Sylvaneth") {runemark = "runemarks/white/factions-order-sylvaneth.svg";}
-    else if(warband == "Askurgan Trueblades") {runemark = "factions-death-askurgan-trueblades.svg";}
+    else if(warband == "Askurgan Trueblades") {runemark = "runemarks/white/factions-death-askurgan-trueblades.svg";}
     else if(warband == "Claws of Karanak") {runemark = "runemarks/white/factions-chaos-claws-of-karanak.svg";}
 
     else { runemark = "runemarks/white/factions-chaos-everchosen.svg";}
