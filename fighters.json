@@ -9950,7 +9950,7 @@
     "Wounds": 10,
     "Movement": 10,
     "Toughness": 3,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Claws",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 2,
@@ -9965,7 +9965,7 @@
     "Weapon2_Strength": 3,
     "Weapon2_Dmg_Hit": 1,
     "Weapon2_Dmg_Crit": 4,
-    "Runemarks": ""
+    "Runemarks": "Fly, Trapper"
   },
   {
     "id": 357,
@@ -15100,8 +15100,8 @@
     "Bladeborn": "Skaeth's Wild Hunt",
     "Points": 70,
     "Wounds": 8,
-    "Movement": 3,
-    "Toughness": 8,
+    "Movement": 8,
+    "Toughness": 3,
     "Weapon1_Runemark": "Fangs",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
