@@ -98,10 +98,17 @@ drawFighterName = function (value) {
         getContext().font = '70px rodchenkoctt';
     }
     
-    getContext().fillStyle = 'black';
+    getContext().fillStyle = 'white';
     getContext().textAlign = "center";
     getContext().textBaseline = "middle";
+    writeScaled(value, { x: 1354, y: 1096 });
+    writeScaled(value, { x: 1354, y: 1104 });
+    writeScaled(value, { x: 1346, y: 1096 });
+    writeScaled(value, { x: 1346, y: 1104 });
+
+    getContext().fillStyle = 'black';
     writeScaled(value, { x: 1350, y: 1100 });
+    
 }
 
 drawFighterName2 = function (value) {
@@ -110,6 +117,15 @@ drawFighterName2 = function (value) {
     } else {
         getContext().font = '50px rodchenkoctt';
     }
+
+    getContext().fillStyle = 'white';
+    getContext().textAlign = "center";
+    getContext().textBaseline = "middle";
+    writeScaled(value, { x: 1350+2, y: 1155+2 });
+    writeScaled(value, { x: 1350+2, y: 1155-2 });
+    writeScaled(value, { x: 1350-2, y: 1155+2 });
+    writeScaled(value, { x: 1350-2, y: 1155-2 });
+
     getContext().fillStyle = 'black';
     getContext().textAlign = "center";
     getContext().textBaseline = "middle";
@@ -594,9 +610,65 @@ render = function (fighterData) {
             drawFighterName(fighterData.fighterName);
             drawFighterName2(fighterData.fighterName2);
             //URL.revokeObjectURL(image.src);
+
+            drawFactionRunemark(fighterData.factionRunemark);
+
+            if (!(document.getElementById('subfaction-runemarks/none/blank.gif').checked)) {
+                if (fighterData.subfactionRunemark != null) {
+                    drawSubfactionRunemark(fighterData.subfactionRunemark);
+                }
+            }
+        
+            if (!(document.getElementById('checkbox-assets/img/blank2.gif').checked)) {
+                if (fighterData.deploymentRunemark != null) {
+                    drawDeploymentRunemark(fighterData.deploymentRunemark);
+                }
+            }
+            getContext().font = "92px rodchenkoctt";
+            getContext().fillStyle = "white";
+        
+            getContext().textBaseline = "middle";
+            getContext().textAlign = "left";
+        
+            drawMove(fighterData.move);
+            drawWounds(fighterData.wounds);
+        
+            getContext().textBaseline = "middle";
+            getContext().textAlign = "right";
+        
+            drawToughness(fighterData.toughness);
+        
+            getContext().textBaseline = "middle";
+            getContext().textAlign = "center";
+        
+            drawPointCost(fighterData.pointCost);
+        
+            getContext().font = "70px rodchenkoctt";
+            getContext().textBaseline = "top";
+            getContext().textAlign = "left";
+            getContext().fillStyle = "black";
+        
+        
+            if (fighterData.weapon1.enabled && fighterData.weapon2.enabled) {
+        
+                drawWeapon(fighterData.weapon1, { x: 50, y: 950 }); // Default was x:29, y:397
+                drawWeapon(fighterData.weapon2, { x: 50, y: 750 }); // Default was x:29, y:564
+            }
+            else if (fighterData.weapon1.enabled) {
+                drawWeapon(fighterData.weapon1, { x: 50, y: 850 }); // Default was x:29, y:463
+            }
+            else if (fighterData.weapon2.enabled) {
+                drawWeapon(fighterData.weapon2, { x: 50, y: 850 }); // Default was x:29, y:463
+            }
+            for (i = 0; i < fighterData.tagRunemarks.length; i++) {
+                drawTagRunemark(i, fighterData.tagRunemarks[i]);
+            }
+        
+
         };
         image.src = fighterData.imageUrl;
     }
+    else {
 
     // Drawn if no image, or when file is loaded but no image included
     drawFighterName(fighterData.fighterName);
@@ -657,7 +729,7 @@ render = function (fighterData) {
     for (i = 0; i < fighterData.tagRunemarks.length; i++) {
         drawTagRunemark(i, fighterData.tagRunemarks[i]);
     }
-
+    }
 
 
 
