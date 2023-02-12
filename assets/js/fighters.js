@@ -323,6 +323,38 @@ function drawTagRunemark(index, runemark) {
     position = scalePixelPosition({ x: positions[index].x + 15, y: positions[index].y + 15 });
     size = scalePixelPosition({ x: 130, y: 130 });
     drawImageSrc(position, size, runemark);
+
+
+    // write the runemark name underneath
+    if (document.getElementById('runemark-names').checked){
+
+        value = runemark.slice(25);
+        value = value.replace(".svg", "");
+        if (value == "leader"){
+            value = "hero";
+        }
+        if (document.getElementById('bg-13').checked){
+            getContext().font = '32px schoensperger';
+        } else {
+            getContext().font = '32px rodchenkoctt';
+        }
+
+        getContext().fillStyle = 'white';
+        getContext().textAlign = "center";
+        getContext().textBaseline = "middle";
+        x_value = positions[index].x + 80;
+        y_value = positions[index].y + 180;
+        writeScaled(value, { x: x_value+2, y: y_value+2 });
+        writeScaled(value, { x: x_value+2, y: y_value-2 });
+        writeScaled(value, { x: x_value-2, y: y_value+2 });
+        writeScaled(value, { x: x_value-2, y: y_value-2 });
+
+        getContext().fillStyle = 'black';
+        getContext().textAlign = "center";
+        getContext().textBaseline = "middle";
+        writeScaled(value, { x: x_value, y: y_value });
+    }
+
 }
 
 function drawModel(imageUrl, imageProps) {
@@ -1526,7 +1558,7 @@ function getBladebornRunemark(bladeborn){
     else if(bladeborn == "Xandire's Truthseekers") {runemark = "runemarks/white/bladeborn-xandires.svg";}
     else if(bladeborn == "Ylthari's Guardians") {runemark = "runemarks/white/bladeborn-ylthari.svg";}
     else if(bladeborn == "Zarbag's Gitz") {runemark = "runemarks/white/bladeborn-zarbag.svg";}
-    else if(bladeborn == "Grinkrak''s Looncourt") {runemark = "runemarks/white/bladeborn-grinkrakslooncourt.svg";}
+    else if(bladeborn == "Grinkrak's Looncourt") {runemark = "runemarks/white/bladeborn-grinkrakslooncourt.svg";}
     else runemark = null;
     return runemark;
 }

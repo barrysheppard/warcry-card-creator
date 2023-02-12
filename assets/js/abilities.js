@@ -299,15 +299,17 @@ function drawCardTitle(value) {
         getContext().font = '92px rodchenkoctt';
     }
     getContext().fillStyle = 'white';
-    getContext().textAlign = 'center';
-    writeScaled(value, { x: (1772 / 2), y: 135 });
+    getContext().textAlign = "center";
+    getContext().textBaseline = "middle";
+    writeScaled(value, { x: (1772 / 2), y: 110 });
 }
 
 function drawCardTranslationAbilities(value) {
     getContext().font = '28px Georgia, serif';
     getContext().fillStyle = 'white';
-    getContext().textAlign = 'center';
-    writeScaled(value, { x: (1772 / 2), y: 55 });
+    getContext().textAlign = "center";
+    getContext().textBaseline = "middle";
+    writeScaled(value, { x: (1772 / 2), y: 50 });
 }
 
 function drawFactionRunemark(image, inc) {
@@ -500,6 +502,52 @@ function drawTagRunemark(index, runemark, row) {
 
     }
     drawImageSrc(position, size, runemark);
+
+            // write the runemark name underneath
+            if (document.getElementById('runemark-names').checked){
+
+                value = runemark.slice(25);
+                value = value.replace(".svg", "");
+                if (value == "leader"){
+                    value = "hero";
+                }
+
+                if (tripleCheck) { 
+                    if (document.getElementById('bg-09').checked){
+                        getContext().font = '48px schoensperger';
+                    } else {
+                        getContext().font = '48px rodchenkoctt';
+                    }
+                } else {
+                    if (document.getElementById('bg-09').checked){
+                        getContext().font = '32px schoensperger';
+                    } else {
+                        getContext().font = '32px rodchenkoctt';
+                    }
+                }
+                
+                getContext().fillStyle = 'white';
+                getContext().textAlign = "center";
+                getContext().textBaseline = "middle";
+
+                if (tripleCheck) { 
+                    x_value = positions[index].x + 90;
+                    y_value = positions[index].y + 200;
+                } else {
+                    x_value = positions[index].x + 45;
+                    y_value = positions[index].y + 120;
+                }
+
+                writeScaled(value, { x: x_value+2, y: y_value+2 });
+                writeScaled(value, { x: x_value+2, y: y_value-2 });
+                writeScaled(value, { x: x_value-2, y: y_value+2 });
+                writeScaled(value, { x: x_value-2, y: y_value-2 });
+
+                getContext().fillStyle = 'black';
+                getContext().textAlign = "center";
+                getContext().textBaseline = "middle";
+                writeScaled(value, { x: x_value, y: y_value });
+            }
 }
 
 async function fileChange(file) {
@@ -1105,6 +1153,7 @@ function render(cardData) {
         for (i in tagRunemark[x]) {
             // this will only draw the first 3 runemarks per row
             drawTagRunemark(parseInt(i), tagRunemark[x][i], parseInt(x) + 1);
+
         }
     }
 }
