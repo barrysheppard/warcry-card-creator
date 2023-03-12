@@ -92,69 +92,91 @@ drawCardElementFromInputId = function (inputId, pixelPosition) {
 }
 
 drawFighterName = function (value) {
+    startX = 860;
+    startY = 700;
     if (document.getElementById('bg-13').checked){
-        getContext().font = '70px schoensperger';
+        getContext().font = '44px schoensperger';
     } else {
-        getContext().font = '70px rodchenkoctt';
+        getContext().font = '44px rodchenkoctt';
     }
     
     getContext().fillStyle = 'white';
     getContext().textAlign = "center";
     getContext().textBaseline = "middle";
-    writeScaled(value, { x: 1354, y: 1096 });
-    writeScaled(value, { x: 1354, y: 1104 });
-    writeScaled(value, { x: 1346, y: 1096 });
-    writeScaled(value, { x: 1346, y: 1104 });
+    writeScaled(value, { x: startX+2, y: startY });
+    writeScaled(value, { x: startX, y: startY+2 });
+    writeScaled(value, { x: startX+2, y: startY+2 });
+    writeScaled(value, { x: startX-2, y: startY });
+    writeScaled(value, { x: startX, y: startY-2 });
+    writeScaled(value, { x: startX-2, y: startY-2 });
 
     getContext().fillStyle = 'black';
-    writeScaled(value, { x: 1350, y: 1100 });
+    writeScaled(value, { x: startX, y: startY });
     
 }
 
 drawFighterName2 = function (value) {
+    startX = 860;
+    startY = 740;
     if (document.getElementById('bg-13').checked){
-        getContext().font = '50px schoensperger';
+        getContext().font = '32px schoensperger';
     } else {
-        getContext().font = '50px rodchenkoctt';
+        getContext().font = '32px rodchenkoctt';
     }
-
+    
     getContext().fillStyle = 'white';
     getContext().textAlign = "center";
     getContext().textBaseline = "middle";
-    writeScaled(value, { x: 1350+2, y: 1155+2 });
-    writeScaled(value, { x: 1350+2, y: 1155-2 });
-    writeScaled(value, { x: 1350-2, y: 1155+2 });
-    writeScaled(value, { x: 1350-2, y: 1155-2 });
+    writeScaled(value, { x: startX+2, y: startY });
+    writeScaled(value, { x: startX, y: startY+2 });
+    writeScaled(value, { x: startX+2, y: startY+2 });
+    writeScaled(value, { x: startX-2, y: startY });
+    writeScaled(value, { x: startX, y: startY-2 });
+    writeScaled(value, { x: startX-2, y: startY-2 });
 
     getContext().fillStyle = 'black';
-    getContext().textAlign = "center";
-    getContext().textBaseline = "middle";
-    writeScaled(value, { x: 1350, y: 1155 });
+    writeScaled(value, { x: startX, y: startY });
 }
 
 drawToughness = function (value) {
+    getContext().font = "60px rodchenkoctt";
+    getContext().fillStyle = "white";
+    getContext().textBaseline = "middle";
+    getContext().textAlign = "right";
     if (value == "0") {
         value = "*";
     }
-    writeScaled(value, { x: 545, y: 391 });
+    writeScaled(value, { x: 365, y: 270 });
 }
 
 drawWounds = function (value) {
+    getContext().font = "60px rodchenkoctt";
+    getContext().fillStyle = "white";
+    getContext().textBaseline = "middle";
+    getContext().textAlign = "left";
     if (value == "0") {
         value = "*";
     }
-    writeScaled(value, { x: 380, y: 510 });
+    writeScaled(value, { x: 265, y: 350 });
 }
 
 drawMove = function (value) {
+    getContext().font = "60px rodchenkoctt";
+    getContext().fillStyle = "white";
+    getContext().textBaseline = "middle";
+    getContext().textAlign = "left";
     if (value == "0") {
         value = "*";
     }
-    writeScaled(value, { x: 220, y: 391 });
+    writeScaled(value, { x: 180, y: 270 });
 }
 
 drawPointCost = function (value) {
-    writeScaled(value, { x: 805, y: 160 });
+    getContext().font = "60px rodchenkoctt";
+    getContext().fillStyle = "white";
+    getContext().textBaseline = "middle";
+    getContext().textAlign = "center";
+    writeScaled(value, { x: 525, y: 135 });
 }
 
 getWeaponStatblockImage = function () {
@@ -174,6 +196,12 @@ drawWeaponStatblock = function (pixelPosition) {
 }
 
 drawWeapon = function (weaponData, pixelPosition) {
+
+    getContext().font = "48px rodchenkoctt";
+    getContext().textBaseline = "top";
+    getContext().textAlign = "left";
+    getContext().fillStyle = "black";
+
     drawWeaponStatblock(pixelPosition);
 
     if (weaponData.damageBase == "0") {
@@ -184,22 +212,22 @@ drawWeapon = function (weaponData, pixelPosition) {
         weaponData.damageCrit = "*";
     }
 
-    var statsPosY = pixelPosition.y + 95;
+    var statsPosY = pixelPosition.y + 58;
     var range = (weaponData.rangeMin > 0 ? (weaponData.rangeMin + "-") : "") + weaponData.rangeMax;
     getContext().textAlign = "center";
-    writeScaled(range, { x: pixelPosition.x + 250, y: statsPosY });
+    writeScaled(range, { x: pixelPosition.x + 150, y: statsPosY });
     writeScaled(
         weaponData.attacks,
-        { x: pixelPosition.x + 440, y: statsPosY });
+        { x: pixelPosition.x + 260, y: statsPosY });
     writeScaled(
         weaponData.strength,
-        { x: pixelPosition.x + 620, y: statsPosY });
+        { x: pixelPosition.x + 374, y: statsPosY });
     writeScaled(
         weaponData.damageBase + "/" + weaponData.damageCrit,
-        { x: pixelPosition.x + 790, y: statsPosY });
+        { x: pixelPosition.x + 475, y: statsPosY });
 
-    var position = scalePixelPosition({ x: pixelPosition.x + 20, y: pixelPosition.y + 30 });
-    var size = scalePixelPosition({ x: 120, y: 120 });
+    var position = scalePixelPosition({ x: pixelPosition.x + 10, y: pixelPosition.y + 20 });
+    var size = scalePixelPosition({ x: 70, y: 70 });
     drawImageSrc(position, size, weaponData.runemark);
 }
 
@@ -311,17 +339,17 @@ function drawImageSrc(scaledPosition, scaledSize, imageSrc) {
 }
 
 function drawTagRunemark(index, runemark) {
-    var positions = [{ x: 575, y: 545 }, { x: 750, y: 545 }, { x: 662.5, y: 395 }, { x: 662.5, y: 690 }];
+    var positions = [{ x: 370, y: 400 }, { x: 490, y: 400 }, { x: 430, y: 300 }];
     if (index >= positions.length) return;
 
     var img = $("#circle")[0];
 
     var position = scalePixelPosition(positions[index]);
-    var size = scalePixelPosition({ x: 160, y: 160 });
+    var size = scalePixelPosition({ x: 100, y: 100 });
     getContext().drawImage(img, position.x, position.y, size.x, size.y);
 
-    position = scalePixelPosition({ x: positions[index].x + 15, y: positions[index].y + 15 });
-    size = scalePixelPosition({ x: 130, y: 130 });
+    position = scalePixelPosition({ x: positions[index].x + 10, y: positions[index].y + 10 });
+    size = scalePixelPosition({ x: 80, y: 80 });
     drawImageSrc(position, size, runemark);
 
 
@@ -334,20 +362,20 @@ function drawTagRunemark(index, runemark) {
             value = "hero";
         }
         if (document.getElementById('bg-13').checked){
-            getContext().font = '32px schoensperger';
+            getContext().font = '24px schoensperger';
         } else {
-            getContext().font = '32px rodchenkoctt';
+            getContext().font = '24px rodchenkoctt';
         }
 
         getContext().fillStyle = 'white';
         getContext().textAlign = "center";
         getContext().textBaseline = "middle";
-        x_value = positions[index].x + 80;
-        y_value = positions[index].y + 180;
-        writeScaled(value, { x: x_value+2, y: y_value+2 });
-        writeScaled(value, { x: x_value+2, y: y_value-2 });
-        writeScaled(value, { x: x_value-2, y: y_value+2 });
-        writeScaled(value, { x: x_value-2, y: y_value-2 });
+        x_value = positions[index].x + 50;
+        y_value = positions[index].y + 100;
+        writeScaled(value, { x: x_value+1, y: y_value+1 });
+        writeScaled(value, { x: x_value+1, y: y_value-1 });
+        writeScaled(value, { x: x_value-1, y: y_value+1 });
+        writeScaled(value, { x: x_value-1, y: y_value-1 });
 
         getContext().fillStyle = 'black';
         getContext().textAlign = "center";
@@ -573,49 +601,55 @@ function readControls() {
 }
 
 function drawFactionRunemark(image) {
-    var position = scalePixelPosition({ x: 67.5, y: 67.5 });
-    var size = scalePixelPosition({ x: 190, y: 190 });
+    var position = scalePixelPosition({ x: 84, y: 76 });
+    var size = scalePixelPosition({ x: 110, y: 110 });
     drawImageSrc(position, size, image);
 }
 function drawSubfactionRunemark(image) {
 
     // draw the background circle first
-
+    // intial points
+    startX = 200;
+    startY = 52;
     // white border
     var img = $("#circle")[0];
-    var position = scalePixelPosition({ x: 260, y: 20 });
-    var size = scalePixelPosition({ x: 135, y: 135 });
+    var position = scalePixelPosition({ x: startX, y: startY });
+    var size = scalePixelPosition({ x: 88, y: 88 });
     getContext().drawImage(img, position.x, position.y, size.x, size.y);
     // black centre
     var img = $("#circle_black")[0];
-    var position = scalePixelPosition({ x: 267.5, y: 27.5 });
-    var size = scalePixelPosition({ x: 120, y: 120 });
+    var position = scalePixelPosition({ x: startX + 4, y: startY+4 });
+    var size = scalePixelPosition({ x: 80, y: 80 });
     getContext().drawImage(img, position.x, position.y, size.x, size.y);
 
 
     // draw the runemark
-    var position = scalePixelPosition({ x: 267.5, y: 27.5 });
-    var size = scalePixelPosition({ x: 120, y: 120 });
+    var position = scalePixelPosition({ x: startX + 4, y: startY+4 });
+    var size = scalePixelPosition({ x: 80, y: 80 });
     drawImageSrc(position, size, image);
 }
 
 function drawDeploymentRunemark(image) {
 
     // draw the background circle first
-
+    // intial points
+    startX = 980;
+    startY = 50;
     // white border
     var img = $("#circle")[0];
-    var position = scalePixelPosition({ x: 1592.5, y: 20 });
-    var size = scalePixelPosition({ x: 135, y: 135 });
+    var position = scalePixelPosition({ x: startX, y: startY });
+    var size = scalePixelPosition({ x: 88, y: 88 });
     getContext().drawImage(img, position.x, position.y, size.x, size.y);
     // black centre
     var img = $("#circle_black")[0];
-    var position = scalePixelPosition({ x: 1600, y: 27.5 });
-    var size = scalePixelPosition({ x: 120, y: 120 });
+    var position = scalePixelPosition({ x: startX + 4, y: startY+4 });
+    var size = scalePixelPosition({ x: 80, y: 80 });
     getContext().drawImage(img, position.x, position.y, size.x, size.y);
 
-    var position = scalePixelPosition({ x: 1600, y: 27.5 });
-    var size = scalePixelPosition({ x: 120, y: 120 });
+
+    // draw the runemark
+    var position = scalePixelPosition({ x: startX + 4, y: startY+4 });
+    var size = scalePixelPosition({ x: 80, y: 80 });
     drawImageSrc(position, size, image);
 }
 
@@ -632,7 +666,7 @@ render = function (fighterData) {
     if (fighterData.imageUrl) {
         var image = new Image();
         image.onload = function () {
-            var position = scalePixelPosition({ x: 590 + fighterData.imageProperties.offsetX, y: fighterData.imageProperties.offsetY });
+            var position = scalePixelPosition({ x: fighterData.imageProperties.offsetX, y: fighterData.imageProperties.offsetY });
             var scale = fighterData.imageProperties.scalePercent / 100.0;
             var width = image.width * scale;
             var height = image.height * scale;
@@ -656,41 +690,22 @@ render = function (fighterData) {
                     drawDeploymentRunemark(fighterData.deploymentRunemark);
                 }
             }
-            getContext().font = "92px rodchenkoctt";
-            getContext().fillStyle = "white";
-        
-            getContext().textBaseline = "middle";
-            getContext().textAlign = "left";
-        
+
             drawMove(fighterData.move);
             drawWounds(fighterData.wounds);
-        
-            getContext().textBaseline = "middle";
-            getContext().textAlign = "right";
-        
             drawToughness(fighterData.toughness);
-        
-            getContext().textBaseline = "middle";
-            getContext().textAlign = "center";
-        
             drawPointCost(fighterData.pointCost);
-        
-            getContext().font = "70px rodchenkoctt";
-            getContext().textBaseline = "top";
-            getContext().textAlign = "left";
-            getContext().fillStyle = "black";
-        
-        
+                
             if (fighterData.weapon1.enabled && fighterData.weapon2.enabled) {
         
-                drawWeapon(fighterData.weapon2, { x: 50, y: 950 }); // Default was x:29, y:397
-                drawWeapon(fighterData.weapon1, { x: 50, y: 750 }); // Default was x:29, y:564
+                drawWeapon(fighterData.weapon2, { x: 68, y: 550 }); // Default was x:29, y:397
+                drawWeapon(fighterData.weapon1, { x: 68, y: 670 }); // Default was x:29, y:564
             }
             else if (fighterData.weapon1.enabled) {
-                drawWeapon(fighterData.weapon1, { x: 50, y: 850 }); // Default was x:29, y:463
+                drawWeapon(fighterData.weapon1, { x: 68, y: 550 }); // Default was x:29, y:463
             }
             else if (fighterData.weapon2.enabled) {
-                drawWeapon(fighterData.weapon2, { x: 50, y: 850 }); // Default was x:29, y:463
+                drawWeapon(fighterData.weapon2, { x: 68, y: 550 }); // Default was x:29, y:463
             }
             for (i = 0; i < fighterData.tagRunemarks.length; i++) {
                 drawTagRunemark(i, fighterData.tagRunemarks[i]);
@@ -722,45 +737,28 @@ render = function (fighterData) {
             drawDeploymentRunemark(fighterData.deploymentRunemark);
         }
     }
-    getContext().font = "92px rodchenkoctt";
-    getContext().fillStyle = "white";
-
-    getContext().textBaseline = "middle";
-    getContext().textAlign = "left";
 
     drawMove(fighterData.move);
     drawWounds(fighterData.wounds);
-
-    getContext().textBaseline = "middle";
-    getContext().textAlign = "right";
-
     drawToughness(fighterData.toughness);
-
-    getContext().textBaseline = "middle";
-    getContext().textAlign = "center";
-
     drawPointCost(fighterData.pointCost);
-
-    getContext().font = "70px rodchenkoctt";
-    getContext().textBaseline = "top";
-    getContext().textAlign = "left";
-    getContext().fillStyle = "black";
 
 
     if (fighterData.weapon1.enabled && fighterData.weapon2.enabled) {
-
-        drawWeapon(fighterData.weapon1, { x: 50, y: 950 }); // Default was x:29, y:397
-        drawWeapon(fighterData.weapon2, { x: 50, y: 750 }); // Default was x:29, y:564
+        
+        drawWeapon(fighterData.weapon2, { x: 68, y: 510 }); // Default was x:29, y:397
+        drawWeapon(fighterData.weapon1, { x: 68, y: 630 }); // Default was x:29, y:564
     }
     else if (fighterData.weapon1.enabled) {
-        drawWeapon(fighterData.weapon1, { x: 50, y: 850 }); // Default was x:29, y:463
+        drawWeapon(fighterData.weapon1, { x: 68, y: 550 }); // Default was x:29, y:463
     }
     else if (fighterData.weapon2.enabled) {
-        drawWeapon(fighterData.weapon2, { x: 50, y: 850 }); // Default was x:29, y:463
+        drawWeapon(fighterData.weapon2, { x: 68, y: 550 }); // Default was x:29, y:463
     }
     for (i = 0; i < fighterData.tagRunemarks.length; i++) {
         drawTagRunemark(i, fighterData.tagRunemarks[i]);
     }
+
     }
 
 
