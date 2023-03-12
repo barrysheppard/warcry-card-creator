@@ -1559,6 +1559,8 @@ function getBladebornRunemark(bladeborn){
     else if(bladeborn == "Ylthari's Guardians") {runemark = "runemarks/white/bladeborn-ylthari.svg";}
     else if(bladeborn == "Zarbag's Gitz") {runemark = "runemarks/white/bladeborn-zarbag.svg";}
     else if(bladeborn == "Grinkrak's Looncourt") {runemark = "runemarks/white/bladeborn-grinkrakslooncourt.svg";}
+    else if(bladeborn == "Gryselle's Arenai") {runemark = "runemarks/white/bladeborn-grysellesarenai.svg";}
+
     else runemark = null;
     return runemark;
 }
