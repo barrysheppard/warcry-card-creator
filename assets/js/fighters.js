@@ -124,7 +124,7 @@ drawFighterName = function (value) {
 
 drawFighterName2 = function (value) {
     startX = 860;
-    startY = 740;
+    startY = 732;
     if (document.getElementById('bg-13').checked){
         getContext().font = '32px schoensperger';
     } else {
