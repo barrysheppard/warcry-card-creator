@@ -71,6 +71,13 @@ drawBackground = function () {
         getBackgroundImage(), 0, 0, getCanvas().width, getCanvas().height);
 }
 
+
+drawBorder = function () {
+    getContext().drawImage(
+        document.getElementById('card-border'), 0, 0, getCanvas().width, getCanvas().height);
+}
+
+
 scalePixelPosition = function (pixelPosition) {
     var scalingFactor = getScalingFactor(getCanvas(), getBackgroundImage());
     var scaledPosition = { x: pixelPosition.x * scalingFactor.x, y: pixelPosition.y * scalingFactor.y };
@@ -666,7 +673,7 @@ render = function (fighterData) {
     if (fighterData.imageUrl) {
         var image = new Image();
         image.onload = function () {
-            var position = scalePixelPosition({ x: fighterData.imageProperties.offsetX, y: fighterData.imageProperties.offsetY });
+            var position = scalePixelPosition({ x: 600 + fighterData.imageProperties.offsetX, y: 200 + fighterData.imageProperties.offsetY });
             var scale = fighterData.imageProperties.scalePercent / 100.0;
             var width = image.width * scale;
             var height = image.height * scale;
@@ -678,6 +685,7 @@ render = function (fighterData) {
             //URL.revokeObjectURL(image.src);
 
             drawFactionRunemark(fighterData.factionRunemark);
+            drawBorder();
 
             if (!(document.getElementById('subfaction-runemarks/none/blank.gif').checked)) {
                 if (fighterData.subfactionRunemark != null) {
@@ -760,8 +768,6 @@ render = function (fighterData) {
     }
 
     }
-
-
 
 }
 
@@ -1276,8 +1282,8 @@ function saveFighterFromList(fighter){
     fighterData.name = "Warcry_Fighter_Card";
     fighterData.imageUrl = null;
     fighterData.imageProperties = {
-            offsetX: 250,
-            offsetY: 50,
+            offsetX: 0,
+            offsetY: 0,
             scalePercent: 200
         };
     
