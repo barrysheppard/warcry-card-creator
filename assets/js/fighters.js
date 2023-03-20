@@ -851,9 +851,9 @@ function defaultFighterData() {
     fighterData.bg06 = false;
     fighterData.bg07 = false;
     fighterData.bg08 = false;
-    fighterData.bg09 = true;
+    fighterData.bg09 = false;
     fighterData.bg10 = false;
-    fighterData.bg11 = false;
+    fighterData.bg11 = true;
     fighterData.bg12 = false;
     fighterData.bg13 = false;
 
