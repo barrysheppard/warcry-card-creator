@@ -67,8 +67,31 @@ getBackgroundImage = function () {
 }
 
 drawBackground = function () {
-    getContext().drawImage(
-        getBackgroundImage(), 0, 0, getCanvas().width, getCanvas().height);
+    getContext().drawImage(getBackgroundImage(), 0, 0, getCanvas().width, getCanvas().height);
+
+
+    // draw some black background circles to get a smooth look
+    startX = 454;
+    startY = 62;
+    // black border
+    var img = $("#circle_black")[0];
+    var position = scalePixelPosition({ x: startX, y: startY });
+    var size = scalePixelPosition({ x: 144, y: 144 });
+    getContext().drawImage(img, position.x, position.y, size.x, size.y);
+    // draw some black background circles to get a smooth look
+    startX = 67;
+    startY = 62;
+    // black border
+    var img = $("#circle_black")[0];
+    var position = scalePixelPosition({ x: startX, y: startY });
+    var size = scalePixelPosition({ x: 144, y: 144 });
+    getContext().drawImage(img, position.x, position.y, size.x, size.y);
+
+
+
+    getContext().drawImage(document.getElementById('warcry-fighter-frame'), 0, 0, getCanvas().width, getCanvas().height);
+
+    
 }
 
 
@@ -349,12 +372,16 @@ function drawTagRunemark(index, runemark) {
     var positions = [{ x: 370, y: 400 }, { x: 490, y: 400 }, { x: 430, y: 300 }];
     if (index >= positions.length) return;
 
-    var img = $("#circle")[0];
-
+    var img = $("#circle_black")[0];
     var position = scalePixelPosition(positions[index]);
     var size = scalePixelPosition({ x: 100, y: 100 });
-    getContext().drawImage(img, position.x, position.y, size.x, size.y);
+    getContext().drawImage(img, position.x-2, position.y-2, size.x+4, size.y+4);
 
+    var img = $("#circle")[0];
+    var position = scalePixelPosition(positions[index]);
+    var size = scalePixelPosition({ x: 100, y: 100 });
+
+    getContext().drawImage(img, position.x, position.y, size.x, size.y);
     position = scalePixelPosition({ x: positions[index].x + 10, y: positions[index].y + 10 });
     size = scalePixelPosition({ x: 80, y: 80 });
     drawImageSrc(position, size, runemark);
@@ -642,6 +669,11 @@ function drawDeploymentRunemark(image) {
     // intial points
     startX = 980;
     startY = 50;
+    // black border
+    var img = $("#circle_black")[0];
+    var position = scalePixelPosition({ x: startX, y: startY });
+    var size = scalePixelPosition({ x: 88, y: 88 });
+    getContext().drawImage(img, position.x-1, position.y-1, size.x+2, size.y+2);
     // white border
     var img = $("#circle")[0];
     var position = scalePixelPosition({ x: startX, y: startY });
@@ -665,6 +697,7 @@ render = function (fighterData) {
     console.log(fighterData);
 
     drawBackground();
+
 
     // drawModel(fighterData.imageUrl, fighterData.imageProperties);
 
@@ -768,6 +801,7 @@ render = function (fighterData) {
     }
 
     }
+    drawBorder();
 
 }
 
