@@ -66,10 +66,7 @@ getBackgroundImage = function () {
 
 }
 
-drawBackground = function () {
-    getContext().drawImage(getBackgroundImage(), 0, 0, getCanvas().width, getCanvas().height);
-
-
+drawFrame = function(){
     // draw some black background circles to get a smooth look
     startX = 454;
     startY = 62;
@@ -87,11 +84,8 @@ drawBackground = function () {
     var size = scalePixelPosition({ x: 144, y: 144 });
     getContext().drawImage(img, position.x, position.y, size.x, size.y);
 
-
-
     getContext().drawImage(document.getElementById('warcry-fighter-frame'), 0, 0, getCanvas().width, getCanvas().height);
 
-    
 }
 
 
@@ -630,6 +624,8 @@ function readControls() {
     data.bg11 = document.getElementById('bg-11').checked;
     data.bg12 = document.getElementById('bg-12').checked;
     data.bg13 = document.getElementById('bg-13').checked;
+    data.customBackgroundUrl = getCustomBackgroundUrl();
+    data.customBackgroundProperties = getCustomBackgroundProperties();
 
     return data;
 }
@@ -696,99 +692,105 @@ render = function (fighterData) {
     console.log("Render:");
     console.log(fighterData);
 
-    drawBackground();
 
+    // if we have a custom background, we start with that then nest through.
+    if (fighterData.customBackgroundUrl) {
+        var backgroundImage = new Image();
+        backgroundImage.onload = function () {
+            var position = scalePixelPosition({ x: fighterData.customBackgroundProperties.offsetX, y: fighterData.customBackgroundProperties.offsetY });
+            var scale = fighterData.customBackgroundProperties.scalePercent;
+            var width = backgroundImage.width * scale/100;
+            var height = backgroundImage.height * scale/100;
+            //getContext().globalAlpha = fighterData.customBackgroundProperties.opacity;           
+            getContext().drawImage(backgroundImage, position.x, position.y, width, height);
+            //getContext().globalAlpha = 1;
+            drawFrame();
+            if (fighterData.imageUrl) {
+                var image = new Image();
+                image.onload = function () {
+                    var position = scalePixelPosition({ x: 600 + fighterData.imageProperties.offsetX, y: 200 + fighterData.imageProperties.offsetY });
+                    var scale = fighterData.imageProperties.scalePercent / 100.0;
+                    var width = image.width * scale;
+                    var height = image.height * scale;
+                    getContext().drawImage(image, position.x, position.y, width, height);
+                    drawOverlayTexts(fighterData);
+        
+                };
+                image.src = fighterData.imageUrl;
+            }
+            else {
+                // Drawn if no image, or when file is loaded but no image included
+                drawOverlayTexts(fighterData);
+        
+            }
+        
+        }
+        console.log("Test");
+        console.log(customBackgroundUrl);
+        backgroundImage.src = fighterData.customBackgroundUrl;
+        
+    }   else {
+        getContext().drawImage(getBackgroundImage(), 0, 0, getCanvas().width, getCanvas().height);
+        drawFrame();
+        if (fighterData.imageUrl) {
+            var image = new Image();
+            image.onload = function () {
+                var position = scalePixelPosition({ x: 600 + fighterData.imageProperties.offsetX, y: 200 + fighterData.imageProperties.offsetY });
+                var scale = fighterData.imageProperties.scalePercent / 100.0;
+                var width = image.width * scale;
+                var height = image.height * scale;
+                getContext().drawImage(image, position.x, position.y, width, height);
+                drawOverlayTexts(fighterData);
+    
+            };
+            image.src = fighterData.imageUrl;
+        }
+        else {
+            // Drawn if no image, or when file is loaded but no image included
+            drawOverlayTexts(fighterData);
+    
+        }
+    
 
-    // drawModel(fighterData.imageUrl, fighterData.imageProperties);
+    }
+
+    
+        
 
     // Section added below to try have text above uploaded image
 
-    if (fighterData.imageUrl) {
-        var image = new Image();
-        image.onload = function () {
-            var position = scalePixelPosition({ x: 600 + fighterData.imageProperties.offsetX, y: 200 + fighterData.imageProperties.offsetY });
-            var scale = fighterData.imageProperties.scalePercent / 100.0;
-            var width = image.width * scale;
-            var height = image.height * scale;
-            getContext().drawImage(image, position.x, position.y, width, height);
+ 
+    drawBorder();
+}
 
-            // These are the texts to overlay
-            drawFighterName(fighterData.fighterName);
-            drawFighterName2(fighterData.fighterName2);
-            //URL.revokeObjectURL(image.src);
 
-            drawFactionRunemark(fighterData.factionRunemark);
-            drawBorder();
-
-            if (!(document.getElementById('subfaction-runemarks/none/blank.gif').checked)) {
-                if (fighterData.subfactionRunemark != null) {
-                    drawSubfactionRunemark(fighterData.subfactionRunemark);
-                }
-            }
-        
-            if (!(document.getElementById('checkbox-assets/img/blank2.gif').checked)) {
-                if (fighterData.deploymentRunemark != null) {
-                    drawDeploymentRunemark(fighterData.deploymentRunemark);
-                }
-            }
-
-            drawMove(fighterData.move);
-            drawWounds(fighterData.wounds);
-            drawToughness(fighterData.toughness);
-            drawPointCost(fighterData.pointCost);
-                
-            if (fighterData.weapon1.enabled && fighterData.weapon2.enabled) {
-        
-                drawWeapon(fighterData.weapon2, { x: 68, y: 550 }); // Default was x:29, y:397
-                drawWeapon(fighterData.weapon1, { x: 68, y: 670 }); // Default was x:29, y:564
-            }
-            else if (fighterData.weapon1.enabled) {
-                drawWeapon(fighterData.weapon1, { x: 68, y: 550 }); // Default was x:29, y:463
-            }
-            else if (fighterData.weapon2.enabled) {
-                drawWeapon(fighterData.weapon2, { x: 68, y: 550 }); // Default was x:29, y:463
-            }
-            for (i = 0; i < fighterData.tagRunemarks.length; i++) {
-                drawTagRunemark(i, fighterData.tagRunemarks[i]);
-            }
-        
-
-        };
-        image.src = fighterData.imageUrl;
-    }
-    else {
-
-    // Drawn if no image, or when file is loaded but no image included
+drawOverlayTexts = function(fighterData){
+    // These are the texts to overlay
     drawFighterName(fighterData.fighterName);
     drawFighterName2(fighterData.fighterName2);
-
-
-    // section added above
-
+    //URL.revokeObjectURL(image.src);
     drawFactionRunemark(fighterData.factionRunemark);
+    drawBorder();
 
     if (!(document.getElementById('subfaction-runemarks/none/blank.gif').checked)) {
         if (fighterData.subfactionRunemark != null) {
             drawSubfactionRunemark(fighterData.subfactionRunemark);
         }
     }
-
     if (!(document.getElementById('checkbox-assets/img/blank2.gif').checked)) {
         if (fighterData.deploymentRunemark != null) {
             drawDeploymentRunemark(fighterData.deploymentRunemark);
         }
     }
-
     drawMove(fighterData.move);
     drawWounds(fighterData.wounds);
     drawToughness(fighterData.toughness);
     drawPointCost(fighterData.pointCost);
-
-
-    if (fighterData.weapon1.enabled && fighterData.weapon2.enabled) {
         
-        drawWeapon(fighterData.weapon2, { x: 68, y: 510 }); // Default was x:29, y:397
-        drawWeapon(fighterData.weapon1, { x: 68, y: 630 }); // Default was x:29, y:564
+    if (fighterData.weapon1.enabled && fighterData.weapon2.enabled) {
+
+        drawWeapon(fighterData.weapon2, { x: 68, y: 520 }); // Default was x:29, y:397
+        drawWeapon(fighterData.weapon1, { x: 68, y: 640 }); // Default was x:29, y:564
     }
     else if (fighterData.weapon1.enabled) {
         drawWeapon(fighterData.weapon1, { x: 68, y: 550 }); // Default was x:29, y:463
@@ -799,10 +801,6 @@ render = function (fighterData) {
     for (i = 0; i < fighterData.tagRunemarks.length; i++) {
         drawTagRunemark(i, fighterData.tagRunemarks[i]);
     }
-
-    }
-    drawBorder();
-
 }
 
 async function writeControls(fighterData) {
@@ -823,6 +821,22 @@ async function writeControls(fighterData) {
     } else {
         fighterData.imageUrl = null;
     }
+
+    if (fighterData.base64CustomBackground != null) {
+
+        // first convert to blob
+        const dataToBlob = async (imageData) => {
+            return await (await fetch(imageData)).blob();
+        };
+        const blob = await dataToBlob(fighterData.base64CustomBackground);
+        // then create URL object
+        fighterData.customBackgroundUrl = URL.createObjectURL(blob);
+        // Now that's saved, clear out the base64 so we don't reassign
+        fighterData.base64CustomBackground = null;
+    } else {
+        fighterData.customBackgroundUrl = null;
+    }
+
 
     setModelImage(fighterData.imageUrl);
     setModelImageProperties(fighterData.imageProperties);
@@ -890,6 +904,9 @@ function defaultFighterData() {
     fighterData.bg11 = true;
     fighterData.bg12 = false;
     fighterData.bg13 = false;
+
+    fighterData.customBackgroundUrl = null;
+    fighterData.customBackgroundProperties = getDefaultModelImageProperties();
 
     return fighterData;
 }
@@ -1199,6 +1216,7 @@ async function onSaveClicked() {
 
     // here is where we should be changing the imageUrl to base64
     data.base64Image = await handleImageUrlFromDisk(data.imageUrl)
+    data.base64CustomBackground = await handleImageUrlFromDisk(data.customBackgroundUrl)
 
     // temp null while I work out image saving
     //data.imageUrl = null;
@@ -1210,6 +1228,7 @@ async function onSaveClicked() {
         'enabled', 'rangeMax', 'rangeMin', 'runemark', 'strength', 'weapon2', 'attacks', 'damageBase', 'damageCrit',
         'enabled', 'rangeMax', 'rangeMin', 'runemark', 'strength',
         'bg01', 'bg02', 'bg03', 'bg04', 'bg05', 'bg06', 'bg07', 'bg08', 'bg09', 'bg10', 'bg11','bg12','bg13',
+        'customBackgroundUrl', 'customBackgroundProperties', 'base64CustomBackground',
         'base64Image'], 4);
 
     var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(exportObj);
@@ -1601,4 +1620,46 @@ function getBladebornRunemark(bladeborn){
 
     else runemark = null;
     return runemark;
+}
+
+
+function getCustomBackgroundProperties() {
+    return {
+        offsetX: $("#customBackgroundOffsetX")[0].valueAsNumber,
+        offsetY: $("#customBackgroundOffsetY")[0].valueAsNumber,
+        scalePercent: $("#customBackgroundScalePercent")[0].valueAsNumber,
+        
+    };
+}
+
+function setCustomBackgroundProperties(customBackgroundProperties) {
+    $("#customBackgroundOffsetX")[0].value = customBackgroundProperties.offsetX;
+    $("#customBackgroundOffsetY")[0].value = customBackgroundProperties.offsetY;
+    $("#customBackgroundScalePercent")[0].value = customBackgroundProperties.scalePercent;
+}
+
+function getCustomBackground() {
+    var imageSelect = $("#customBackgroundSelect")[0];
+    if (imageSelect.files.length > 0) {
+        return URL.createObjectURL(imageSelect.files[0]);
+    }
+    return null;
+}
+
+function setCustomBackground(image) {
+    console.log("setCustomBackground:" + image);
+    $("#customBackgroundUrl")[0].value = image;
+}
+
+onCustomBackgroundUpload = function () {
+    image = getCustomBackground();
+    setCustomBackground(image);
+    var fighterData = readControls();
+    render(fighterData);
+    saveLatestFighterData();
+}
+
+function getCustomBackgroundUrl() {
+    var imageSelect = $("#customBackgroundUrl")[0].value;
+    return imageSelect;
 }
