@@ -450,16 +450,7 @@ function setName(name) {
 
 
 function setModelImage(image) {
-    console.log("setModelImage:" + image);
     $("#fighterImageUrl")[0].value = image;
-
-    //  if (image != null) {
-    // TODO: Not sure how to do this. It might not even be possible! Leave it for now...
-    //    imageSelect.value = image;
-    // }
-    // else {
-    //    imageSelect.value = null;
-    // }
 }
 
 function getModelImage() {
@@ -470,6 +461,22 @@ function getModelImage() {
     }
     return null;
 }
+
+function getModelImageProperties() {
+    return {
+        offsetX: $("#imageOffsetX")[0].valueAsNumber,
+        offsetY: $("#imageOffsetY")[0].valueAsNumber,
+        scalePercent: $("#imageScalePercent")[0].valueAsNumber
+    };
+}
+
+function setModelImageProperties(modelImageProperties) {
+    $("#imageOffsetX")[0].value = modelImageProperties.offsetX;
+    $("#imageOffsetY")[0].value = modelImageProperties.offsetY;
+    $("#imageScalePercent")[0].value = modelImageProperties.scalePercent;
+}
+
+
 
 
 function getFighterImageUrl() {
@@ -488,19 +495,6 @@ function getDefaultModelImageProperties() {
     };
 }
 
-function getModelImageProperties() {
-    return {
-        offsetX: $("#imageOffsetX")[0].valueAsNumber,
-        offsetY: $("#imageOffsetY")[0].valueAsNumber,
-        scalePercent: $("#imageScalePercent")[0].valueAsNumber
-    };
-}
-
-function setModelImageProperties(modelImageProperties) {
-    $("#imageOffsetX")[0].value = modelImageProperties.offsetX;
-    $("#imageOffsetY")[0].value = modelImageProperties.offsetY;
-    $("#imageScalePercent")[0].value = modelImageProperties.scalePercent;
-}
 
 function getDefaultWeaponData() {
     var weaponData = new Object;
@@ -609,6 +603,8 @@ function readControls() {
     data.name = getName();
     data.imageUrl = getFighterImageUrl();
     data.imageProperties = getModelImageProperties();
+    data.customBackgroundUrl = getCustomBackgroundUrl();
+    data.customBackgroundProperties = getCustomBackgroundProperties();
     data.factionRunemark = getSelectedFactionRunemark();
     data.subfactionRunemark = getSelectedSubfactionRunemark();
     data.deploymentRunemark = getSelectedDeploymentRunemark();
@@ -637,8 +633,6 @@ function readControls() {
     data.bg14 = document.getElementById('bg-14').checked;
     data.bg15 = document.getElementById('bg-15').checked;
     data.bg16 = document.getElementById('bg-16').checked;
-    data.customBackgroundUrl = getCustomBackgroundUrl();
-    data.customBackgroundProperties = getCustomBackgroundProperties();
 
     return data;
 }
@@ -708,8 +702,10 @@ render = function (fighterData) {
 
     // if we have a custom background, we start with that then nest through.
     if (fighterData.customBackgroundUrl) {
+        console.log("Point 1");
         var backgroundImage = new Image();
         backgroundImage.onload = function () {
+            console.log("Point 6");
             var position = scalePixelPosition({ x: fighterData.customBackgroundProperties.offsetX, y: fighterData.customBackgroundProperties.offsetY });
             var scale = fighterData.customBackgroundProperties.scalePercent;
             var width = backgroundImage.width * scale/100;
@@ -719,6 +715,7 @@ render = function (fighterData) {
             //getContext().globalAlpha = 1;
             drawFrame();
             if (fighterData.imageUrl) {
+                console.log("Point 5");
                 var image = new Image();
                 image.onload = function () {
                     var position = scalePixelPosition({ x: 600 + fighterData.imageProperties.offsetX, y: 200 + fighterData.imageProperties.offsetY });
@@ -727,22 +724,19 @@ render = function (fighterData) {
                     var height = image.height * scale;
                     getContext().drawImage(image, position.x, position.y, width, height);
                     drawOverlayTexts(fighterData);
-        
                 };
                 image.src = fighterData.imageUrl;
-            }
-            else {
+            } else {
                 // Drawn if no image, or when file is loaded but no image included
                 drawOverlayTexts(fighterData);
-        
+                console.log("Point 3");
             }
-        
         }
-        console.log("Test");
-        console.log(customBackgroundUrl);
+        console.log("Point 7");
         backgroundImage.src = fighterData.customBackgroundUrl;
         
     }   else {
+        console.log("Point 2");
         getContext().drawImage(getBackgroundImage(), 0, 0, getCanvas().width, getCanvas().height);
         drawFrame();
         if (fighterData.imageUrl) {
@@ -754,7 +748,6 @@ render = function (fighterData) {
                 var height = image.height * scale;
                 getContext().drawImage(image, position.x, position.y, width, height);
                 drawOverlayTexts(fighterData);
-    
             };
             image.src = fighterData.imageUrl;
         }
@@ -763,16 +756,7 @@ render = function (fighterData) {
             drawOverlayTexts(fighterData);
     
         }
-    
-
     }
-
-    
-        
-
-    // Section added below to try have text above uploaded image
-
- 
     drawBorder();
 }
 
@@ -820,8 +804,7 @@ async function writeControls(fighterData) {
     //setName("Warcry_Fighter_Card"); // Always default, trying to move away from this
 
     // here we check for base64 loaded image and convert it back to imageUrl
-    if (fighterData.base64Image != null) {
-
+    if (fighterData.base64Image) {
         // first convert to blob
         const dataToBlob = async (imageData) => {
             return await (await fetch(imageData)).blob();
@@ -835,8 +818,7 @@ async function writeControls(fighterData) {
         fighterData.imageUrl = null;
     }
 
-    if (fighterData.base64CustomBackground != null) {
-
+    if (fighterData.base64CustomBackground) {
         // first convert to blob
         const dataToBlob = async (imageData) => {
             return await (await fetch(imageData)).blob();
@@ -850,9 +832,10 @@ async function writeControls(fighterData) {
         fighterData.customBackgroundUrl = null;
     }
 
-
     setModelImage(fighterData.imageUrl);
     setModelImageProperties(fighterData.imageProperties);
+    setCustomBackground(fighterData.customBackgroundUrl);
+    setCustomBackgroundProperties(fighterData.customBackgroundProperties);
     setSelectedFactionRunemark(fighterData.factionRunemark);
     setSelectedSubfactionRunemark(fighterData.subfactionRunemark);
     setSelectedDeploymentRunemark(fighterData.deploymentRunemark);
@@ -951,8 +934,6 @@ function loadLatestFighterData() {
     if (latestFighterName == null) {
         latestFighterName = "Warcry_Fighter_Card";
     }
-
-    console.log("Loading '" + latestFighterName + "'...");
 
     var data = loadFighterData(latestFighterName);
 
@@ -1241,14 +1222,21 @@ async function onSaveClicked() {
     //data.imageUrl = null;
 
     // need to be explicit due to sub arrays
-    var exportObj = JSON.stringify(data, ['name', 'imageUrl', 'imageProperties', 'offsetX', 'offsetY',
-        'scalePercent', 'factionRunemark', 'subfactionRunemark', 'deploymentRunemark', 'fighterName', 'fighterName2',
-        'toughness', 'wounds', 'move', 'pointCost', 'tagRunemarks', 'weapon1', 'attacks', 'damageBase', 'damageCrit',
-        'enabled', 'rangeMax', 'rangeMin', 'runemark', 'strength', 'weapon2', 'attacks', 'damageBase', 'damageCrit',
+    var exportObj = JSON.stringify(data, ['name', 'imageUrl', 
+        'imageProperties', 'offsetX', 'offsetY', 'scalePercent', 
+        'factionRunemark', 'subfactionRunemark', 'deploymentRunemark', 'fighterName', 'fighterName2',
+        'toughness', 'wounds', 'move', 'pointCost', 'tagRunemarks', 
+        'weapon1', 'attacks', 'damageBase', 'damageCrit',
+        'enabled', 'rangeMax', 'rangeMin', 'runemark', 'strength', 
+        'weapon2', 'attacks', 'damageBase', 'damageCrit',
         'enabled', 'rangeMax', 'rangeMin', 'runemark', 'strength',
-        'bg01', 'bg02', 'bg03', 'bg04', 'bg05', 'bg06', 'bg07', 'bg08', 'bg09', 'bg10', 'bg11','bg12','bg13', 'bg14', 'bg15', 'bg16',
-        'customBackgroundUrl', 'customBackgroundProperties', 'base64CustomBackground',
-        'base64Image'], 4);
+        'bg01', 'bg02', 'bg03', 'bg04', 'bg05', 'bg06', 'bg07', 'bg08', 'bg09', 'bg10', 
+        'bg11','bg12','bg13', 'bg14', 'bg15', 'bg16',
+        'customBackgroundUrl', 'customBackgroundProperties','customBackgroundOffsetX', 
+        'customBackgroundOffsetY', 'customBackgroundScalePercent',
+        'base64CustomBackground', 'base64Image'], 4);
+
+
 
     var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(exportObj);
     var downloadAnchorNode = document.createElement('a');
@@ -1327,7 +1315,6 @@ async function getFighterList(){
 
 
 function updateFighterListDropdown(data){
-    console.log(data);
     $.each(data, function(i, option) {
         $('#sel').append($('<option/>').attr("value", option.id).text(option.Name + " - " + option.Warband));
     });
@@ -1358,7 +1345,13 @@ function saveFighterFromList(fighter){
             offsetY: 0,
             scalePercent: 200
         };
-    
+    fighterData.customBackgroundUrl = null;
+    fighterData.customBackgroundProperties = {
+            offsetX: 0,
+            offsetY: 0,
+            scalePercent: 100
+        };
+            
 
     fighterData.factionRunemark = getFactionRunemark(fighter.Warband);    
     fighterData.fighterName = fighter.Name;
@@ -1669,7 +1662,6 @@ function getCustomBackground() {
 }
 
 function setCustomBackground(image) {
-    console.log("setCustomBackground:" + image);
     $("#customBackgroundUrl")[0].value = image;
 }
 
