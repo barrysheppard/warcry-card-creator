@@ -66,6 +66,12 @@ getBackgroundImage = function () {
     } else if (document.getElementById('bg-14').checked) {
         return document.getElementById('bg-aos');
 
+    } else if (document.getElementById('bg-15').checked) {
+        return document.getElementById('bg-green');
+
+    } else if (document.getElementById('bg-16').checked) {
+        return document.getElementById('bg-red');
+
     }
 
 }
@@ -628,7 +634,9 @@ function readControls() {
     data.bg11 = document.getElementById('bg-11').checked;
     data.bg12 = document.getElementById('bg-12').checked;
     data.bg13 = document.getElementById('bg-13').checked;
-    data.bgaos = document.getElementById('bg-aos').checked;
+    data.bg14 = document.getElementById('bg-14').checked;
+    data.bg15 = document.getElementById('bg-15').checked;
+    data.bg16 = document.getElementById('bg-16').checked;
     data.customBackgroundUrl = getCustomBackgroundUrl();
     data.customBackgroundProperties = getCustomBackgroundProperties();
 
@@ -873,6 +881,8 @@ async function writeControls(fighterData) {
     document.getElementById('bg-12').checked = fighterData.bg12;
     document.getElementById('bg-13').checked = fighterData.bg13;
     document.getElementById('bg-14').checked = fighterData.bg14;
+    document.getElementById('bg-15').checked = fighterData.bg15;
+    document.getElementById('bg-16').checked = fighterData.bg16;
 
     // render the updated info
     render(fighterData);
@@ -911,6 +921,8 @@ function defaultFighterData() {
     fighterData.bg12 = false;
     fighterData.bg13 = false;
     fighterData.bg14 = true;
+    fighterData.bg15 = false;
+    fighterData.bg16 = false;
 
     fighterData.customBackgroundUrl = null;
     fighterData.customBackgroundProperties = getDefaultModelImageProperties();
@@ -1234,7 +1246,7 @@ async function onSaveClicked() {
         'toughness', 'wounds', 'move', 'pointCost', 'tagRunemarks', 'weapon1', 'attacks', 'damageBase', 'damageCrit',
         'enabled', 'rangeMax', 'rangeMin', 'runemark', 'strength', 'weapon2', 'attacks', 'damageBase', 'damageCrit',
         'enabled', 'rangeMax', 'rangeMin', 'runemark', 'strength',
-        'bg01', 'bg02', 'bg03', 'bg04', 'bg05', 'bg06', 'bg07', 'bg08', 'bg09', 'bg10', 'bg11','bg12','bg13', 'bg14',
+        'bg01', 'bg02', 'bg03', 'bg04', 'bg05', 'bg06', 'bg07', 'bg08', 'bg09', 'bg10', 'bg11','bg12','bg13', 'bg14', 'bg15', 'bg16',
         'customBackgroundUrl', 'customBackgroundProperties', 'base64CustomBackground',
         'base64Image'], 4);
 
@@ -1399,6 +1411,8 @@ function saveFighterFromList(fighter){
     fighterData.bg12 = false;
     fighterData.bg13 = false;
     fighterData.bg14 = true;
+    fighterData.bg15 = false;
+    fighterData.bg16 = false;
 
     writeControls(fighterData);
 }
