@@ -62,6 +62,10 @@ getBackgroundImage = function () {
     
     } else if (document.getElementById('bg-13').checked) {
         return document.getElementById('mordheim01');
+
+    } else if (document.getElementById('bg-14').checked) {
+        return document.getElementById('bg-aos');
+
     }
 
 }
@@ -624,6 +628,7 @@ function readControls() {
     data.bg11 = document.getElementById('bg-11').checked;
     data.bg12 = document.getElementById('bg-12').checked;
     data.bg13 = document.getElementById('bg-13').checked;
+    data.bgaos = document.getElementById('bg-aos').checked;
     data.customBackgroundUrl = getCustomBackgroundUrl();
     data.customBackgroundProperties = getCustomBackgroundProperties();
 
@@ -867,6 +872,7 @@ async function writeControls(fighterData) {
     document.getElementById('bg-11').checked = fighterData.bg11;
     document.getElementById('bg-12').checked = fighterData.bg12;
     document.getElementById('bg-13').checked = fighterData.bg13;
+    document.getElementById('bg-14').checked = fighterData.bg14;
 
     // render the updated info
     render(fighterData);
@@ -901,9 +907,10 @@ function defaultFighterData() {
     fighterData.bg08 = false;
     fighterData.bg09 = false;
     fighterData.bg10 = false;
-    fighterData.bg11 = true;
+    fighterData.bg11 = false;
     fighterData.bg12 = false;
     fighterData.bg13 = false;
+    fighterData.bg14 = true;
 
     fighterData.customBackgroundUrl = null;
     fighterData.customBackgroundProperties = getDefaultModelImageProperties();
@@ -1227,7 +1234,7 @@ async function onSaveClicked() {
         'toughness', 'wounds', 'move', 'pointCost', 'tagRunemarks', 'weapon1', 'attacks', 'damageBase', 'damageCrit',
         'enabled', 'rangeMax', 'rangeMin', 'runemark', 'strength', 'weapon2', 'attacks', 'damageBase', 'damageCrit',
         'enabled', 'rangeMax', 'rangeMin', 'runemark', 'strength',
-        'bg01', 'bg02', 'bg03', 'bg04', 'bg05', 'bg06', 'bg07', 'bg08', 'bg09', 'bg10', 'bg11','bg12','bg13',
+        'bg01', 'bg02', 'bg03', 'bg04', 'bg05', 'bg06', 'bg07', 'bg08', 'bg09', 'bg10', 'bg11','bg12','bg13', 'bg14',
         'customBackgroundUrl', 'customBackgroundProperties', 'base64CustomBackground',
         'base64Image'], 4);
 
@@ -1388,9 +1395,10 @@ function saveFighterFromList(fighter){
     fighterData.bg08 = false;
     fighterData.bg09 = false;
     fighterData.bg10 = false;
-    fighterData.bg11 = true;
+    fighterData.bg11 = false;
     fighterData.bg12 = false;
     fighterData.bg13 = false;
+    fighterData.bg14 = true;
 
     writeControls(fighterData);
 }
