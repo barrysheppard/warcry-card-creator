@@ -642,12 +642,18 @@ function drawFactionRunemark(image) {
     var size = scalePixelPosition({ x: 110, y: 110 });
     drawImageSrc(position, size, image);
 }
+
 function drawSubfactionRunemark(image) {
 
     // draw the background circle first
     // intial points
     startX = 200;
     startY = 52;
+    // black outsideline
+    var img = $("#circle_black")[0];
+    var position = scalePixelPosition({ x: startX -1, y: startY-1 });
+    var size = scalePixelPosition({ x: 90, y: 90 });
+    getContext().drawImage(img, position.x, position.y, size.x, size.y);
     // white border
     var img = $("#circle")[0];
     var position = scalePixelPosition({ x: startX, y: startY });
@@ -702,10 +708,9 @@ render = function (fighterData) {
 
     // if we have a custom background, we start with that then nest through.
     if (fighterData.customBackgroundUrl) {
-        console.log("Point 1");
+        
         var backgroundImage = new Image();
         backgroundImage.onload = function () {
-            console.log("Point 6");
             var position = scalePixelPosition({ x: fighterData.customBackgroundProperties.offsetX, y: fighterData.customBackgroundProperties.offsetY });
             var scale = fighterData.customBackgroundProperties.scalePercent;
             var width = backgroundImage.width * scale/100;
@@ -713,9 +718,18 @@ render = function (fighterData) {
             //getContext().globalAlpha = fighterData.customBackgroundProperties.opacity;           
             getContext().drawImage(backgroundImage, position.x, position.y, width, height);
             //getContext().globalAlpha = 1;
+                if (!(document.getElementById('subfaction-runemarks/none/blank.gif').checked)) {
+        if (fighterData.subfactionRunemark != null) {
+            drawSubfactionRunemark(fighterData.subfactionRunemark);
+        }
+    }
+    if (!(document.getElementById('checkbox-assets/img/blank2.gif').checked)) {
+        if (fighterData.deploymentRunemark != null) {
+            drawDeploymentRunemark(fighterData.deploymentRunemark);
+        }
+    }   
             drawFrame();
             if (fighterData.imageUrl) {
-                console.log("Point 5");
                 var image = new Image();
                 image.onload = function () {
                     var position = scalePixelPosition({ x: 600 + fighterData.imageProperties.offsetX, y: 200 + fighterData.imageProperties.offsetY });
@@ -729,14 +743,11 @@ render = function (fighterData) {
             } else {
                 // Drawn if no image, or when file is loaded but no image included
                 drawOverlayTexts(fighterData);
-                console.log("Point 3");
             }
         }
-        console.log("Point 7");
         backgroundImage.src = fighterData.customBackgroundUrl;
         
     }   else {
-        console.log("Point 2");
         getContext().drawImage(getBackgroundImage(), 0, 0, getCanvas().width, getCanvas().height);
         drawFrame();
         if (fighterData.imageUrl) {
