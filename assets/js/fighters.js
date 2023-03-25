@@ -1249,12 +1249,15 @@ async function onSaveClicked() {
         'customBackgroundOffsetY', 'customBackgroundScalePercent',
         'base64CustomBackground', 'base64Image'], 4);
 
-
-
     var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(exportObj);
     var downloadAnchorNode = document.createElement('a');
     downloadAnchorNode.setAttribute("href", dataStr);
-    file_name = "warcry_fighter_" + data.fighterName.replace(/ /g, "_") +  "_" + data.fighterName2.replace(/ /g, "_") + ".png";
+    file_name = "warcry_fighter_" + data.fighterName.replace(/ /g, "_");
+    if (data.fighterName2 == "") {
+        file_name = file_name + ".json";
+    } else {
+        file_name = file_name +  "_" + data.fighterName2.replace(/ /g, "_") + ".json";
+    }
     downloadAnchorNode.setAttribute("download", file_name);
     document.body.appendChild(downloadAnchorNode); // required for firefox
     downloadAnchorNode.click();
@@ -1265,7 +1268,12 @@ function saveCardAsImage() {
     data = readControls();
     var element = document.createElement('a');
     element.setAttribute('href', document.getElementById('canvas').toDataURL('image/png'));
-    file_name = "warcry_fighter_" + data.fighterName.replace(/ /g, "_") +  "_" + data.fighterName2.replace(/ /g, "_") + ".png";
+    file_name = "warcry_fighter_" + data.fighterName.replace(/ /g, "_");
+    if (data.fighterName2 == "") {
+        file_name = file_name + ".png";
+    } else {
+        file_name = file_name +  "_" + data.fighterName2.replace(/ /g, "_") + ".png";
+    }
     element.setAttribute("download", file_name);
     element.style.display = 'none';
     document.body.appendChild(element);
