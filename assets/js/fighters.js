@@ -1254,7 +1254,8 @@ async function onSaveClicked() {
     var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(exportObj);
     var downloadAnchorNode = document.createElement('a');
     downloadAnchorNode.setAttribute("href", dataStr);
-    downloadAnchorNode.setAttribute("download", "warcry_fighter_" + data.fighterName.replace(/ /g, "_") + ".json");
+    file_name = "warcry_fighter_" + data.fighterName.replace(/ /g, "_") +  "_" + data.fighterName2.replace(/ /g, "_") + ".png";
+    downloadAnchorNode.setAttribute("download", file_name);
     document.body.appendChild(downloadAnchorNode); // required for firefox
     downloadAnchorNode.click();
     downloadAnchorNode.remove();
@@ -1264,7 +1265,8 @@ function saveCardAsImage() {
     data = readControls();
     var element = document.createElement('a');
     element.setAttribute('href', document.getElementById('canvas').toDataURL('image/png'));
-    element.setAttribute("download", "warcry_fighter_" + data.fighterName.replace(/ /g, "_") + ".png");
+    file_name = "warcry_fighter_" + data.fighterName.replace(/ /g, "_") +  "_" + data.fighterName2.replace(/ /g, "_") + ".png";
+    element.setAttribute("download", file_name);
     element.style.display = 'none';
     document.body.appendChild(element);
     element.click();
@@ -1329,7 +1331,7 @@ async function getFighterList(){
 
 function updateFighterListDropdown(data){
     $.each(data, function(i, option) {
-        $('#sel').append($('<option/>').attr("value", option.id).text(option.Name + " - " + option.Warband));
+        $('#sel').append($('<option/>').attr("value", option.id).text(option.Name + " " + option.Subtitle + " - " + option.Warband));
     });
 
 }
@@ -1362,7 +1364,7 @@ function saveFighterFromList(fighter){
     
     fighterData.factionRunemark = getFactionRunemark(fighter.Warband);    
     fighterData.fighterName = fighter.Name;
-    fighterData.fighterName2 = "";
+    fighterData.fighterName2 = fighter.Subtitle;
     fighterData.toughness = fighter.Toughness;
     fighterData.wounds = fighter.Wounds;
     fighterData.move = fighter.Movement;
@@ -1427,16 +1429,16 @@ function getFactionRunemark(warband){
     else if(warband == "Darkoath Savagers") {runemark = "runemarks/white/factions-chaos-darkoath-savagers.svg";}
     else if(warband == "Chaos Everchosen") {runemark = "runemarks/white/factions-chaos-everchosen.svg";}
     else if(warband == "Horns of Hashut") {runemark = "runemarks/white/factions-chaos-horns-of-hashut.svg";}
-    else if(warband == "Iron GOlems") {runemark = "runemarks/white/factions-chaos-iron-golems.svg";}
+    else if(warband == "Iron Golems") {runemark = "runemarks/white/factions-chaos-iron-golems.svg";}
     else if(warband == "Jade Obelisk") {runemark = "runemarks/white/factions-chaos-jade-obelisk.svg";}
     else if(warband == "Khorne Bloodbound") {runemark = "runemarks/white/factions-chaos-khorne-bloodbound.svg";}
-    else if(warband == "Khorne Daemons") {runemark = "runemarks/white/factions-chaos-khorne-daemons.svg";}
-    else if(warband == "Nurgle Daemons") {runemark = "runemarks/white/factions-chaos-nurgle-daemons.svg";}
+    else if(warband == "Daemons of Khorne") {runemark = "runemarks/white/factions-chaos-khorne-daemons.svg";}
+    else if(warband == "Daemons of Nurgle") {runemark = "runemarks/white/factions-chaos-nurgle-daemons.svg";}
     else if(warband == "Nurgle Rotbringers") {runemark = "runemarks/white/factions-chaos-nurgle-rotbringers.svg";}
     else if(warband == "Rotmire Creed") {runemark = "runemarks/white/factions-chaos-rotmire-creed.svg";}
-    else if(warband == "Scions of the FLame") {runemark = "runemarks/white/factions-chaos-scions-of-the-flame.svg";}
+    else if(warband == "Scions of the Flame") {runemark = "runemarks/white/factions-chaos-scions-of-the-flame.svg";}
     else if(warband == "Skaven") {runemark = "runemarks/white/factions-chaos-skaven.svg";}
-    else if(warband == "Slaanesh Daemons") {runemark = "runemarks/white/factions-chaos-slaanesh-daemons.svg";}
+    else if(warband == "Daemons of Slaanesh") {runemark = "runemarks/white/factions-chaos-slaanesh-daemons.svg";}
     else if(warband == "Slaanesh Sybarites") {runemark = "runemarks/white/factions-chaos-slaanesh-sybarites.svg";}
     else if(warband == "Slaves to Darkness") {runemark = "runemarks/white/factions-chaos-slaves-to-darkness.svg";}
     else if(warband == "Spire Tyrants") {runemark = "runemarks/white/factions-chaos-spire-tyrants.svg";}
@@ -1444,7 +1446,7 @@ function getFactionRunemark(warband){
     else if(warband == "Tarantulos Brood") {runemark = "runemarks/white/factions-chaos-tarantulos-brood.svg";}
     else if(warband == "The Unmade") {runemark = "runemarks/white/factions-chaos-the-unmade.svg";}
     else if(warband == "Tzeentch Arcanites") {runemark = "runemarks/white/factions-chaos-tzeentch-arcanites.svg";}
-    else if(warband == "Tzeentch Daemons") {runemark = "runemarks/white/factions-chaos-tzeentch-daemons.svg";}
+    else if(warband == "Daemons of Tzeentch") {runemark = "runemarks/white/factions-chaos-tzeentch-daemons.svg";}
     else if(warband == "Untamed Beasts") {runemark = "runemarks/white/factions-chaos-untamed-beasts.svg";}
     else if(warband == "Flesh-eater Courts") {runemark = "runemarks/white/factions-death-flesh-eater-courts.svg";}
     else if(warband == "Legions of Nagash") {runemark = "runemarks/white/factions-death-legions-of-nagash.svg";}
@@ -1456,6 +1458,11 @@ function getFactionRunemark(warband){
     else if(warband == "Ironjawz") {runemark = "runemarks/white/factions-destruction-ironjawz.svg";}
     else if(warband == "Kruleboyz") {runemark = "runemarks/white/factions-destruction-kruleboyz.svg";}
     else if(warband == "Ogor Mawtribes") {runemark = "runemarks/white/factions-destruction-ogor-mawtribes.svg";}
+
+    else if(warband == "ChaosAllyThrallMonster") {runemark = "runemarks/white/grand-alliance-chaos.svg";}
+    else if(warband == "OrderAllyThrallMonster") {runemark = "runemarks/white/grand-alliance-order.svg";}
+    else if(warband == "DestAllyThrallMonster") {runemark = "runemarks/white/grand-alliance-destruction.svg";}
+    else if(warband == "DeathAllyThrallMonster") {runemark = "runemarks/white/grand-alliance-death.svg";}
     /*
     else if(warband = "Cities of Sigmar Alt") {runemark = "runemarks/white/factions-order-cities-of-sigmar-alternative.svg";}
     else if(warband = "Chaos Legionnaaires") {runemark = "runemarks/white/factions-order-cities-of-sigmar-anvilgard.svg";}
@@ -1547,7 +1554,7 @@ function getRunemarks(runemarks){
         tagRunemarks.push('runemarks/black/fighters-warrior.svg');
     }
     if (runemarks.includes("Monster")){
-        tagRunemarks.push('runemarks/black/fighters-monster.svg');
+        tagRunemarks.push('runemarks/black/fighters-gargantuan.svg');
     }
     if (runemarks.includes("Thrall")){
         tagRunemarks.push('runemarks/black/fighters-thrall.svg');
