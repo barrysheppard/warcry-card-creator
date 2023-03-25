@@ -826,7 +826,8 @@ async function writeControls(fighterData) {
         // Now that's saved, clear out the base64 so we don't reassign
         fighterData.base64Image = null;
     } else {
-        fighterData.imageUrl = null;
+        //fighterData.imageUrl = null;
+        console.log("Check Point One");
     }
 
     if (fighterData.base64CustomBackground) {
@@ -840,7 +841,7 @@ async function writeControls(fighterData) {
         // Now that's saved, clear out the base64 so we don't reassign
         fighterData.base64CustomBackground = null;
     } else {
-        fighterData.customBackgroundUrl = null;
+        console.log("Check Point Two");
     }
 
     setModelImage(fighterData.imageUrl);
@@ -887,6 +888,10 @@ function defaultFighterData() {
     fighterData.name = "Warcry_Fighter_Card";
     fighterData.imageUrl = null;
     fighterData.imageProperties = getDefaultModelImageProperties();
+    fighterData.base64Image = null;
+    fighterData.customBackgroundUrl = null;
+    fighterData.customBackgroundProperties = getDefaultModelImageProperties();
+    fighterData.base64CustomBackground = null;
     fighterData.factionRunemark = 'runemarks/white/factions-chaos-iron-golems.svg';
     fighterData.fighterName = "Name";
     fighterData.fighterName2 = "subtitle";
@@ -917,9 +922,6 @@ function defaultFighterData() {
     fighterData.bg14 = true;
     fighterData.bg15 = false;
     fighterData.bg16 = false;
-
-    fighterData.customBackgroundUrl = null;
-    fighterData.customBackgroundProperties = getDefaultModelImageProperties();
 
     return fighterData;
 }
@@ -1346,24 +1348,18 @@ function loadFighterFromList(){
 
 function saveFighterFromList(fighter){
 
+    var oldData = readControls();
     console.log(fighter);
 
     var fighterData = new Object;
     fighterData.name = "Warcry_Fighter_Card";
-    fighterData.imageUrl = null;
-    fighterData.imageProperties = {
-            offsetX: 0,
-            offsetY: 0,
-            scalePercent: 200
-        };
-    fighterData.customBackgroundUrl = null;
-    fighterData.customBackgroundProperties = {
-            offsetX: 0,
-            offsetY: 0,
-            scalePercent: 100
-        };
-            
-
+    fighterData.imageUrl = oldData.imageUrl;
+    fighterData.imageProperties = oldData.imageProperties;
+    fighterData.customBackgroundUrl = oldData.customBackgroundUrl;
+    fighterData.customBackgroundProperties = oldData.customBackgroundProperties;
+    fighterData.base64Image = null;
+    fighterData.base64CustomBackground = null;
+    
     fighterData.factionRunemark = getFactionRunemark(fighter.Warband);    
     fighterData.fighterName = fighter.Name;
     fighterData.fighterName2 = "";
@@ -1401,22 +1397,22 @@ function saveFighterFromList(fighter){
     fighterData.subfactionRunemark = getBladebornRunemark(fighter.Bladeborn);
     fighterData.deploymentRunemark = null;
 
-    fighterData.bg01 = false;
-    fighterData.bg02 = false;
-    fighterData.bg03 = false;
-    fighterData.bg04 = false;
-    fighterData.bg05 = false;
-    fighterData.bg06 = false;
-    fighterData.bg07 = false;
-    fighterData.bg08 = false;
-    fighterData.bg09 = false;
-    fighterData.bg10 = false;
-    fighterData.bg11 = false;
-    fighterData.bg12 = false;
-    fighterData.bg13 = false;
-    fighterData.bg14 = true;
-    fighterData.bg15 = false;
-    fighterData.bg16 = false;
+    fighterData.bg01 = oldData.bg01;
+    fighterData.bg02 = oldData.bg02;
+    fighterData.bg03 = oldData.bg03;
+    fighterData.bg04 = oldData.bg04;
+    fighterData.bg05 = oldData.bg05;
+    fighterData.bg06 = oldData.bg06;
+    fighterData.bg07 = oldData.bg07;
+    fighterData.bg08 = oldData.bg08;
+    fighterData.bg09 = oldData.bg09;
+    fighterData.bg10 = oldData.bg10;
+    fighterData.bg11 = oldData.bg11;
+    fighterData.bg12 = oldData.bg12;
+    fighterData.bg13 = oldData.bg13;
+    fighterData.bg14 = oldData.bg14;
+    fighterData.bg15 = oldData.bg15;
+    fighterData.bg16 = oldData.bg16;
 
     writeControls(fighterData);
 }
