@@ -1,12 +1,19 @@
-writeValue = function (ctx, value, pos) {
-    var scale = getScalingFactor(getCanvas(), getBackgroundImage());
-    pos = { x: pos.x / scale.x, y: pos.y / scale.y };
-
-    ctx.save();
+const writeValue = function(ctx, value, position) {
+    if (!ctx || typeof ctx.fillText !== 'function') {
+      throw new Error('Invalid canvas context');
+    }
+  
+    const canvas = getCanvas();
+    const backgroundImage = getBackgroundImage();
+    const scale = getScalingFactor(canvas, backgroundImage);
+    const scaledPosition = {
+      x: position.x / scale.x,
+      y: position.y / scale.y
+    };
+  
     ctx.scale(scale.x, scale.y);
-    ctx.fillText(value, pos.x, pos.y);
-    ctx.restore();
-}
+    ctx.fillText(value, scaledPosition.x, scaledPosition.y);
+  };
 
 getScalingFactor = function (canvas, warcryCardOne) {
     return {
@@ -701,115 +708,147 @@ function drawDeploymentRunemark(image) {
     drawImageSrc(position, size, image);
 }
 
-render = function (fighterData) {
-    console.log("Render:");
-    console.log(fighterData);
-
-
-    // if we have a custom background, we start with that then nest through.
+const render = function(fighterData) {
     if (fighterData.customBackgroundUrl) {
-        
-        var backgroundImage = new Image();
-        backgroundImage.onload = function () {
-            var position = scalePixelPosition({ x: fighterData.customBackgroundProperties.offsetX, y: fighterData.customBackgroundProperties.offsetY });
-            var scale = fighterData.customBackgroundProperties.scalePercent;
-            var width = backgroundImage.width * scale/100;
-            var height = backgroundImage.height * scale/100;
-            //getContext().globalAlpha = fighterData.customBackgroundProperties.opacity;           
-            getContext().drawImage(backgroundImage, position.x, position.y, width, height);
-            //getContext().globalAlpha = 1;
-                if (!(document.getElementById('subfaction-runemarks/none/blank.gif').checked)) {
-        if (fighterData.subfactionRunemark != null) {
-            drawSubfactionRunemark(fighterData.subfactionRunemark);
-        }
+      renderCustomBackground(fighterData);
+    } else {
+      renderDefaultBackground(fighterData);
     }
-    if (!(document.getElementById('checkbox-assets/img/blank2.gif').checked)) {
-        if (fighterData.deploymentRunemark != null) {
-            drawDeploymentRunemark(fighterData.deploymentRunemark);
-        }
-    }   
+  };
+  
+const renderCustomBackground = function(fighterData) {
+    const backgroundImage = new Image();
+    const removeTextAndFrame = document.getElementById("removeTextAndFrame").checked;
+    console.log("Check Point One:");
+    console.log(removeTextAndFrame);
+    backgroundImage.onload = function() {
+        const position = scalePixelPosition({
+        x: fighterData.customBackgroundProperties.offsetX,
+        y: fighterData.customBackgroundProperties.offsetY
+        });
+        const scale = fighterData.customBackgroundProperties.scalePercent;
+        const width = backgroundImage.width * scale / 100;
+        const height = backgroundImage.height * scale / 100;
+        getContext().drawImage(backgroundImage, position.x, position.y, width, height);
+        console.log("Check Point Two");
+        if(!removeTextAndFrame){
             drawFrame();
-            if (fighterData.imageUrl) {
-                var image = new Image();
-                image.onload = function () {
-                    var position = scalePixelPosition({ x: 600 + fighterData.imageProperties.offsetX, y: 200 + fighterData.imageProperties.offsetY });
-                    var scale = fighterData.imageProperties.scalePercent / 100.0;
-                    var width = image.width * scale;
-                    var height = image.height * scale;
-                    getContext().drawImage(image, position.x, position.y, width, height);
-                    drawOverlayTexts(fighterData);
-                };
-                image.src = fighterData.imageUrl;
-            } else {
-                // Drawn if no image, or when file is loaded but no image included
+            if (!(document.getElementById('subfaction-runemarks/none/blank.gif').checked) && fighterData.subfactionRunemark != null) {
+            drawSubfactionRunemark(fighterData.subfactionRunemark);
+            }
+            if (!(document.getElementById('checkbox-assets/img/blank2.gif').checked) && fighterData.deploymentRunemark != null) {
+            drawDeploymentRunemark(fighterData.deploymentRunemark);
+            }
+        };
+        renderFighterImage(fighterData);
+        
+    };
+    backgroundImage.src = fighterData.customBackgroundUrl;
+};
+  
+const renderDefaultBackground = function(fighterData) {
+    const removeTextAndFrame = document.getElementById("removeTextAndFrame").checked;
+    getContext().drawImage(getBackgroundImage(), 0, 0, getCanvas().width, getCanvas().height);
+    console.log("Check Point Three");
+    if(!removeTextAndFrame){
+        drawFrame();
+    }
+    drawBorder();
+    renderFighterImage(fighterData);
+};
+  
+const renderFighterImage = function(fighterData) {
+    const removeTextAndFrame = document.getElementById("removeTextAndFrame").checked;
+    if (fighterData.imageUrl) {
+        const image = new Image();
+        image.onload = function() {
+            const position = scalePixelPosition({
+                x: 600 + fighterData.imageProperties.offsetX,
+                y: 200 + fighterData.imageProperties.offsetY
+            });
+            const scale = fighterData.imageProperties.scalePercent / 100.0;
+            const width = image.width * scale;
+            const height = image.height * scale;
+            getContext().drawImage(image, position.x, position.y, width, height);
+            if(!removeTextAndFrame){
+                drawFrame();
                 drawOverlayTexts(fighterData);
             }
-        }
-        backgroundImage.src = fighterData.customBackgroundUrl;
-        
-    }   else {
-        getContext().drawImage(getBackgroundImage(), 0, 0, getCanvas().width, getCanvas().height);
-        drawFrame();
-        if (fighterData.imageUrl) {
-            var image = new Image();
-            image.onload = function () {
-                var position = scalePixelPosition({ x: 600 + fighterData.imageProperties.offsetX, y: 200 + fighterData.imageProperties.offsetY });
-                var scale = fighterData.imageProperties.scalePercent / 100.0;
-                var width = image.width * scale;
-                var height = image.height * scale;
-                getContext().drawImage(image, position.x, position.y, width, height);
-                drawOverlayTexts(fighterData);
-            };
-            image.src = fighterData.imageUrl;
-        }
-        else {
-            // Drawn if no image, or when file is loaded but no image included
+            drawBorder();
+        };
+        image.src = fighterData.imageUrl;
+    } else {
+        // Drawn if no image, or when file is loaded but no image included
+        if(!removeTextAndFrame){
+            drawFrame();
             drawOverlayTexts(fighterData);
-    
         }
+        drawBorder();
     }
-    drawBorder();
-}
+};
 
+  
 
-drawOverlayTexts = function(fighterData){
+function drawOverlayTexts(fighterData) {
+    const {
+      fighterName,
+      fighterName2,
+      factionRunemark,
+      subfactionRunemark,
+      deploymentRunemark,
+      move,
+      wounds,
+      toughness,
+      pointCost,
+      weapon1,
+      weapon2,
+      tagRunemarks,
+    } = fighterData;
+  
+    // Set default values for the checkboxes
+    const subfactionCheckbox = document.getElementById('subfaction-runemarks/none/blank.gif');
+    const deploymentCheckbox = document.getElementById('checkbox-assets/img/blank2.gif');
+  
+    const showSubfactionRunemark = subfactionCheckbox.checked;
+    const showDeploymentRunemark = deploymentCheckbox.checked;
+  
     // These are the texts to overlay
-    drawFighterName(fighterData.fighterName);
-    drawFighterName2(fighterData.fighterName2);
-    //URL.revokeObjectURL(image.src);
-    drawFactionRunemark(fighterData.factionRunemark);
+    drawFighterName(fighterName);
+    drawFighterName2(fighterName2);
+    drawFactionRunemark(factionRunemark);
     drawBorder();
-
-    if (!(document.getElementById('subfaction-runemarks/none/blank.gif').checked)) {
-        if (fighterData.subfactionRunemark != null) {
-            drawSubfactionRunemark(fighterData.subfactionRunemark);
-        }
+  
+    // Draw subfaction runemark if enabled
+    if (showSubfactionRunemark && subfactionRunemark) {
+      drawSubfactionRunemark(subfactionRunemark);
     }
-    if (!(document.getElementById('checkbox-assets/img/blank2.gif').checked)) {
-        if (fighterData.deploymentRunemark != null) {
-            drawDeploymentRunemark(fighterData.deploymentRunemark);
-        }
+  
+    // Draw deployment runemark if enabled
+    if (showDeploymentRunemark && deploymentRunemark) {
+      drawDeploymentRunemark(deploymentRunemark);
     }
-    drawMove(fighterData.move);
-    drawWounds(fighterData.wounds);
-    drawToughness(fighterData.toughness);
-    drawPointCost(fighterData.pointCost);
-        
-    if (fighterData.weapon1.enabled && fighterData.weapon2.enabled) {
-
-        drawWeapon(fighterData.weapon2, { x: 68, y: 520 }); // Default was x:29, y:397
-        drawWeapon(fighterData.weapon1, { x: 68, y: 640 }); // Default was x:29, y:564
+  
+    drawMove(move);
+    drawWounds(wounds);
+    drawToughness(toughness);
+    drawPointCost(pointCost);
+  
+    // Determine which weapon(s) to draw and their positions
+    if (weapon1.enabled && weapon2.enabled) {
+      drawWeapon(weapon2, { x: 68, y: 520 }); // Default was x:29, y:397
+      drawWeapon(weapon1, { x: 68, y: 640 }); // Default was x:29, y:564
+    } else if (weapon1.enabled) {
+      drawWeapon(weapon1, { x: 68, y: 550 }); // Default was x:29, y:463
+    } else if (weapon2.enabled) {
+      drawWeapon(weapon2, { x: 68, y: 550 }); // Default was x:29, y:463
     }
-    else if (fighterData.weapon1.enabled) {
-        drawWeapon(fighterData.weapon1, { x: 68, y: 550 }); // Default was x:29, y:463
+  
+    // Draw tag runemarks
+    for (let i = 0; i < tagRunemarks.length; i++) {
+      drawTagRunemark(i, tagRunemarks[i]);
     }
-    else if (fighterData.weapon2.enabled) {
-        drawWeapon(fighterData.weapon2, { x: 68, y: 550 }); // Default was x:29, y:463
-    }
-    for (i = 0; i < fighterData.tagRunemarks.length; i++) {
-        drawTagRunemark(i, fighterData.tagRunemarks[i]);
-    }
-}
+  }
+  
 
 async function writeControls(fighterData) {
     //setName("Warcry_Fighter_Card"); // Always default, trying to move away from this
@@ -825,9 +864,6 @@ async function writeControls(fighterData) {
         fighterData.imageUrl = URL.createObjectURL(blob);
         // Now that's saved, clear out the base64 so we don't reassign
         fighterData.base64Image = null;
-    } else {
-        //fighterData.imageUrl = null;
-        console.log("Check Point One");
     }
 
     if (fighterData.base64CustomBackground) {
@@ -840,8 +876,6 @@ async function writeControls(fighterData) {
         fighterData.customBackgroundUrl = URL.createObjectURL(blob);
         // Now that's saved, clear out the base64 so we don't reassign
         fighterData.base64CustomBackground = null;
-    } else {
-        console.log("Check Point Two");
     }
 
     setModelImage(fighterData.imageUrl);
