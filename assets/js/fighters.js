@@ -107,8 +107,9 @@ drawFrame = function(){
 
 
 drawBorder = function () {
-    getContext().drawImage(
-        document.getElementById('card-border'), 0, 0, getCanvas().width, getCanvas().height);
+    if(!document.getElementById("removeBorder").checked){
+        getContext().drawImage(document.getElementById('card-border'), 0, 0, getCanvas().width, getCanvas().height);
+    }
 }
 
 
