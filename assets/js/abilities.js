@@ -135,10 +135,16 @@ function drawAbility(id, pixelPosition) {
     // then adjust the text size to account.
     // would need to check cardData.tagRunemarksOne
 
-    max_tagRunemarks = Math.max(readTagRunemark("One").length, readTagRunemark("Two").length,
-        readTagRunemark("Three").length, readTagRunemark("Four").length,
-        readTagRunemark("Five").length, readTagRunemark("Six").length,
-        readTagRunemark("Seven").length);
+    // Changing position and wrap based on individual
+    if(id == 1){ max_tagRunemarks = readTagRunemark("One").length }
+    if(id == 2){ max_tagRunemarks = readTagRunemark("Two").length }
+    if(id == 3){ max_tagRunemarks = readTagRunemark("Three").length }
+    if(id == 4){ max_tagRunemarks = readTagRunemark("Four").length }
+    if(id == 5){ max_tagRunemarks = readTagRunemark("Five").length }
+    if(id == 6){ max_tagRunemarks = readTagRunemark("Six").length}
+    if(id == 7){ max_tagRunemarks = readTagRunemark("Seven").length }
+        
+
     if (max_tagRunemarks < 2) {
         pixelPosition.x = pixelPosition.x;
     }
@@ -237,14 +243,25 @@ function drawAbilityLarge(id, pixelPosition) {
         }
     }
 
-
-
+    // Changing position and wrap based on individual
+    if(id == 1){ max_tagRunemarks = readTagRunemark("One").length }
+    if(id == 2){ max_tagRunemarks = readTagRunemark("Two").length }
+    if(id == 3){ max_tagRunemarks = readTagRunemark("Three").length }
+    if(id == 4){ max_tagRunemarks = readTagRunemark("Four").length }
+    if(id == 5){ max_tagRunemarks = readTagRunemark("Five").length }
+    if(id == 6){ max_tagRunemarks = readTagRunemark("Six").length}
+    if(id == 7){ max_tagRunemarks = readTagRunemark("Seven").length }
+    
+    console.log("id: " + id);
+    console.log("max: " + max_tagRunemarks);
     // Get how many runemarks are tick
     // This will determine how far the word wrap should go
+    /*
     max_tagRunemarks = Math.max(readTagRunemark("One").length, readTagRunemark("Two").length,
         readTagRunemark("Three").length, readTagRunemark("Four").length,
         readTagRunemark("Five").length, readTagRunemark("Six").length,
         readTagRunemark("Seven").length);
+    */
     if (max_tagRunemarks == 0) {
         fitWidth = 1400;
     }
