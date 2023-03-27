@@ -4419,7 +4419,7 @@
     "Wounds": 20,
     "Movement": 4,
     "Toughness": 5,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Unarmed",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 3,
@@ -4434,7 +4434,7 @@
     "Weapon2_Strength": 5,
     "Weapon2_Dmg_Hit": 2,
     "Weapon2_Dmg_Crit": 4,
-    "Runemarks": ""
+    "Runemarks": "Destroyer"
   },
   {
     "id": 153,
@@ -4448,7 +4448,7 @@
     "Wounds": 25,
     "Movement": 4,
     "Toughness": 5,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Unarmed",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -4463,7 +4463,7 @@
     "Weapon2_Strength": 5,
     "Weapon2_Dmg_Hit": 2,
     "Weapon2_Dmg_Crit": 4,
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Destroyer"
   },
   {
     "id": 154,
@@ -4477,7 +4477,7 @@
     "Wounds": 10,
     "Movement": 4,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Fangs",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 3,
@@ -4492,7 +4492,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Beast"
   },
   {
     "id": 155,
@@ -4535,7 +4535,7 @@
     "Wounds": 18,
     "Movement": 10,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Spear",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 2,
@@ -4550,7 +4550,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Mount"
   },
   {
     "id": 157,
@@ -4651,7 +4651,7 @@
     "Wounds": 8,
     "Movement": 6,
     "Toughness": 2,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Ranged Weapon",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 6,
     "Weapon1_Attacks": 2,
@@ -4666,7 +4666,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Agile"
   },
   {
     "id": 161,
@@ -4680,7 +4680,7 @@
     "Wounds": 8,
     "Movement": 6,
     "Toughness": 3,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Club",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 3,
@@ -4695,7 +4695,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Agile, Trapper"
   },
   {
     "id": 162,
@@ -4709,7 +4709,7 @@
     "Wounds": 12,
     "Movement": 6,
     "Toughness": 2,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Ranged Weapon",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 6,
     "Weapon1_Attacks": 2,
@@ -4724,7 +4724,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Agile"
   },
   {
     "id": 163,
@@ -4738,7 +4738,7 @@
     "Wounds": 12,
     "Movement": 6,
     "Toughness": 3,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Club",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -4753,7 +4753,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Agile, Trapper"
   },
   {
     "id": 164,
@@ -4767,7 +4767,7 @@
     "Wounds": 8,
     "Movement": 6,
     "Toughness": 2,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Ranged Weapon",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 6,
     "Weapon1_Attacks": 2,
@@ -4782,7 +4782,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Agile, Scout"
   },
   {
     "id": 165,
@@ -4796,7 +4796,7 @@
     "Wounds": 8,
     "Movement": 6,
     "Toughness": 2,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Club",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 3,
@@ -4811,7 +4811,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Agile, Scout"
   },
   {
     "id": 166,
@@ -4825,7 +4825,7 @@
     "Wounds": 20,
     "Movement": 4,
     "Toughness": 3,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Dagger",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 3,
@@ -4833,14 +4833,14 @@
     "Weapon1_Dmg_Hit": 2,
     "Weapon1_Dmg_Crit": 4,
     "Weapon2": "TRUE",
-    "Weapon2_Runemark": "Ranged Weapon",
+    "Weapon2_Runemark": "Blast",
     "Weapon2_Min_Range": 3,
     "Weapon2_Max_Range": 15,
     "Weapon2_Attacks": 2,
     "Weapon2_Strength": 3,
     "Weapon2_Dmg_Hit": 3,
     "Weapon2_Dmg_Crit": 6,
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Destroyer"
   },
   {
     "id": 167,
@@ -4854,7 +4854,7 @@
     "Wounds": 20,
     "Movement": 4,
     "Toughness": 3,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Club",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 2,
@@ -4862,14 +4862,14 @@
     "Weapon1_Dmg_Hit": 2,
     "Weapon1_Dmg_Crit": 5,
     "Weapon2": "TRUE",
-    "Weapon2_Runemark": "Ranged Weapon",
+    "Weapon2_Runemark": "Blast",
     "Weapon2_Min_Range": 3,
     "Weapon2_Max_Range": 15,
     "Weapon2_Attacks": 2,
     "Weapon2_Strength": 3,
     "Weapon2_Dmg_Hit": 3,
     "Weapon2_Dmg_Crit": 6,
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Destroyer"
   },
   {
     "id": 168,
@@ -4883,7 +4883,7 @@
     "Wounds": 20,
     "Movement": 4,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Axe",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -4898,7 +4898,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Bulwark"
   },
   {
     "id": 169,
@@ -4912,7 +4912,7 @@
     "Wounds": 20,
     "Movement": 4,
     "Toughness": 5,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Axe",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 3,
@@ -4927,7 +4927,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Warrior"
   },
   {
     "id": 170,
@@ -4941,7 +4941,7 @@
     "Wounds": 45,
     "Movement": 6,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Club",
     "Weapon1_Min_Range": 2,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -4956,7 +4956,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Monster"
+    "Runemarks": "Monster, Brute"
   },
   {
     "id": 171,
@@ -4970,7 +4970,7 @@
     "Wounds": 22,
     "Movement": 10,
     "Toughness": 6,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Sword",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -4985,7 +4985,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Mount"
   },
   {
     "id": 172,
@@ -4999,7 +4999,7 @@
     "Wounds": 22,
     "Movement": 10,
     "Toughness": 6,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Spear",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 3,
@@ -5014,7 +5014,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Mount"
   },
   {
     "id": 173,
@@ -5028,7 +5028,7 @@
     "Wounds": 25,
     "Movement": 4,
     "Toughness": 5,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Spear",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 4,
@@ -5043,7 +5043,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Champion"
   },
   {
     "id": 174,
@@ -5057,7 +5057,7 @@
     "Wounds": 32,
     "Movement": 10,
     "Toughness": 5,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Axe",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 5,
@@ -5072,7 +5072,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Agile, Mount"
   },
   {
     "id": 175,
@@ -5086,7 +5086,7 @@
     "Wounds": 38,
     "Movement": 8,
     "Toughness": 6,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Spear",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 5,
@@ -5101,7 +5101,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Agile, Mount"
   },
   {
     "id": 176,
@@ -5115,7 +5115,7 @@
     "Wounds": 10,
     "Movement": 4,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Axe",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 2,
@@ -5130,7 +5130,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Bulwark"
   },
   {
     "id": 177,
@@ -5173,7 +5173,7 @@
     "Wounds": 18,
     "Movement": 10,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Axe",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 3,
@@ -5188,7 +5188,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Mount"
   },
   {
     "id": 179,
@@ -5202,7 +5202,7 @@
     "Wounds": 18,
     "Movement": 10,
     "Toughness": 3,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Reach Weapon",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 3,
     "Weapon1_Attacks": 3,
@@ -5217,7 +5217,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Mount"
   },
   {
     "id": 180,
@@ -5231,7 +5231,7 @@
     "Wounds": 18,
     "Movement": 10,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Spear",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 3,
@@ -5246,7 +5246,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Scout, Mount"
   },
   {
     "id": 181,
@@ -5289,7 +5289,7 @@
     "Wounds": 30,
     "Movement": 5,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Fangs",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -5304,7 +5304,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Thrall"
+    "Runemarks": "Thrall, Agile, Beast"
   },
   {
     "id": 183,
@@ -5463,7 +5463,7 @@
     "Wounds": 45,
     "Movement": 12,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Fangs",
     "Weapon1_Min_Range": 2,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 6,
@@ -5478,7 +5478,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Fly, Monster"
+    "Runemarks": "Fly, Monster, Bulwark"
   },
   {
     "id": 189,
@@ -5550,7 +5550,7 @@
     "Wounds": 12,
     "Movement": 6,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Sword",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -5565,7 +5565,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Agile"
   },
   {
     "id": 192,
@@ -5666,7 +5666,7 @@
     "Wounds": 30,
     "Movement": 10,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Claws",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -5681,7 +5681,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Fly"
+    "Runemarks": "Fly, Beast, Berserker"
   },
   {
     "id": 196,
@@ -5724,7 +5724,7 @@
     "Wounds": 16,
     "Movement": 3,
     "Toughness": 3,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Axe",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -5869,7 +5869,7 @@
     "Wounds": 32,
     "Movement": 4,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Club",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -5884,7 +5884,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Brute, Bulwark"
   },
   {
     "id": 203,
@@ -6188,7 +6188,7 @@
     "Wounds": 28,
     "Movement": 4,
     "Toughness": 5,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Sword",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 4,
@@ -6196,7 +6196,7 @@
     "Weapon1_Dmg_Hit": 2,
     "Weapon1_Dmg_Crit": 5,
     "Weapon2": "TRUE",
-    "Weapon2_Runemark": "Ranged Weapon",
+    "Weapon2_Runemark": "Blast",
     "Weapon2_Min_Range": 3,
     "Weapon2_Max_Range": 7,
     "Weapon2_Attacks": 2,
@@ -6217,7 +6217,7 @@
     "Wounds": 20,
     "Movement": 10,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Spear",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 4,
@@ -6232,7 +6232,7 @@
     "Weapon2_Strength": 3,
     "Weapon2_Dmg_Hit": 1,
     "Weapon2_Dmg_Crit": 3,
-    "Runemarks": "Fly, Hero"
+    "Runemarks": "Fly, Hero, Trapper"
   },
   {
     "id": 215,
@@ -6246,7 +6246,7 @@
     "Wounds": 50,
     "Movement": 6,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Unarmed",
     "Weapon1_Min_Range": 2,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -6261,7 +6261,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Monster"
+    "Runemarks": "Monster, Terrifying"
   },
   {
     "id": 216,
@@ -6275,7 +6275,7 @@
     "Wounds": 10,
     "Movement": 5,
     "Toughness": 3,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Claws",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -6290,7 +6290,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Warrior"
   },
   {
     "id": 217,
@@ -6333,7 +6333,7 @@
     "Wounds": 45,
     "Movement": 5,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Club",
     "Weapon1_Min_Range": 2,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 3,
@@ -6420,7 +6420,7 @@
     "Wounds": 12,
     "Movement": 6,
     "Toughness": 3,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Ranged Weapon",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 8,
     "Weapon1_Attacks": 4,
@@ -6435,7 +6435,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Mystic"
   },
   {
     "id": 222,
@@ -6449,7 +6449,7 @@
     "Wounds": 12,
     "Movement": 6,
     "Toughness": 3,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Blast",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 3,
@@ -6464,7 +6464,7 @@
     "Weapon2_Strength": 4,
     "Weapon2_Dmg_Hit": 2,
     "Weapon2_Dmg_Crit": 4,
-    "Runemarks": ""
+    "Runemarks": "Mystic"
   },
   {
     "id": 223,
@@ -6478,7 +6478,7 @@
     "Wounds": 20,
     "Movement": 4,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Sword",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -6493,7 +6493,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Elite"
   },
   {
     "id": 224,
@@ -6507,7 +6507,7 @@
     "Wounds": 20,
     "Movement": 4,
     "Toughness": 5,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Axe",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 5,
@@ -6522,7 +6522,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Champion"
   },
   {
     "id": 225,
@@ -6623,7 +6623,7 @@
     "Wounds": 18,
     "Movement": 7,
     "Toughness": 3,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Dagger",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 5,
@@ -6638,7 +6638,7 @@
     "Weapon2_Strength": 3,
     "Weapon2_Dmg_Hit": 1,
     "Weapon2_Dmg_Crit": 4,
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Agile, Scout"
   },
   {
     "id": 229,
@@ -6652,7 +6652,7 @@
     "Wounds": 20,
     "Movement": 3,
     "Toughness": 6,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Axe",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 3,
@@ -6667,7 +6667,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Brute"
   },
   {
     "id": 230,
@@ -6681,7 +6681,7 @@
     "Wounds": 25,
     "Movement": 3,
     "Toughness": 6,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Axe",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -6696,7 +6696,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Brute"
   },
   {
     "id": 231,
@@ -6710,7 +6710,7 @@
     "Wounds": 22,
     "Movement": 4,
     "Toughness": 5,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Sword",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -6725,7 +6725,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Bulwark"
   },
   {
     "id": 232,
@@ -6739,7 +6739,7 @@
     "Wounds": 10,
     "Movement": 4,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Dagger",
     "Weapon1_Min_Range": 3,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 3,
@@ -6768,7 +6768,7 @@
     "Wounds": 12,
     "Movement": 3,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Hammer",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -6783,7 +6783,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Warrior"
   },
   {
     "id": 234,
@@ -6942,7 +6942,7 @@
     "Wounds": 12,
     "Movement": 3,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Hammer",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -6957,7 +6957,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Destroyer"
   },
   {
     "id": 240,
@@ -6971,7 +6971,7 @@
     "Wounds": 12,
     "Movement": 3,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Hammer",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 3,
@@ -6986,7 +6986,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Destroyer"
   },
   {
     "id": 241,
@@ -7087,7 +7087,7 @@
     "Wounds": 26,
     "Movement": 10,
     "Toughness": 6,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Flail",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 4,
@@ -7102,7 +7102,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Mount"
   },
   {
     "id": 245,
@@ -7116,7 +7116,7 @@
     "Wounds": 18,
     "Movement": 7,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Dagger",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 5,
@@ -7131,7 +7131,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Destroyer, Mount"
   },
   {
     "id": 246,
@@ -7145,7 +7145,7 @@
     "Wounds": 38,
     "Movement": 5,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Axe",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -7160,7 +7160,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Brute"
   },
   {
     "id": 247,
@@ -7174,7 +7174,7 @@
     "Wounds": 18,
     "Movement": 10,
     "Toughness": 3,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Sword",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -7189,7 +7189,7 @@
     "Weapon2_Strength": 3,
     "Weapon2_Dmg_Hit": 1,
     "Weapon2_Dmg_Crit": 3,
-    "Runemarks": ""
+    "Runemarks": "Mount"
   },
   {
     "id": 248,
@@ -7203,7 +7203,7 @@
     "Wounds": 20,
     "Movement": 3,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Axe",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 5,
@@ -7319,7 +7319,7 @@
     "Wounds": 30,
     "Movement": 6,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Club",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 3,
@@ -7334,7 +7334,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Destroyer"
   },
   {
     "id": 253,
@@ -7348,7 +7348,7 @@
     "Wounds": 30,
     "Movement": 6,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Club",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 5,
@@ -7363,7 +7363,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Destroyer"
   },
   {
     "id": 254,
@@ -7377,7 +7377,7 @@
     "Wounds": 30,
     "Movement": 6,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Spear",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 4,
@@ -7392,7 +7392,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Destroyer"
   },
   {
     "id": 255,
@@ -7406,7 +7406,7 @@
     "Wounds": 35,
     "Movement": 6,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Axe",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 3,
@@ -7421,7 +7421,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Destroyer"
   },
   {
     "id": 256,
@@ -7725,7 +7725,7 @@
     "Wounds": 10,
     "Movement": 5,
     "Toughness": 3,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Claws",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -7740,7 +7740,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Scout"
   },
   {
     "id": 267,
@@ -7899,7 +7899,7 @@
     "Wounds": 25,
     "Movement": 10,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Sword",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -7928,7 +7928,7 @@
     "Wounds": 22,
     "Movement": 3,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Hammer",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 3,
@@ -7943,7 +7943,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Brute"
   },
   {
     "id": 274,
@@ -7957,7 +7957,7 @@
     "Wounds": 16,
     "Movement": 10,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Unarmed",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 2,
@@ -7986,7 +7986,7 @@
     "Wounds": 16,
     "Movement": 10,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Unarmed",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 2,
@@ -8001,7 +8001,7 @@
     "Weapon2_Strength": 3,
     "Weapon2_Dmg_Hit": 1,
     "Weapon2_Dmg_Crit": 3,
-    "Runemarks": "Fly"
+    "Runemarks": "Fly, Agile"
   },
   {
     "id": 276,
@@ -8015,7 +8015,7 @@
     "Wounds": 16,
     "Movement": 10,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Unarmed",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 2,
@@ -8035,7 +8035,7 @@
   {
     "id": 277,
     "Name": "Endrinrigger",
-    "Subtitle": "with Sword & RivetGun",
+    "Subtitle": "with Aethermatic Saw & Rivet Gun",
     "Grand_Alliance": "Order",
     "Warband": "Kharadron Overlords",
     "Hero_Ally_Thrall_Monster": "",
@@ -8044,7 +8044,7 @@
     "Wounds": 16,
     "Movement": 10,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Sword",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 3,
@@ -8073,7 +8073,7 @@
     "Wounds": 16,
     "Movement": 10,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Unarmed",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 2,
@@ -8102,7 +8102,7 @@
     "Wounds": 22,
     "Movement": 5,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Spear",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 5,
@@ -8117,7 +8117,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Destroyer"
   },
   {
     "id": 280,
@@ -8131,7 +8131,7 @@
     "Wounds": 26,
     "Movement": 10,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Spear",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 5,
@@ -8146,7 +8146,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Destroyer, Fly"
   },
   {
     "id": 281,
@@ -8276,7 +8276,7 @@
     "Wounds": 20,
     "Movement": 4,
     "Toughness": 5,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Mace",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 3,
@@ -8291,7 +8291,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Mystic"
   },
   {
     "id": 286,
@@ -8305,7 +8305,7 @@
     "Wounds": 20,
     "Movement": 4,
     "Toughness": 5,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Mace",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -8320,7 +8320,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Mystic"
   },
   {
     "id": 287,
@@ -8334,7 +8334,7 @@
     "Wounds": 30,
     "Movement": 10,
     "Toughness": 5,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Mace",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 4,
@@ -8349,7 +8349,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Mystic, Ferocious"
   },
   {
     "id": 288,
@@ -8363,7 +8363,7 @@
     "Wounds": 30,
     "Movement": 10,
     "Toughness": 5,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Mace",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 5,
@@ -8378,7 +8378,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Mystic, Ferocious"
   },
   {
     "id": 289,
@@ -8392,7 +8392,7 @@
     "Wounds": 35,
     "Movement": 10,
     "Toughness": 5,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Mace",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 4,
@@ -8407,7 +8407,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Mystic, Ferocious"
   },
   {
     "id": 290,
@@ -8421,7 +8421,7 @@
     "Wounds": 35,
     "Movement": 10,
     "Toughness": 5,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Mace",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 5,
@@ -8436,7 +8436,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Mystic, Ferocious"
   },
   {
     "id": 291,
@@ -8450,7 +8450,7 @@
     "Wounds": 25,
     "Movement": 4,
     "Toughness": 5,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Mace",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 4,
@@ -8465,7 +8465,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Mystic"
   },
   {
     "id": 292,
@@ -8479,7 +8479,7 @@
     "Wounds": 25,
     "Movement": 4,
     "Toughness": 5,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Mace",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 5,
@@ -8494,7 +8494,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Mystic"
   },
   {
     "id": 293,
@@ -8508,7 +8508,7 @@
     "Wounds": 28,
     "Movement": 4,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Spear",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 3,
@@ -8537,7 +8537,7 @@
     "Wounds": 25,
     "Movement": 8,
     "Toughness": 3,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Fangs",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 2,
@@ -8545,14 +8545,14 @@
     "Weapon1_Dmg_Hit": 2,
     "Weapon1_Dmg_Crit": 4,
     "Weapon2": "TRUE",
-    "Weapon2_Runemark": "Ranged Weapon",
+    "Weapon2_Runemark": "Blast",
     "Weapon2_Min_Range": 3,
     "Weapon2_Max_Range": 15,
     "Weapon2_Attacks": 4,
     "Weapon2_Strength": 3,
     "Weapon2_Dmg_Hit": 2,
     "Weapon2_Dmg_Crit": 5,
-    "Runemarks": "Fly"
+    "Runemarks": "Fly, Berserker"
   },
   {
     "id": 295,
@@ -8585,7 +8585,7 @@
   },
   {
     "id": 296,
-    "Name": "Exhalted Champion",
+    "Name": "Exalted Champion",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
     "Warband": "Slaves to Darkness",
@@ -8595,7 +8595,7 @@
     "Wounds": 25,
     "Movement": 4,
     "Toughness": 5,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Axe",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 3,
@@ -8610,11 +8610,11 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Warrior"
   },
   {
     "id": 297,
-    "Name": "Exhalted Deathbringer",
+    "Name": "Exalted Deathbringer",
     "Subtitle": "with Ruinous Axe",
     "Grand_Alliance": "Chaos",
     "Warband": "Khorne Bloodbound",
@@ -8624,7 +8624,7 @@
     "Wounds": 28,
     "Movement": 4,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Axe",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -8643,7 +8643,7 @@
   },
   {
     "id": 298,
-    "Name": "Exhalted Hero of Chaos",
+    "Name": "Exalted Hero of Chaos",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
     "Warband": "Slaves to Darkness",
@@ -8653,7 +8653,7 @@
     "Wounds": 25,
     "Movement": 4,
     "Toughness": 5,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Axe",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -8668,7 +8668,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Champion"
   },
   {
     "id": 299,
@@ -8711,7 +8711,7 @@
     "Wounds": 15,
     "Movement": 6,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Axe",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -8740,7 +8740,7 @@
     "Wounds": 25,
     "Movement": 10,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Sword",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 4,
@@ -8755,7 +8755,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Fly, Hero"
+    "Runemarks": "Fly, Hero, Champion"
   },
   {
     "id": 302,
@@ -8827,7 +8827,7 @@
     "Wounds": 28,
     "Movement": 4,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Club",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -8842,7 +8842,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Thrall"
+    "Runemarks": "Thrall, Trapper, Bulwark"
   },
   {
     "id": 305,
@@ -8885,7 +8885,7 @@
     "Wounds": 25,
     "Movement": 8,
     "Toughness": 3,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Claws",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -8900,7 +8900,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Agile"
   },
   {
     "id": 307,
@@ -8914,7 +8914,7 @@
     "Wounds": 38,
     "Movement": 4,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Hammer",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 2,
@@ -8922,14 +8922,14 @@
     "Weapon1_Dmg_Hit": 4,
     "Weapon1_Dmg_Crit": 8,
     "Weapon2": "TRUE",
-    "Weapon2_Runemark": "Ranged Weapon",
+    "Weapon2_Runemark": "Blast",
     "Weapon2_Min_Range": 3,
     "Weapon2_Max_Range": 7,
     "Weapon2_Attacks": 3,
     "Weapon2_Strength": 3,
     "Weapon2_Dmg_Hit": 3,
     "Weapon2_Dmg_Crit": 6,
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Brute, Frenzied"
   },
   {
     "id": 308,
@@ -9117,7 +9117,7 @@
     "Wounds": 15,
     "Movement": 8,
     "Toughness": 3,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Fangs",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 2,
@@ -9125,14 +9125,14 @@
     "Weapon1_Dmg_Hit": 2,
     "Weapon1_Dmg_Crit": 4,
     "Weapon2": "TRUE",
-    "Weapon2_Runemark": "Ranged Weapon",
+    "Weapon2_Runemark": "Blast",
     "Weapon2_Min_Range": 3,
     "Weapon2_Max_Range": 15,
     "Weapon2_Attacks": 3,
     "Weapon2_Strength": 3,
     "Weapon2_Dmg_Hit": 2,
     "Weapon2_Dmg_Crit": 4,
-    "Runemarks": "Fly"
+    "Runemarks": "Fly, Berserker"
   },
   {
     "id": 315,
@@ -9175,7 +9175,7 @@
     "Wounds": 20,
     "Movement": 8,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Fangs",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -9190,7 +9190,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Agile, Beast"
   },
   {
     "id": 317,
@@ -9204,7 +9204,7 @@
     "Wounds": 15,
     "Movement": 10,
     "Toughness": 3,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Claws",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 2,
@@ -9219,7 +9219,7 @@
     "Weapon2_Strength": 3,
     "Weapon2_Dmg_Hit": 1,
     "Weapon2_Dmg_Crit": 4,
-    "Runemarks": "Fly, Hero"
+    "Runemarks": "Fly, Hero, Trapper"
   },
   {
     "id": 318,
@@ -9233,7 +9233,7 @@
     "Wounds": 25,
     "Movement": 12,
     "Toughness": 3,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Fangs",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -9241,14 +9241,14 @@
     "Weapon1_Dmg_Hit": 2,
     "Weapon1_Dmg_Crit": 4,
     "Weapon2": "TRUE",
-    "Weapon2_Runemark": "Ranged Weapon",
+    "Weapon2_Runemark": "Blast",
     "Weapon2_Min_Range": 3,
     "Weapon2_Max_Range": 15,
     "Weapon2_Attacks": 2,
     "Weapon2_Strength": 3,
     "Weapon2_Dmg_Hit": 3,
     "Weapon2_Dmg_Crit": 6,
-    "Runemarks": "Fly, Hero"
+    "Runemarks": "Fly, Hero, Mystic"
   },
   {
     "id": 319,
@@ -9262,7 +9262,7 @@
     "Wounds": 25,
     "Movement": 12,
     "Toughness": 3,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Club",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 3,
@@ -9270,14 +9270,14 @@
     "Weapon1_Dmg_Hit": 2,
     "Weapon1_Dmg_Crit": 5,
     "Weapon2": "TRUE",
-    "Weapon2_Runemark": "Ranged Weapon",
+    "Weapon2_Runemark": "Blast",
     "Weapon2_Min_Range": 3,
     "Weapon2_Max_Range": 15,
     "Weapon2_Attacks": 2,
     "Weapon2_Strength": 3,
     "Weapon2_Dmg_Hit": 3,
     "Weapon2_Dmg_Crit": 6,
-    "Runemarks": "Fly, Hero"
+    "Runemarks": "Fly, Hero, Mystic"
   },
   {
     "id": 320,
@@ -9291,7 +9291,7 @@
     "Wounds": 15,
     "Movement": 5,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Axe",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -9310,7 +9310,7 @@
   },
   {
     "id": 321,
-    "Name": "Fomoroid Chrusher",
+    "Name": "Fomoroid Crusher",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
     "Warband": "ChaosAllyThrallMonster",
@@ -9320,7 +9320,7 @@
     "Wounds": 35,
     "Movement": 5,
     "Toughness": 6,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Unarmed",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 3,
@@ -9335,7 +9335,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Ally"
+    "Runemarks": "Ally, Destroyer"
   },
   {
     "id": 322,
@@ -9668,7 +9668,7 @@
     "Wounds": 16,
     "Movement": 8,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Fangs",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -9683,7 +9683,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Beast"
   },
   {
     "id": 334,
@@ -9726,7 +9726,7 @@
     "Wounds": 16,
     "Movement": 4,
     "Toughness": 3,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Club",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 3,
@@ -9734,14 +9734,14 @@
     "Weapon1_Dmg_Hit": 2,
     "Weapon1_Dmg_Crit": 4,
     "Weapon2": "TRUE",
-    "Weapon2_Runemark": "Ranged Weapon",
+    "Weapon2_Runemark": "Blast",
     "Weapon2_Min_Range": 3,
     "Weapon2_Max_Range": 7,
     "Weapon2_Attacks": 2,
     "Weapon2_Strength": 3,
     "Weapon2_Dmg_Hit": 3,
     "Weapon2_Dmg_Crit": 6,
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Mystic"
   },
   {
     "id": 336,
@@ -9755,7 +9755,7 @@
     "Wounds": 8,
     "Movement": 8,
     "Toughness": 3,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Claws",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 3,
@@ -9770,7 +9770,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Fly, Thrall"
+    "Runemarks": "Fly, Thrall, Sentience"
   },
   {
     "id": 337,
@@ -9871,7 +9871,7 @@
     "Wounds": 22,
     "Movement": 4,
     "Toughness": 3,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Sword",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 3,
@@ -9879,14 +9879,14 @@
     "Weapon1_Dmg_Hit": 1,
     "Weapon1_Dmg_Crit": 4,
     "Weapon2": "TRUE",
-    "Weapon2_Runemark": "Ranged Weapon",
+    "Weapon2_Runemark": "Blast",
     "Weapon2_Min_Range": 3,
     "Weapon2_Max_Range": 15,
     "Weapon2_Attacks": 2,
     "Weapon2_Strength": 3,
     "Weapon2_Dmg_Hit": 3,
     "Weapon2_Dmg_Crit": 6,
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Berserker"
   },
   {
     "id": 341,
@@ -9900,7 +9900,7 @@
     "Wounds": 28,
     "Movement": 10,
     "Toughness": 3,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Fangs",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -9908,14 +9908,14 @@
     "Weapon1_Dmg_Hit": 2,
     "Weapon1_Dmg_Crit": 4,
     "Weapon2": "TRUE",
-    "Weapon2_Runemark": "Ranged Weapon",
+    "Weapon2_Runemark": "Blast",
     "Weapon2_Min_Range": 3,
     "Weapon2_Max_Range": 15,
     "Weapon2_Attacks": 2,
     "Weapon2_Strength": 3,
     "Weapon2_Dmg_Hit": 3,
     "Weapon2_Dmg_Crit": 6,
-    "Runemarks": "Fly, Hero"
+    "Runemarks": "Fly, Hero, Berserker"
   },
   {
     "id": 342,
@@ -9958,7 +9958,7 @@
     "Wounds": 50,
     "Movement": 6,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Unarmed",
     "Weapon1_Min_Range": 2,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 5,
@@ -9973,7 +9973,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Monster"
+    "Runemarks": "Monster, Frenzied"
   },
   {
     "id": 344,
@@ -10016,7 +10016,7 @@
     "Wounds": 4,
     "Movement": 8,
     "Toughness": 2,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Fangs",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 3,
@@ -10031,7 +10031,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Agile, Beast"
   },
   {
     "id": 346,
@@ -10277,7 +10277,7 @@
     "Wounds": 6,
     "Movement": 4,
     "Toughness": 3,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Dagger",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 3,
@@ -10292,7 +10292,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Trapper"
   },
   {
     "id": 355,
@@ -10335,7 +10335,7 @@
     "Wounds": 10,
     "Movement": 5,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Axe",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 2,
@@ -10364,7 +10364,7 @@
     "Wounds": 10,
     "Movement": 5,
     "Toughness": 3,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Axe",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 3,
@@ -10422,7 +10422,7 @@
     "Wounds": 25,
     "Movement": 8,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Fangs",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 5,
@@ -10437,7 +10437,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Agile, Beast, Ferocious"
   },
   {
     "id": 360,
@@ -10451,7 +10451,7 @@
     "Wounds": 40,
     "Movement": 8,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Spear",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 4,
@@ -10466,7 +10466,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Ferocious, Mount"
   },
   {
     "id": 361,
@@ -10480,7 +10480,7 @@
     "Wounds": 40,
     "Movement": 8,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Axe",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 5,
@@ -10495,7 +10495,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Ferocious, Mount"
   },
   {
     "id": 362,
@@ -10509,7 +10509,7 @@
     "Wounds": 22,
     "Movement": 10,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Spear",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 3,
@@ -10524,7 +10524,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Mount"
   },
   {
     "id": 363,
@@ -10538,7 +10538,7 @@
     "Wounds": 25,
     "Movement": 7,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Spear",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 6,
@@ -10553,7 +10553,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Elite"
   },
   {
     "id": 364,
@@ -10567,7 +10567,7 @@
     "Wounds": 30,
     "Movement": 5,
     "Toughness": 3,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Fangs",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -10582,7 +10582,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Agile, Brute"
   },
   {
     "id": 365,
@@ -10683,7 +10683,7 @@
     "Wounds": 16,
     "Movement": 5,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Axe",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -10698,7 +10698,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Warrior"
   },
   {
     "id": 369,
@@ -10828,7 +10828,7 @@
     "Wounds": 20,
     "Movement": 5,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Club",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 3,
@@ -10836,7 +10836,7 @@
     "Weapon1_Dmg_Hit": 1,
     "Weapon1_Dmg_Crit": 4,
     "Weapon2": "TRUE",
-    "Weapon2_Runemark": "Ranged Weapon",
+    "Weapon2_Runemark": "Blast",
     "Weapon2_Min_Range": 3,
     "Weapon2_Max_Range": 7,
     "Weapon2_Attacks": 2,
@@ -10857,7 +10857,7 @@
     "Wounds": 20,
     "Movement": 6,
     "Toughness": 3,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Club",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 3,
@@ -10865,14 +10865,14 @@
     "Weapon1_Dmg_Hit": 1,
     "Weapon1_Dmg_Crit": 4,
     "Weapon2": "TRUE",
-    "Weapon2_Runemark": "Ranged Weapon",
+    "Weapon2_Runemark": "Blast",
     "Weapon2_Min_Range": 3,
     "Weapon2_Max_Range": 7,
     "Weapon2_Attacks": 2,
     "Weapon2_Strength": 3,
     "Weapon2_Dmg_Hit": 3,
     "Weapon2_Dmg_Crit": 6,
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Agile, Mystic"
   },
   {
     "id": 375,
@@ -10944,7 +10944,7 @@
     "Wounds": 22,
     "Movement": 3,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Axe",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 3,
@@ -10959,7 +10959,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Berserker"
   },
   {
     "id": 378,
@@ -11060,7 +11060,7 @@
     "Wounds": 12,
     "Movement": 3,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Unarmed",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 2,
@@ -11075,7 +11075,7 @@
     "Weapon2_Strength": 5,
     "Weapon2_Dmg_Hit": 5,
     "Weapon2_Dmg_Crit": 10,
-    "Runemarks": ""
+    "Runemarks": "Elite"
   },
   {
     "id": 382,
@@ -11089,7 +11089,7 @@
     "Wounds": 12,
     "Movement": 3,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Unarmed",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 2,
@@ -11104,7 +11104,7 @@
     "Weapon2_Strength": 4,
     "Weapon2_Dmg_Hit": 2,
     "Weapon2_Dmg_Crit": 4,
-    "Runemarks": ""
+    "Runemarks": "Elite"
   },
   {
     "id": 383,
@@ -11118,7 +11118,7 @@
     "Wounds": 12,
     "Movement": 3,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Unarmed",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 2,
@@ -11133,7 +11133,7 @@
     "Weapon2_Strength": 4,
     "Weapon2_Dmg_Hit": 1,
     "Weapon2_Dmg_Crit": 4,
-    "Runemarks": ""
+    "Runemarks": "Elite"
   },
   {
     "id": 384,
@@ -11147,7 +11147,7 @@
     "Wounds": 12,
     "Movement": 3,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Ranged Weapon",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 6,
     "Weapon1_Attacks": 4,
@@ -11162,7 +11162,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Elite"
   },
   {
     "id": 385,
@@ -11176,7 +11176,7 @@
     "Wounds": 12,
     "Movement": 3,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Unarmed",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 2,
@@ -11191,7 +11191,7 @@
     "Weapon2_Strength": 4,
     "Weapon2_Dmg_Hit": 3,
     "Weapon2_Dmg_Crit": 6,
-    "Runemarks": ""
+    "Runemarks": "Elite"
   },
   {
     "id": 386,
@@ -11205,7 +11205,7 @@
     "Wounds": 12,
     "Movement": 6,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Claws",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -11220,7 +11220,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Beast"
   },
   {
     "id": 387,
@@ -11234,7 +11234,7 @@
     "Wounds": 12,
     "Movement": 6,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Claws",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -11249,7 +11249,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Beast"
   },
   {
     "id": 388,
@@ -11263,7 +11263,7 @@
     "Wounds": 12,
     "Movement": 6,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Claws",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -11278,7 +11278,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Beast"
   },
   {
     "id": 389,
@@ -11292,7 +11292,7 @@
     "Wounds": 12,
     "Movement": 6,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Claws",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -11307,7 +11307,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Beast"
   },
   {
     "id": 390,
@@ -11437,7 +11437,7 @@
     "Wounds": 16,
     "Movement": 3,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Unarmed",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 3,
@@ -11452,7 +11452,7 @@
     "Weapon2_Strength": 4,
     "Weapon2_Dmg_Hit": 2,
     "Weapon2_Dmg_Crit": 4,
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Elite, Scout"
   },
   {
     "id": 395,
@@ -11495,7 +11495,7 @@
     "Wounds": 32,
     "Movement": 4,
     "Toughness": 5,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Sword",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 3,
@@ -11510,7 +11510,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Brute"
   },
   {
     "id": 397,
@@ -11524,7 +11524,7 @@
     "Wounds": 15,
     "Movement": 4,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Axe",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 3,
@@ -11539,7 +11539,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Warrior"
   },
   {
     "id": 398,
@@ -11553,7 +11553,7 @@
     "Wounds": 15,
     "Movement": 4,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Spear",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 2,
@@ -11568,7 +11568,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Warrior"
   },
   {
     "id": 399,
@@ -11582,7 +11582,7 @@
     "Wounds": 20,
     "Movement": 4,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Mace",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -11597,7 +11597,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Warrior"
   },
   {
     "id": 400,
@@ -11611,7 +11611,7 @@
     "Wounds": 20,
     "Movement": 4,
     "Toughness": 5,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Spear",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 3,
@@ -11626,7 +11626,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Warrior"
   },
   {
     "id": 401,
@@ -11640,7 +11640,7 @@
     "Wounds": 10,
     "Movement": 6,
     "Toughness": 3,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Dagger",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -11655,7 +11655,7 @@
     "Weapon2_Strength": 3,
     "Weapon2_Dmg_Hit": 1,
     "Weapon2_Dmg_Crit": 3,
-    "Runemarks": ""
+    "Runemarks": "Agile"
   },
   {
     "id": 402,
@@ -11756,7 +11756,7 @@
     "Wounds": 18,
     "Movement": 5,
     "Toughness": 3,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Dagger",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 3,
@@ -11771,7 +11771,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Priest"
   },
   {
     "id": 406,
@@ -11872,7 +11872,7 @@
     "Wounds": 12,
     "Movement": 5,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Reach Weapon",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 4,
@@ -11920,7 +11920,7 @@
   },
   {
     "id": 411,
-    "Name": "Harakan Windcharger",
+    "Name": "Hurakan Windcharger",
     "Subtitle": "",
     "Grand_Alliance": "Order",
     "Warband": "Lumineth Realm-lords",
@@ -11930,7 +11930,7 @@
     "Wounds": 18,
     "Movement": 12,
     "Toughness": 3,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Claws",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -11945,7 +11945,7 @@
     "Weapon2_Strength": 4,
     "Weapon2_Dmg_Hit": 1,
     "Weapon2_Dmg_Crit": 4,
-    "Runemarks": ""
+    "Runemarks": "Agile, Berserker"
   },
   {
     "id": 412,
@@ -11959,7 +11959,7 @@
     "Wounds": 25,
     "Movement": 6,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Scythe",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 4,
@@ -11974,7 +11974,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Terrifying, Mount"
   },
   {
     "id": 413,
@@ -11988,7 +11988,7 @@
     "Wounds": 15,
     "Movement": 12,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Dagger",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 5,
@@ -12003,7 +12003,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Fly, Hero"
+    "Runemarks": "Fly, Hero, Agile"
   },
   {
     "id": 414,
@@ -12065,7 +12065,7 @@
   },
   {
     "id": 416,
-    "Name": "Hearthguard Berserker",
+    "Name": "Hearthguard Berzerker",
     "Subtitle": "Karl with Broadaxe",
     "Grand_Alliance": "Order",
     "Warband": "Fyreslayers",
@@ -12075,7 +12075,7 @@
     "Wounds": 16,
     "Movement": 3,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Axe",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 4,
@@ -12090,11 +12090,11 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Warrior"
   },
   {
     "id": 417,
-    "Name": "Hearthguard Berserker",
+    "Name": "Hearthguard Berzerker",
     "Subtitle": "Karl with Poleaxe",
     "Grand_Alliance": "Order",
     "Warband": "Fyreslayers",
@@ -12104,7 +12104,7 @@
     "Wounds": 16,
     "Movement": 3,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Axe",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 4,
@@ -12119,11 +12119,11 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Warrior"
   },
   {
     "id": 418,
-    "Name": "hearthguard Berserker",
+    "Name": "Hearthguard Berzerker",
     "Subtitle": "with Broadaxe",
     "Grand_Alliance": "Order",
     "Warband": "Fyreslayers",
@@ -12133,7 +12133,7 @@
     "Wounds": 12,
     "Movement": 3,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Axe",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 3,
@@ -12148,11 +12148,11 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Warrior"
   },
   {
     "id": 419,
-    "Name": "Hearthguard Berserker",
+    "Name": "Hearthguard Berzerker",
     "Subtitle": "with Poleaxe",
     "Grand_Alliance": "Order",
     "Warband": "Fyreslayers",
@@ -12162,7 +12162,7 @@
     "Wounds": 12,
     "Movement": 3,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Axe",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 3,
@@ -12177,7 +12177,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Warrior"
   },
   {
     "id": 420,
@@ -12191,7 +12191,7 @@
     "Wounds": 25,
     "Movement": 10,
     "Toughness": 3,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Claws",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 5,
@@ -12206,7 +12206,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Warrior, Mount"
   },
   {
     "id": 421,
@@ -12278,7 +12278,7 @@
     "Wounds": 55,
     "Movement": 6,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Claws",
     "Weapon1_Min_Range": 2,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 5,
@@ -12293,7 +12293,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Monster"
+    "Runemarks": "Monster, Minion"
   },
   {
     "id": 424,
@@ -12307,7 +12307,7 @@
     "Wounds": 25,
     "Movement": 10,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Spear",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 4,
@@ -12322,7 +12322,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Destroyer, Mount"
   },
   {
     "id": 425,
@@ -12336,7 +12336,7 @@
     "Wounds": 25,
     "Movement": 10,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Spear",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 4,
@@ -12351,7 +12351,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Destroyer, Mount"
   },
   {
     "id": 426,
@@ -12365,7 +12365,7 @@
     "Wounds": 20,
     "Movement": 10,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Claws",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 3,
@@ -12380,7 +12380,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Destroyer, Mount"
   },
   {
     "id": 427,
@@ -12394,7 +12394,7 @@
     "Wounds": 20,
     "Movement": 10,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Claws",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 3,
@@ -12409,7 +12409,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Destroyer, Mount"
   },
   {
     "id": 428,
@@ -12423,7 +12423,7 @@
     "Wounds": 20,
     "Movement": 10,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Reach Weapon",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 3,
     "Weapon1_Attacks": 4,
@@ -12438,7 +12438,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Mount"
   },
   {
     "id": 429,
@@ -12452,7 +12452,7 @@
     "Wounds": 20,
     "Movement": 10,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Reach Weapon",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 3,
     "Weapon1_Attacks": 4,
@@ -12467,7 +12467,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Mount"
   },
   {
     "id": 430,
@@ -12568,7 +12568,7 @@
     "Wounds": 20,
     "Movement": 5,
     "Toughness": 3,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Reach Weapon",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 5,
@@ -12583,7 +12583,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Trapper"
   },
   {
     "id": 434,
@@ -12597,7 +12597,7 @@
     "Wounds": 12,
     "Movement": 5,
     "Toughness": 3,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Sword",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 3,
@@ -12612,7 +12612,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Warrior, Scout"
   },
   {
     "id": 435,
@@ -12655,7 +12655,7 @@
     "Wounds": 12,
     "Movement": 5,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Sword",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 3,
@@ -12670,7 +12670,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Warrior, Trapper"
   },
   {
     "id": 437,
@@ -12684,7 +12684,7 @@
     "Wounds": 8,
     "Movement": 4,
     "Toughness": 3,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Dagger",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -12692,14 +12692,14 @@
     "Weapon1_Dmg_Hit": 1,
     "Weapon1_Dmg_Crit": 3,
     "Weapon2": "TRUE",
-    "Weapon2_Runemark": "Ranged Weapon",
+    "Weapon2_Runemark": "Blast",
     "Weapon2_Min_Range": 3,
     "Weapon2_Max_Range": 5,
     "Weapon2_Attacks": 2,
     "Weapon2_Strength": 4,
     "Weapon2_Dmg_Hit": 2,
     "Weapon2_Dmg_Crit": 4,
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Minion"
   },
   {
     "id": 438,
@@ -12713,7 +12713,7 @@
     "Wounds": 8,
     "Movement": 4,
     "Toughness": 3,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Dagger",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 3,
@@ -12721,14 +12721,14 @@
     "Weapon1_Dmg_Hit": 1,
     "Weapon1_Dmg_Crit": 3,
     "Weapon2": "TRUE",
-    "Weapon2_Runemark": "Ranged Weapon",
+    "Weapon2_Runemark": "Blast",
     "Weapon2_Min_Range": 3,
     "Weapon2_Max_Range": 5,
     "Weapon2_Attacks": 2,
     "Weapon2_Strength": 4,
     "Weapon2_Dmg_Hit": 2,
     "Weapon2_Dmg_Crit": 4,
-    "Runemarks": ""
+    "Runemarks": "Minion"
   },
   {
     "id": 439,
@@ -12742,7 +12742,7 @@
     "Wounds": 18,
     "Movement": 4,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Mace",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 3,
@@ -12757,7 +12757,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Brute"
   },
   {
     "id": 440,
@@ -12771,7 +12771,7 @@
     "Wounds": 18,
     "Movement": 4,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Axe",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 3,
@@ -12786,7 +12786,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Brute"
   },
   {
     "id": 441,
@@ -12800,7 +12800,7 @@
     "Wounds": 12,
     "Movement": 4,
     "Toughness": 5,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Axe",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 3,
@@ -12815,7 +12815,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Bulwark"
   },
   {
     "id": 442,
@@ -12829,7 +12829,7 @@
     "Wounds": 12,
     "Movement": 4,
     "Toughness": 5,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Mace",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 3,
@@ -12844,7 +12844,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Bulwark"
   },
   {
     "id": 443,
@@ -12858,7 +12858,7 @@
     "Wounds": 12,
     "Movement": 4,
     "Toughness": 5,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Sword",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -12873,7 +12873,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Bulwark"
   },
   {
     "id": 444,
@@ -12887,7 +12887,7 @@
     "Wounds": 22,
     "Movement": 10,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Axe",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -12902,7 +12902,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Mount"
   },
   {
     "id": 445,
@@ -13003,7 +13003,7 @@
     "Wounds": 10,
     "Movement": 6,
     "Toughness": 3,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Spear",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 8,
     "Weapon1_Attacks": 2,
@@ -13018,7 +13018,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Agile, Icon-Bearer"
   },
   {
     "id": 449,
@@ -13061,7 +13061,7 @@
     "Wounds": 25,
     "Movement": 5,
     "Toughness": 5,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Axe",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -13090,7 +13090,7 @@
     "Wounds": 22,
     "Movement": 12,
     "Toughness": 3,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Club",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 3,
@@ -13098,14 +13098,14 @@
     "Weapon1_Dmg_Hit": 1,
     "Weapon1_Dmg_Crit": 4,
     "Weapon2": "TRUE",
-    "Weapon2_Runemark": "Ranged Weapon",
+    "Weapon2_Runemark": "Blast",
     "Weapon2_Min_Range": 3,
     "Weapon2_Max_Range": 7,
     "Weapon2_Attacks": 2,
     "Weapon2_Strength": 3,
     "Weapon2_Dmg_Hit": 3,
     "Weapon2_Dmg_Crit": 6,
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Agile, Fly"
   },
   {
     "id": 452,
@@ -13119,7 +13119,7 @@
     "Wounds": 40,
     "Movement": 4,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Club",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 3,
@@ -13134,7 +13134,7 @@
     "Weapon2_Strength": 5,
     "Weapon2_Dmg_Hit": 2,
     "Weapon2_Dmg_Crit": 4,
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Brute, Trapper"
   },
   {
     "id": 453,
@@ -13148,7 +13148,7 @@
     "Wounds": 25,
     "Movement": 8,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Club",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -13163,7 +13163,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Agile"
   },
   {
     "id": 454,
@@ -13177,7 +13177,7 @@
     "Wounds": 8,
     "Movement": 8,
     "Toughness": 3,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Claws",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 3,
@@ -13192,7 +13192,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Fly"
+    "Runemarks": "Beast, Fly"
   },
   {
     "id": 455,
@@ -13264,7 +13264,7 @@
     "Wounds": 22,
     "Movement": 4,
     "Toughness": 3,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Claws",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 3,
@@ -13272,14 +13272,14 @@
     "Weapon1_Dmg_Hit": 2,
     "Weapon1_Dmg_Crit": 4,
     "Weapon2": "TRUE",
-    "Weapon2_Runemark": "Ranged Weapon",
+    "Weapon2_Runemark": "Blast",
     "Weapon2_Min_Range": 3,
     "Weapon2_Max_Range": 15,
     "Weapon2_Attacks": 4,
     "Weapon2_Strength": 3,
     "Weapon2_Dmg_Hit": 1,
     "Weapon2_Dmg_Crit": 4,
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Mystic"
   },
   {
     "id": 458,
@@ -13467,7 +13467,7 @@
     "Wounds": 16,
     "Movement": 4,
     "Toughness": 3,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Claws",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -13475,14 +13475,14 @@
     "Weapon1_Dmg_Hit": 2,
     "Weapon1_Dmg_Crit": 4,
     "Weapon2": "TRUE",
-    "Weapon2_Runemark": "Ranged Weapon",
+    "Weapon2_Runemark": "Blast",
     "Weapon2_Min_Range": 3,
     "Weapon2_Max_Range": 10,
     "Weapon2_Attacks": 2,
     "Weapon2_Strength": 3,
     "Weapon2_Dmg_Hit": 1,
     "Weapon2_Dmg_Crit": 4,
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Elite"
   },
   {
     "id": 465,
@@ -13670,7 +13670,7 @@
     "Wounds": 28,
     "Movement": 4,
     "Toughness": 5,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Club",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 3,
@@ -13685,7 +13685,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
+    "Runemarks": "Brute"
   },
   {
     "id": 472,
@@ -13718,7 +13718,7 @@
   },
   {
     "id": 473,
-    "Name": "Isharann Souldrender",
+    "Name": "Isharann Soulrender",
     "Subtitle": "",
     "Grand_Alliance": "Order",
     "Warband": "Idoneth Deepkin",
@@ -13728,7 +13728,7 @@
     "Wounds": 22,
     "Movement": 5,
     "Toughness": 3,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Fangs",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 4,
@@ -13736,14 +13736,14 @@
     "Weapon1_Dmg_Hit": 2,
     "Weapon1_Dmg_Crit": 5,
     "Weapon2": "TRUE",
-    "Weapon2_Runemark": "Ranged Weapon",
+    "Weapon2_Runemark": "Scythe",
     "Weapon2_Min_Range": 0,
     "Weapon2_Max_Range": 3,
     "Weapon2_Attacks": 3,
     "Weapon2_Strength": 4,
     "Weapon2_Dmg_Hit": 2,
     "Weapon2_Dmg_Crit": 4,
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Frenzied"
   },
   {
     "id": 474,
@@ -13757,7 +13757,7 @@
     "Wounds": 18,
     "Movement": 5,
     "Toughness": 3,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Claws",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 3,
@@ -13772,7 +13772,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Priest"
   },
   {
     "id": 475,
@@ -13786,7 +13786,7 @@
     "Wounds": 18,
     "Movement": 5,
     "Toughness": 3,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Club",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 3,
@@ -13794,14 +13794,14 @@
     "Weapon1_Dmg_Hit": 1,
     "Weapon1_Dmg_Crit": 4,
     "Weapon2": "TRUE",
-    "Weapon2_Runemark": "Ranged Weapon",
+    "Weapon2_Runemark": "Blast",
     "Weapon2_Min_Range": 3,
     "Weapon2_Max_Range": 7,
     "Weapon2_Attacks": 2,
     "Weapon2_Strength": 3,
     "Weapon2_Dmg_Hit": 3,
     "Weapon2_Dmg_Crit": 6,
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Mystic"
   },
   {
     "id": 476,
@@ -13815,7 +13815,7 @@
     "Wounds": 25,
     "Movement": 10,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Sword",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -13830,7 +13830,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Fly, Hero"
+    "Runemarks": "Fly, Hero, Bulwark"
   },
   {
     "id": 477,
@@ -13893,7 +13893,7 @@
   {
     "id": 479,
     "Name": "Judicator",
-    "Subtitle": "with Sword & Skybolt Bow",
+    "Subtitle": "with Skybolt Bow",
     "Grand_Alliance": "Order",
     "Warband": "SCE:Warrior",
     "Hero_Ally_Thrall_Monster": "",
@@ -13902,7 +13902,7 @@
     "Wounds": 20,
     "Movement": 4,
     "Toughness": 5,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Dagger",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 3,
@@ -13922,7 +13922,7 @@
   {
     "id": 480,
     "Name": "Judicator",
-    "Subtitle": "with Sword & Boltstorm Crossbow",
+    "Subtitle": "with Boltstorm Crossbow",
     "Grand_Alliance": "Order",
     "Warband": "SCE:Warrior",
     "Hero_Ally_Thrall_Monster": "",
@@ -13931,7 +13931,7 @@
     "Wounds": 20,
     "Movement": 4,
     "Toughness": 5,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Dagger",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 3,
@@ -13951,7 +13951,7 @@
   {
     "id": 481,
     "Name": "Judicator",
-    "Subtitle": "with Sword & Shockbolt Bow",
+    "Subtitle": "with Shockbolt Bow",
     "Grand_Alliance": "Order",
     "Warband": "SCE:Warrior",
     "Hero_Ally_Thrall_Monster": "",
@@ -13960,7 +13960,7 @@
     "Wounds": 20,
     "Movement": 4,
     "Toughness": 5,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Dagger",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 3,
@@ -13980,7 +13980,7 @@
   {
     "id": 482,
     "Name": "Judicator",
-    "Subtitle": "with Sword & Thunderbolt Crossbow",
+    "Subtitle": "with Thunderbolt Crossbow",
     "Grand_Alliance": "Order",
     "Warband": "SCE:Warrior",
     "Hero_Ally_Thrall_Monster": "",
@@ -13989,7 +13989,7 @@
     "Wounds": 20,
     "Movement": 4,
     "Toughness": 5,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Dagger",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 3,
@@ -14009,7 +14009,7 @@
   {
     "id": 483,
     "Name": "Judicator-Prime",
-    "Subtitle": "with Bow",
+    "Subtitle": "with Skybolt Bow",
     "Grand_Alliance": "Order",
     "Warband": "SCE:Warrior",
     "Hero_Ally_Thrall_Monster": "Hero",
@@ -14018,7 +14018,7 @@
     "Wounds": 25,
     "Movement": 4,
     "Toughness": 5,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Dagger",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -14038,7 +14038,7 @@
   {
     "id": 484,
     "Name": "Judicator-Prime",
-    "Subtitle": "with Crossbow",
+    "Subtitle": "with Boltstorm Crossbow",
     "Grand_Alliance": "Order",
     "Warband": "SCE:Warrior",
     "Hero_Ally_Thrall_Monster": "Hero",
@@ -14047,7 +14047,7 @@
     "Wounds": 25,
     "Movement": 4,
     "Toughness": 5,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Dagger",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -14124,7 +14124,7 @@
   },
   {
     "id": 487,
-    "Name": "Kairic Acolytes",
+    "Name": "Kairic Acolyte",
     "Subtitle": "with Blade & Shield",
     "Grand_Alliance": "Chaos",
     "Warband": "Tzeentch Arcanites",
@@ -14153,7 +14153,7 @@
   },
   {
     "id": 488,
-    "Name": "Kairic Acolytes",
+    "Name": "Kairic Acolyte",
     "Subtitle": "with Glaive & Shield",
     "Grand_Alliance": "Chaos",
     "Warband": "Tzeentch Arcanites",
@@ -14182,8 +14182,8 @@
   },
   {
     "id": 489,
-    "Name": "Kairic Acolytes",
-    "Subtitle": "with Pair blades",
+    "Name": "Kairic Acolyte",
+    "Subtitle": "with Paired Blades",
     "Grand_Alliance": "Chaos",
     "Warband": "Tzeentch Arcanites",
     "Hero_Ally_Thrall_Monster": "",
@@ -14192,7 +14192,7 @@
     "Wounds": 10,
     "Movement": 4,
     "Toughness": 3,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Sword",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 4,
@@ -14200,18 +14200,18 @@
     "Weapon1_Dmg_Hit": 1,
     "Weapon1_Dmg_Crit": 3,
     "Weapon2": "FALSE",
-    "Weapon2_Runemark": "",
-    "Weapon2_Min_Range": "",
-    "Weapon2_Max_Range": "",
-    "Weapon2_Attacks": "",
-    "Weapon2_Strength": "",
-    "Weapon2_Dmg_Hit": "",
-    "Weapon2_Dmg_Crit": "",
+    "Weapon2_Runemark": "Blast",
+    "Weapon2_Min_Range": 3,
+    "Weapon2_Max_Range": 15,
+    "Weapon2_Attacks": 2,
+    "Weapon2_Strength": 3,
+    "Weapon2_Dmg_Hit": 1,
+    "Weapon2_Dmg_Crit": 3,
     "Runemarks": ""
   },
   {
     "id": 490,
-    "Name": "Kairic Acolytes",
+    "Name": "Kairic Acolyte",
     "Subtitle": "with Scroll of Dark Arts",
     "Grand_Alliance": "Chaos",
     "Warband": "Tzeentch Arcanites",
@@ -14221,7 +14221,7 @@
     "Wounds": 10,
     "Movement": 4,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Sword",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 2,
@@ -14229,7 +14229,7 @@
     "Weapon1_Dmg_Hit": 1,
     "Weapon1_Dmg_Crit": 3,
     "Weapon2": "TRUE",
-    "Weapon2_Runemark": "Ranged Weapon",
+    "Weapon2_Runemark": "Blast",
     "Weapon2_Min_Range": 3,
     "Weapon2_Max_Range": 15,
     "Weapon2_Attacks": 2,
@@ -14240,7 +14240,7 @@
   },
   {
     "id": 491,
-    "Name": "Kairic Acolytes",
+    "Name": "Kairic Acolyte",
     "Subtitle": "with Vulcharc",
     "Grand_Alliance": "Chaos",
     "Warband": "Tzeentch Arcanites",
@@ -14250,7 +14250,7 @@
     "Wounds": 10,
     "Movement": 4,
     "Toughness": 3,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Sword",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 1,
     "Weapon1_Attacks": 3,
@@ -14258,13 +14258,13 @@
     "Weapon1_Dmg_Hit": 1,
     "Weapon1_Dmg_Crit": 3,
     "Weapon2": "FALSE",
-    "Weapon2_Runemark": "",
-    "Weapon2_Min_Range": "",
-    "Weapon2_Max_Range": "",
-    "Weapon2_Attacks": "",
-    "Weapon2_Strength": "",
-    "Weapon2_Dmg_Hit": "",
-    "Weapon2_Dmg_Crit": "",
+    "Weapon2_Runemark": "Blast",
+    "Weapon2_Min_Range": 3,
+    "Weapon2_Max_Range": 15,
+    "Weapon2_Attacks": 2,
+    "Weapon2_Strength": 3,
+    "Weapon2_Dmg_Hit": 1,
+    "Weapon2_Dmg_Crit": 3,
     "Runemarks": ""
   },
   {
@@ -14279,7 +14279,7 @@
     "Wounds": 15,
     "Movement": 4,
     "Toughness": 4,
-    "Weapon1_Runemark": "",
+    "Weapon1_Runemark": "Spear",
     "Weapon1_Min_Range": 0,
     "Weapon1_Max_Range": 2,
     "Weapon1_Attacks": 2,
@@ -14287,7 +14287,7 @@
     "Weapon1_Dmg_Hit": 1,
     "Weapon1_Dmg_Crit": 4,
     "Weapon2": "TRUE",
-    "Weapon2_Runemark": "Ranged Weapon",
+    "Weapon2_Runemark": "Blast",
     "Weapon2_Min_Range": 3,
     "Weapon2_Max_Range": 15,
     "Weapon2_Attacks": 3,

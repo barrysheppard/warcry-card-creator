@@ -1640,6 +1640,7 @@ function getWeaponRunemark(weaponSymbol){
     else if(weaponSymbol == "Spear") {runemark = "runemarks/black/weapons-spear.svg";}
     else if(weaponSymbol == "Sword") {runemark = "runemarks/black/weapons-sword.svg";}
     else if(weaponSymbol == "Unarmed") {runemark = "runemarks/black/weapons-unarmed.svg";}
+    else if(weaponSymbol == "Pistol") {runemark = "runemarks/black/weapons-pistol.svg";}
     else { runemark = "runemarks/black/weapons-dagger.svg";}
     return runemark;
 }
