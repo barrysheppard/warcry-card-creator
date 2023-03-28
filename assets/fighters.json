@@ -320,6 +320,35 @@
   },
   {
     "id": 11,
+    "Name": "Akhelian Morrsarr Guard",
+    "Subtitle": "Lochian Prince",
+    "Grand_Alliance": "Order",
+    "Warband": "Idoneth Deepkin",
+    "Hero_Ally_Thrall_Monster": "Hero",
+    "Bladeborn": "",
+    "Points": 260,
+    "Wounds": 25,
+    "Movement": 10,
+    "Toughness": 4,
+    "Weapon1_Runemark": "Spear",
+    "Weapon1_Min_Range": 0,
+    "Weapon1_Max_Range": 2,
+    "Weapon1_Attacks": 4,
+    "Weapon1_Strength": 4,
+    "Weapon1_Dmg_Hit": 2,
+    "Weapon1_Dmg_Crit": 5,
+    "Weapon2": "FALSE",
+    "Weapon2_Runemark": "",
+    "Weapon2_Min_Range": "",
+    "Weapon2_Max_Range": "",
+    "Weapon2_Attacks": "",
+    "Weapon2_Strength": "",
+    "Weapon2_Dmg_Hit": "",
+    "Weapon2_Dmg_Crit": "",
+    "Runemarks": "Berserker, Fly, Hero"
+  },
+  {
+    "id": 12,
     "Name": "Akhelian Thrallmaster",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -348,7 +377,7 @@
     "Runemarks": "Hero, Sentience"
   },
   {
-    "id": 12,
+    "id": 13,
     "Name": "Alarith Stoneguard",
     "Subtitle": "with Stone Mallet",
     "Grand_Alliance": "Order",
@@ -377,7 +406,7 @@
     "Runemarks": "Brute"
   },
   {
-    "id": 13,
+    "id": 14,
     "Name": "Alarith Stoneguard",
     "Subtitle": "with Diamondpick Hammer",
     "Grand_Alliance": "Order",
@@ -406,7 +435,7 @@
     "Runemarks": "Brute"
   },
   {
-    "id": 14,
+    "id": 15,
     "Name": "Alarith Stonemage",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -435,7 +464,7 @@
     "Runemarks": "Hero, Mystic, Fly"
   },
   {
-    "id": 15,
+    "id": 16,
     "Name": "Aleguzzler Gargant",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -464,7 +493,7 @@
     "Runemarks": "Monster, Brute"
   },
   {
-    "id": 16,
+    "id": 17,
     "Name": "Allurer",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -493,7 +522,7 @@
     "Runemarks": "Hero, Warrior"
   },
   {
-    "id": 17,
+    "id": 18,
     "Name": "Almeric Eagle-eye",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -522,7 +551,7 @@
     "Runemarks": ""
   },
   {
-    "id": 18,
+    "id": 19,
     "Name": "Althaen",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -551,7 +580,7 @@
     "Runemarks": ""
   },
   {
-    "id": 19,
+    "id": 20,
     "Name": "Ammis Dawnguard",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -580,7 +609,7 @@
     "Runemarks": "Mystic"
   },
   {
-    "id": 20,
+    "id": 21,
     "Name": "Angharad Brightshield",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -609,7 +638,7 @@
     "Runemarks": "Bulwark, Warrior"
   },
   {
-    "id": 21,
+    "id": 22,
     "Name": "Annihilator",
     "Subtitle": "with Grandhammer",
     "Grand_Alliance": "Order",
@@ -638,7 +667,7 @@
     "Runemarks": "Brute"
   },
   {
-    "id": 22,
+    "id": 23,
     "Name": "Annihilator",
     "Subtitle": "with Meteoric Hammer",
     "Grand_Alliance": "Order",
@@ -667,7 +696,7 @@
     "Runemarks": "Brute"
   },
   {
-    "id": 23,
+    "id": 24,
     "Name": "Annihilator Prime",
     "Subtitle": "with Grandhammer",
     "Grand_Alliance": "Order",
@@ -696,7 +725,7 @@
     "Runemarks": "Hero, Brute"
   },
   {
-    "id": 24,
+    "id": 25,
     "Name": "Annihilator Prime",
     "Subtitle": "with Meteoric Hammer",
     "Grand_Alliance": "Order",
@@ -725,7 +754,7 @@
     "Runemarks": "Hero, Brute"
   },
   {
-    "id": 25,
+    "id": 26,
     "Name": "Anointed",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -754,7 +783,7 @@
     "Runemarks": "Hero"
   },
   {
-    "id": 26,
+    "id": 27,
     "Name": "Arch-Revenant",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -783,7 +812,7 @@
     "Runemarks": "Hero, Destroyer, Fly"
   },
   {
-    "id": 27,
+    "id": 28,
     "Name": "Arch-Warlock",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -812,7 +841,7 @@
     "Runemarks": "Hero, Agile, Destroyer"
   },
   {
-    "id": 28,
+    "id": 29,
     "Name": "Ardboy Boss",
     "Subtitle": "with Ardboy Choppas",
     "Grand_Alliance": "Destruction",
@@ -841,7 +870,7 @@
     "Runemarks": "Hero"
   },
   {
-    "id": 29,
+    "id": 30,
     "Name": "Ardskull",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -870,7 +899,7 @@
     "Runemarks": "Brute"
   },
   {
-    "id": 30,
+    "id": 31,
     "Name": "Arkanaut",
     "Subtitle": "with Axe & Pistol",
     "Grand_Alliance": "Order",
@@ -899,7 +928,7 @@
     "Runemarks": ""
   },
   {
-    "id": 31,
+    "id": 32,
     "Name": "Arkanaut",
     "Subtitle": "with Light Skyhook",
     "Grand_Alliance": "Order",
@@ -928,7 +957,7 @@
     "Runemarks": ""
   },
   {
-    "id": 32,
+    "id": 33,
     "Name": "Arkanaut",
     "Subtitle": "with Skypike",
     "Grand_Alliance": "Order",
@@ -957,7 +986,7 @@
     "Runemarks": ""
   },
   {
-    "id": 33,
+    "id": 34,
     "Name": "Arkanaut",
     "Subtitle": "with Volleygun",
     "Grand_Alliance": "Order",
@@ -986,7 +1015,7 @@
     "Runemarks": ""
   },
   {
-    "id": 34,
+    "id": 35,
     "Name": "Arkanaut Admiral",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -1015,7 +1044,7 @@
     "Runemarks": "Hero"
   },
   {
-    "id": 35,
+    "id": 36,
     "Name": "Armator",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -1044,7 +1073,7 @@
     "Runemarks": ""
   },
   {
-    "id": 36,
+    "id": 37,
     "Name": "Arnulf",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -1073,7 +1102,7 @@
     "Runemarks": ""
   },
   {
-    "id": 37,
+    "id": 38,
     "Name": "Ascended One",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -1102,7 +1131,7 @@
     "Runemarks": "Warrior"
   },
   {
-    "id": 38,
+    "id": 39,
     "Name": "Askurgan Acolyte",
     "Subtitle": "with Bonehilt Falchion",
     "Grand_Alliance": "Death",
@@ -1131,7 +1160,7 @@
     "Runemarks": "Elite"
   },
   {
-    "id": 39,
+    "id": 40,
     "Name": "Askurgan Acolyte",
     "Subtitle": "with Throat-Taker",
     "Grand_Alliance": "Death",
@@ -1160,7 +1189,7 @@
     "Runemarks": "Elite"
   },
   {
-    "id": 40,
+    "id": 41,
     "Name": "Askurgan Ascetic",
     "Subtitle": "with Charnel Mace",
     "Grand_Alliance": "Death",
@@ -1189,7 +1218,7 @@
     "Runemarks": "Elite, Destroyer"
   },
   {
-    "id": 41,
+    "id": 42,
     "Name": "Askurgan Ascetic",
     "Subtitle": "with Howling Glaive",
     "Grand_Alliance": "Death",
@@ -1218,7 +1247,7 @@
     "Runemarks": "Elite, Destroyer"
   },
   {
-    "id": 42,
+    "id": 43,
     "Name": "Askurgan Exemplar",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -1247,7 +1276,7 @@
     "Runemarks": "Hero, Elite, Destroyer"
   },
   {
-    "id": 43,
+    "id": 44,
     "Name": "Askurgan Pariah",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -1276,7 +1305,7 @@
     "Runemarks": "Scout"
   },
   {
-    "id": 44,
+    "id": 45,
     "Name": "Aspiring Champion",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -1305,7 +1334,7 @@
     "Runemarks": "Hero, Warrior"
   },
   {
-    "id": 45,
+    "id": 46,
     "Name": "Aspiring Deathbringer",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -1334,7 +1363,7 @@
     "Runemarks": "Hero"
   },
   {
-    "id": 46,
+    "id": 47,
     "Name": "Assassin",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -1363,7 +1392,7 @@
     "Runemarks": "Hero"
   },
   {
-    "id": 47,
+    "id": 48,
     "Name": "Auric Flamekeeper",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -1392,7 +1421,7 @@
     "Runemarks": "Hero, Terrifying"
   },
   {
-    "id": 48,
+    "id": 49,
     "Name": "Auric Hearthguard",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -1421,7 +1450,7 @@
     "Runemarks": "Frenzied"
   },
   {
-    "id": 49,
+    "id": 50,
     "Name": "Auric Hearthguard Karl",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -1450,7 +1479,7 @@
     "Runemarks": "Hero, Frenzied"
   },
   {
-    "id": 50,
+    "id": 51,
     "Name": "Auric Runefather",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -1479,7 +1508,7 @@
     "Runemarks": "Hero, Brute"
   },
   {
-    "id": 51,
+    "id": 52,
     "Name": "Auric Runemaster",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -1508,7 +1537,7 @@
     "Runemarks": "Hero, Priest"
   },
   {
-    "id": 52,
+    "id": 53,
     "Name": "Auric Runesmiter",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -1537,7 +1566,7 @@
     "Runemarks": "Hero, Mystic"
   },
   {
-    "id": 53,
+    "id": 54,
     "Name": "Auric Runeson",
     "Subtitle": "with Javelin",
     "Grand_Alliance": "Order",
@@ -1566,7 +1595,7 @@
     "Runemarks": "Hero, Brute"
   },
   {
-    "id": 54,
+    "id": 55,
     "Name": "Auric Runeson",
     "Subtitle": "with War-Axe",
     "Grand_Alliance": "Order",
@@ -1595,7 +1624,7 @@
     "Runemarks": "Hero, Brute"
   },
   {
-    "id": 55,
+    "id": 56,
     "Name": "Averon Stormsire",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -1624,7 +1653,7 @@
     "Runemarks": "Hero, Frenzied"
   },
   {
-    "id": 56,
+    "id": 57,
     "Name": "Awakened One",
     "Subtitle": "with Brutal Polearm",
     "Grand_Alliance": "Chaos",
@@ -1653,7 +1682,7 @@
     "Runemarks": ""
   },
   {
-    "id": 57,
+    "id": 58,
     "Name": "Awakened One",
     "Subtitle": "with Flail",
     "Grand_Alliance": "Chaos",
@@ -1682,7 +1711,7 @@
     "Runemarks": ""
   },
   {
-    "id": 58,
+    "id": 59,
     "Name": "Bahannar",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -1711,7 +1740,7 @@
     "Runemarks": "Brute"
   },
   {
-    "id": 59,
+    "id": 60,
     "Name": "Basha",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -1740,7 +1769,7 @@
     "Runemarks": ""
   },
   {
-    "id": 60,
+    "id": 61,
     "Name": "Bat Squig",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -1769,7 +1798,7 @@
     "Runemarks": "Beast, Fly"
   },
   {
-    "id": 61,
+    "id": 62,
     "Name": "Battlemage",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -1798,7 +1827,7 @@
     "Runemarks": "Hero, Mystic"
   },
   {
-    "id": 62,
+    "id": 63,
     "Name": "Battlesmith",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -1827,7 +1856,7 @@
     "Runemarks": "Hero, Icon-Bearer"
   },
   {
-    "id": 63,
+    "id": 64,
     "Name": "Bault",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -1856,7 +1885,7 @@
     "Runemarks": "Minion, Frenzied"
   },
   {
-    "id": 64,
+    "id": 65,
     "Name": "Beast Lord",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -1885,7 +1914,7 @@
     "Runemarks": "Hero, Champion"
   },
   {
-    "id": 65,
+    "id": 66,
     "Name": "Beast of Nurgle",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -1914,7 +1943,7 @@
     "Runemarks": "Beast, Ferocious"
   },
   {
-    "id": 66,
+    "id": 67,
     "Name": "Beastspeaker",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -1943,7 +1972,7 @@
     "Runemarks": "Agile"
   },
   {
-    "id": 67,
+    "id": 68,
     "Name": "Bestigor",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -1972,7 +2001,7 @@
     "Runemarks": "Warrior"
   },
   {
-    "id": 68,
+    "id": 69,
     "Name": "Bestigor Destroyer",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -2001,7 +2030,7 @@
     "Runemarks": "Brute"
   },
   {
-    "id": 69,
+    "id": 70,
     "Name": "Binar Khenta",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -2030,7 +2059,7 @@
     "Runemarks": "Bulwark"
   },
   {
-    "id": 70,
+    "id": 71,
     "Name": "Bjorgen Thundrik",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -2059,7 +2088,7 @@
     "Runemarks": "Hero, Destroyer"
   },
   {
-    "id": 71,
+    "id": 72,
     "Name": "Black Ark Cosair",
     "Subtitle": "with Sword & Handbow",
     "Grand_Alliance": "Order",
@@ -2088,7 +2117,7 @@
     "Runemarks": "Scout"
   },
   {
-    "id": 72,
+    "id": 73,
     "Name": "Black Ark Cosair",
     "Subtitle": "with Swords",
     "Grand_Alliance": "Order",
@@ -2117,7 +2146,7 @@
     "Runemarks": ""
   },
   {
-    "id": 73,
+    "id": 74,
     "Name": "Black Ark Fleetmaster",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -2146,7 +2175,7 @@
     "Runemarks": "Hero"
   },
   {
-    "id": 74,
+    "id": 75,
     "Name": "Black Ark Reaver",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -2175,7 +2204,7 @@
     "Runemarks": "Hero"
   },
   {
-    "id": 75,
+    "id": 76,
     "Name": "Black Guard",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -2204,7 +2233,7 @@
     "Runemarks": ""
   },
   {
-    "id": 76,
+    "id": 77,
     "Name": "Black Knight",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -2233,7 +2262,7 @@
     "Runemarks": "Mount"
   },
   {
-    "id": 77,
+    "id": 78,
     "Name": "Bladegheist Revenant",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -2262,7 +2291,7 @@
     "Runemarks": "Fly"
   },
   {
-    "id": 78,
+    "id": 79,
     "Name": "Bladelord Seneschal",
     "Subtitle": "with Sunmetal Dual blades",
     "Grand_Alliance": "Order",
@@ -2291,7 +2320,7 @@
     "Runemarks": "Hero, Warrior, Frenzied"
   },
   {
-    "id": 79,
+    "id": 80,
     "Name": "Bladelord Seneschal",
     "Subtitle": "with Sunmetal Greatblade",
     "Grand_Alliance": "Order",
@@ -2320,7 +2349,7 @@
     "Runemarks": "Hero, Warrior, Frenzied"
   },
   {
-    "id": 80,
+    "id": 81,
     "Name": "Blazing Lord",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -2349,7 +2378,7 @@
     "Runemarks": "Hero, Brute"
   },
   {
-    "id": 81,
+    "id": 82,
     "Name": "Bleaksword",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -2378,7 +2407,7 @@
     "Runemarks": "Bulwark"
   },
   {
-    "id": 82,
+    "id": 83,
     "Name": "Blissbarb Archer",
     "Subtitle": "High Tempter",
     "Grand_Alliance": "Chaos",
@@ -2407,7 +2436,7 @@
     "Runemarks": "Hero. Minion"
   },
   {
-    "id": 83,
+    "id": 84,
     "Name": "Blissbarb Archer",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -2436,7 +2465,7 @@
     "Runemarks": "Minion"
   },
   {
-    "id": 84,
+    "id": 85,
     "Name": "Blissbarb Seeker",
     "Subtitle": "High Tempter",
     "Grand_Alliance": "Chaos",
@@ -2465,7 +2494,7 @@
     "Runemarks": "Hero, Minion, Mounted"
   },
   {
-    "id": 85,
+    "id": 86,
     "Name": "Blissbarb Seeker",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -2494,7 +2523,7 @@
     "Runemarks": "Minion, Mounted"
   },
   {
-    "id": 86,
+    "id": 87,
     "Name": "Blissbrew Homonculus",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -2523,7 +2552,7 @@
     "Runemarks": "Priest"
   },
   {
-    "id": 87,
+    "id": 88,
     "Name": "Blissbringer",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -2552,7 +2581,7 @@
     "Runemarks": "Hero, Agile"
   },
   {
-    "id": 88,
+    "id": 89,
     "Name": "Blissful One",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -2581,7 +2610,7 @@
     "Runemarks": "Hero"
   },
   {
-    "id": 89,
+    "id": 90,
     "Name": "Bloated One",
     "Subtitle": "with Raker-claws",
     "Grand_Alliance": "Chaos",
@@ -2610,7 +2639,7 @@
     "Runemarks": "Brute"
   },
   {
-    "id": 90,
+    "id": 91,
     "Name": "Bloated one",
     "Subtitle": "with Raker-claws and Hooked Net",
     "Grand_Alliance": "Chaos",
@@ -2639,7 +2668,7 @@
     "Runemarks": "Brute, Trapper"
   },
   {
-    "id": 91,
+    "id": 92,
     "Name": "Blood Knight",
     "Subtitle": "with Blade",
     "Grand_Alliance": "Death",
@@ -2668,7 +2697,7 @@
     "Runemarks": "Mount, Terrifying"
   },
   {
-    "id": 92,
+    "id": 93,
     "Name": "Blood Knight",
     "Subtitle": "with Lance",
     "Grand_Alliance": "Death",
@@ -2697,558 +2726,7 @@
     "Runemarks": "Mount, Terrifying"
   },
   {
-    "id": 93,
-    "Name": "Blood Stalker",
-    "Subtitle": "",
-    "Grand_Alliance": "Order",
-    "Warband": "Daughters of Khaine",
-    "Hero_Ally_Thrall_Monster": "",
-    "Bladeborn": "",
-    "Points": 170,
-    "Wounds": 20,
-    "Movement": 7,
-    "Toughness": 4,
-    "Weapon1_Runemark": "Dagger",
-    "Weapon1_Min_Range": 0,
-    "Weapon1_Max_Range": 1,
-    "Weapon1_Attacks": 2,
-    "Weapon1_Strength": 3,
-    "Weapon1_Dmg_Hit": 1,
-    "Weapon1_Dmg_Crit": 2,
-    "Weapon2": "TRUE",
-    "Weapon2_Runemark": "Ranged Weapon",
-    "Weapon2_Min_Range": 3,
-    "Weapon2_Max_Range": 20,
-    "Weapon2_Attacks": 2,
-    "Weapon2_Strength": 3,
-    "Weapon2_Dmg_Hit": 1,
-    "Weapon2_Dmg_Crit": 5,
-    "Runemarks": "Berserker"
-  },
-  {
     "id": 94,
-    "Name": "Blood Warrior",
-    "Subtitle": "with Goreaxe & Gorefist",
-    "Grand_Alliance": "Chaos",
-    "Warband": "Khorne Bloodbound",
-    "Hero_Ally_Thrall_Monster": "",
-    "Bladeborn": "",
-    "Points": 100,
-    "Wounds": 15,
-    "Movement": 4,
-    "Toughness": 4,
-    "Weapon1_Runemark": "Axe",
-    "Weapon1_Min_Range": 0,
-    "Weapon1_Max_Range": 1,
-    "Weapon1_Attacks": 3,
-    "Weapon1_Strength": 4,
-    "Weapon1_Dmg_Hit": 2,
-    "Weapon1_Dmg_Crit": 4,
-    "Weapon2": "FALSE",
-    "Weapon2_Runemark": "",
-    "Weapon2_Min_Range": "",
-    "Weapon2_Max_Range": "",
-    "Weapon2_Attacks": "",
-    "Weapon2_Strength": "",
-    "Weapon2_Dmg_Hit": "",
-    "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Bulwark"
-  },
-  {
-    "id": 95,
-    "Name": "Blood Warrior",
-    "Subtitle": "with Goreglaive",
-    "Grand_Alliance": "Chaos",
-    "Warband": "Khorne Bloodbound",
-    "Hero_Ally_Thrall_Monster": "",
-    "Bladeborn": "",
-    "Points": 110,
-    "Wounds": 15,
-    "Movement": 4,
-    "Toughness": 4,
-    "Weapon1_Runemark": "Axe",
-    "Weapon1_Min_Range": 0,
-    "Weapon1_Max_Range": 1,
-    "Weapon1_Attacks": 3,
-    "Weapon1_Strength": 5,
-    "Weapon1_Dmg_Hit": 2,
-    "Weapon1_Dmg_Crit": 5,
-    "Weapon2": "FALSE",
-    "Weapon2_Runemark": "",
-    "Weapon2_Min_Range": "",
-    "Weapon2_Max_Range": "",
-    "Weapon2_Attacks": "",
-    "Weapon2_Strength": "",
-    "Weapon2_Dmg_Hit": "",
-    "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
-  },
-  {
-    "id": 96,
-    "Name": "Blood Warrior",
-    "Subtitle": "with Pair Bloodaxes",
-    "Grand_Alliance": "Chaos",
-    "Warband": "Khorne Bloodbound",
-    "Hero_Ally_Thrall_Monster": "",
-    "Bladeborn": "",
-    "Points": 110,
-    "Wounds": 15,
-    "Movement": 4,
-    "Toughness": 4,
-    "Weapon1_Runemark": "Axe",
-    "Weapon1_Min_Range": 0,
-    "Weapon1_Max_Range": 1,
-    "Weapon1_Attacks": 4,
-    "Weapon1_Strength": 4,
-    "Weapon1_Dmg_Hit": 2,
-    "Weapon1_Dmg_Crit": 4,
-    "Weapon2": "FALSE",
-    "Weapon2_Runemark": "",
-    "Weapon2_Min_Range": "",
-    "Weapon2_Max_Range": "",
-    "Weapon2_Attacks": "",
-    "Weapon2_Strength": "",
-    "Weapon2_Dmg_Hit": "",
-    "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
-  },
-  {
-    "id": 97,
-    "Name": "Blood Whelp",
-    "Subtitle": "with Barb-Spear",
-    "Grand_Alliance": "Chaos",
-    "Warband": "Claws of Karanak",
-    "Hero_Ally_Thrall_Monster": "",
-    "Bladeborn": "",
-    "Points": 90,
-    "Wounds": 12,
-    "Movement": 5,
-    "Toughness": 3,
-    "Weapon1_Runemark": "Spear",
-    "Weapon1_Min_Range": 0,
-    "Weapon1_Max_Range": 2,
-    "Weapon1_Attacks": 2,
-    "Weapon1_Strength": 4,
-    "Weapon1_Dmg_Hit": 2,
-    "Weapon1_Dmg_Crit": 4,
-    "Weapon2": "FALSE",
-    "Weapon2_Runemark": "",
-    "Weapon2_Min_Range": "",
-    "Weapon2_Max_Range": "",
-    "Weapon2_Attacks": "",
-    "Weapon2_Strength": "",
-    "Weapon2_Dmg_Hit": "",
-    "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Agile"
-  },
-  {
-    "id": 98,
-    "Name": "Blood Whelp",
-    "Subtitle": "with Claw-Flail",
-    "Grand_Alliance": "Chaos",
-    "Warband": "Claws of Karanak",
-    "Hero_Ally_Thrall_Monster": "",
-    "Bladeborn": "",
-    "Points": 90,
-    "Wounds": 12,
-    "Movement": 5,
-    "Toughness": 3,
-    "Weapon1_Runemark": "Reach Weapon",
-    "Weapon1_Min_Range": 0,
-    "Weapon1_Max_Range": 3,
-    "Weapon1_Attacks": 3,
-    "Weapon1_Strength": 4,
-    "Weapon1_Dmg_Hit": 1,
-    "Weapon1_Dmg_Crit": 3,
-    "Weapon2": "FALSE",
-    "Weapon2_Runemark": "",
-    "Weapon2_Min_Range": "",
-    "Weapon2_Max_Range": "",
-    "Weapon2_Attacks": "",
-    "Weapon2_Strength": "",
-    "Weapon2_Dmg_Hit": "",
-    "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Agile"
-  },
-  {
-    "id": 99,
-    "Name": "Bloodcrusher",
-    "Subtitle": "",
-    "Grand_Alliance": "Chaos",
-    "Warband": "Daemons of Khorne",
-    "Hero_Ally_Thrall_Monster": "",
-    "Bladeborn": "",
-    "Points": 170,
-    "Wounds": 25,
-    "Movement": 6,
-    "Toughness": 4,
-    "Weapon1_Runemark": "Sword",
-    "Weapon1_Min_Range": 0,
-    "Weapon1_Max_Range": 1,
-    "Weapon1_Attacks": 4,
-    "Weapon1_Strength": 4,
-    "Weapon1_Dmg_Hit": 2,
-    "Weapon1_Dmg_Crit": 4,
-    "Weapon2": "FALSE",
-    "Weapon2_Runemark": "",
-    "Weapon2_Min_Range": "",
-    "Weapon2_Max_Range": "",
-    "Weapon2_Attacks": "",
-    "Weapon2_Strength": "",
-    "Weapon2_Dmg_Hit": "",
-    "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Destroyer, Mounted"
-  },
-  {
-    "id": 100,
-    "Name": "Blooded Saek",
-    "Subtitle": "",
-    "Grand_Alliance": "Chaos",
-    "Warband": "Khorne Bloodbound",
-    "Hero_Ally_Thrall_Monster": "Bladeborn Fighter",
-    "Bladeborn": "Garrek's Reavers",
-    "Points": 135,
-    "Wounds": 12,
-    "Movement": 5,
-    "Toughness": 4,
-    "Weapon1_Runemark": "Axe",
-    "Weapon1_Min_Range": 0,
-    "Weapon1_Max_Range": 1,
-    "Weapon1_Attacks": 3,
-    "Weapon1_Strength": 4,
-    "Weapon1_Dmg_Hit": 3,
-    "Weapon1_Dmg_Crit": 5,
-    "Weapon2": "FALSE",
-    "Weapon2_Runemark": "",
-    "Weapon2_Min_Range": "",
-    "Weapon2_Max_Range": "",
-    "Weapon2_Attacks": "",
-    "Weapon2_Strength": "",
-    "Weapon2_Dmg_Hit": "",
-    "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
-  },
-  {
-    "id": 101,
-    "Name": "Bloodhunter",
-    "Subtitle": "",
-    "Grand_Alliance": "Chaos",
-    "Warband": "Daemons of Khorne",
-    "Hero_Ally_Thrall_Monster": "Hero",
-    "Bladeborn": "",
-    "Points": 230,
-    "Wounds": 30,
-    "Movement": 6,
-    "Toughness": 4,
-    "Weapon1_Runemark": "Sword",
-    "Weapon1_Min_Range": 0,
-    "Weapon1_Max_Range": 1,
-    "Weapon1_Attacks": 5,
-    "Weapon1_Strength": 4,
-    "Weapon1_Dmg_Hit": 2,
-    "Weapon1_Dmg_Crit": 5,
-    "Weapon2": "FALSE",
-    "Weapon2_Runemark": "",
-    "Weapon2_Min_Range": "",
-    "Weapon2_Max_Range": "",
-    "Weapon2_Attacks": "",
-    "Weapon2_Strength": "",
-    "Weapon2_Dmg_Hit": "",
-    "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero, Destroyer, Mounted"
-  },
-  {
-    "id": 102,
-    "Name": "Bloodkine",
-    "Subtitle": "with Axe and Shield",
-    "Grand_Alliance": "Chaos",
-    "Warband": "Beasts of Chaos",
-    "Hero_Ally_Thrall_Monster": "Hero",
-    "Bladeborn": "",
-    "Points": 215,
-    "Wounds": 35,
-    "Movement": 5,
-    "Toughness": 5,
-    "Weapon1_Runemark": "Axe",
-    "Weapon1_Min_Range": 0,
-    "Weapon1_Max_Range": 1,
-    "Weapon1_Attacks": 3,
-    "Weapon1_Strength": 5,
-    "Weapon1_Dmg_Hit": 2,
-    "Weapon1_Dmg_Crit": 5,
-    "Weapon2": "FALSE",
-    "Weapon2_Runemark": "",
-    "Weapon2_Min_Range": "",
-    "Weapon2_Max_Range": "",
-    "Weapon2_Attacks": "",
-    "Weapon2_Strength": "",
-    "Weapon2_Dmg_Hit": "",
-    "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero, Brute"
-  },
-  {
-    "id": 103,
-    "Name": "Bloodkine",
-    "Subtitle": "with Bullgor Great Axe",
-    "Grand_Alliance": "Chaos",
-    "Warband": "Beasts of Chaos",
-    "Hero_Ally_Thrall_Monster": "Hero",
-    "Bladeborn": "",
-    "Points": 235,
-    "Wounds": 35,
-    "Movement": 5,
-    "Toughness": 4,
-    "Weapon1_Runemark": "Axe",
-    "Weapon1_Min_Range": 0,
-    "Weapon1_Max_Range": 1,
-    "Weapon1_Attacks": 3,
-    "Weapon1_Strength": 5,
-    "Weapon1_Dmg_Hit": 3,
-    "Weapon1_Dmg_Crit": 8,
-    "Weapon2": "FALSE",
-    "Weapon2_Runemark": "",
-    "Weapon2_Min_Range": "",
-    "Weapon2_Max_Range": "",
-    "Weapon2_Attacks": "",
-    "Weapon2_Strength": "",
-    "Weapon2_Dmg_Hit": "",
-    "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero, Brute"
-  },
-  {
-    "id": 104,
-    "Name": "Bloodkine",
-    "Subtitle": "with paired Bullgor Axes",
-    "Grand_Alliance": "Chaos",
-    "Warband": "Beasts of Chaos",
-    "Hero_Ally_Thrall_Monster": "Hero",
-    "Bladeborn": "",
-    "Points": 245,
-    "Wounds": 35,
-    "Movement": 5,
-    "Toughness": 4,
-    "Weapon1_Runemark": "Axe",
-    "Weapon1_Min_Range": 0,
-    "Weapon1_Max_Range": 1,
-    "Weapon1_Attacks": 5,
-    "Weapon1_Strength": 5,
-    "Weapon1_Dmg_Hit": 2,
-    "Weapon1_Dmg_Crit": 5,
-    "Weapon2": "FALSE",
-    "Weapon2_Runemark": "",
-    "Weapon2_Min_Range": "",
-    "Weapon2_Max_Range": "",
-    "Weapon2_Attacks": "",
-    "Weapon2_Strength": "",
-    "Weapon2_Dmg_Hit": "",
-    "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero, Brute"
-  },
-  {
-    "id": 105,
-    "Name": "Bloodletter",
-    "Subtitle": "",
-    "Grand_Alliance": "Chaos",
-    "Warband": "Daemons of Khorne",
-    "Hero_Ally_Thrall_Monster": "",
-    "Bladeborn": "",
-    "Points": 80,
-    "Wounds": 10,
-    "Movement": 4,
-    "Toughness": 3,
-    "Weapon1_Runemark": "Sword",
-    "Weapon1_Min_Range": 0,
-    "Weapon1_Max_Range": 1,
-    "Weapon1_Attacks": 4,
-    "Weapon1_Strength": 4,
-    "Weapon1_Dmg_Hit": 1,
-    "Weapon1_Dmg_Crit": 4,
-    "Weapon2": "FALSE",
-    "Weapon2_Runemark": "",
-    "Weapon2_Min_Range": "",
-    "Weapon2_Max_Range": "",
-    "Weapon2_Attacks": "",
-    "Weapon2_Strength": "",
-    "Weapon2_Dmg_Hit": "",
-    "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Frenzied"
-  },
-  {
-    "id": 106,
-    "Name": "Bloodmaster",
-    "Subtitle": "Herald of Khorne",
-    "Grand_Alliance": "Chaos",
-    "Warband": "Daemons of Khorne",
-    "Hero_Ally_Thrall_Monster": "Hero",
-    "Bladeborn": "",
-    "Points": 165,
-    "Wounds": 20,
-    "Movement": 4,
-    "Toughness": 4,
-    "Weapon1_Runemark": "Sword",
-    "Weapon1_Min_Range": 0,
-    "Weapon1_Max_Range": 1,
-    "Weapon1_Attacks": 5,
-    "Weapon1_Strength": 4,
-    "Weapon1_Dmg_Hit": 2,
-    "Weapon1_Dmg_Crit": 5,
-    "Weapon2": "FALSE",
-    "Weapon2_Runemark": "",
-    "Weapon2_Min_Range": "",
-    "Weapon2_Max_Range": "",
-    "Weapon2_Attacks": "",
-    "Weapon2_Strength": "",
-    "Weapon2_Dmg_Hit": "",
-    "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero, Frenzied"
-  },
-  {
-    "id": 107,
-    "Name": "Bloodreaper",
-    "Subtitle": "",
-    "Grand_Alliance": "Chaos",
-    "Warband": "Daemons of Khorne",
-    "Hero_Ally_Thrall_Monster": "Hero",
-    "Bladeborn": "",
-    "Points": 135,
-    "Wounds": 15,
-    "Movement": 4,
-    "Toughness": 3,
-    "Weapon1_Runemark": "Sword",
-    "Weapon1_Min_Range": 0,
-    "Weapon1_Max_Range": 1,
-    "Weapon1_Attacks": 5,
-    "Weapon1_Strength": 4,
-    "Weapon1_Dmg_Hit": 2,
-    "Weapon1_Dmg_Crit": 4,
-    "Weapon2": "FALSE",
-    "Weapon2_Runemark": "",
-    "Weapon2_Min_Range": "",
-    "Weapon2_Max_Range": "",
-    "Weapon2_Attacks": "",
-    "Weapon2_Strength": "",
-    "Weapon2_Dmg_Hit": "",
-    "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero, Frenzied"
-  },
-  {
-    "id": 108,
-    "Name": "Bloodreaver",
-    "Subtitle": "with Meatripper Axe",
-    "Grand_Alliance": "Chaos",
-    "Warband": "Khorne Bloodbound",
-    "Hero_Ally_Thrall_Monster": "",
-    "Bladeborn": "",
-    "Points": 65,
-    "Wounds": 10,
-    "Movement": 5,
-    "Toughness": 3,
-    "Weapon1_Runemark": "Axe",
-    "Weapon1_Min_Range": 0,
-    "Weapon1_Max_Range": 1,
-    "Weapon1_Attacks": 3,
-    "Weapon1_Strength": 4,
-    "Weapon1_Dmg_Hit": 1,
-    "Weapon1_Dmg_Crit": 3,
-    "Weapon2": "FALSE",
-    "Weapon2_Runemark": "",
-    "Weapon2_Min_Range": "",
-    "Weapon2_Max_Range": "",
-    "Weapon2_Attacks": "",
-    "Weapon2_Strength": "",
-    "Weapon2_Dmg_Hit": "",
-    "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
-  },
-  {
-    "id": 109,
-    "Name": "Bloodreaver",
-    "Subtitle": "with Reaver Blades",
-    "Grand_Alliance": "Chaos",
-    "Warband": "Khorne Bloodbound",
-    "Hero_Ally_Thrall_Monster": "",
-    "Bladeborn": "",
-    "Points": 65,
-    "Wounds": 10,
-    "Movement": 5,
-    "Toughness": 3,
-    "Weapon1_Runemark": "Axe",
-    "Weapon1_Min_Range": 0,
-    "Weapon1_Max_Range": 1,
-    "Weapon1_Attacks": 4,
-    "Weapon1_Strength": 3,
-    "Weapon1_Dmg_Hit": 1,
-    "Weapon1_Dmg_Crit": 3,
-    "Weapon2": "FALSE",
-    "Weapon2_Runemark": "",
-    "Weapon2_Min_Range": "",
-    "Weapon2_Max_Range": "",
-    "Weapon2_Attacks": "",
-    "Weapon2_Strength": "",
-    "Weapon2_Dmg_Hit": "",
-    "Weapon2_Dmg_Crit": "",
-    "Runemarks": ""
-  },
-  {
-    "id": 110,
-    "Name": "Bloodreaver Chieftain",
-    "Subtitle": "",
-    "Grand_Alliance": "Chaos",
-    "Warband": "Khorne Bloodbound",
-    "Hero_Ally_Thrall_Monster": "Hero",
-    "Bladeborn": "",
-    "Points": 120,
-    "Wounds": 15,
-    "Movement": 5,
-    "Toughness": 3,
-    "Weapon1_Runemark": "Axe",
-    "Weapon1_Min_Range": 0,
-    "Weapon1_Max_Range": 1,
-    "Weapon1_Attacks": 5,
-    "Weapon1_Strength": 3,
-    "Weapon1_Dmg_Hit": 2,
-    "Weapon1_Dmg_Crit": 4,
-    "Weapon2": "FALSE",
-    "Weapon2_Runemark": "",
-    "Weapon2_Min_Range": "",
-    "Weapon2_Max_Range": "",
-    "Weapon2_Attacks": "",
-    "Weapon2_Strength": "",
-    "Weapon2_Dmg_Hit": "",
-    "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
-  },
-  {
-    "id": 111,
-    "Name": "Bloodsecrator",
-    "Subtitle": "",
-    "Grand_Alliance": "Chaos",
-    "Warband": "Khorne Bloodbound",
-    "Hero_Ally_Thrall_Monster": "Hero",
-    "Bladeborn": "",
-    "Points": 160,
-    "Wounds": 25,
-    "Movement": 4,
-    "Toughness": 5,
-    "Weapon1_Runemark": "Axe",
-    "Weapon1_Min_Range": 0,
-    "Weapon1_Max_Range": 1,
-    "Weapon1_Attacks": 3,
-    "Weapon1_Strength": 4,
-    "Weapon1_Dmg_Hit": 2,
-    "Weapon1_Dmg_Crit": 5,
-    "Weapon2": "FALSE",
-    "Weapon2_Runemark": "",
-    "Weapon2_Min_Range": "",
-    "Weapon2_Max_Range": "",
-    "Weapon2_Attacks": "",
-    "Weapon2_Strength": "",
-    "Weapon2_Dmg_Hit": "",
-    "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero, Icon-Bearer"
-  },
-  {
-    "id": 112,
     "Name": "Blood Sister",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -3277,7 +2755,558 @@
     "Runemarks": "Elite"
   },
   {
+    "id": 95,
+    "Name": "Blood Stalker",
+    "Subtitle": "",
+    "Grand_Alliance": "Order",
+    "Warband": "Daughters of Khaine",
+    "Hero_Ally_Thrall_Monster": "",
+    "Bladeborn": "",
+    "Points": 170,
+    "Wounds": 20,
+    "Movement": 7,
+    "Toughness": 4,
+    "Weapon1_Runemark": "Dagger",
+    "Weapon1_Min_Range": 0,
+    "Weapon1_Max_Range": 1,
+    "Weapon1_Attacks": 2,
+    "Weapon1_Strength": 3,
+    "Weapon1_Dmg_Hit": 1,
+    "Weapon1_Dmg_Crit": 2,
+    "Weapon2": "TRUE",
+    "Weapon2_Runemark": "Ranged Weapon",
+    "Weapon2_Min_Range": 3,
+    "Weapon2_Max_Range": 20,
+    "Weapon2_Attacks": 2,
+    "Weapon2_Strength": 3,
+    "Weapon2_Dmg_Hit": 1,
+    "Weapon2_Dmg_Crit": 5,
+    "Runemarks": "Berserker"
+  },
+  {
+    "id": 96,
+    "Name": "Blood Warrior",
+    "Subtitle": "with Goreaxe & Gorefist",
+    "Grand_Alliance": "Chaos",
+    "Warband": "Khorne Bloodbound",
+    "Hero_Ally_Thrall_Monster": "",
+    "Bladeborn": "",
+    "Points": 100,
+    "Wounds": 15,
+    "Movement": 4,
+    "Toughness": 4,
+    "Weapon1_Runemark": "Axe",
+    "Weapon1_Min_Range": 0,
+    "Weapon1_Max_Range": 1,
+    "Weapon1_Attacks": 3,
+    "Weapon1_Strength": 4,
+    "Weapon1_Dmg_Hit": 2,
+    "Weapon1_Dmg_Crit": 4,
+    "Weapon2": "FALSE",
+    "Weapon2_Runemark": "",
+    "Weapon2_Min_Range": "",
+    "Weapon2_Max_Range": "",
+    "Weapon2_Attacks": "",
+    "Weapon2_Strength": "",
+    "Weapon2_Dmg_Hit": "",
+    "Weapon2_Dmg_Crit": "",
+    "Runemarks": "Bulwark"
+  },
+  {
+    "id": 97,
+    "Name": "Blood Warrior",
+    "Subtitle": "with Goreglaive",
+    "Grand_Alliance": "Chaos",
+    "Warband": "Khorne Bloodbound",
+    "Hero_Ally_Thrall_Monster": "",
+    "Bladeborn": "",
+    "Points": 110,
+    "Wounds": 15,
+    "Movement": 4,
+    "Toughness": 4,
+    "Weapon1_Runemark": "Axe",
+    "Weapon1_Min_Range": 0,
+    "Weapon1_Max_Range": 1,
+    "Weapon1_Attacks": 3,
+    "Weapon1_Strength": 5,
+    "Weapon1_Dmg_Hit": 2,
+    "Weapon1_Dmg_Crit": 5,
+    "Weapon2": "FALSE",
+    "Weapon2_Runemark": "",
+    "Weapon2_Min_Range": "",
+    "Weapon2_Max_Range": "",
+    "Weapon2_Attacks": "",
+    "Weapon2_Strength": "",
+    "Weapon2_Dmg_Hit": "",
+    "Weapon2_Dmg_Crit": "",
+    "Runemarks": ""
+  },
+  {
+    "id": 98,
+    "Name": "Blood Warrior",
+    "Subtitle": "with Pair Bloodaxes",
+    "Grand_Alliance": "Chaos",
+    "Warband": "Khorne Bloodbound",
+    "Hero_Ally_Thrall_Monster": "",
+    "Bladeborn": "",
+    "Points": 110,
+    "Wounds": 15,
+    "Movement": 4,
+    "Toughness": 4,
+    "Weapon1_Runemark": "Axe",
+    "Weapon1_Min_Range": 0,
+    "Weapon1_Max_Range": 1,
+    "Weapon1_Attacks": 4,
+    "Weapon1_Strength": 4,
+    "Weapon1_Dmg_Hit": 2,
+    "Weapon1_Dmg_Crit": 4,
+    "Weapon2": "FALSE",
+    "Weapon2_Runemark": "",
+    "Weapon2_Min_Range": "",
+    "Weapon2_Max_Range": "",
+    "Weapon2_Attacks": "",
+    "Weapon2_Strength": "",
+    "Weapon2_Dmg_Hit": "",
+    "Weapon2_Dmg_Crit": "",
+    "Runemarks": ""
+  },
+  {
+    "id": 99,
+    "Name": "Blood Whelp",
+    "Subtitle": "with Barb-Spear",
+    "Grand_Alliance": "Chaos",
+    "Warband": "Claws of Karanak",
+    "Hero_Ally_Thrall_Monster": "",
+    "Bladeborn": "",
+    "Points": 90,
+    "Wounds": 12,
+    "Movement": 5,
+    "Toughness": 3,
+    "Weapon1_Runemark": "Spear",
+    "Weapon1_Min_Range": 0,
+    "Weapon1_Max_Range": 2,
+    "Weapon1_Attacks": 2,
+    "Weapon1_Strength": 4,
+    "Weapon1_Dmg_Hit": 2,
+    "Weapon1_Dmg_Crit": 4,
+    "Weapon2": "FALSE",
+    "Weapon2_Runemark": "",
+    "Weapon2_Min_Range": "",
+    "Weapon2_Max_Range": "",
+    "Weapon2_Attacks": "",
+    "Weapon2_Strength": "",
+    "Weapon2_Dmg_Hit": "",
+    "Weapon2_Dmg_Crit": "",
+    "Runemarks": "Agile"
+  },
+  {
+    "id": 100,
+    "Name": "Blood Whelp",
+    "Subtitle": "with Claw-Flail",
+    "Grand_Alliance": "Chaos",
+    "Warband": "Claws of Karanak",
+    "Hero_Ally_Thrall_Monster": "",
+    "Bladeborn": "",
+    "Points": 90,
+    "Wounds": 12,
+    "Movement": 5,
+    "Toughness": 3,
+    "Weapon1_Runemark": "Reach Weapon",
+    "Weapon1_Min_Range": 0,
+    "Weapon1_Max_Range": 3,
+    "Weapon1_Attacks": 3,
+    "Weapon1_Strength": 4,
+    "Weapon1_Dmg_Hit": 1,
+    "Weapon1_Dmg_Crit": 3,
+    "Weapon2": "FALSE",
+    "Weapon2_Runemark": "",
+    "Weapon2_Min_Range": "",
+    "Weapon2_Max_Range": "",
+    "Weapon2_Attacks": "",
+    "Weapon2_Strength": "",
+    "Weapon2_Dmg_Hit": "",
+    "Weapon2_Dmg_Crit": "",
+    "Runemarks": "Agile"
+  },
+  {
+    "id": 101,
+    "Name": "Bloodcrusher",
+    "Subtitle": "",
+    "Grand_Alliance": "Chaos",
+    "Warband": "Daemons of Khorne",
+    "Hero_Ally_Thrall_Monster": "",
+    "Bladeborn": "",
+    "Points": 170,
+    "Wounds": 25,
+    "Movement": 6,
+    "Toughness": 4,
+    "Weapon1_Runemark": "Sword",
+    "Weapon1_Min_Range": 0,
+    "Weapon1_Max_Range": 1,
+    "Weapon1_Attacks": 4,
+    "Weapon1_Strength": 4,
+    "Weapon1_Dmg_Hit": 2,
+    "Weapon1_Dmg_Crit": 4,
+    "Weapon2": "FALSE",
+    "Weapon2_Runemark": "",
+    "Weapon2_Min_Range": "",
+    "Weapon2_Max_Range": "",
+    "Weapon2_Attacks": "",
+    "Weapon2_Strength": "",
+    "Weapon2_Dmg_Hit": "",
+    "Weapon2_Dmg_Crit": "",
+    "Runemarks": "Destroyer, Mounted"
+  },
+  {
+    "id": 102,
+    "Name": "Blooded Saek",
+    "Subtitle": "",
+    "Grand_Alliance": "Chaos",
+    "Warband": "Khorne Bloodbound",
+    "Hero_Ally_Thrall_Monster": "Bladeborn Fighter",
+    "Bladeborn": "Garrek's Reavers",
+    "Points": 135,
+    "Wounds": 12,
+    "Movement": 5,
+    "Toughness": 4,
+    "Weapon1_Runemark": "Axe",
+    "Weapon1_Min_Range": 0,
+    "Weapon1_Max_Range": 1,
+    "Weapon1_Attacks": 3,
+    "Weapon1_Strength": 4,
+    "Weapon1_Dmg_Hit": 3,
+    "Weapon1_Dmg_Crit": 5,
+    "Weapon2": "FALSE",
+    "Weapon2_Runemark": "",
+    "Weapon2_Min_Range": "",
+    "Weapon2_Max_Range": "",
+    "Weapon2_Attacks": "",
+    "Weapon2_Strength": "",
+    "Weapon2_Dmg_Hit": "",
+    "Weapon2_Dmg_Crit": "",
+    "Runemarks": ""
+  },
+  {
+    "id": 103,
+    "Name": "Bloodhunter",
+    "Subtitle": "",
+    "Grand_Alliance": "Chaos",
+    "Warband": "Daemons of Khorne",
+    "Hero_Ally_Thrall_Monster": "Hero",
+    "Bladeborn": "",
+    "Points": 230,
+    "Wounds": 30,
+    "Movement": 6,
+    "Toughness": 4,
+    "Weapon1_Runemark": "Sword",
+    "Weapon1_Min_Range": 0,
+    "Weapon1_Max_Range": 1,
+    "Weapon1_Attacks": 5,
+    "Weapon1_Strength": 4,
+    "Weapon1_Dmg_Hit": 2,
+    "Weapon1_Dmg_Crit": 5,
+    "Weapon2": "FALSE",
+    "Weapon2_Runemark": "",
+    "Weapon2_Min_Range": "",
+    "Weapon2_Max_Range": "",
+    "Weapon2_Attacks": "",
+    "Weapon2_Strength": "",
+    "Weapon2_Dmg_Hit": "",
+    "Weapon2_Dmg_Crit": "",
+    "Runemarks": "Hero, Destroyer, Mounted"
+  },
+  {
+    "id": 104,
+    "Name": "Bloodkine",
+    "Subtitle": "with Axe and Shield",
+    "Grand_Alliance": "Chaos",
+    "Warband": "Beasts of Chaos",
+    "Hero_Ally_Thrall_Monster": "Hero",
+    "Bladeborn": "",
+    "Points": 215,
+    "Wounds": 35,
+    "Movement": 5,
+    "Toughness": 5,
+    "Weapon1_Runemark": "Axe",
+    "Weapon1_Min_Range": 0,
+    "Weapon1_Max_Range": 1,
+    "Weapon1_Attacks": 3,
+    "Weapon1_Strength": 5,
+    "Weapon1_Dmg_Hit": 2,
+    "Weapon1_Dmg_Crit": 5,
+    "Weapon2": "FALSE",
+    "Weapon2_Runemark": "",
+    "Weapon2_Min_Range": "",
+    "Weapon2_Max_Range": "",
+    "Weapon2_Attacks": "",
+    "Weapon2_Strength": "",
+    "Weapon2_Dmg_Hit": "",
+    "Weapon2_Dmg_Crit": "",
+    "Runemarks": "Hero, Brute"
+  },
+  {
+    "id": 105,
+    "Name": "Bloodkine",
+    "Subtitle": "with Bullgor Great Axe",
+    "Grand_Alliance": "Chaos",
+    "Warband": "Beasts of Chaos",
+    "Hero_Ally_Thrall_Monster": "Hero",
+    "Bladeborn": "",
+    "Points": 235,
+    "Wounds": 35,
+    "Movement": 5,
+    "Toughness": 4,
+    "Weapon1_Runemark": "Axe",
+    "Weapon1_Min_Range": 0,
+    "Weapon1_Max_Range": 1,
+    "Weapon1_Attacks": 3,
+    "Weapon1_Strength": 5,
+    "Weapon1_Dmg_Hit": 3,
+    "Weapon1_Dmg_Crit": 8,
+    "Weapon2": "FALSE",
+    "Weapon2_Runemark": "",
+    "Weapon2_Min_Range": "",
+    "Weapon2_Max_Range": "",
+    "Weapon2_Attacks": "",
+    "Weapon2_Strength": "",
+    "Weapon2_Dmg_Hit": "",
+    "Weapon2_Dmg_Crit": "",
+    "Runemarks": "Hero, Brute"
+  },
+  {
+    "id": 106,
+    "Name": "Bloodkine",
+    "Subtitle": "with paired Bullgor Axes",
+    "Grand_Alliance": "Chaos",
+    "Warband": "Beasts of Chaos",
+    "Hero_Ally_Thrall_Monster": "Hero",
+    "Bladeborn": "",
+    "Points": 245,
+    "Wounds": 35,
+    "Movement": 5,
+    "Toughness": 4,
+    "Weapon1_Runemark": "Axe",
+    "Weapon1_Min_Range": 0,
+    "Weapon1_Max_Range": 1,
+    "Weapon1_Attacks": 5,
+    "Weapon1_Strength": 5,
+    "Weapon1_Dmg_Hit": 2,
+    "Weapon1_Dmg_Crit": 5,
+    "Weapon2": "FALSE",
+    "Weapon2_Runemark": "",
+    "Weapon2_Min_Range": "",
+    "Weapon2_Max_Range": "",
+    "Weapon2_Attacks": "",
+    "Weapon2_Strength": "",
+    "Weapon2_Dmg_Hit": "",
+    "Weapon2_Dmg_Crit": "",
+    "Runemarks": "Hero, Brute"
+  },
+  {
+    "id": 107,
+    "Name": "Bloodletter",
+    "Subtitle": "",
+    "Grand_Alliance": "Chaos",
+    "Warband": "Daemons of Khorne",
+    "Hero_Ally_Thrall_Monster": "",
+    "Bladeborn": "",
+    "Points": 80,
+    "Wounds": 10,
+    "Movement": 4,
+    "Toughness": 3,
+    "Weapon1_Runemark": "Sword",
+    "Weapon1_Min_Range": 0,
+    "Weapon1_Max_Range": 1,
+    "Weapon1_Attacks": 4,
+    "Weapon1_Strength": 4,
+    "Weapon1_Dmg_Hit": 1,
+    "Weapon1_Dmg_Crit": 4,
+    "Weapon2": "FALSE",
+    "Weapon2_Runemark": "",
+    "Weapon2_Min_Range": "",
+    "Weapon2_Max_Range": "",
+    "Weapon2_Attacks": "",
+    "Weapon2_Strength": "",
+    "Weapon2_Dmg_Hit": "",
+    "Weapon2_Dmg_Crit": "",
+    "Runemarks": "Frenzied"
+  },
+  {
+    "id": 108,
+    "Name": "Bloodmaster",
+    "Subtitle": "Herald of Khorne",
+    "Grand_Alliance": "Chaos",
+    "Warband": "Daemons of Khorne",
+    "Hero_Ally_Thrall_Monster": "Hero",
+    "Bladeborn": "",
+    "Points": 165,
+    "Wounds": 20,
+    "Movement": 4,
+    "Toughness": 4,
+    "Weapon1_Runemark": "Sword",
+    "Weapon1_Min_Range": 0,
+    "Weapon1_Max_Range": 1,
+    "Weapon1_Attacks": 5,
+    "Weapon1_Strength": 4,
+    "Weapon1_Dmg_Hit": 2,
+    "Weapon1_Dmg_Crit": 5,
+    "Weapon2": "FALSE",
+    "Weapon2_Runemark": "",
+    "Weapon2_Min_Range": "",
+    "Weapon2_Max_Range": "",
+    "Weapon2_Attacks": "",
+    "Weapon2_Strength": "",
+    "Weapon2_Dmg_Hit": "",
+    "Weapon2_Dmg_Crit": "",
+    "Runemarks": "Hero, Frenzied"
+  },
+  {
+    "id": 109,
+    "Name": "Bloodreaper",
+    "Subtitle": "",
+    "Grand_Alliance": "Chaos",
+    "Warband": "Daemons of Khorne",
+    "Hero_Ally_Thrall_Monster": "Hero",
+    "Bladeborn": "",
+    "Points": 135,
+    "Wounds": 15,
+    "Movement": 4,
+    "Toughness": 3,
+    "Weapon1_Runemark": "Sword",
+    "Weapon1_Min_Range": 0,
+    "Weapon1_Max_Range": 1,
+    "Weapon1_Attacks": 5,
+    "Weapon1_Strength": 4,
+    "Weapon1_Dmg_Hit": 2,
+    "Weapon1_Dmg_Crit": 4,
+    "Weapon2": "FALSE",
+    "Weapon2_Runemark": "",
+    "Weapon2_Min_Range": "",
+    "Weapon2_Max_Range": "",
+    "Weapon2_Attacks": "",
+    "Weapon2_Strength": "",
+    "Weapon2_Dmg_Hit": "",
+    "Weapon2_Dmg_Crit": "",
+    "Runemarks": "Hero, Frenzied"
+  },
+  {
+    "id": 110,
+    "Name": "Bloodreaver",
+    "Subtitle": "with Meatripper Axe",
+    "Grand_Alliance": "Chaos",
+    "Warband": "Khorne Bloodbound",
+    "Hero_Ally_Thrall_Monster": "",
+    "Bladeborn": "",
+    "Points": 65,
+    "Wounds": 10,
+    "Movement": 5,
+    "Toughness": 3,
+    "Weapon1_Runemark": "Axe",
+    "Weapon1_Min_Range": 0,
+    "Weapon1_Max_Range": 1,
+    "Weapon1_Attacks": 3,
+    "Weapon1_Strength": 4,
+    "Weapon1_Dmg_Hit": 1,
+    "Weapon1_Dmg_Crit": 3,
+    "Weapon2": "FALSE",
+    "Weapon2_Runemark": "",
+    "Weapon2_Min_Range": "",
+    "Weapon2_Max_Range": "",
+    "Weapon2_Attacks": "",
+    "Weapon2_Strength": "",
+    "Weapon2_Dmg_Hit": "",
+    "Weapon2_Dmg_Crit": "",
+    "Runemarks": ""
+  },
+  {
+    "id": 111,
+    "Name": "Bloodreaver",
+    "Subtitle": "with Reaver Blades",
+    "Grand_Alliance": "Chaos",
+    "Warband": "Khorne Bloodbound",
+    "Hero_Ally_Thrall_Monster": "",
+    "Bladeborn": "",
+    "Points": 65,
+    "Wounds": 10,
+    "Movement": 5,
+    "Toughness": 3,
+    "Weapon1_Runemark": "Axe",
+    "Weapon1_Min_Range": 0,
+    "Weapon1_Max_Range": 1,
+    "Weapon1_Attacks": 4,
+    "Weapon1_Strength": 3,
+    "Weapon1_Dmg_Hit": 1,
+    "Weapon1_Dmg_Crit": 3,
+    "Weapon2": "FALSE",
+    "Weapon2_Runemark": "",
+    "Weapon2_Min_Range": "",
+    "Weapon2_Max_Range": "",
+    "Weapon2_Attacks": "",
+    "Weapon2_Strength": "",
+    "Weapon2_Dmg_Hit": "",
+    "Weapon2_Dmg_Crit": "",
+    "Runemarks": ""
+  },
+  {
+    "id": 112,
+    "Name": "Bloodreaver Chieftain",
+    "Subtitle": "",
+    "Grand_Alliance": "Chaos",
+    "Warband": "Khorne Bloodbound",
+    "Hero_Ally_Thrall_Monster": "Hero",
+    "Bladeborn": "",
+    "Points": 120,
+    "Wounds": 15,
+    "Movement": 5,
+    "Toughness": 3,
+    "Weapon1_Runemark": "Axe",
+    "Weapon1_Min_Range": 0,
+    "Weapon1_Max_Range": 1,
+    "Weapon1_Attacks": 5,
+    "Weapon1_Strength": 3,
+    "Weapon1_Dmg_Hit": 2,
+    "Weapon1_Dmg_Crit": 4,
+    "Weapon2": "FALSE",
+    "Weapon2_Runemark": "",
+    "Weapon2_Min_Range": "",
+    "Weapon2_Max_Range": "",
+    "Weapon2_Attacks": "",
+    "Weapon2_Strength": "",
+    "Weapon2_Dmg_Hit": "",
+    "Weapon2_Dmg_Crit": "",
+    "Runemarks": "Hero"
+  },
+  {
     "id": 113,
+    "Name": "Bloodsecrator",
+    "Subtitle": "",
+    "Grand_Alliance": "Chaos",
+    "Warband": "Khorne Bloodbound",
+    "Hero_Ally_Thrall_Monster": "Hero",
+    "Bladeborn": "",
+    "Points": 160,
+    "Wounds": 25,
+    "Movement": 4,
+    "Toughness": 5,
+    "Weapon1_Runemark": "Axe",
+    "Weapon1_Min_Range": 0,
+    "Weapon1_Max_Range": 1,
+    "Weapon1_Attacks": 3,
+    "Weapon1_Strength": 4,
+    "Weapon1_Dmg_Hit": 2,
+    "Weapon1_Dmg_Crit": 5,
+    "Weapon2": "FALSE",
+    "Weapon2_Runemark": "",
+    "Weapon2_Min_Range": "",
+    "Weapon2_Max_Range": "",
+    "Weapon2_Attacks": "",
+    "Weapon2_Strength": "",
+    "Weapon2_Dmg_Hit": "",
+    "Weapon2_Dmg_Crit": "",
+    "Runemarks": "Hero, Icon-Bearer"
+  },
+  {
+    "id": 114,
     "Name": "Bloodstoker",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -3306,7 +3335,7 @@
     "Runemarks": "Hero, Trapper"
   },
   {
-    "id": 114,
+    "id": 115,
     "Name": "Bloodwrack Medusa",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -3335,7 +3364,7 @@
     "Runemarks": "Hero, Mystic"
   },
   {
-    "id": 115,
+    "id": 116,
     "Name": "Blue Horror",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -3364,7 +3393,7 @@
     "Runemarks": "Warrior"
   },
   {
-    "id": 116,
+    "id": 117,
     "Name": "Blue Horror",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -3393,7 +3422,7 @@
     "Runemarks": "Warrior"
   },
   {
-    "id": 117,
+    "id": 118,
     "Name": "Boggleye",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -3422,7 +3451,7 @@
     "Runemarks": "Ally, Berserker"
   },
   {
-    "id": 118,
+    "id": 119,
     "Name": "Boingrot Bounder",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -3451,7 +3480,7 @@
     "Runemarks": "Elite, Fly"
   },
   {
-    "id": 119,
+    "id": 120,
     "Name": "Boltboy Boss",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -3480,7 +3509,7 @@
     "Runemarks": "Hero, Warrior, Trapper"
   },
   {
-    "id": 120,
+    "id": 121,
     "Name": "Bonekutta",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -3509,7 +3538,7 @@
     "Runemarks": ""
   },
   {
-    "id": 121,
+    "id": 122,
     "Name": "Bounder Boss",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -3538,7 +3567,7 @@
     "Runemarks": "Fly, Hero, Elite"
   },
   {
-    "id": 122,
+    "id": 123,
     "Name": "Branch Nymph",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -3567,7 +3596,7 @@
     "Runemarks": "Hero, Scout"
   },
   {
-    "id": 123,
+    "id": 124,
     "Name": "Branchwraith",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -3596,7 +3625,7 @@
     "Runemarks": "Hero, Berserker"
   },
   {
-    "id": 124,
+    "id": 125,
     "Name": "Branchwych",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -3625,7 +3654,7 @@
     "Runemarks": "Hero, Mystic"
   },
   {
-    "id": 125,
+    "id": 126,
     "Name": "Brazen Champion",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -3654,7 +3683,7 @@
     "Runemarks": "Brute"
   },
   {
-    "id": 126,
+    "id": 127,
     "Name": "Brewgit",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -3683,7 +3712,7 @@
     "Runemarks": "Ally, Bulwark"
   },
   {
-    "id": 127,
+    "id": 128,
     "Name": "Briar Queen",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -3712,7 +3741,7 @@
     "Runemarks": "Hero, Fly"
   },
   {
-    "id": 128,
+    "id": 129,
     "Name": "Brimstone Horrors",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -3741,7 +3770,7 @@
     "Runemarks": "Minion"
   },
   {
-    "id": 129,
+    "id": 130,
     "Name": "Brimstone Horrors",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -3770,7 +3799,7 @@
     "Runemarks": "Minion"
   },
   {
-    "id": 130,
+    "id": 131,
     "Name": "Bringer of the Word",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -3799,7 +3828,7 @@
     "Runemarks": "Hero, Agile, Priest"
   },
   {
-    "id": 131,
+    "id": 132,
     "Name": "Broodkin",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -3828,7 +3857,7 @@
     "Runemarks": "Scout, Sentience"
   },
   {
-    "id": 132,
+    "id": 133,
     "Name": "Broodkin",
     "Subtitle": "with Sai",
     "Grand_Alliance": "Chaos",
@@ -3857,7 +3886,7 @@
     "Runemarks": "Scout, Sentience"
   },
   {
-    "id": 133,
+    "id": 134,
     "Name": "Broodkin",
     "Subtitle": "with Scythe and Spiderclaw",
     "Grand_Alliance": "Chaos",
@@ -3886,7 +3915,7 @@
     "Runemarks": "Scout, Sentience"
   },
   {
-    "id": 134,
+    "id": 135,
     "Name": "Broodmaster",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -3915,7 +3944,7 @@
     "Runemarks": "Hero, Sentience, Agile"
   },
   {
-    "id": 135,
+    "id": 136,
     "Name": "Brutaliser",
     "Subtitle": "with Shredder Blade and Meat Hook",
     "Grand_Alliance": "Chaos",
@@ -3944,7 +3973,7 @@
     "Runemarks": "Terrifying"
   },
   {
-    "id": 136,
+    "id": 137,
     "Name": "Brutaliser",
     "Subtitle": "with Shredder Blades",
     "Grand_Alliance": "Chaos",
@@ -3973,7 +4002,7 @@
     "Runemarks": ""
   },
   {
-    "id": 137,
+    "id": 138,
     "Name": "Brute Boss",
     "Subtitle": "with Boss Choppa",
     "Grand_Alliance": "Destruction",
@@ -4002,7 +4031,7 @@
     "Runemarks": "Hero, Brute"
   },
   {
-    "id": 138,
+    "id": 139,
     "Name": "Brute Boss",
     "Subtitle": "with Boss Klaw and Smasha",
     "Grand_Alliance": "Destruction",
@@ -4031,7 +4060,7 @@
     "Runemarks": "Hero, Brute, Berserker"
   },
   {
-    "id": 139,
+    "id": 140,
     "Name": "Bullgor",
     "Subtitle": "with Axe and Bullshield",
     "Grand_Alliance": "Chaos",
@@ -4060,7 +4089,7 @@
     "Runemarks": "Brute"
   },
   {
-    "id": 140,
+    "id": 141,
     "Name": "Bullgor",
     "Subtitle": "with Great Axe",
     "Grand_Alliance": "Chaos",
@@ -4089,7 +4118,7 @@
     "Runemarks": "Brute"
   },
   {
-    "id": 141,
+    "id": 142,
     "Name": "Bullgor",
     "Subtitle": "with Paired Axes",
     "Grand_Alliance": "Chaos",
@@ -4118,7 +4147,7 @@
     "Runemarks": "Brute"
   },
   {
-    "id": 142,
+    "id": 143,
     "Name": "Bushwakka",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -4147,7 +4176,7 @@
     "Runemarks": "Trapper"
   },
   {
-    "id": 143,
+    "id": 144,
     "Name": "Butcher",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -4176,7 +4205,7 @@
     "Runemarks": "Hero, Brute, Mystic"
   },
   {
-    "id": 144,
+    "id": 145,
     "Name": "Cabalist",
     "Subtitle": "with Dagger",
     "Grand_Alliance": "Chaos",
@@ -4205,7 +4234,7 @@
     "Runemarks": ""
   },
   {
-    "id": 145,
+    "id": 146,
     "Name": "Cabalist",
     "Subtitle": "with Familiar",
     "Grand_Alliance": "Chaos",
@@ -4234,7 +4263,7 @@
     "Runemarks": "Scout"
   },
   {
-    "id": 146,
+    "id": 147,
     "Name": "Cabalist",
     "Subtitle": "with Spear",
     "Grand_Alliance": "Chaos",
@@ -4263,7 +4292,7 @@
     "Runemarks": ""
   },
   {
-    "id": 147,
+    "id": 148,
     "Name": "Cairn Wraith",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -4292,7 +4321,7 @@
     "Runemarks": "Fly, Hero, Elite"
   },
   {
-    "id": 148,
+    "id": 149,
     "Name": "Calthia Xandire",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -4321,7 +4350,7 @@
     "Runemarks": "Hero, Champion"
   },
   {
-    "id": 149,
+    "id": 150,
     "Name": "Captain",
     "Subtitle": "of the Black Guard",
     "Grand_Alliance": "Order",
@@ -4350,7 +4379,7 @@
     "Runemarks": "Hero"
   },
   {
-    "id": 150,
+    "id": 151,
     "Name": "Carrion Catcher",
     "Subtitle": "with Impaler",
     "Grand_Alliance": "Chaos",
@@ -4379,7 +4408,7 @@
     "Runemarks": "Scout"
   },
   {
-    "id": 151,
+    "id": 152,
     "Name": "Carrion Catcher",
     "Subtitle": "with Snatcher Hook",
     "Grand_Alliance": "Chaos",
@@ -4408,7 +4437,7 @@
     "Runemarks": "Scout, Destroyer"
   },
   {
-    "id": 152,
+    "id": 153,
     "Name": "Castigator",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -4437,7 +4466,7 @@
     "Runemarks": "Destroyer"
   },
   {
-    "id": 153,
+    "id": 154,
     "Name": "Castigator-Prime",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -4466,7 +4495,7 @@
     "Runemarks": "Hero, Destroyer"
   },
   {
-    "id": 154,
+    "id": 155,
     "Name": "Cave Squig",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -4495,7 +4524,7 @@
     "Runemarks": "Beast"
   },
   {
-    "id": 155,
+    "id": 156,
     "Name": "Centaurian Marshal",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -4524,7 +4553,7 @@
     "Runemarks": "Ally, Bulwark, Mount"
   },
   {
-    "id": 156,
+    "id": 157,
     "Name": "Centigor",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -4553,7 +4582,7 @@
     "Runemarks": "Mount"
   },
   {
-    "id": 157,
+    "id": 158,
     "Name": "Chainghast",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -4582,7 +4611,7 @@
     "Runemarks": "Fly"
   },
   {
-    "id": 158,
+    "id": 159,
     "Name": "Chainrasp",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -4611,7 +4640,7 @@
     "Runemarks": "Fly, Minion"
   },
   {
-    "id": 159,
+    "id": 160,
     "Name": "Chainrasp",
     "Subtitle": "Thorns of the Briar Queen",
     "Grand_Alliance": "Death",
@@ -4640,7 +4669,7 @@
     "Runemarks": "Fly, Minion"
   },
   {
-    "id": 160,
+    "id": 161,
     "Name": "Chameleon Skink",
     "Subtitle": "with Dartpipe",
     "Grand_Alliance": "Order",
@@ -4669,7 +4698,7 @@
     "Runemarks": "Agile"
   },
   {
-    "id": 161,
+    "id": 162,
     "Name": "Chameleon Skink",
     "Subtitle": "with Moonstone Club",
     "Grand_Alliance": "Order",
@@ -4698,7 +4727,7 @@
     "Runemarks": "Agile, Trapper"
   },
   {
-    "id": 162,
+    "id": 163,
     "Name": "Chameleon Skink Alpha",
     "Subtitle": "with Dartpipe",
     "Grand_Alliance": "Order",
@@ -4727,7 +4756,7 @@
     "Runemarks": "Hero, Agile"
   },
   {
-    "id": 163,
+    "id": 164,
     "Name": "Chameleon Skink Alpha",
     "Subtitle": "with Moonstone Club",
     "Grand_Alliance": "Order",
@@ -4756,7 +4785,7 @@
     "Runemarks": "Hero, Agile, Trapper"
   },
   {
-    "id": 164,
+    "id": 165,
     "Name": "Chameleon Skink Hornblower",
     "Subtitle": "with Dartpipe",
     "Grand_Alliance": "Order",
@@ -4785,7 +4814,7 @@
     "Runemarks": "Agile, Scout"
   },
   {
-    "id": 165,
+    "id": 166,
     "Name": "Chameleon Skink Hornblower",
     "Subtitle": "with Moonstone Club",
     "Grand_Alliance": "Order",
@@ -4814,7 +4843,7 @@
     "Runemarks": "Agile, Scout"
   },
   {
-    "id": 166,
+    "id": 167,
     "Name": "Changecaster",
     "Subtitle": "with Ritual Dagger",
     "Grand_Alliance": "Chaos",
@@ -4843,7 +4872,7 @@
     "Runemarks": "Hero, Destroyer"
   },
   {
-    "id": 167,
+    "id": 168,
     "Name": "Changecaster",
     "Subtitle": "with Staff of Change",
     "Grand_Alliance": "Chaos",
@@ -4872,7 +4901,7 @@
     "Runemarks": "Hero, Destroyer"
   },
   {
-    "id": 168,
+    "id": 169,
     "Name": "Chaos Champion",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -4901,7 +4930,7 @@
     "Runemarks": "Hero, Bulwark"
   },
   {
-    "id": 169,
+    "id": 170,
     "Name": "Chaos Chosen",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -4930,7 +4959,7 @@
     "Runemarks": "Warrior"
   },
   {
-    "id": 170,
+    "id": 171,
     "Name": "Chaos Gargant",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -4959,7 +4988,7 @@
     "Runemarks": "Monster, Brute"
   },
   {
-    "id": 171,
+    "id": 172,
     "Name": "Chaos Knight",
     "Subtitle": "Ensorcelled Weapon & Shield",
     "Grand_Alliance": "Chaos",
@@ -4988,7 +5017,7 @@
     "Runemarks": "Mount"
   },
   {
-    "id": 172,
+    "id": 173,
     "Name": "Chaos Knight",
     "Subtitle": "with Lance & Shield",
     "Grand_Alliance": "Chaos",
@@ -5017,7 +5046,7 @@
     "Runemarks": "Mount"
   },
   {
-    "id": 173,
+    "id": 174,
     "Name": "Chaos Lord",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -5046,7 +5075,7 @@
     "Runemarks": "Hero, Champion"
   },
   {
-    "id": 174,
+    "id": 175,
     "Name": "Chaos Lord",
     "Subtitle": "on Demonic Mount",
     "Grand_Alliance": "Chaos",
@@ -5075,7 +5104,7 @@
     "Runemarks": "Hero, Agile, Mount"
   },
   {
-    "id": 175,
+    "id": 176,
     "Name": "Chaos Lord",
     "Subtitle": "on Karkadrak",
     "Grand_Alliance": "Chaos",
@@ -5104,7 +5133,7 @@
     "Runemarks": "Hero, Agile, Mount"
   },
   {
-    "id": 176,
+    "id": 177,
     "Name": "Chaos Marauder",
     "Subtitle": "with Axe & Shield",
     "Grand_Alliance": "Chaos",
@@ -5133,7 +5162,7 @@
     "Runemarks": "Bulwark"
   },
   {
-    "id": 177,
+    "id": 178,
     "Name": "Chaos Marauder",
     "Subtitle": "with Flail",
     "Grand_Alliance": "Chaos",
@@ -5162,7 +5191,7 @@
     "Runemarks": ""
   },
   {
-    "id": 178,
+    "id": 179,
     "Name": "Chaos Marauder Horseman",
     "Subtitle": "with Axe & Shield",
     "Grand_Alliance": "Chaos",
@@ -5191,7 +5220,7 @@
     "Runemarks": "Mount"
   },
   {
-    "id": 179,
+    "id": 180,
     "Name": "Chaos Marauder Horseman",
     "Subtitle": "with Flail",
     "Grand_Alliance": "Chaos",
@@ -5220,7 +5249,7 @@
     "Runemarks": "Mount"
   },
   {
-    "id": 180,
+    "id": 181,
     "Name": "Chaos Marauder Horseman",
     "Subtitle": "with Javelin & Shield",
     "Grand_Alliance": "Chaos",
@@ -5249,7 +5278,7 @@
     "Runemarks": "Scout, Mount"
   },
   {
-    "id": 181,
+    "id": 182,
     "Name": "Chaos Sorcerer Lord",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -5278,7 +5307,7 @@
     "Runemarks": "Hero, Mystic"
   },
   {
-    "id": 182,
+    "id": 183,
     "Name": "Chaos Spawn",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -5307,7 +5336,7 @@
     "Runemarks": "Thrall, Agile, Beast"
   },
   {
-    "id": 183,
+    "id": 184,
     "Name": "Chaos Warhound",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -5336,7 +5365,7 @@
     "Runemarks": "Thrall, Scout, Beast"
   },
   {
-    "id": 184,
+    "id": 185,
     "Name": "Chaos Warrior",
     "Subtitle": "with Pair of Chaos Hand Weapons",
     "Grand_Alliance": "Chaos",
@@ -5365,7 +5394,7 @@
     "Runemarks": ""
   },
   {
-    "id": 185,
+    "id": 186,
     "Name": "Chaos Warrior",
     "Subtitle": "with Greatblade",
     "Grand_Alliance": "Chaos",
@@ -5394,7 +5423,7 @@
     "Runemarks": ""
   },
   {
-    "id": 186,
+    "id": 187,
     "Name": "Chaos Warrior",
     "Subtitle": "with Halberd and Shield",
     "Grand_Alliance": "Chaos",
@@ -5423,7 +5452,7 @@
     "Runemarks": ""
   },
   {
-    "id": 187,
+    "id": 188,
     "Name": "Chaos Warrior",
     "Subtitle": "with Hand Weapon & Shield",
     "Grand_Alliance": "Chaos",
@@ -5452,7 +5481,7 @@
     "Runemarks": ""
   },
   {
-    "id": 188,
+    "id": 189,
     "Name": "Chimera",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -5481,7 +5510,7 @@
     "Runemarks": "Fly, Monster, Bulwark"
   },
   {
-    "id": 189,
+    "id": 190,
     "Name": "Clanrat",
     "Subtitle": "with Rusty Blade",
     "Grand_Alliance": "Chaos",
@@ -5510,7 +5539,7 @@
     "Runemarks": "Agile"
   },
   {
-    "id": 190,
+    "id": 191,
     "Name": "Clanrat",
     "Subtitle": "with Rusty Spear",
     "Grand_Alliance": "Chaos",
@@ -5539,7 +5568,7 @@
     "Runemarks": "Agile"
   },
   {
-    "id": 191,
+    "id": 192,
     "Name": "Clawleader",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -5568,7 +5597,7 @@
     "Runemarks": "Hero, Agile"
   },
   {
-    "id": 192,
+    "id": 193,
     "Name": "Clawlord",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -5597,7 +5626,7 @@
     "Runemarks": "Hero, Agile"
   },
   {
-    "id": 193,
+    "id": 194,
     "Name": "Clearblood",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -5626,7 +5655,7 @@
     "Runemarks": ""
   },
   {
-    "id": 194,
+    "id": 195,
     "Name": "Clearblood",
     "Subtitle": "with Shield",
     "Grand_Alliance": "Chaos",
@@ -5655,7 +5684,7 @@
     "Runemarks": "Bulwark"
   },
   {
-    "id": 195,
+    "id": 196,
     "Name": "Cockatrice",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -5684,7 +5713,7 @@
     "Runemarks": "Fly, Beast, Berserker"
   },
   {
-    "id": 196,
+    "id": 197,
     "Name": "Cogsmith",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -5713,7 +5742,7 @@
     "Runemarks": "Hero"
   },
   {
-    "id": 197,
+    "id": 198,
     "Name": "Company Captain",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -5742,7 +5771,7 @@
     "Runemarks": "Hero"
   },
   {
-    "id": 198,
+    "id": 199,
     "Name": "Coyl",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -5771,7 +5800,7 @@
     "Runemarks": "Minion, Frenzied"
   },
   {
-    "id": 199,
+    "id": 200,
     "Name": "Craven Huntmaster",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -5800,7 +5829,7 @@
     "Runemarks": "Fly, Hero"
   },
   {
-    "id": 200,
+    "id": 201,
     "Name": "Craventhrone Guard",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -5829,7 +5858,7 @@
     "Runemarks": "Fly"
   },
   {
-    "id": 201,
+    "id": 202,
     "Name": "Crimson Kheira",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -5858,7 +5887,7 @@
     "Runemarks": ""
   },
   {
-    "id": 202,
+    "id": 203,
     "Name": "Crusher",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -5887,7 +5916,7 @@
     "Runemarks": "Hero, Brute, Bulwark"
   },
   {
-    "id": 203,
+    "id": 204,
     "Name": "Crypt Flayer",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -5916,7 +5945,7 @@
     "Runemarks": "Fly, Agile"
   },
   {
-    "id": 204,
+    "id": 205,
     "Name": "Crypt Ghast",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -5945,7 +5974,7 @@
     "Runemarks": "Hero"
   },
   {
-    "id": 205,
+    "id": 206,
     "Name": "Crypt Ghast Courtier",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -5974,7 +6003,7 @@
     "Runemarks": "Hero"
   },
   {
-    "id": 206,
+    "id": 207,
     "Name": "Crypt Ghoul",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -6003,7 +6032,7 @@
     "Runemarks": ""
   },
   {
-    "id": 207,
+    "id": 208,
     "Name": "Crypt Haunter",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -6032,7 +6061,7 @@
     "Runemarks": "Hero, Elite"
   },
   {
-    "id": 208,
+    "id": 209,
     "Name": "Crypt Haunter Courtier",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -6061,7 +6090,7 @@
     "Runemarks": "Hero"
   },
   {
-    "id": 209,
+    "id": 210,
     "Name": "Crypt Horror",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -6090,7 +6119,7 @@
     "Runemarks": ""
   },
   {
-    "id": 210,
+    "id": 211,
     "Name": "Crypt Infernal",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -6119,7 +6148,7 @@
     "Runemarks": "Fly, Hero, Agile"
   },
   {
-    "id": 211,
+    "id": 212,
     "Name": "Crypt Infernal Courtier",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -6148,7 +6177,7 @@
     "Runemarks": "Fly, Hero, Elite"
   },
   {
-    "id": 212,
+    "id": 213,
     "Name": "Curseblood",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -6177,7 +6206,7 @@
     "Runemarks": "Beast"
   },
   {
-    "id": 213,
+    "id": 214,
     "Name": "Curseling",
     "Subtitle": "Eye of Tzeentch",
     "Grand_Alliance": "Chaos",
@@ -6206,7 +6235,7 @@
     "Runemarks": "Hero"
   },
   {
-    "id": 214,
+    "id": 215,
     "Name": "Custodian",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -6235,7 +6264,7 @@
     "Runemarks": "Fly, Hero, Trapper"
   },
   {
-    "id": 215,
+    "id": 216,
     "Name": "Cygor",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -6264,7 +6293,7 @@
     "Runemarks": "Monster, Terrifying"
   },
   {
-    "id": 216,
+    "id": 217,
     "Name": "Daemonette",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -6293,7 +6322,7 @@
     "Runemarks": "Warrior"
   },
   {
-    "id": 217,
+    "id": 218,
     "Name": "Dakko Sharp-stikka",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -6322,7 +6351,7 @@
     "Runemarks": "Destroyer"
   },
   {
-    "id": 218,
+    "id": 219,
     "Name": "Dankhold Troggoth",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -6351,7 +6380,7 @@
     "Runemarks": "Monster"
   },
   {
-    "id": 219,
+    "id": 220,
     "Name": "Dark Rider",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -6380,7 +6409,7 @@
     "Runemarks": "Agile, Mount"
   },
   {
-    "id": 220,
+    "id": 221,
     "Name": "Dark Rider Herald",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -6409,7 +6438,7 @@
     "Runemarks": "Hero, Agile, Mount"
   },
   {
-    "id": 221,
+    "id": 222,
     "Name": "Darkflame Warlock",
     "Subtitle": "with Crossbows",
     "Grand_Alliance": "Order",
@@ -6438,7 +6467,7 @@
     "Runemarks": "Mystic"
   },
   {
-    "id": 222,
+    "id": 223,
     "Name": "Darkflame Warlock",
     "Subtitle": "with Doomfire Ring",
     "Grand_Alliance": "Order",
@@ -6467,7 +6496,7 @@
     "Runemarks": "Mystic"
   },
   {
-    "id": 223,
+    "id": 224,
     "Name": "Darkoath Chieftain",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -6496,7 +6525,7 @@
     "Runemarks": "Hero, Elite"
   },
   {
-    "id": 224,
+    "id": 225,
     "Name": "Darkoath Warqueen",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -6525,7 +6554,7 @@
     "Runemarks": "Hero, Champion"
   },
   {
-    "id": 225,
+    "id": 226,
     "Name": "Darkshard",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -6554,7 +6583,7 @@
     "Runemarks": "Scout"
   },
   {
-    "id": 226,
+    "id": 227,
     "Name": "Dead-eye Lund",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -6583,7 +6612,7 @@
     "Runemarks": "Elite"
   },
   {
-    "id": 227,
+    "id": 228,
     "Name": "Deadwalker Zombie",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -6612,7 +6641,7 @@
     "Runemarks": "Minion"
   },
   {
-    "id": 228,
+    "id": 229,
     "Name": "Deathmaster",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -6641,7 +6670,7 @@
     "Runemarks": "Hero, Agile, Scout"
   },
   {
-    "id": 229,
+    "id": 230,
     "Name": "Decimator",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -6670,7 +6699,7 @@
     "Runemarks": "Brute"
   },
   {
-    "id": 230,
+    "id": 231,
     "Name": "Decimator Prime",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -6699,7 +6728,7 @@
     "Runemarks": "Hero, Brute"
   },
   {
-    "id": 231,
+    "id": 232,
     "Name": "Decuriarch",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -6728,7 +6757,7 @@
     "Runemarks": "Hero, Bulwark"
   },
   {
-    "id": 232,
+    "id": 233,
     "Name": "Defacer",
     "Subtitle": "with Antithete Bow",
     "Grand_Alliance": "Chaos",
@@ -6757,7 +6786,7 @@
     "Runemarks": ""
   },
   {
-    "id": 233,
+    "id": 234,
     "Name": "Defacer",
     "Subtitle": "with Stonecutter Tools",
     "Grand_Alliance": "Chaos",
@@ -6786,7 +6815,7 @@
     "Runemarks": "Warrior"
   },
   {
-    "id": 234,
+    "id": 235,
     "Name": "Deintalos the Exile",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -6815,7 +6844,7 @@
     "Runemarks": "Hero, Mystic"
   },
   {
-    "id": 235,
+    "id": 236,
     "Name": "Demigryph Knight",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -6844,7 +6873,7 @@
     "Runemarks": "Elite, Mount"
   },
   {
-    "id": 236,
+    "id": 237,
     "Name": "Demolisher",
     "Subtitle": "with Crushing Weapon & Shield",
     "Grand_Alliance": "Chaos",
@@ -6873,7 +6902,7 @@
     "Runemarks": "Warrior"
   },
   {
-    "id": 237,
+    "id": 238,
     "Name": "Demolisher",
     "Subtitle": "with Crushing Weapons",
     "Grand_Alliance": "Chaos",
@@ -6902,7 +6931,7 @@
     "Runemarks": "Warrior"
   },
   {
-    "id": 238,
+    "id": 239,
     "Name": "Demolisher",
     "Subtitle": "with Flamehurler",
     "Grand_Alliance": "Chaos",
@@ -6931,7 +6960,7 @@
     "Runemarks": "Frenzied, Warrior"
   },
   {
-    "id": 239,
+    "id": 240,
     "Name": "Desecrator",
     "Subtitle": "with Iconoclast Warpick",
     "Grand_Alliance": "Chaos",
@@ -6960,7 +6989,7 @@
     "Runemarks": "Destroyer"
   },
   {
-    "id": 240,
+    "id": 241,
     "Name": "Desecrator",
     "Subtitle": "with Statue-Smasher Hammer",
     "Grand_Alliance": "Chaos",
@@ -6989,7 +7018,7 @@
     "Runemarks": "Destroyer"
   },
   {
-    "id": 241,
+    "id": 242,
     "Name": "Dhoraz Giant-fell",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -7018,7 +7047,7 @@
     "Runemarks": "Brute"
   },
   {
-    "id": 242,
+    "id": 243,
     "Name": "Dire Wolf",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -7047,7 +7076,7 @@
     "Runemarks": "Thrall, Scout"
   },
   {
-    "id": 243,
+    "id": 244,
     "Name": "Dominar",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -7076,7 +7105,7 @@
     "Runemarks": "Hero, Brute"
   },
   {
-    "id": 244,
+    "id": 245,
     "Name": "Doom Knight",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -7105,7 +7134,7 @@
     "Runemarks": "Hero, Mount"
   },
   {
-    "id": 245,
+    "id": 246,
     "Name": "Doom-Flayer",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -7134,7 +7163,7 @@
     "Runemarks": "Destroyer, Mount"
   },
   {
-    "id": 246,
+    "id": 247,
     "Name": "Doombull",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -7163,7 +7192,7 @@
     "Runemarks": "Hero, Brute"
   },
   {
-    "id": 247,
+    "id": 248,
     "Name": "Doomfire Warlock",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -7192,7 +7221,7 @@
     "Runemarks": "Mount"
   },
   {
-    "id": 248,
+    "id": 249,
     "Name": "Doomseeker",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -7221,7 +7250,7 @@
     "Runemarks": "Hero"
   },
   {
-    "id": 249,
+    "id": 250,
     "Name": "Doomweaver",
     "Subtitle": "with Flail & goad",
     "Grand_Alliance": "Chaos",
@@ -7250,7 +7279,7 @@
     "Runemarks": "Sentience, Agile"
   },
   {
-    "id": 250,
+    "id": 251,
     "Name": "Doomweaver",
     "Subtitle": "with Trident & Net",
     "Grand_Alliance": "Chaos",
@@ -7279,7 +7308,7 @@
     "Runemarks": "Sentience, Agile"
   },
   {
-    "id": 251,
+    "id": 252,
     "Name": "Dour Cragan",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -7308,7 +7337,7 @@
     "Runemarks": ""
   },
   {
-    "id": 252,
+    "id": 253,
     "Name": "Dragon Ogor",
     "Subtitle": "with Draconic Crusher",
     "Grand_Alliance": "Chaos",
@@ -7337,7 +7366,7 @@
     "Runemarks": "Destroyer"
   },
   {
-    "id": 253,
+    "id": 254,
     "Name": "Dragon Ogor",
     "Subtitle": "with paired Weapons",
     "Grand_Alliance": "Chaos",
@@ -7366,7 +7395,7 @@
     "Runemarks": "Destroyer"
   },
   {
-    "id": 254,
+    "id": 255,
     "Name": "Dragon Ogor",
     "Subtitle": "with War-glaive",
     "Grand_Alliance": "Chaos",
@@ -7395,7 +7424,7 @@
     "Runemarks": "Destroyer"
   },
   {
-    "id": 255,
+    "id": 256,
     "Name": "Dragon Ogor Shaggoth",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -7424,7 +7453,7 @@
     "Runemarks": "Hero, Destroyer"
   },
   {
-    "id": 256,
+    "id": 257,
     "Name": "Draich Master",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -7453,7 +7482,7 @@
     "Runemarks": "Hero, Ferocious"
   },
   {
-    "id": 257,
+    "id": 258,
     "Name": "Drakespawn Knight",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -7482,7 +7511,7 @@
     "Runemarks": "Elite, Mount"
   },
   {
-    "id": 258,
+    "id": 259,
     "Name": "Draknar",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -7511,7 +7540,7 @@
     "Runemarks": "Warrior"
   },
   {
-    "id": 259,
+    "id": 260,
     "Name": "Dread Knight",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -7540,7 +7569,7 @@
     "Runemarks": "Hero, Mount, Elite"
   },
   {
-    "id": 260,
+    "id": 261,
     "Name": "Dreadblade Harrow",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -7569,7 +7598,7 @@
     "Runemarks": "Fly, Hero, Berserker"
   },
   {
-    "id": 261,
+    "id": 262,
     "Name": "Dreadscythe Harridan",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -7598,7 +7627,7 @@
     "Runemarks": "Fly, Terrifying"
   },
   {
-    "id": 262,
+    "id": 263,
     "Name": "Dreadspear",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -7627,7 +7656,7 @@
     "Runemarks": "Bulwark"
   },
   {
-    "id": 263,
+    "id": 264,
     "Name": "Dreadwarden",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -7656,7 +7685,7 @@
     "Runemarks": "Fly, Hero, Minion"
   },
   {
-    "id": 264,
+    "id": 265,
     "Name": "Drillmaster",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -7685,7 +7714,7 @@
     "Runemarks": "Berserker"
   },
   {
-    "id": 265,
+    "id": 266,
     "Name": "Drizgit da Squig Herder",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -7714,7 +7743,7 @@
     "Runemarks": "Agile"
   },
   {
-    "id": 266,
+    "id": 267,
     "Name": "Dryad",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -7743,7 +7772,7 @@
     "Runemarks": "Scout"
   },
   {
-    "id": 267,
+    "id": 268,
     "Name": "Duinclaw",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -7772,7 +7801,7 @@
     "Runemarks": "Beast"
   },
   {
-    "id": 268,
+    "id": 269,
     "Name": "Duke Crakmarrow",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -7801,7 +7830,7 @@
     "Runemarks": "Hero"
   },
   {
-    "id": 269,
+    "id": 270,
     "Name": "Duke's Harriers",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -7830,7 +7859,7 @@
     "Runemarks": "Beast, Fly"
   },
   {
-    "id": 270,
+    "id": 271,
     "Name": "Elathain Ill-fated",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -7859,7 +7888,7 @@
     "Runemarks": "Hero"
   },
   {
-    "id": 271,
+    "id": 272,
     "Name": "Elias Swiftblade",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -7888,7 +7917,7 @@
     "Runemarks": ""
   },
   {
-    "id": 272,
+    "id": 273,
     "Name": "Endrinmaster",
     "Subtitle": "with Dirigible Suite",
     "Grand_Alliance": "Order",
@@ -7917,7 +7946,7 @@
     "Runemarks": "Fly, Hero"
   },
   {
-    "id": 273,
+    "id": 274,
     "Name": "Endrinmaster",
     "Subtitle": "with Endrinharness",
     "Grand_Alliance": "Order",
@@ -7946,7 +7975,7 @@
     "Runemarks": "Hero, Brute"
   },
   {
-    "id": 274,
+    "id": 275,
     "Name": "Endrinrigger",
     "Subtitle": "with Drill-launcher",
     "Grand_Alliance": "Order",
@@ -7975,7 +8004,7 @@
     "Runemarks": "Fly"
   },
   {
-    "id": 275,
+    "id": 276,
     "Name": "Endrinrigger",
     "Subtitle": "with Grapnel Launcher",
     "Grand_Alliance": "Order",
@@ -8004,7 +8033,7 @@
     "Runemarks": "Fly, Agile"
   },
   {
-    "id": 276,
+    "id": 277,
     "Name": "Endrinrigger",
     "Subtitle": "with Skyhook",
     "Grand_Alliance": "Order",
@@ -8033,7 +8062,7 @@
     "Runemarks": "Fly"
   },
   {
-    "id": 277,
+    "id": 278,
     "Name": "Endrinrigger",
     "Subtitle": "with Aethermatic Saw & Rivet Gun",
     "Grand_Alliance": "Order",
@@ -8062,7 +8091,7 @@
     "Runemarks": "Fly"
   },
   {
-    "id": 278,
+    "id": 279,
     "Name": "Endrinrigger",
     "Subtitle": "with Volleygun",
     "Grand_Alliance": "Order",
@@ -8091,7 +8120,7 @@
     "Runemarks": "Fly"
   },
   {
-    "id": 279,
+    "id": 280,
     "Name": "Enlightened Aviarch",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -8120,7 +8149,7 @@
     "Runemarks": "Hero, Destroyer"
   },
   {
-    "id": 280,
+    "id": 281,
     "Name": "Enlightened Aviarch",
     "Subtitle": "on Disc",
     "Grand_Alliance": "Chaos",
@@ -8149,15 +8178,15 @@
     "Runemarks": "Hero, Destroyer, Fly"
   },
   {
-    "id": 281,
-    "Name": "Ennias Curse-Born",
-    "Subtitle": "",
+    "id": 282,
+    "Name": "Ennias",
+    "Subtitle": "Curse-Born",
     "Grand_Alliance": "Death",
     "Warband": "Soulblight Gravelords",
     "Hero_Ally_Thrall_Monster": "Bladeborn Fighter",
     "Bladeborn": "The Crimson Court",
-    "Points": 115,
-    "Wounds": 18,
+    "Points": 120,
+    "Wounds": 16,
     "Movement": 6,
     "Toughness": 3,
     "Weapon1_Runemark": "Mace",
@@ -8178,7 +8207,7 @@
     "Runemarks": "Fly, Terrifying"
   },
   {
-    "id": 282,
+    "id": 283,
     "Name": "Enrik Ironhail",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -8207,7 +8236,7 @@
     "Runemarks": ""
   },
   {
-    "id": 283,
+    "id": 284,
     "Name": "Eternal Guard",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -8236,7 +8265,7 @@
     "Runemarks": "Bulwark"
   },
   {
-    "id": 284,
+    "id": 285,
     "Name": "Eternal Warden",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -8265,7 +8294,7 @@
     "Runemarks": "Hero, Bulwark"
   },
   {
-    "id": 285,
+    "id": 286,
     "Name": "Evocator",
     "Subtitle": "with Grandstave",
     "Grand_Alliance": "Order",
@@ -8294,7 +8323,7 @@
     "Runemarks": "Mystic"
   },
   {
-    "id": 286,
+    "id": 287,
     "Name": "Evocator",
     "Subtitle": "with Tempest Blade & Stormstave",
     "Grand_Alliance": "Order",
@@ -8323,7 +8352,7 @@
     "Runemarks": "Mystic"
   },
   {
-    "id": 287,
+    "id": 288,
     "Name": "Evocator on Dracoline",
     "Subtitle": "with Grandstave",
     "Grand_Alliance": "Order",
@@ -8352,7 +8381,7 @@
     "Runemarks": "Mystic, Ferocious"
   },
   {
-    "id": 288,
+    "id": 289,
     "Name": "Evocator on Dracoline",
     "Subtitle": "with Tempest Blade &Stormstave",
     "Grand_Alliance": "Order",
@@ -8381,7 +8410,7 @@
     "Runemarks": "Mystic, Ferocious"
   },
   {
-    "id": 289,
+    "id": 290,
     "Name": "Evocator-Prime",
     "Subtitle": "on Dracoline with Grandstave",
     "Grand_Alliance": "Order",
@@ -8410,7 +8439,7 @@
     "Runemarks": "Hero, Mystic, Ferocious"
   },
   {
-    "id": 290,
+    "id": 291,
     "Name": "Evocator-Prime",
     "Subtitle": "Dracoline with Blade and Stave",
     "Grand_Alliance": "Order",
@@ -8439,7 +8468,7 @@
     "Runemarks": "Hero, Mystic, Ferocious"
   },
   {
-    "id": 291,
+    "id": 292,
     "Name": "Evocator-Prime",
     "Subtitle": "with Grandstave",
     "Grand_Alliance": "Order",
@@ -8468,7 +8497,7 @@
     "Runemarks": "Hero, Mystic"
   },
   {
-    "id": 292,
+    "id": 293,
     "Name": "Evocator-Prime",
     "Subtitle": "with Tempest Blade and Stormstave",
     "Grand_Alliance": "Order",
@@ -8497,94 +8526,7 @@
     "Runemarks": "Hero, Mystic"
   },
   {
-    "id": 293,
-    "Name": "Exalted Deathbringer",
-    "Subtitle": "with Impaling Spear",
-    "Grand_Alliance": "Chaos",
-    "Warband": "Khorne Bloodbound",
-    "Hero_Ally_Thrall_Monster": "Hero",
-    "Bladeborn": "",
-    "Points": 185,
-    "Wounds": 28,
-    "Movement": 4,
-    "Toughness": 4,
-    "Weapon1_Runemark": "Spear",
-    "Weapon1_Min_Range": 0,
-    "Weapon1_Max_Range": 2,
-    "Weapon1_Attacks": 3,
-    "Weapon1_Strength": 4,
-    "Weapon1_Dmg_Hit": 3,
-    "Weapon1_Dmg_Crit": 6,
-    "Weapon2": "FALSE",
-    "Weapon2_Runemark": "",
-    "Weapon2_Min_Range": "",
-    "Weapon2_Max_Range": "",
-    "Weapon2_Attacks": "",
-    "Weapon2_Strength": "",
-    "Weapon2_Dmg_Hit": "",
-    "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
-  },
-  {
     "id": 294,
-    "Name": "Exalted Flamer",
-    "Subtitle": "of Tzeentch",
-    "Grand_Alliance": "Chaos",
-    "Warband": "Daemons of Tzeentch",
-    "Hero_Ally_Thrall_Monster": "",
-    "Bladeborn": "",
-    "Points": 220,
-    "Wounds": 25,
-    "Movement": 8,
-    "Toughness": 3,
-    "Weapon1_Runemark": "Fangs",
-    "Weapon1_Min_Range": 0,
-    "Weapon1_Max_Range": 1,
-    "Weapon1_Attacks": 2,
-    "Weapon1_Strength": 3,
-    "Weapon1_Dmg_Hit": 2,
-    "Weapon1_Dmg_Crit": 4,
-    "Weapon2": "TRUE",
-    "Weapon2_Runemark": "Blast",
-    "Weapon2_Min_Range": 3,
-    "Weapon2_Max_Range": 15,
-    "Weapon2_Attacks": 4,
-    "Weapon2_Strength": 3,
-    "Weapon2_Dmg_Hit": 2,
-    "Weapon2_Dmg_Crit": 5,
-    "Runemarks": "Fly, Berserker"
-  },
-  {
-    "id": 295,
-    "Name": "Executioner",
-    "Subtitle": "",
-    "Grand_Alliance": "Order",
-    "Warband": "Cities of Sigmar",
-    "Hero_Ally_Thrall_Monster": "",
-    "Bladeborn": "",
-    "Points": 100,
-    "Wounds": 10,
-    "Movement": 5,
-    "Toughness": 4,
-    "Weapon1_Runemark": "Sword",
-    "Weapon1_Min_Range": 0,
-    "Weapon1_Max_Range": 1,
-    "Weapon1_Attacks": 4,
-    "Weapon1_Strength": 3,
-    "Weapon1_Dmg_Hit": 2,
-    "Weapon1_Dmg_Crit": 4,
-    "Weapon2": "FALSE",
-    "Weapon2_Runemark": "",
-    "Weapon2_Min_Range": "",
-    "Weapon2_Max_Range": "",
-    "Weapon2_Attacks": "",
-    "Weapon2_Strength": "",
-    "Weapon2_Dmg_Hit": "",
-    "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Ferocious"
-  },
-  {
-    "id": 296,
     "Name": "Exalted Champion",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -8613,7 +8555,36 @@
     "Runemarks": "Hero, Warrior"
   },
   {
-    "id": 297,
+    "id": 295,
+    "Name": "Exalted Deathbringer",
+    "Subtitle": "with Impaling Spear",
+    "Grand_Alliance": "Chaos",
+    "Warband": "Khorne Bloodbound",
+    "Hero_Ally_Thrall_Monster": "Hero",
+    "Bladeborn": "",
+    "Points": 185,
+    "Wounds": 28,
+    "Movement": 4,
+    "Toughness": 4,
+    "Weapon1_Runemark": "Spear",
+    "Weapon1_Min_Range": 0,
+    "Weapon1_Max_Range": 2,
+    "Weapon1_Attacks": 3,
+    "Weapon1_Strength": 4,
+    "Weapon1_Dmg_Hit": 3,
+    "Weapon1_Dmg_Crit": 6,
+    "Weapon2": "FALSE",
+    "Weapon2_Runemark": "",
+    "Weapon2_Min_Range": "",
+    "Weapon2_Max_Range": "",
+    "Weapon2_Attacks": "",
+    "Weapon2_Strength": "",
+    "Weapon2_Dmg_Hit": "",
+    "Weapon2_Dmg_Crit": "",
+    "Runemarks": "Hero"
+  },
+  {
+    "id": 296,
     "Name": "Exalted Deathbringer",
     "Subtitle": "with Ruinous Axe",
     "Grand_Alliance": "Chaos",
@@ -8640,6 +8611,35 @@
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
     "Runemarks": "Hero"
+  },
+  {
+    "id": 297,
+    "Name": "Exalted Flamer",
+    "Subtitle": "of Tzeentch",
+    "Grand_Alliance": "Chaos",
+    "Warband": "Daemons of Tzeentch",
+    "Hero_Ally_Thrall_Monster": "",
+    "Bladeborn": "",
+    "Points": 220,
+    "Wounds": 25,
+    "Movement": 8,
+    "Toughness": 3,
+    "Weapon1_Runemark": "Fangs",
+    "Weapon1_Min_Range": 0,
+    "Weapon1_Max_Range": 1,
+    "Weapon1_Attacks": 2,
+    "Weapon1_Strength": 3,
+    "Weapon1_Dmg_Hit": 2,
+    "Weapon1_Dmg_Crit": 4,
+    "Weapon2": "TRUE",
+    "Weapon2_Runemark": "Blast",
+    "Weapon2_Min_Range": 3,
+    "Weapon2_Max_Range": 15,
+    "Weapon2_Attacks": 4,
+    "Weapon2_Strength": 3,
+    "Weapon2_Dmg_Hit": 2,
+    "Weapon2_Dmg_Crit": 5,
+    "Runemarks": "Fly, Berserker"
   },
   {
     "id": 298,
@@ -8672,6 +8672,35 @@
   },
   {
     "id": 299,
+    "Name": "Executioner",
+    "Subtitle": "",
+    "Grand_Alliance": "Order",
+    "Warband": "Cities of Sigmar",
+    "Hero_Ally_Thrall_Monster": "",
+    "Bladeborn": "",
+    "Points": 100,
+    "Wounds": 10,
+    "Movement": 5,
+    "Toughness": 4,
+    "Weapon1_Runemark": "Sword",
+    "Weapon1_Min_Range": 0,
+    "Weapon1_Max_Range": 1,
+    "Weapon1_Attacks": 4,
+    "Weapon1_Strength": 3,
+    "Weapon1_Dmg_Hit": 2,
+    "Weapon1_Dmg_Crit": 4,
+    "Weapon2": "FALSE",
+    "Weapon2_Runemark": "",
+    "Weapon2_Min_Range": "",
+    "Weapon2_Max_Range": "",
+    "Weapon2_Attacks": "",
+    "Weapon2_Strength": "",
+    "Weapon2_Dmg_Hit": "",
+    "Weapon2_Dmg_Crit": "",
+    "Runemarks": "Ferocious"
+  },
+  {
+    "id": 300,
     "Name": "Extoller of Shyish",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -8700,7 +8729,7 @@
     "Runemarks": "Fly, Hero"
   },
   {
-    "id": 300,
+    "id": 301,
     "Name": "Fangleader",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -8729,7 +8758,7 @@
     "Runemarks": "Hero"
   },
   {
-    "id": 301,
+    "id": 302,
     "Name": "Fatemaster",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -8758,7 +8787,7 @@
     "Runemarks": "Fly, Hero, Champion"
   },
   {
-    "id": 302,
+    "id": 303,
     "Name": "Fecula Flyblown",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -8787,7 +8816,7 @@
     "Runemarks": "Hero, Mystic"
   },
   {
-    "id": 303,
+    "id": 304,
     "Name": "Fell Bat",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -8816,7 +8845,7 @@
     "Runemarks": "Fly, Thrall, Frenzied"
   },
   {
-    "id": 304,
+    "id": 305,
     "Name": "Fellwater Troggoth",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -8845,7 +8874,7 @@
     "Runemarks": "Thrall, Trapper, Bulwark"
   },
   {
-    "id": 305,
+    "id": 306,
     "Name": "Festering Skaven",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -8874,7 +8903,7 @@
     "Runemarks": "Agile, Minion"
   },
   {
-    "id": 306,
+    "id": 307,
     "Name": "Fiend",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -8903,7 +8932,7 @@
     "Runemarks": "Agile"
   },
   {
-    "id": 307,
+    "id": 308,
     "Name": "Firebelly",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -8932,7 +8961,7 @@
     "Runemarks": "Hero, Brute, Frenzied"
   },
   {
-    "id": 308,
+    "id": 309,
     "Name": "Fireborn",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -8961,7 +8990,7 @@
     "Runemarks": "Trapper"
   },
   {
-    "id": 309,
+    "id": 310,
     "Name": "Fireborn",
     "Subtitle": "with Sunblade and Brazier Axe",
     "Grand_Alliance": "Chaos",
@@ -8990,7 +9019,7 @@
     "Runemarks": ""
   },
   {
-    "id": 310,
+    "id": 311,
     "Name": "Fireborn",
     "Subtitle": "with Sunblade and Kris",
     "Grand_Alliance": "Chaos",
@@ -9019,7 +9048,7 @@
     "Runemarks": ""
   },
   {
-    "id": 311,
+    "id": 312,
     "Name": "First Fang",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -9048,7 +9077,7 @@
     "Runemarks": "Brute"
   },
   {
-    "id": 312,
+    "id": 313,
     "Name": "Fjul-Grimnir",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -9077,7 +9106,7 @@
     "Runemarks": "Hero, Brute"
   },
   {
-    "id": 313,
+    "id": 314,
     "Name": "Flagellant",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -9106,7 +9135,7 @@
     "Runemarks": ""
   },
   {
-    "id": 314,
+    "id": 315,
     "Name": "Flamer of Tzeentch",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -9135,7 +9164,7 @@
     "Runemarks": "Fly, Berserker"
   },
   {
-    "id": 315,
+    "id": 316,
     "Name": "Flesh Hound",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -9164,7 +9193,7 @@
     "Runemarks": "Beast"
   },
   {
-    "id": 316,
+    "id": 317,
     "Name": "Flesh Hound",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -9193,7 +9222,7 @@
     "Runemarks": "Agile, Beast"
   },
   {
-    "id": 317,
+    "id": 318,
     "Name": "Flitwing Scion",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -9222,7 +9251,7 @@
     "Runemarks": "Fly, Hero, Trapper"
   },
   {
-    "id": 318,
+    "id": 319,
     "Name": "Fluxmaster",
     "Subtitle": "with Ritual Dagger",
     "Grand_Alliance": "Chaos",
@@ -9251,7 +9280,7 @@
     "Runemarks": "Fly, Hero, Mystic"
   },
   {
-    "id": 319,
+    "id": 320,
     "Name": "Fluxmaster",
     "Subtitle": "with Staff of Change",
     "Grand_Alliance": "Chaos",
@@ -9280,7 +9309,7 @@
     "Runemarks": "Fly, Hero, Mystic"
   },
   {
-    "id": 320,
+    "id": 321,
     "Name": "Foe-render",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -9309,7 +9338,7 @@
     "Runemarks": "Hero"
   },
   {
-    "id": 321,
+    "id": 322,
     "Name": "Fomoroid Crusher",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -9338,7 +9367,7 @@
     "Runemarks": "Ally, Destroyer"
   },
   {
-    "id": 322,
+    "id": 323,
     "Name": "Freeguild Crossbowman",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -9367,7 +9396,7 @@
     "Runemarks": "Scout"
   },
   {
-    "id": 323,
+    "id": 324,
     "Name": "Freeguild General",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -9396,7 +9425,7 @@
     "Runemarks": "Hero, Ferocious"
   },
   {
-    "id": 324,
+    "id": 325,
     "Name": "Freeguild Greatsword",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -9425,7 +9454,7 @@
     "Runemarks": "Destroyer"
   },
   {
-    "id": 325,
+    "id": 326,
     "Name": "Freeguild Guard",
     "Subtitle": "with Halberd",
     "Grand_Alliance": "Order",
@@ -9454,7 +9483,7 @@
     "Runemarks": ""
   },
   {
-    "id": 326,
+    "id": 327,
     "Name": "Freeguild Guard",
     "Subtitle": "with Spear",
     "Grand_Alliance": "Order",
@@ -9483,7 +9512,7 @@
     "Runemarks": ""
   },
   {
-    "id": 327,
+    "id": 328,
     "Name": "Freeguild Guard",
     "Subtitle": "with Sword & Shield",
     "Grand_Alliance": "Order",
@@ -9512,7 +9541,7 @@
     "Runemarks": "Bulwwark"
   },
   {
-    "id": 328,
+    "id": 329,
     "Name": "Freeguild Handgunner",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -9541,7 +9570,7 @@
     "Runemarks": "Scout"
   },
   {
-    "id": 329,
+    "id": 330,
     "Name": "Freeguild Outrider",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -9570,7 +9599,7 @@
     "Runemarks": "Agile, Mount"
   },
   {
-    "id": 330,
+    "id": 331,
     "Name": "Freeguild Pistoleer",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -9599,7 +9628,7 @@
     "Runemarks": "Agile, Mount"
   },
   {
-    "id": 331,
+    "id": 332,
     "Name": "Freeguild Sergeant",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -9628,7 +9657,7 @@
     "Runemarks": "Hero"
   },
   {
-    "id": 332,
+    "id": 333,
     "Name": "Frenzied Rager",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -9657,7 +9686,7 @@
     "Runemarks": "Warrior"
   },
   {
-    "id": 333,
+    "id": 334,
     "Name": "Frost Sabre",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -9686,7 +9715,7 @@
     "Runemarks": "Beast"
   },
   {
-    "id": 334,
+    "id": 335,
     "Name": "Fuirann",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -9715,7 +9744,7 @@
     "Runemarks": ""
   },
   {
-    "id": 335,
+    "id": 336,
     "Name": "Fungoid Cave-Shaman",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -9744,7 +9773,7 @@
     "Runemarks": "Hero, Mystic"
   },
   {
-    "id": 336,
+    "id": 337,
     "Name": "Fury",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -9773,7 +9802,7 @@
     "Runemarks": "Fly, Thrall, Sentience"
   },
   {
-    "id": 337,
+    "id": 338,
     "Name": "Gallanghann",
     "Subtitle": "of the Glade",
     "Grand_Alliance": "Order",
@@ -9802,7 +9831,7 @@
     "Runemarks": ""
   },
   {
-    "id": 338,
+    "id": 339,
     "Name": "Garodd Alesen",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -9831,7 +9860,7 @@
     "Runemarks": ""
   },
   {
-    "id": 339,
+    "id": 340,
     "Name": "Garrek Gorebeard",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -9860,7 +9889,7 @@
     "Runemarks": "Hero"
   },
   {
-    "id": 340,
+    "id": 341,
     "Name": "Gaunt Summoner",
     "Subtitle": "of Tzeentch",
     "Grand_Alliance": "Chaos",
@@ -9889,7 +9918,7 @@
     "Runemarks": "Hero, Berserker"
   },
   {
-    "id": 341,
+    "id": 342,
     "Name": "Gaunt Summoner",
     "Subtitle": "of Tzeentch on Disc",
     "Grand_Alliance": "Chaos",
@@ -9918,7 +9947,7 @@
     "Runemarks": "Fly, Hero, Berserker"
   },
   {
-    "id": 342,
+    "id": 343,
     "Name": "Ghartok Flayskull",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -9947,7 +9976,7 @@
     "Runemarks": "Bulwark"
   },
   {
-    "id": 343,
+    "id": 344,
     "Name": "Ghorgon",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -9976,7 +10005,7 @@
     "Runemarks": "Monster, Frenzied"
   },
   {
-    "id": 344,
+    "id": 345,
     "Name": "Ghulgoch the Butcher",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -10005,7 +10034,7 @@
     "Runemarks": "Beast"
   },
   {
-    "id": 345,
+    "id": 346,
     "Name": "Giant Rat",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -10034,7 +10063,7 @@
     "Runemarks": "Agile, Beast"
   },
   {
-    "id": 346,
+    "id": 347,
     "Name": "Gikkit",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -10063,7 +10092,7 @@
     "Runemarks": "Minion, Warrior"
   },
   {
-    "id": 347,
+    "id": 348,
     "Name": "Glaivewraith Stalker",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -10092,7 +10121,7 @@
     "Runemarks": "Fly"
   },
   {
-    "id": 348,
+    "id": 349,
     "Name": "Glissete",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -10121,7 +10150,7 @@
     "Runemarks": ""
   },
   {
-    "id": 349,
+    "id": 350,
     "Name": "Gloryseeker",
     "Subtitle": "with Greataxe",
     "Grand_Alliance": "Chaos",
@@ -10150,7 +10179,7 @@
     "Runemarks": ""
   },
   {
-    "id": 350,
+    "id": 351,
     "Name": "Gloryseeker",
     "Subtitle": "with Paired Weapons",
     "Grand_Alliance": "Chaos",
@@ -10179,7 +10208,7 @@
     "Runemarks": ""
   },
   {
-    "id": 351,
+    "id": 352,
     "Name": "Gloryseeker",
     "Subtitle": "with Spear",
     "Grand_Alliance": "Chaos",
@@ -10208,7 +10237,7 @@
     "Runemarks": ""
   },
   {
-    "id": 352,
+    "id": 353,
     "Name": "Gloryseeker",
     "Subtitle": "with Sword & Shield",
     "Grand_Alliance": "Chaos",
@@ -10237,7 +10266,7 @@
     "Runemarks": ""
   },
   {
-    "id": 353,
+    "id": 354,
     "Name": "Gnarl",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -10266,7 +10295,7 @@
     "Runemarks": "Scout"
   },
   {
-    "id": 354,
+    "id": 355,
     "Name": "Gnoblar",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -10295,7 +10324,7 @@
     "Runemarks": "Trapper"
   },
   {
-    "id": 355,
+    "id": 356,
     "Name": "God-speaker",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -10324,7 +10353,7 @@
     "Runemarks": "Mystic"
   },
   {
-    "id": 356,
+    "id": 357,
     "Name": "Gor",
     "Subtitle": "with Gorblade and Beastshield",
     "Grand_Alliance": "Chaos",
@@ -10353,7 +10382,7 @@
     "Runemarks": ""
   },
   {
-    "id": 357,
+    "id": 358,
     "Name": "Gor",
     "Subtitle": "with Pair of Gor Blades",
     "Grand_Alliance": "Chaos",
@@ -10382,14 +10411,14 @@
     "Runemarks": ""
   },
   {
-    "id": 358,
+    "id": 359,
     "Name": "Gorath",
     "Subtitle": "the Enforcer",
     "Grand_Alliance": "Death",
     "Warband": "Soulblight Gravelords",
     "Hero_Ally_Thrall_Monster": "Bladeborn Fighter",
     "Bladeborn": "The Crimson Court",
-    "Points": 150,
+    "Points": 130,
     "Wounds": 18,
     "Movement": 5,
     "Toughness": 4,
@@ -10411,7 +10440,7 @@
     "Runemarks": "Terrifying"
   },
   {
-    "id": 359,
+    "id": 360,
     "Name": "Gore Hound",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -10440,7 +10469,7 @@
     "Runemarks": "Agile, Beast, Ferocious"
   },
   {
-    "id": 360,
+    "id": 361,
     "Name": "Gore-grunta Boss",
     "Subtitle": "with Jagged Gore-hacka",
     "Grand_Alliance": "Destruction",
@@ -10469,7 +10498,7 @@
     "Runemarks": "Hero, Ferocious, Mount"
   },
   {
-    "id": 361,
+    "id": 362,
     "Name": "Gore-Grunta Boss",
     "Subtitle": "with Pig-iron Choppa",
     "Grand_Alliance": "Destruction",
@@ -10498,7 +10527,7 @@
     "Runemarks": "Hero, Ferocious, Mount"
   },
   {
-    "id": 362,
+    "id": 363,
     "Name": "Gorehoof",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -10527,7 +10556,7 @@
     "Runemarks": "Hero, Mount"
   },
   {
-    "id": 363,
+    "id": 364,
     "Name": "Gorgai",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -10556,7 +10585,7 @@
     "Runemarks": "Hero, Elite"
   },
   {
-    "id": 364,
+    "id": 365,
     "Name": "Gorger",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -10585,7 +10614,7 @@
     "Runemarks": "Agile, Brute"
   },
   {
-    "id": 365,
+    "id": 366,
     "Name": "Gorl Spinehammer",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -10614,7 +10643,7 @@
     "Runemarks": ""
   },
   {
-    "id": 366,
+    "id": 367,
     "Name": "Gorlok Blackpowder",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -10643,7 +10672,7 @@
     "Runemarks": "Hero, Brute"
   },
   {
-    "id": 367,
+    "id": 368,
     "Name": "Gossamid Archer",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -10672,7 +10701,7 @@
     "Runemarks": "Fly, Trapper"
   },
   {
-    "id": 368,
+    "id": 369,
     "Name": "Gouge-horn",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -10701,7 +10730,7 @@
     "Runemarks": "Hero, Warrior"
   },
   {
-    "id": 369,
+    "id": 370,
     "Name": "Grashrak Fellhoof",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -10730,7 +10759,7 @@
     "Runemarks": "Hero, Mystic"
   },
   {
-    "id": 370,
+    "id": 371,
     "Name": "Graveguard",
     "Subtitle": "with Blade and Shield",
     "Grand_Alliance": "Death",
@@ -10759,7 +10788,7 @@
     "Runemarks": "Minion, Elite"
   },
   {
-    "id": 371,
+    "id": 372,
     "Name": "Graveguard",
     "Subtitle": "with Great Wight Blade",
     "Grand_Alliance": "Death",
@@ -10788,7 +10817,7 @@
     "Runemarks": "Minion, Elite"
   },
   {
-    "id": 372,
+    "id": 373,
     "Name": "Grawl",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -10817,7 +10846,7 @@
     "Runemarks": "Beast"
   },
   {
-    "id": 373,
+    "id": 374,
     "Name": "Great Bray-Shaman",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -10846,7 +10875,7 @@
     "Runemarks": "Hero, Mystic"
   },
   {
-    "id": 374,
+    "id": 375,
     "Name": "Grey Seer",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -10875,7 +10904,7 @@
     "Runemarks": "Hero, Agile, Mystic"
   },
   {
-    "id": 375,
+    "id": 376,
     "Name": "Grib",
     "Subtitle": "Da Wonky Lance",
     "Grand_Alliance": "Destruction",
@@ -10904,7 +10933,7 @@
     "Runemarks": "Fly, Elite"
   },
   {
-    "id": 376,
+    "id": 377,
     "Name": "Grimghast Reaper",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -10933,7 +10962,7 @@
     "Runemarks": "Fly, Elite"
   },
   {
-    "id": 377,
+    "id": 378,
     "Name": "Grimwrath Berserker",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -10962,7 +10991,7 @@
     "Runemarks": "Hero, Berserker"
   },
   {
-    "id": 378,
+    "id": 379,
     "Name": "Grinkrak the Great",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -10991,7 +11020,7 @@
     "Runemarks": "Hero, Champion"
   },
   {
-    "id": 379,
+    "id": 380,
     "Name": "Gristlewel Greatsword",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -11020,7 +11049,7 @@
     "Runemarks": "Minion"
   },
   {
-    "id": 380,
+    "id": 381,
     "Name": "Grundann Blood-eye",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -11049,7 +11078,7 @@
     "Runemarks": ""
   },
   {
-    "id": 381,
+    "id": 382,
     "Name": "Grundstock Thunderer",
     "Subtitle": "with Aethercannon",
     "Grand_Alliance": "Order",
@@ -11078,7 +11107,7 @@
     "Runemarks": "Elite"
   },
   {
-    "id": 382,
+    "id": 383,
     "Name": "Grundstock Thunderer",
     "Subtitle": "with Aethershot Rifle",
     "Grand_Alliance": "Order",
@@ -11107,7 +11136,7 @@
     "Runemarks": "Elite"
   },
   {
-    "id": 383,
+    "id": 384,
     "Name": "Grundstock Thunderer",
     "Subtitle": "with Decksweeper",
     "Grand_Alliance": "Order",
@@ -11136,7 +11165,7 @@
     "Runemarks": "Elite"
   },
   {
-    "id": 384,
+    "id": 385,
     "Name": "Grundstock Thunderer",
     "Subtitle": "with Fumigator",
     "Grand_Alliance": "Order",
@@ -11165,7 +11194,7 @@
     "Runemarks": "Elite"
   },
   {
-    "id": 385,
+    "id": 386,
     "Name": "Grundstock Thunderer",
     "Subtitle": "with Mortar",
     "Grand_Alliance": "Order",
@@ -11194,7 +11223,7 @@
     "Runemarks": "Elite"
   },
   {
-    "id": 386,
+    "id": 387,
     "Name": "Gryph-Hound",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -11223,7 +11252,7 @@
     "Runemarks": "Beast"
   },
   {
-    "id": 387,
+    "id": 388,
     "Name": "Gryph-Hound",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -11252,7 +11281,7 @@
     "Runemarks": "Beast"
   },
   {
-    "id": 388,
+    "id": 389,
     "Name": "Gryph-Hound",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -11281,7 +11310,7 @@
     "Runemarks": "Beast"
   },
   {
-    "id": 389,
+    "id": 390,
     "Name": "Gryph-Hound",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -11310,7 +11339,7 @@
     "Runemarks": "Beast"
   },
   {
-    "id": 390,
+    "id": 391,
     "Name": "Gryselle",
     "Subtitle": "the Slaughterer",
     "Grand_Alliance": "Order",
@@ -11339,7 +11368,7 @@
     "Runemarks": "Hero"
   },
   {
-    "id": 391,
+    "id": 392,
     "Name": "Guardian of Souls",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -11368,7 +11397,7 @@
     "Runemarks": "Fly, Hero, Mystic"
   },
   {
-    "id": 392,
+    "id": 393,
     "Name": "Guardmaster",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -11397,7 +11426,7 @@
     "Runemarks": "Hero"
   },
   {
-    "id": 393,
+    "id": 394,
     "Name": "Guild Champion",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -11426,7 +11455,7 @@
     "Runemarks": "Hero, Ferocious"
   },
   {
-    "id": 394,
+    "id": 395,
     "Name": "Gunnery Sergeant",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -11455,7 +11484,7 @@
     "Runemarks": "Hero, Elite, Scout"
   },
   {
-    "id": 395,
+    "id": 396,
     "Name": "Gurzag Ironskull",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -11484,7 +11513,7 @@
     "Runemarks": "Hero"
   },
   {
-    "id": 396,
+    "id": 397,
     "Name": "Gutlord",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -11513,7 +11542,7 @@
     "Runemarks": "Hero, Brute"
   },
   {
-    "id": 397,
+    "id": 398,
     "Name": "Gutrippa",
     "Subtitle": "with Wicked Hakka",
     "Grand_Alliance": "Destruction",
@@ -11542,7 +11571,7 @@
     "Runemarks": "Warrior"
   },
   {
-    "id": 398,
+    "id": 399,
     "Name": "Gutrippa",
     "Subtitle": "with Wicked Stikka",
     "Grand_Alliance": "Destruction",
@@ -11571,7 +11600,7 @@
     "Runemarks": "Warrior"
   },
   {
-    "id": 399,
+    "id": 400,
     "Name": "Gutrippa Boss",
     "Subtitle": "with Mace & Sword",
     "Grand_Alliance": "Destruction",
@@ -11600,7 +11629,7 @@
     "Runemarks": "Hero, Warrior"
   },
   {
-    "id": 400,
+    "id": 401,
     "Name": "Gutrippa Boss",
     "Subtitle": "with Wicked Stikka",
     "Grand_Alliance": "Destruction",
@@ -11629,7 +11658,7 @@
     "Runemarks": "Hero, Warrior"
   },
   {
-    "id": 401,
+    "id": 402,
     "Name": "Gutter Runner",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -11658,7 +11687,7 @@
     "Runemarks": "Agile"
   },
   {
-    "id": 402,
+    "id": 403,
     "Name": "Gyrobomber",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -11687,7 +11716,7 @@
     "Runemarks": "Fly"
   },
   {
-    "id": 403,
+    "id": 404,
     "Name": "Gyrocopter",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -11716,7 +11745,7 @@
     "Runemarks": "Fly"
   },
   {
-    "id": 404,
+    "id": 405,
     "Name": "Hadzu",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -11745,7 +11774,7 @@
     "Runemarks": "Minion"
   },
   {
-    "id": 405,
+    "id": 406,
     "Name": "Hag Queen",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -11774,7 +11803,7 @@
     "Runemarks": "Hero, Priest"
   },
   {
-    "id": 406,
+    "id": 407,
     "Name": "Hakka",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -11803,7 +11832,7 @@
     "Runemarks": ""
   },
   {
-    "id": 407,
+    "id": 408,
     "Name": "Hakor",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -11832,7 +11861,7 @@
     "Runemarks": "Bulwark"
   },
   {
-    "id": 408,
+    "id": 409,
     "Name": "Hammerer",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -11861,7 +11890,7 @@
     "Runemarks": "Destroyer"
   },
   {
-    "id": 409,
+    "id": 410,
     "Name": "Handmaiden",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -11890,7 +11919,7 @@
     "Runemarks": "Hero"
   },
   {
-    "id": 410,
+    "id": 411,
     "Name": "Handmaiden",
     "Subtitle": "of the Thorn",
     "Grand_Alliance": "Order",
@@ -11917,35 +11946,6 @@
     "Weapon2_Dmg_Hit": 2,
     "Weapon2_Dmg_Crit": 4,
     "Runemarks": "Hero, Mystic, Mount"
-  },
-  {
-    "id": 411,
-    "Name": "Hurakan Windcharger",
-    "Subtitle": "",
-    "Grand_Alliance": "Order",
-    "Warband": "Lumineth Realm-lords",
-    "Hero_Ally_Thrall_Monster": "",
-    "Bladeborn": "",
-    "Points": 145,
-    "Wounds": 18,
-    "Movement": 12,
-    "Toughness": 3,
-    "Weapon1_Runemark": "Claws",
-    "Weapon1_Min_Range": 0,
-    "Weapon1_Max_Range": 1,
-    "Weapon1_Attacks": 4,
-    "Weapon1_Strength": 3,
-    "Weapon1_Dmg_Hit": 1,
-    "Weapon1_Dmg_Crit": 3,
-    "Weapon2": "TRUE",
-    "Weapon2_Runemark": "Ranged Weapon",
-    "Weapon2_Min_Range": 0,
-    "Weapon2_Max_Range": 10,
-    "Weapon2_Attacks": 2,
-    "Weapon2_Strength": 4,
-    "Weapon2_Dmg_Hit": 1,
-    "Weapon2_Dmg_Crit": 4,
-    "Runemarks": "Agile, Berserker"
   },
   {
     "id": 412,
@@ -13080,6 +13080,35 @@
   },
   {
     "id": 451,
+    "Name": "Hurakan Windcharger",
+    "Subtitle": "",
+    "Grand_Alliance": "Order",
+    "Warband": "Lumineth Realm-lords",
+    "Hero_Ally_Thrall_Monster": "",
+    "Bladeborn": "",
+    "Points": 145,
+    "Wounds": 18,
+    "Movement": 12,
+    "Toughness": 3,
+    "Weapon1_Runemark": "Claws",
+    "Weapon1_Min_Range": 0,
+    "Weapon1_Max_Range": 1,
+    "Weapon1_Attacks": 4,
+    "Weapon1_Strength": 3,
+    "Weapon1_Dmg_Hit": 1,
+    "Weapon1_Dmg_Crit": 3,
+    "Weapon2": "TRUE",
+    "Weapon2_Runemark": "Ranged Weapon",
+    "Weapon2_Min_Range": 0,
+    "Weapon2_Max_Range": 10,
+    "Weapon2_Attacks": 2,
+    "Weapon2_Strength": 4,
+    "Weapon2_Dmg_Hit": 1,
+    "Weapon2_Dmg_Crit": 4,
+    "Runemarks": "Agile, Berserker"
+  },
+  {
+    "id": 452,
     "Name": "Hurakan Windmage",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -13108,7 +13137,7 @@
     "Runemarks": "Hero, Agile, Fly"
   },
   {
-    "id": 452,
+    "id": 453,
     "Name": "Icebrow Hunter",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -13137,7 +13166,7 @@
     "Runemarks": "Hero, Brute, Trapper"
   },
   {
-    "id": 453,
+    "id": 454,
     "Name": "Icefall Yhetee",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -13166,7 +13195,7 @@
     "Runemarks": "Agile"
   },
   {
-    "id": 454,
+    "id": 455,
     "Name": "Idolarc",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -13195,7 +13224,7 @@
     "Runemarks": "Beast, Fly"
   },
   {
-    "id": 455,
+    "id": 456,
     "Name": "Immolator",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -13224,7 +13253,7 @@
     "Runemarks": "Destroyer"
   },
   {
-    "id": 456,
+    "id": 457,
     "Name": "Immortis Guard",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -13253,7 +13282,7 @@
     "Runemarks": "Bulwark"
   },
   {
-    "id": 457,
+    "id": 458,
     "Name": "Infernal Enrapturess",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -13282,7 +13311,7 @@
     "Runemarks": "Hero, Mystic"
   },
   {
-    "id": 458,
+    "id": 459,
     "Name": "Inferno Priest",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -13311,7 +13340,7 @@
     "Runemarks": "Mystic"
   },
   {
-    "id": 459,
+    "id": 460,
     "Name": "Initiate",
     "Subtitle": "with Brazier Weapon",
     "Grand_Alliance": "Chaos",
@@ -13340,7 +13369,7 @@
     "Runemarks": "Trapper"
   },
   {
-    "id": 460,
+    "id": 461,
     "Name": "Initiate",
     "Subtitle": "with Flameburst Pot",
     "Grand_Alliance": "Chaos",
@@ -13369,7 +13398,7 @@
     "Runemarks": "Trapper"
   },
   {
-    "id": 461,
+    "id": 462,
     "Name": "Initiate",
     "Subtitle": "with Hooked Axe",
     "Grand_Alliance": "Chaos",
@@ -13398,7 +13427,7 @@
     "Runemarks": ""
   },
   {
-    "id": 462,
+    "id": 463,
     "Name": "Initiate",
     "Subtitle": "with Morning Star",
     "Grand_Alliance": "Chaos",
@@ -13427,7 +13456,7 @@
     "Runemarks": ""
   },
   {
-    "id": 463,
+    "id": 464,
     "Name": "Ione",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -13456,7 +13485,7 @@
     "Runemarks": "Minion, Frenzied"
   },
   {
-    "id": 464,
+    "id": 465,
     "Name": "Iridescent Horror",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -13485,7 +13514,7 @@
     "Runemarks": "Hero, Elite"
   },
   {
-    "id": 465,
+    "id": 466,
     "Name": "Iron Legionary",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -13514,7 +13543,7 @@
     "Runemarks": ""
   },
   {
-    "id": 466,
+    "id": 467,
     "Name": "Iron Legionary",
     "Subtitle": "with Bolas",
     "Grand_Alliance": "Chaos",
@@ -13543,7 +13572,7 @@
     "Runemarks": ""
   },
   {
-    "id": 467,
+    "id": 468,
     "Name": "Iron Legionary",
     "Subtitle": "with Twin Hammers",
     "Grand_Alliance": "Chaos",
@@ -13572,7 +13601,7 @@
     "Runemarks": ""
   },
   {
-    "id": 468,
+    "id": 469,
     "Name": "Ironbeard",
     "Subtitle": "with Drakefire Pistol and Cinderblast Bomb",
     "Grand_Alliance": "Order",
@@ -13601,7 +13630,7 @@
     "Runemarks": "Hero"
   },
   {
-    "id": 469,
+    "id": 470,
     "Name": "Ironbreaker",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -13630,7 +13659,7 @@
     "Runemarks": "Bulwark"
   },
   {
-    "id": 470,
+    "id": 471,
     "Name": "Irondrake",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -13659,7 +13688,7 @@
     "Runemarks": "Scout"
   },
   {
-    "id": 471,
+    "id": 472,
     "Name": "Irongut",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -13688,7 +13717,7 @@
     "Runemarks": "Brute"
   },
   {
-    "id": 472,
+    "id": 473,
     "Name": "Ironwarden",
     "Subtitle": "with Grudgehammer Torpedo",
     "Grand_Alliance": "Order",
@@ -13717,7 +13746,7 @@
     "Runemarks": "Hero"
   },
   {
-    "id": 473,
+    "id": 474,
     "Name": "Isharann Soulrender",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -13746,7 +13775,7 @@
     "Runemarks": "Hero, Frenzied"
   },
   {
-    "id": 474,
+    "id": 475,
     "Name": "Isharann Soulscryer",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -13775,7 +13804,7 @@
     "Runemarks": "Hero, Priest"
   },
   {
-    "id": 475,
+    "id": 476,
     "Name": "Isharann Tidecaster",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -13804,7 +13833,7 @@
     "Runemarks": "Hero, Mystic"
   },
   {
-    "id": 476,
+    "id": 477,
     "Name": "Ishlaen Guard",
     "Subtitle": "Lochain Prince",
     "Grand_Alliance": "Order",
@@ -13833,7 +13862,7 @@
     "Runemarks": "Fly, Hero, Bulwark"
   },
   {
-    "id": 477,
+    "id": 478,
     "Name": "Jagathra",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -13862,7 +13891,7 @@
     "Runemarks": "Scout"
   },
   {
-    "id": 478,
+    "id": 479,
     "Name": "Joyous One",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -13891,7 +13920,7 @@
     "Runemarks": "Destroyer"
   },
   {
-    "id": 479,
+    "id": 480,
     "Name": "Judicator",
     "Subtitle": "with Skybolt Bow",
     "Grand_Alliance": "Order",
@@ -13920,7 +13949,7 @@
     "Runemarks": ""
   },
   {
-    "id": 480,
+    "id": 481,
     "Name": "Judicator",
     "Subtitle": "with Boltstorm Crossbow",
     "Grand_Alliance": "Order",
@@ -13949,7 +13978,7 @@
     "Runemarks": ""
   },
   {
-    "id": 481,
+    "id": 482,
     "Name": "Judicator",
     "Subtitle": "with Shockbolt Bow",
     "Grand_Alliance": "Order",
@@ -13978,7 +14007,7 @@
     "Runemarks": ""
   },
   {
-    "id": 482,
+    "id": 483,
     "Name": "Judicator",
     "Subtitle": "with Thunderbolt Crossbow",
     "Grand_Alliance": "Order",
@@ -14007,7 +14036,7 @@
     "Runemarks": ""
   },
   {
-    "id": 483,
+    "id": 484,
     "Name": "Judicator-Prime",
     "Subtitle": "with Skybolt Bow",
     "Grand_Alliance": "Order",
@@ -14036,7 +14065,7 @@
     "Runemarks": "Hero"
   },
   {
-    "id": 484,
+    "id": 485,
     "Name": "Judicator-Prime",
     "Subtitle": "with Boltstorm Crossbow",
     "Grand_Alliance": "Order",
@@ -14065,7 +14094,7 @@
     "Runemarks": "Hero"
   },
   {
-    "id": 485,
+    "id": 486,
     "Name": "K'Charik",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -14094,7 +14123,7 @@
     "Runemarks": "Elite"
   },
   {
-    "id": 486,
+    "id": 487,
     "Name": "Kagey",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -14123,7 +14152,7 @@
     "Runemarks": "Agile"
   },
   {
-    "id": 487,
+    "id": 488,
     "Name": "Kairic Acolyte",
     "Subtitle": "with Blade & Shield",
     "Grand_Alliance": "Chaos",
@@ -14152,7 +14181,7 @@
     "Runemarks": ""
   },
   {
-    "id": 488,
+    "id": 489,
     "Name": "Kairic Acolyte",
     "Subtitle": "with Glaive & Shield",
     "Grand_Alliance": "Chaos",
@@ -14181,7 +14210,7 @@
     "Runemarks": ""
   },
   {
-    "id": 489,
+    "id": 490,
     "Name": "Kairic Acolyte",
     "Subtitle": "with Paired Blades",
     "Grand_Alliance": "Chaos",
@@ -14210,7 +14239,7 @@
     "Runemarks": ""
   },
   {
-    "id": 490,
+    "id": 491,
     "Name": "Kairic Acolyte",
     "Subtitle": "with Scroll of Dark Arts",
     "Grand_Alliance": "Chaos",
@@ -14239,7 +14268,7 @@
     "Runemarks": ""
   },
   {
-    "id": 491,
+    "id": 492,
     "Name": "Kairic Acolyte",
     "Subtitle": "with Vulcharc",
     "Grand_Alliance": "Chaos",
@@ -14268,7 +14297,7 @@
     "Runemarks": ""
   },
   {
-    "id": 492,
+    "id": 493,
     "Name": "Kairic Adept",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -14297,7 +14326,7 @@
     "Runemarks": "Hero"
   },
   {
-    "id": 493,
+    "id": 494,
     "Name": "Kalexis",
     "Subtitle": "the Silverered Blur",
     "Grand_Alliance": "Order",
@@ -14326,7 +14355,7 @@
     "Runemarks": ""
   },
   {
-    "id": 494,
+    "id": 495,
     "Name": "Karsus",
     "Subtitle": "the Chained",
     "Grand_Alliance": "Chaos",
@@ -14355,7 +14384,7 @@
     "Runemarks": "Berserker"
   },
   {
-    "id": 495,
+    "id": 496,
     "Name": "Karthaen",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -14384,7 +14413,7 @@
     "Runemarks": "Bulwark"
   },
   {
-    "id": 496,
+    "id": 497,
     "Name": "Karu",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -14413,7 +14442,7 @@
     "Runemarks": "Bulwark"
   },
   {
-    "id": 497,
+    "id": 498,
     "Name": "Kastellan",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -14442,7 +14471,7 @@
     "Runemarks": "Hero, Mount, Terrifying"
   },
   {
-    "id": 498,
+    "id": 499,
     "Name": "Kavalos Deathrider",
     "Subtitle": "Mortek Hekatos",
     "Grand_Alliance": "Death",
@@ -14471,7 +14500,7 @@
     "Runemarks": "Hero, Champion, Mount"
   },
   {
-    "id": 499,
+    "id": 500,
     "Name": "Kavalos Deathrider",
     "Subtitle": "with Blade",
     "Grand_Alliance": "Death",
@@ -14500,7 +14529,7 @@
     "Runemarks": "Warrior, Mount"
   },
   {
-    "id": 500,
+    "id": 501,
     "Name": "Kavalos Deathrider",
     "Subtitle": "with Spear",
     "Grand_Alliance": "Death",
@@ -14529,7 +14558,7 @@
     "Runemarks": "Warrior, Mount"
   },
   {
-    "id": 501,
+    "id": 502,
     "Name": "Keeper of the Flame",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -14558,7 +14587,7 @@
     "Runemarks": "Hero"
   },
   {
-    "id": 502,
+    "id": 503,
     "Name": "Keeper of the Gate",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -14587,7 +14616,7 @@
     "Runemarks": "Hero, Destroyer"
   },
   {
-    "id": 503,
+    "id": 504,
     "Name": "Khagra the Usurper",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -14616,7 +14645,7 @@
     "Runemarks": "Hero"
   },
   {
-    "id": 504,
+    "id": 505,
     "Name": "Khamyss",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -14645,7 +14674,7 @@
     "Runemarks": ""
   },
   {
-    "id": 505,
+    "id": 506,
     "Name": "Kharibdyss",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -14674,7 +14703,7 @@
     "Runemarks": "Monster, Berserker"
   },
   {
-    "id": 506,
+    "id": 507,
     "Name": "Khazgan Drakkskewer",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -14703,7 +14732,7 @@
     "Runemarks": "Fly"
   },
   {
-    "id": 507,
+    "id": 508,
     "Name": "Khinerai Heartrender",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -14732,7 +14761,7 @@
     "Runemarks": "Fly, Agile"
   },
   {
-    "id": 508,
+    "id": 509,
     "Name": "Khinerai Lifetaker",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -14761,7 +14790,7 @@
     "Runemarks": "Fly, Agile"
   },
   {
-    "id": 509,
+    "id": 510,
     "Name": "Khorgorath",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -14790,7 +14819,7 @@
     "Runemarks": "Ferocious"
   },
   {
-    "id": 510,
+    "id": 511,
     "Name": "Killaboss",
     "Subtitle": "on Great Gnashtoof",
     "Grand_Alliance": "Destruction",
@@ -14819,7 +14848,7 @@
     "Runemarks": "Hero, Warrior, Mount"
   },
   {
-    "id": 511,
+    "id": 512,
     "Name": "Killaboss",
     "Subtitle": "with Boss-Hacka and Shield",
     "Grand_Alliance": "Destruction",
@@ -14848,7 +14877,7 @@
     "Runemarks": "Hero, Warrior, Berserker"
   },
   {
-    "id": 512,
+    "id": 513,
     "Name": "Killaboss",
     "Subtitle": "with Boss-Hakka and Flail",
     "Grand_Alliance": "Destruction",
@@ -14877,7 +14906,7 @@
     "Runemarks": "Hero, Warrior, Berserker"
   },
   {
-    "id": 513,
+    "id": 514,
     "Name": "King Morlak Velmorn",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -14906,7 +14935,7 @@
     "Runemarks": "Hero, Berserker"
   },
   {
-    "id": 514,
+    "id": 515,
     "Name": "Kixi-Taka",
     "Subtitle": "The Diviner",
     "Grand_Alliance": "Order",
@@ -14935,7 +14964,7 @@
     "Runemarks": "Hero, Minion"
   },
   {
-    "id": 515,
+    "id": 516,
     "Name": "Klaq-Trok",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -14964,7 +14993,7 @@
     "Runemarks": "Warrior"
   },
   {
-    "id": 516,
+    "id": 517,
     "Name": "Knight Arcanum",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -14993,7 +15022,7 @@
     "Runemarks": "Hero, Mystic"
   },
   {
-    "id": 517,
+    "id": 518,
     "Name": "Knight Azyros",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -15022,7 +15051,7 @@
     "Runemarks": "Fly, Hero, Berserker"
   },
   {
-    "id": 518,
+    "id": 519,
     "Name": "Knight Heraldor",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -15051,7 +15080,7 @@
     "Runemarks": "Hero, Icon-Bearer"
   },
   {
-    "id": 519,
+    "id": 520,
     "Name": "Knight Incantor",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -15080,7 +15109,7 @@
     "Runemarks": "Hero, Berserker"
   },
   {
-    "id": 520,
+    "id": 521,
     "Name": "Knight Judicator",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -15109,7 +15138,7 @@
     "Runemarks": "Hero, Trapper"
   },
   {
-    "id": 521,
+    "id": 522,
     "Name": "Knight of Shrouds",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -15138,7 +15167,7 @@
     "Runemarks": "Fly, Hero, Champion"
   },
   {
-    "id": 522,
+    "id": 523,
     "Name": "Knight of Shrouds",
     "Subtitle": "on Ethereal Steed",
     "Grand_Alliance": "Death",
@@ -15167,7 +15196,7 @@
     "Runemarks": "Fly, Hero, Champion"
   },
   {
-    "id": 523,
+    "id": 524,
     "Name": "Knight Questor",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -15196,7 +15225,7 @@
     "Runemarks": "Hero, Bulwark"
   },
   {
-    "id": 524,
+    "id": 525,
     "Name": "Knight Relictor",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -15225,7 +15254,7 @@
     "Runemarks": "Hero, Priest"
   },
   {
-    "id": 525,
+    "id": 526,
     "Name": "Knight Venator",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -15254,7 +15283,7 @@
     "Runemarks": "Hero, Trapper, Fly"
   },
   {
-    "id": 526,
+    "id": 527,
     "Name": "Knight Vexillor",
     "Subtitle": "with Banner of Apotheosis",
     "Grand_Alliance": "Order",
@@ -15283,7 +15312,7 @@
     "Runemarks": "Hero, Icon-Bearer"
   },
   {
-    "id": 527,
+    "id": 528,
     "Name": "Knight Vexillor",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -15312,7 +15341,7 @@
     "Runemarks": "Hero, Icon-Bearer"
   },
   {
-    "id": 528,
+    "id": 529,
     "Name": "Knight Zephyros",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -15341,7 +15370,7 @@
     "Runemarks": "Hero, Frenzied"
   },
   {
-    "id": 529,
+    "id": 530,
     "Name": "Korsh the Sneak",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -15370,7 +15399,7 @@
     "Runemarks": ""
   },
   {
-    "id": 530,
+    "id": 531,
     "Name": "Kosargi Nightguard",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -15399,7 +15428,7 @@
     "Runemarks": ""
   },
   {
-    "id": 531,
+    "id": 532,
     "Name": "Krone",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -15428,7 +15457,7 @@
     "Runemarks": "Hero, Berserker"
   },
   {
-    "id": 532,
+    "id": 533,
     "Name": "Krookgrin",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -15457,7 +15486,7 @@
     "Runemarks": "Elite, Minion"
   },
   {
-    "id": 533,
+    "id": 534,
     "Name": "Kroxigor",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -15486,7 +15515,7 @@
     "Runemarks": "Warrior"
   },
   {
-    "id": 534,
+    "id": 535,
     "Name": "Krrk the Almost-trusted",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -15515,7 +15544,7 @@
     "Runemarks": "Agile"
   },
   {
-    "id": 535,
+    "id": 536,
     "Name": "Krulghast Cruciator",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -15544,7 +15573,7 @@
     "Runemarks": "Fly, Hero"
   },
   {
-    "id": 536,
+    "id": 537,
     "Name": "Kurnoth Hunter",
     "Subtitle": "with Kurnoth Greatbow",
     "Grand_Alliance": "Order",
@@ -15573,7 +15602,7 @@
     "Runemarks": ""
   },
   {
-    "id": 537,
+    "id": 538,
     "Name": "Kurnoth Hunter",
     "Subtitle": "with Kurnoth Scythe",
     "Grand_Alliance": "Order",
@@ -15602,7 +15631,7 @@
     "Runemarks": ""
   },
   {
-    "id": 538,
+    "id": 539,
     "Name": "Kurnoth Hunter",
     "Subtitle": "with Kurnoth Greatsword",
     "Grand_Alliance": "Order",
@@ -15631,7 +15660,7 @@
     "Runemarks": ""
   },
   {
-    "id": 539,
+    "id": 540,
     "Name": "Kurnoth Huntmaster",
     "Subtitle": "with Kurnoth Greatbow",
     "Grand_Alliance": "Order",
@@ -15660,7 +15689,7 @@
     "Runemarks": "Hero"
   },
   {
-    "id": 540,
+    "id": 541,
     "Name": "Kurnoth Huntmaster",
     "Subtitle": "with Kurnoth Greatsword",
     "Grand_Alliance": "Order",
@@ -15689,7 +15718,7 @@
     "Runemarks": "Hero"
   },
   {
-    "id": 541,
+    "id": 542,
     "Name": "Kurnoth Huntmaster",
     "Subtitle": "with Kurnoth Scythe",
     "Grand_Alliance": "Order",
@@ -15718,7 +15747,7 @@
     "Runemarks": "Hero"
   },
   {
-    "id": 542,
+    "id": 543,
     "Name": "Kyrae",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -15747,7 +15776,7 @@
     "Runemarks": "Berserker"
   },
   {
-    "id": 543,
+    "id": 544,
     "Name": "Kyrssa",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -15776,7 +15805,7 @@
     "Runemarks": ""
   },
   {
-    "id": 544,
+    "id": 545,
     "Name": "Leadbelcher",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -15805,7 +15834,7 @@
     "Runemarks": "Brute, Destroyer"
   },
   {
-    "id": 545,
+    "id": 546,
     "Name": "Lethyr",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -15834,7 +15863,7 @@
     "Runemarks": ""
   },
   {
-    "id": 546,
+    "id": 547,
     "Name": "Liberator",
     "Subtitle": "with 2 Hammers",
     "Grand_Alliance": "Order",
@@ -15863,7 +15892,7 @@
     "Runemarks": "Warrior"
   },
   {
-    "id": 547,
+    "id": 548,
     "Name": "Liberator",
     "Subtitle": "with 2 Swords",
     "Grand_Alliance": "Order",
@@ -15892,7 +15921,7 @@
     "Runemarks": "Warrior"
   },
   {
-    "id": 548,
+    "id": 549,
     "Name": "Liberator",
     "Subtitle": "with Grandblade",
     "Grand_Alliance": "Order",
@@ -15921,7 +15950,7 @@
     "Runemarks": "Warrior"
   },
   {
-    "id": 549,
+    "id": 550,
     "Name": "Liberator",
     "Subtitle": "with Great Hammer",
     "Grand_Alliance": "Order",
@@ -15950,7 +15979,7 @@
     "Runemarks": "Warrior"
   },
   {
-    "id": 550,
+    "id": 551,
     "Name": "Liberator",
     "Subtitle": "with Hammer & Shield",
     "Grand_Alliance": "Order",
@@ -15979,7 +16008,7 @@
     "Runemarks": "Warrior, Bulwark"
   },
   {
-    "id": 551,
+    "id": 552,
     "Name": "Liberator",
     "Subtitle": "with Sword & Shield",
     "Grand_Alliance": "Order",
@@ -16008,7 +16037,7 @@
     "Runemarks": "Warrior, Bulwark"
   },
   {
-    "id": 552,
+    "id": 553,
     "Name": "Liberator-Prime",
     "Subtitle": "with Hammer & Shield",
     "Grand_Alliance": "Order",
@@ -16037,7 +16066,7 @@
     "Runemarks": "Hero, Warrior, Bulwark"
   },
   {
-    "id": 553,
+    "id": 554,
     "Name": "Liberator-Prime",
     "Subtitle": "with Paired Blades",
     "Grand_Alliance": "Order",
@@ -16066,7 +16095,7 @@
     "Runemarks": "Hero, Warrior"
   },
   {
-    "id": 554,
+    "id": 555,
     "Name": "Liberator-Prime",
     "Subtitle": "with Sword & Shield",
     "Grand_Alliance": "Order",
@@ -16095,7 +16124,7 @@
     "Runemarks": "Hero, Warrior, Bulwark"
   },
   {
-    "id": 555,
+    "id": 556,
     "Name": "Liege-Kavalos",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -16124,7 +16153,7 @@
     "Runemarks": "Hero, Champion, Mount"
   },
   {
-    "id": 556,
+    "id": 557,
     "Name": "Lighaen",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -16153,7 +16182,7 @@
     "Runemarks": "Beast"
   },
   {
-    "id": 557,
+    "id": 558,
     "Name": "Longbeard",
     "Subtitle": "with Greataxe",
     "Grand_Alliance": "Order",
@@ -16182,7 +16211,7 @@
     "Runemarks": "Destroyer"
   },
   {
-    "id": 558,
+    "id": 559,
     "Name": "Longbeard",
     "Subtitle": "with Hammer & Shield",
     "Grand_Alliance": "Order",
@@ -16211,7 +16240,7 @@
     "Runemarks": "Bulwark"
   },
   {
-    "id": 559,
+    "id": 560,
     "Name": "Loonboss",
     "Subtitle": "on Giant Cave Squig",
     "Grand_Alliance": "Destruction",
@@ -16240,7 +16269,7 @@
     "Runemarks": "Fly, Hero, Elite"
   },
   {
-    "id": 560,
+    "id": 561,
     "Name": "Loonboss",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -16269,7 +16298,7 @@
     "Runemarks": "Hero, Champion"
   },
   {
-    "id": 561,
+    "id": 562,
     "Name": "Loonsmasha Fanatic",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -16298,7 +16327,7 @@
     "Runemarks": "Elite"
   },
   {
-    "id": 562,
+    "id": 563,
     "Name": "Lord Aquilor",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -16327,7 +16356,7 @@
     "Runemarks": "Hero, Mount"
   },
   {
-    "id": 563,
+    "id": 564,
     "Name": "Lord Arcanum",
     "Subtitle": "on Dracoline",
     "Grand_Alliance": "Order",
@@ -16356,7 +16385,7 @@
     "Runemarks": "Hero, Ferocious, Berserker"
   },
   {
-    "id": 564,
+    "id": 565,
     "Name": "Lord Arcanum",
     "Subtitle": "on Gryph-Charger",
     "Grand_Alliance": "Order",
@@ -16385,7 +16414,7 @@
     "Runemarks": "Hero, Ferocious, Mount"
   },
   {
-    "id": 565,
+    "id": 566,
     "Name": "Lord Arcanum",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -16414,7 +16443,7 @@
     "Runemarks": "Hero, Ferocious"
   },
   {
-    "id": 566,
+    "id": 567,
     "Name": "Lord Castellant",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -16443,7 +16472,7 @@
     "Runemarks": "Hero, Mystic"
   },
   {
-    "id": 567,
+    "id": 568,
     "Name": "Lord Celestant",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -16472,7 +16501,7 @@
     "Runemarks": "Hero, Champion"
   },
   {
-    "id": 568,
+    "id": 569,
     "Name": "Lord Executioner",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -16501,7 +16530,7 @@
     "Runemarks": "Fly, Hero"
   },
   {
-    "id": 569,
+    "id": 570,
     "Name": "Lord Exorcist",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -16530,7 +16559,7 @@
     "Runemarks": "Hero, Ferocious"
   },
   {
-    "id": 570,
+    "id": 571,
     "Name": "Lord Imperatant",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -16559,7 +16588,7 @@
     "Runemarks": "Hero, Champion"
   },
   {
-    "id": 571,
+    "id": 572,
     "Name": "Lord of Afflictions",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -16588,7 +16617,7 @@
     "Runemarks": "Fly, Hero, Destroyer"
   },
   {
-    "id": 572,
+    "id": 573,
     "Name": "Lord of Blights",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -16617,7 +16646,7 @@
     "Runemarks": "Hero, Bulwark"
   },
   {
-    "id": 573,
+    "id": 574,
     "Name": "Lord of Pain",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -16646,7 +16675,7 @@
     "Runemarks": "Hero, Champion"
   },
   {
-    "id": 574,
+    "id": 575,
     "Name": "Lord of Plagues",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -16675,7 +16704,7 @@
     "Runemarks": "Hero"
   },
   {
-    "id": 575,
+    "id": 576,
     "Name": "Lord Ordinator",
     "Subtitle": "with Great Hammer",
     "Grand_Alliance": "Order",
@@ -16704,7 +16733,7 @@
     "Runemarks": "Hero, Brute"
   },
   {
-    "id": 576,
+    "id": 577,
     "Name": "Lord Ordinator",
     "Subtitle": "with Paired Hammers",
     "Grand_Alliance": "Order",
@@ -16733,7 +16762,7 @@
     "Runemarks": "Hero, Brute"
   },
   {
-    "id": 577,
+    "id": 578,
     "Name": "Lord Relictor",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -16762,7 +16791,7 @@
     "Runemarks": "Hero, Priest"
   },
   {
-    "id": 578,
+    "id": 579,
     "Name": "Lord Veritant",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -16791,7 +16820,7 @@
     "Runemarks": "Hero, Berserker"
   },
   {
-    "id": 579,
+    "id": 580,
     "Name": "Lordling",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -16820,7 +16849,7 @@
     "Runemarks": "Hero, Bulwark"
   },
   {
-    "id": 580,
+    "id": 581,
     "Name": "Luggit & Thwak",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -16849,7 +16878,7 @@
     "Runemarks": ""
   },
   {
-    "id": 581,
+    "id": 582,
     "Name": "Luminate",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -16878,7 +16907,7 @@
     "Runemarks": "Mystic"
   },
   {
-    "id": 582,
+    "id": 583,
     "Name": "Lupan Longcut",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -16907,7 +16936,7 @@
     "Runemarks": ""
   },
   {
-    "id": 583,
+    "id": 584,
     "Name": "Lurking Skaven",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -16936,7 +16965,7 @@
     "Runemarks": "Agile, Minion"
   },
   {
-    "id": 584,
+    "id": 585,
     "Name": "Luxa Stormrider",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -16965,7 +16994,7 @@
     "Runemarks": "Scout"
   },
   {
-    "id": 585,
+    "id": 586,
     "Name": "Mad Maegrim",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -16994,7 +17023,7 @@
     "Runemarks": ""
   },
   {
-    "id": 586,
+    "id": 587,
     "Name": "Magister",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -17023,7 +17052,7 @@
     "Runemarks": "Hero"
   },
   {
-    "id": 587,
+    "id": 588,
     "Name": "Magister on Disc",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -17052,7 +17081,7 @@
     "Runemarks": "Fly, Hero"
   },
   {
-    "id": 588,
+    "id": 589,
     "Name": "Magore Redhand",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -17081,7 +17110,7 @@
     "Runemarks": "Hero"
   },
   {
-    "id": 589,
+    "id": 590,
     "Name": "Man-skewer Boltboy",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -17110,7 +17139,7 @@
     "Runemarks": "Warrior, Trapper"
   },
   {
-    "id": 590,
+    "id": 591,
     "Name": "Maneater",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -17139,7 +17168,7 @@
     "Runemarks": "Brute"
   },
   {
-    "id": 591,
+    "id": 592,
     "Name": "Mange",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -17168,7 +17197,7 @@
     "Runemarks": "Frenzied"
   },
   {
-    "id": 592,
+    "id": 593,
     "Name": "Maniak Weirdnob",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -17197,7 +17226,7 @@
     "Runemarks": "Hero, Ferocious, Mount"
   },
   {
-    "id": 593,
+    "id": 594,
     "Name": "Mannok Da Kunnin'",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -17226,7 +17255,7 @@
     "Runemarks": "Hero, Warrior"
   },
   {
-    "id": 594,
+    "id": 595,
     "Name": "Marauder Chieftain",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -17255,7 +17284,7 @@
     "Runemarks": "Hero"
   },
   {
-    "id": 595,
+    "id": 596,
     "Name": "Marksman",
     "Subtitle": "with Repeater Handgun",
     "Grand_Alliance": "Order",
@@ -17284,7 +17313,7 @@
     "Runemarks": "Hero, Agile"
   },
   {
-    "id": 596,
+    "id": 597,
     "Name": "Marksman",
     "Subtitle": "with Long Rifle",
     "Grand_Alliance": "Order",
@@ -17313,7 +17342,7 @@
     "Runemarks": "Hero"
   },
   {
-    "id": 597,
+    "id": 598,
     "Name": "Marshal Faulk Velmorn",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -17342,7 +17371,7 @@
     "Runemarks": "Minion"
   },
   {
-    "id": 598,
+    "id": 599,
     "Name": "Master Moulder",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -17371,7 +17400,7 @@
     "Runemarks": "Hero, Agile, Frenzied"
   },
   {
-    "id": 599,
+    "id": 600,
     "Name": "Master of Warlocks",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -17400,7 +17429,7 @@
     "Runemarks": "Hero, Mount"
   },
   {
-    "id": 600,
+    "id": 601,
     "Name": "Master Talon",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -17429,7 +17458,7 @@
     "Runemarks": "Minion"
   },
   {
-    "id": 601,
+    "id": 602,
     "Name": "Mean-eye",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -17458,7 +17487,7 @@
     "Runemarks": "Mount"
   },
   {
-    "id": 602,
+    "id": 603,
     "Name": "Melusai Ironscale",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -17487,7 +17516,7 @@
     "Runemarks": "Hero, Elite"
   },
   {
-    "id": 603,
+    "id": 604,
     "Name": "Mighty Lord of Khorne",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -17516,7 +17545,7 @@
     "Runemarks": "Hero, Champion"
   },
   {
-    "id": 604,
+    "id": 605,
     "Name": "Mighty Lord of Khorne",
     "Subtitle": "on Juggernaut",
     "Grand_Alliance": "Chaos",
@@ -17545,7 +17574,7 @@
     "Runemarks": "Hero, Mount"
   },
   {
-    "id": 605,
+    "id": 606,
     "Name": "Mighty Skullcrusher",
     "Subtitle": "with Bloodglaive",
     "Grand_Alliance": "Chaos",
@@ -17574,7 +17603,7 @@
     "Runemarks": "Mount"
   },
   {
-    "id": 606,
+    "id": 607,
     "Name": "Mighty Skullcrusher",
     "Subtitle": "with Ensorcelled Axe",
     "Grand_Alliance": "Chaos",
@@ -17603,7 +17632,7 @@
     "Runemarks": "Mount"
   },
   {
-    "id": 607,
+    "id": 608,
     "Name": "Mindbound",
     "Subtitle": "with Double-bladed Sword",
     "Grand_Alliance": "Chaos",
@@ -17632,7 +17661,7 @@
     "Runemarks": "Minion"
   },
   {
-    "id": 608,
+    "id": 609,
     "Name": "Mindbound",
     "Subtitle": "with Sword",
     "Grand_Alliance": "Chaos",
@@ -17661,7 +17690,7 @@
     "Runemarks": "Minion"
   },
   {
-    "id": 609,
+    "id": 610,
     "Name": "Mindstealer Sphiranx",
     "Subtitle": "",
     "Grand_Alliance": "Chaos",
@@ -17690,7 +17719,7 @@
     "Runemarks": "Ally, Mystic"
   },
   {
-    "id": 610,
+    "id": 611,
     "Name": "Mir Kainan",
     "Subtitle": "",
     "Grand_Alliance": "Death",
@@ -17719,7 +17748,7 @@
     "Runemarks": "Hero"
   },
   {
-    "id": 611,
+    "id": 612,
     "Name": "Mirefolk Outcasts",
     "Subtitle": "with Bilewood Weapon & Shield",
     "Grand_Alliance": "Chaos",
@@ -17748,7 +17777,7 @@
     "Runemarks": "Scout"
   },
   {
-    "id": 612,
+    "id": 613,
     "Name": "Mirefolk Outcasts",
     "Subtitle": "with Bilewood Weapons",
     "Grand_Alliance": "Chaos",
@@ -17777,7 +17806,7 @@
     "Runemarks": "Scout"
   },
   {
-    "id": 613,
+    "id": 614,
     "Name": "Mirrorblade",
     "Subtitle": "with Duelling swords",
     "Grand_Alliance": "Chaos",
@@ -17806,7 +17835,7 @@
     "Runemarks": "Minion, Destroyer"
   },
   {
-    "id": 614,
+    "id": 615,
     "Name": "Mirrorblade",
     "Subtitle": "with Glaive",
     "Grand_Alliance": "Chaos",
@@ -17835,7 +17864,7 @@
     "Runemarks": "Minion, Destroyer"
   },
   {
-    "id": 615,
+    "id": 616,
     "Name": "Mizzenmaster",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -17864,7 +17893,7 @@
     "Runemarks": "Fly, Hero"
   },
   {
-    "id": 616,
+    "id": 617,
     "Name": "Mollog the Mighty",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -17893,7 +17922,7 @@
     "Runemarks": "Hero"
   },
   {
-    "id": 617,
+    "id": 618,
     "Name": "Moonclan Boss",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -17922,7 +17951,7 @@
     "Runemarks": "Hero"
   },
   {
-    "id": 618,
+    "id": 619,
     "Name": "Moonface Naggz",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -17951,7 +17980,7 @@
     "Runemarks": ""
   },
   {
-    "id": 619,
+    "id": 620,
     "Name": "Morghast Archai",
     "Subtitle": "with Halberd",
     "Grand_Alliance": "Death",
@@ -17980,7 +18009,7 @@
     "Runemarks": "Fly"
   },
   {
-    "id": 620,
+    "id": 621,
     "Name": "Morghast Archai",
     "Subtitle": "with Swords",
     "Grand_Alliance": "Death",
@@ -18009,7 +18038,7 @@
     "Runemarks": "Fly"
   },
   {
-    "id": 621,
+    "id": 622,
     "Name": "Morghast Harbringer",
     "Subtitle": "with Halberd",
     "Grand_Alliance": "Death",
@@ -18038,7 +18067,7 @@
     "Runemarks": "Fly, Berserker"
   },
   {
-    "id": 622,
+    "id": 623,
     "Name": "Morghast Harbringer",
     "Subtitle": "with Swords",
     "Grand_Alliance": "Death",
@@ -18067,7 +18096,7 @@
     "Runemarks": "Fly, Berserker"
   },
   {
-    "id": 623,
+    "id": 624,
     "Name": "Morgok",
     "Subtitle": "",
     "Grand_Alliance": "Destruction",
@@ -18096,7 +18125,7 @@
     "Runemarks": "Brute, Hero"
   },
   {
-    "id": 624,
+    "id": 625,
     "Name": "Morgwaeth",
     "Subtitle": "the Bloodied",
     "Grand_Alliance": "Order",
@@ -18123,35 +18152,6 @@
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
     "Runemarks": "Hero, Priest"
-  },
-  {
-    "id": 625,
-    "Name": "Akhelian Morrsarr Guard",
-    "Subtitle": "Lochian Prince",
-    "Grand_Alliance": "Order",
-    "Warband": "Idoneth Deepkin",
-    "Hero_Ally_Thrall_Monster": "Hero",
-    "Bladeborn": "",
-    "Points": 260,
-    "Wounds": 25,
-    "Movement": 10,
-    "Toughness": 4,
-    "Weapon1_Runemark": "Spear",
-    "Weapon1_Min_Range": 0,
-    "Weapon1_Max_Range": 2,
-    "Weapon1_Attacks": 4,
-    "Weapon1_Strength": 4,
-    "Weapon1_Dmg_Hit": 2,
-    "Weapon1_Dmg_Crit": 5,
-    "Weapon2": "FALSE",
-    "Weapon2_Runemark": "",
-    "Weapon2_Min_Range": "",
-    "Weapon2_Max_Range": "",
-    "Weapon2_Attacks": "",
-    "Weapon2_Strength": "",
-    "Weapon2_Dmg_Hit": "",
-    "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Berserker, Fly, Hero"
   },
   {
     "id": 626,
@@ -20684,7 +20684,7 @@
     "Warband": "Soulblight Gravelords",
     "Hero_Ally_Thrall_Monster": "Hero",
     "Bladeborn": "The Crimson Court",
-    "Points": 205,
+    "Points": 210,
     "Wounds": 26,
     "Movement": 5,
     "Toughness": 4,
@@ -28566,35 +28566,6 @@
   },
   {
     "id": 985,
-    "Name": "Vanari Auralan Warden",
-    "Subtitle": "",
-    "Grand_Alliance": "Order",
-    "Warband": "Lumineth Realm-lords",
-    "Hero_Ally_Thrall_Monster": "",
-    "Bladeborn": "",
-    "Points": 65,
-    "Wounds": 8,
-    "Movement": 5,
-    "Toughness": 4,
-    "Weapon1_Runemark": "Spear",
-    "Weapon1_Min_Range": 0,
-    "Weapon1_Max_Range": 3,
-    "Weapon1_Attacks": 3,
-    "Weapon1_Strength": 3,
-    "Weapon1_Dmg_Hit": 1,
-    "Weapon1_Dmg_Crit": 4,
-    "Weapon2": "FALSE",
-    "Weapon2_Runemark": "",
-    "Weapon2_Min_Range": "",
-    "Weapon2_Max_Range": "",
-    "Weapon2_Attacks": "",
-    "Weapon2_Strength": "",
-    "Weapon2_Dmg_Hit": "",
-    "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Warrior"
-  },
-  {
-    "id": 986,
     "Name": "Vanari Auralan Sentinel",
     "Subtitle": "",
     "Grand_Alliance": "Order",
@@ -28620,6 +28591,35 @@
     "Weapon2_Strength": 3,
     "Weapon2_Dmg_Hit": 1,
     "Weapon2_Dmg_Crit": 3,
+    "Runemarks": "Warrior"
+  },
+  {
+    "id": 986,
+    "Name": "Vanari Auralan Warden",
+    "Subtitle": "",
+    "Grand_Alliance": "Order",
+    "Warband": "Lumineth Realm-lords",
+    "Hero_Ally_Thrall_Monster": "",
+    "Bladeborn": "",
+    "Points": 65,
+    "Wounds": 8,
+    "Movement": 5,
+    "Toughness": 4,
+    "Weapon1_Runemark": "Spear",
+    "Weapon1_Min_Range": 0,
+    "Weapon1_Max_Range": 3,
+    "Weapon1_Attacks": 3,
+    "Weapon1_Strength": 3,
+    "Weapon1_Dmg_Hit": 1,
+    "Weapon1_Dmg_Crit": 4,
+    "Weapon2": "FALSE",
+    "Weapon2_Runemark": "",
+    "Weapon2_Min_Range": "",
+    "Weapon2_Max_Range": "",
+    "Weapon2_Attacks": "",
+    "Weapon2_Strength": "",
+    "Weapon2_Dmg_Hit": "",
+    "Weapon2_Dmg_Crit": "",
     "Runemarks": "Warrior"
   },
   {
@@ -29181,7 +29181,7 @@
     "Warband": "Soulblight Gravelords",
     "Hero_Ally_Thrall_Monster": "Bladeborn Fighter",
     "Bladeborn": "The Crimson Court",
-    "Points": 120,
+    "Points": 105,
     "Wounds": 16,
     "Movement": 5,
     "Toughness": 4,
