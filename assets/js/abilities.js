@@ -129,8 +129,7 @@ function drawAbility(id, pixelPosition) {
             var title = '[Quad] ' + name + ': ';
         }
     }
-
-
+    
     // idea here is to check the number of runemarks being used per row
     // then adjust the text size to account.
     // would need to check cardData.tagRunemarksOne
@@ -143,9 +142,19 @@ function drawAbility(id, pixelPosition) {
     if(id == 5){ max_tagRunemarks = readTagRunemark("Five").length }
     if(id == 6){ max_tagRunemarks = readTagRunemark("Six").length}
     if(id == 7){ max_tagRunemarks = readTagRunemark("Seven").length }
-        
 
-    if (max_tagRunemarks < 2) {
+
+    if(getSelectedFactionRunemark() == "assets/img/blank.gif"){
+        max_tagRunemarks = max_tagRunemarks -1;
+    }
+
+    if (max_tagRunemarks < 0) {
+        pixelPosition.x = pixelPosition.x - 200;
+    }
+    if (max_tagRunemarks == 0) {
+        pixelPosition.x = pixelPosition.x - 100;
+    }
+    if (max_tagRunemarks == 1) {
         pixelPosition.x = pixelPosition.x;
     }
     if (max_tagRunemarks == 2) {
@@ -165,11 +174,14 @@ function drawAbility(id, pixelPosition) {
 
     // Get how many runemarks are tick
     // This will determine how far the word wrap should go
-    max_tagRunemarks = Math.max(readTagRunemark("One").length, readTagRunemark("Two").length,
-        readTagRunemark("Three").length, readTagRunemark("Four").length,
-        readTagRunemark("Five").length, readTagRunemark("Six").length,
-        readTagRunemark("Seven").length);
-    if (max_tagRunemarks < 2) {
+
+    if (max_tagRunemarks < 0) {
+        fitWidth = 1600;
+    }
+    if (max_tagRunemarks == 0) {
+        fitWidth = 1500;
+    }
+    if (max_tagRunemarks == 1) {
         fitWidth = 1400;
     }
     if (max_tagRunemarks == 2) {
@@ -178,6 +190,8 @@ function drawAbility(id, pixelPosition) {
     if (max_tagRunemarks > 2) {
         fitWidth = 1200;
     }
+
+
 
     // this will add carriage turns if needed
     lines = splitWordWrap(getContext(), text, fitWidth, titleWidth);
@@ -252,24 +266,21 @@ function drawAbilityLarge(id, pixelPosition) {
     if(id == 6){ max_tagRunemarks = readTagRunemark("Six").length}
     if(id == 7){ max_tagRunemarks = readTagRunemark("Seven").length }
     
-    console.log("id: " + id);
-    console.log("max: " + max_tagRunemarks);
-    // Get how many runemarks are tick
-    // This will determine how far the word wrap should go
-    /*
-    max_tagRunemarks = Math.max(readTagRunemark("One").length, readTagRunemark("Two").length,
-        readTagRunemark("Three").length, readTagRunemark("Four").length,
-        readTagRunemark("Five").length, readTagRunemark("Six").length,
-        readTagRunemark("Seven").length);
-    */
-    if (max_tagRunemarks == 0) {
-        fitWidth = 1400;
+    // Adjust if faction runemark if blank
+    if(getSelectedFactionRunemark() == "assets/img/blank.gif"){
+        max_tagRunemarks = max_tagRunemarks -1;
     }
-    else if (max_tagRunemarks == 1) {
+
+    if (max_tagRunemarks < 0) {
+        fitWidth = 1600;
+        pixelPosition.x = pixelPosition.x - 180;
+    } else if (max_tagRunemarks == 0) {
+        fitWidth = 1400;
+        pixelPosition.x = pixelPosition.x + 10;
+    } else if (max_tagRunemarks == 1) {
         fitWidth = 1200;
         pixelPosition.x = pixelPosition.x + 180;
-    }
-    if (max_tagRunemarks >= 2) {
+    } else if (max_tagRunemarks >= 2) {
         fitWidth = 1100;
         pixelPosition.x = pixelPosition.x + 350;
     }
@@ -499,6 +510,11 @@ function drawTagRunemark(index, runemark, row) {
         }
     }
 
+    // if the blank faction icon is selected move all the runemarks left by 100
+    if(getSelectedFactionRunemark() == "assets/img/blank.gif"){
+        positions = positions.map(({x, y}) => ({x: x - 180, y}));
+    }
+
     if (index >= positions.length) return;
 
     if (tripleCheck) {
@@ -520,51 +536,51 @@ function drawTagRunemark(index, runemark, row) {
     }
     drawImageSrc(position, size, runemark);
 
-            // write the runemark name underneath
-            if (document.getElementById('runemark-names').checked){
+    // write the runemark name underneath
+    if (document.getElementById('runemark-names').checked){
 
-                value = runemark.slice(25);
-                value = value.replace(".svg", "");
-                if (value == "leader"){
-                    value = "hero";
-                }
+        value = runemark.slice(25);
+        value = value.replace(".svg", "");
+        if (value == "leader"){
+            value = "hero";
+        }
 
-                if (tripleCheck) { 
-                    if (document.getElementById('bg-09').checked){
-                        getContext().font = '48px schoensperger';
-                    } else {
-                        getContext().font = '48px rodchenkoctt';
-                    }
-                } else {
-                    if (document.getElementById('bg-09').checked){
-                        getContext().font = '32px schoensperger';
-                    } else {
-                        getContext().font = '32px rodchenkoctt';
-                    }
-                }
-                
-                getContext().fillStyle = 'white';
-                getContext().textAlign = "center";
-                getContext().textBaseline = "middle";
-
-                if (tripleCheck) { 
-                    x_value = positions[index].x + 90;
-                    y_value = positions[index].y + 200;
-                } else {
-                    x_value = positions[index].x + 45;
-                    y_value = positions[index].y + 120;
-                }
-
-                writeScaled(value, { x: x_value+2, y: y_value+2 });
-                writeScaled(value, { x: x_value+2, y: y_value-2 });
-                writeScaled(value, { x: x_value-2, y: y_value+2 });
-                writeScaled(value, { x: x_value-2, y: y_value-2 });
-
-                getContext().fillStyle = 'black';
-                getContext().textAlign = "center";
-                getContext().textBaseline = "middle";
-                writeScaled(value, { x: x_value, y: y_value });
+        if (tripleCheck) { 
+            if (document.getElementById('bg-09').checked){
+                getContext().font = '48px schoensperger';
+            } else {
+                getContext().font = '48px rodchenkoctt';
             }
+        } else {
+            if (document.getElementById('bg-09').checked){
+                getContext().font = '32px schoensperger';
+            } else {
+                getContext().font = '32px rodchenkoctt';
+            }
+        }
+        
+        getContext().fillStyle = 'white';
+        getContext().textAlign = "center";
+        getContext().textBaseline = "middle";
+
+        if (tripleCheck) { 
+            x_value = positions[index].x + 90;
+            y_value = positions[index].y + 200;
+        } else {
+            x_value = positions[index].x + 45;
+            y_value = positions[index].y + 120;
+        }
+
+        writeScaled(value, { x: x_value+2, y: y_value+2 });
+        writeScaled(value, { x: x_value+2, y: y_value-2 });
+        writeScaled(value, { x: x_value-2, y: y_value+2 });
+        writeScaled(value, { x: x_value-2, y: y_value-2 });
+
+        getContext().fillStyle = 'black';
+        getContext().textAlign = "center";
+        getContext().textBaseline = "middle";
+        writeScaled(value, { x: x_value, y: y_value });
+    }
 }
 
 async function fileChange(file) {
@@ -1093,27 +1109,29 @@ function render(cardData) {
         !document.getElementById('ability6-toggle').checked &&
         !document.getElementById('ability7-toggle').checked;
 
-    // sybmols at the top
-    if (tripleCheck) {
-        drawImageSrc({ x: 92.5, y: 35 }, { x: 135, y: 135 }, cardData.factionRunemark);
-        if (cardData.subfactionRunemark == 'assets/img/blank.gif') {
-            drawFactionRunemarkLarge(cardData.factionRunemark, 302);
+    if(getSelectedFactionRunemark() != "assets/img/blank.gif"){
+        // sybmols at the top
+        if (tripleCheck) {
+            drawImageSrc({ x: 92.5, y: 35 }, { x: 135, y: 135 }, cardData.factionRunemark);
+            if (cardData.subfactionRunemark == 'assets/img/blank.gif') {
+                drawFactionRunemarkLarge(cardData.factionRunemark, 302);
+            }
+            drawSubfactionRunemarkLarge(cardData.subfactionRunemark, 302);
         }
-        drawSubfactionRunemarkLarge(cardData.subfactionRunemark, 302);
-    }
-    else if (document.getElementById('ability7-toggle').checked) {
-        drawImageSrc({ x: 92.5, y: 35 }, { x: 135, y: 135 }, cardData.factionRunemark);
-        if (cardData.subfactionRunemark == 'assets/img/blank.gif') {
-            drawFactionRunemark(cardData.factionRunemark, 151);
+        else if (document.getElementById('ability7-toggle').checked) {
+            drawImageSrc({ x: 92.5, y: 35 }, { x: 135, y: 135 }, cardData.factionRunemark);
+            if (cardData.subfactionRunemark == 'assets/img/blank.gif') {
+                drawFactionRunemark(cardData.factionRunemark, 151);
+            }
+            drawSubfactionRunemark(cardData.subfactionRunemark, 151);
         }
-        drawSubfactionRunemark(cardData.subfactionRunemark, 151);
-    }
-    else {
-        drawImageSrc({ x: 92.5, y: 35 }, { x: 135, y: 135 }, cardData.factionRunemark);
-        if (cardData.subfactionRunemark == 'assets/img/blank.gif') {
-            drawFactionRunemark(cardData.factionRunemark, 174);
+        else {
+            drawImageSrc({ x: 92.5, y: 35 }, { x: 135, y: 135 }, cardData.factionRunemark);
+            if (cardData.subfactionRunemark == 'assets/img/blank.gif') {
+                drawFactionRunemark(cardData.factionRunemark, 174);
+            }
+            drawSubfactionRunemark(cardData.subfactionRunemark, 174);
         }
-        drawSubfactionRunemark(cardData.subfactionRunemark, 174);
     }
 
     // idea here is to check the number of runemarks being used per row
