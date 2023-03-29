@@ -19543,7 +19543,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Hero"
+    "Runemarks": "Hero, Champion"
   },
   {
     "id": 674,
@@ -22095,7 +22095,7 @@
     "Weapon2_Strength": "",
     "Weapon2_Dmg_Hit": "",
     "Weapon2_Dmg_Crit": "",
-    "Runemarks": "Thrall, Trapper, Bulwark"
+    "Runemarks": "Thrall, Bulwark"
   },
   {
     "id": 762,
@@ -30556,7 +30556,7 @@
     "Weapon1_Dmg_Hit": 1,
     "Weapon1_Dmg_Crit": 4,
     "Weapon2": "TRUE",
-    "Weapon2_Runemark": "Ranged Weapon",
+    "Weapon2_Runemark": "Blast",
     "Weapon2_Min_Range": 3,
     "Weapon2_Max_Range": 7,
     "Weapon2_Attacks": 2,
