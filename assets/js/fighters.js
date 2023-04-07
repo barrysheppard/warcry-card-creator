@@ -1404,10 +1404,25 @@ async function loadFighterByName(name, warband) {
   
     if (filteredData.length === 1) {
       saveFighterFromList(filteredData[0]);
+    } else if (filteredData.length > 1) {
+      // Fuzzy match
+      let options = {
+        includeScore: true,
+        keys: ["Name", "Subtitle"],
+        threshold: 0.4, // adjust the threshold as needed
+      };
+      let fuse = new Fuse(filteredData, options);
+      let result = fuse.search(name);
+      if (result.length > 0) {
+        saveFighterFromList(result[0].item);
+      } else {
+        console.log("No matching fighter found.");
+      }
     } else {
-      console.log("No matching fighter found or multiple fighters found.");
+      console.log("No matching fighter found.");
     }
   }
+  
   
 
 function saveFighterFromList(fighter){
