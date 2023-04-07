@@ -720,7 +720,6 @@ const render = function(fighterData) {
 const renderCustomBackground = function(fighterData) {
     const backgroundImage = new Image();
     const removeTextAndFrame = document.getElementById("removeTextAndFrame").checked;
-    console.log("Check Point One:");
     console.log(removeTextAndFrame);
     backgroundImage.onload = function() {
         const position = scalePixelPosition({
@@ -731,7 +730,6 @@ const renderCustomBackground = function(fighterData) {
         const width = backgroundImage.width * scale / 100;
         const height = backgroundImage.height * scale / 100;
         getContext().drawImage(backgroundImage, position.x, position.y, width, height);
-        console.log("Check Point Two");
         if(!removeTextAndFrame){
             drawFrame();
             if (!(document.getElementById('subfaction-runemarks/none/blank.gif').checked) && fighterData.subfactionRunemark != null) {
@@ -750,7 +748,6 @@ const renderCustomBackground = function(fighterData) {
 const renderDefaultBackground = function(fighterData) {
     const removeTextAndFrame = document.getElementById("removeTextAndFrame").checked;
     getContext().drawImage(getBackgroundImage(), 0, 0, getCanvas().width, getCanvas().height);
-    console.log("Check Point Three");
     if(!removeTextAndFrame){
         drawFrame();
     }
@@ -1096,6 +1093,12 @@ window.onload = function () {
     getFighterList()
         // log response or catch error of fetch promise
         .then((data) => updateFighterListDropdown(data))
+    
+    var queryString = window.location.search;
+    var urlParams = new URLSearchParams(queryString);
+    var fighter = urlParams.get('fighter');
+    var warband = urlParams.get('warband');
+    loadFighterByName(fighter, warband)
 }
 
 onAnyChange = function () {
@@ -1360,15 +1363,12 @@ async function fileChange(file) {
 
 
 async function getFighterList(){
-
     // await response of fetch call
     let response = await fetch("assets/fighters.json");
-    
     // only proceed once promise is resolved
     let data = await response.json();
     // only proceed once second promise is resolved
     return data;
-    
 }
 
 
@@ -1376,20 +1376,39 @@ function updateFighterListDropdown(data){
     $.each(data, function(i, option) {
         $('#sel').append($('<option/>').attr("value", option.id).text(option.Name + " " + option.Subtitle + " - " + option.Warband));
     });
-
 }
 
 function loadFighterFromList(){
-    
         var x = document.getElementById("sel").selectedIndex;
         var y = document.getElementById("sel").options;
         console.log("Index: " + y[x].index + " is " + y[x].text);
-
         getFighterList()
         // log response or catch error of fetch promise
         .then((data) => saveFighterFromList(data[y[x].index]));
-
 }
+
+async function loadFighterByName(name, warband) {
+    let response = await fetch("assets/fighters.json");
+    let data = await response.json();
+    let filteredData = data.filter((fighter) => {
+      let fullName = fighter.Name + " " + fighter.Subtitle;
+      if (warband) {
+        return (
+          fullName.toLowerCase().includes(name.toLowerCase()) &&
+          fighter.Warband.toLowerCase().includes(warband.toLowerCase())
+        );
+      } else {
+        return fullName.toLowerCase().includes(name.toLowerCase());
+      }
+    });
+  
+    if (filteredData.length === 1) {
+      saveFighterFromList(filteredData[0]);
+    } else {
+      console.log("No matching fighter found or multiple fighters found.");
+    }
+  }
+  
 
 function saveFighterFromList(fighter){
 
@@ -1438,10 +1457,8 @@ function saveFighterFromList(fighter){
     fighterData.weapon2.runemark = fighter.Weapon2_Runemark;
     fighterData.weapon2.runemark = getWeaponRunemark(fighter.Weapon2_Runemark);
 
-
     fighterData.subfactionRunemark = getBladebornRunemark(fighter.Bladeborn);
     fighterData.deploymentRunemark = null;
-
     fighterData.bg01 = oldData.bg01;
     fighterData.bg02 = oldData.bg02;
     fighterData.bg03 = oldData.bg03;
@@ -1458,7 +1475,6 @@ function saveFighterFromList(fighter){
     fighterData.bg14 = oldData.bg14;
     fighterData.bg15 = oldData.bg15;
     fighterData.bg16 = oldData.bg16;
-
     writeControls(fighterData);
 }
 
@@ -1534,7 +1550,6 @@ function getFactionRunemark(warband){
     else if(warband == "Sylvaneth") {runemark = "runemarks/white/factions-order-sylvaneth.svg";}
     else if(warband == "Askurgan Trueblades") {runemark = "runemarks/white/factions-death-askurgan-trueblades.svg";}
     else if(warband == "Claws of Karanak") {runemark = "runemarks/white/factions-chaos-claws-of-karanak.svg";}
-
     else { runemark = "runemarks/white/factions-chaos-everchosen.svg";}
     return runemark;
 }
@@ -1618,8 +1633,6 @@ function getRunemarks(runemarks){
         tagRunemarks.push('runemarks/black/fighters-terrifying.svg');
     }
     return tagRunemarks;
-
-
 }
 
 
@@ -1644,8 +1657,6 @@ function getWeaponRunemark(weaponSymbol){
     else { runemark = "runemarks/black/weapons-dagger.svg";}
     return runemark;
 }
-
-
 
 function getBladebornRunemark(bladeborn){
 
@@ -1690,7 +1701,6 @@ function getBladebornRunemark(bladeborn){
     else if(bladeborn == "Zarbag's Gitz") {runemark = "runemarks/white/bladeborn-zarbag.svg";}
     else if(bladeborn == "Grinkrak's Looncourt") {runemark = "runemarks/white/bladeborn-grinkrakslooncourt.svg";}
     else if(bladeborn == "Gryselle's Arenai") {runemark = "runemarks/white/bladeborn-grysellesarenai.svg";}
-
     else runemark = null;
     return runemark;
 }
@@ -1701,7 +1711,6 @@ function getCustomBackgroundProperties() {
         offsetX: $("#customBackgroundOffsetX")[0].valueAsNumber,
         offsetY: $("#customBackgroundOffsetY")[0].valueAsNumber,
         scalePercent: $("#customBackgroundScalePercent")[0].valueAsNumber,
-        
     };
 }
 
