@@ -1098,7 +1098,18 @@ window.onload = function () {
     var urlParams = new URLSearchParams(queryString);
     var fighter = urlParams.get('fighter');
     var warband = urlParams.get('warband');
-    loadFighterByName(fighter, warband)
+    
+    if (validateInput(fighter) && validateInput(warband)) {
+        loadFighterByName(fighter, warband);
+    } else {
+        console.log("Invalid input parameters.");
+    }
+}
+
+function validateInput(input) {
+    // Only allow letters, spaces, and hyphens
+    var regex = /^[a-zA-Z\s:-]+$/;
+    return regex.test(input);
 }
 
 onAnyChange = function () {
@@ -1406,6 +1417,7 @@ async function loadFighterByName(name, warband) {
       saveFighterFromList(filteredData[0]);
     } else if (filteredData.length > 1) {
       // Fuzzy match
+      console.log("Fuzzy matching fighter.");
       let options = {
         includeScore: true,
         keys: ["Name", "Subtitle"],
