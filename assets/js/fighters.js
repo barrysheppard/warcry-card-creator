@@ -1094,16 +1094,17 @@ window.onload = function () {
         // log response or catch error of fetch promise
         .then((data) => updateFighterListDropdown(data))
     
-    var queryString = window.location.search;
-    var urlParams = new URLSearchParams(queryString);
-    var fighter = urlParams.get('fighter');
-    var warband = urlParams.get('warband');
-    
-    if (validateInput(fighter) && validateInput(warband)) {
-        loadFighterByName(fighter, warband);
-    } else {
-        console.log("Invalid input parameters.");
-    }
+        var queryString = window.location.search;
+        var urlParams = new URLSearchParams(queryString);
+        
+        var fighter = urlParams.get('fighter');
+        var warband = urlParams.get('warband');
+        
+        if (fighter && fighter.trim() !== '' && validateInput(warband)) {
+            loadFighterByName(fighter, warband);
+        } else {
+            console.log("Invalid input parameters.");
+        }
 }
 
 function validateInput(input) {
