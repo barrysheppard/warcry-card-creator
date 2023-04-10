@@ -1363,6 +1363,10 @@ async function fileChange(file) {
     // in this case logged to the console
 
     var saveJson = function (json) {
+        json.customBackgroundUrl =  null;
+        if (typeof json.customBackgroundProperties === "undefined") {
+            json.customBackgroundProperties = getDefaultModelImageProperties();
+        }
         writeControls(json);
     };
 
@@ -1743,9 +1747,9 @@ function getCustomBackgroundProperties() {
 }
 
 function setCustomBackgroundProperties(customBackgroundProperties) {
-    $("#customBackgroundOffsetX")[0].value = customBackgroundProperties.offsetX;
-    $("#customBackgroundOffsetY")[0].value = customBackgroundProperties.offsetY;
-    $("#customBackgroundScalePercent")[0].value = customBackgroundProperties.scalePercent;
+    $("#customBackgroundOffsetX")[0].value = customBackgroundProperties.offsetX || 0;
+    $("#customBackgroundOffsetY")[0].value = customBackgroundProperties.offsetY || 0;
+    $("#customBackgroundScalePercent")[0].value = customBackgroundProperties.scalePercent || 100;
 }
 
 function getCustomBackground() {
