@@ -702,7 +702,7 @@ function drawDeploymentRunemark(image) {
     var size = scalePixelPosition({ x: 80, y: 80 });
     getContext().drawImage(img, position.x, position.y, size.x, size.y);
 
-
+    console.log(image)
     // draw the runemark
     var position = scalePixelPosition({ x: startX + 4, y: startY+4 });
     var size = scalePixelPosition({ x: 80, y: 80 });
@@ -822,10 +822,9 @@ function drawOverlayTexts(fighterData) {
     }
   
     // Draw deployment runemark if enabled
-    if (showDeploymentRunemark && deploymentRunemark) {
-      drawDeploymentRunemark(deploymentRunemark);
+    if (!(document.getElementById('checkbox-assets/img/blank2.gif').checked) && fighterData.deploymentRunemark != null) {
+        drawDeploymentRunemark(fighterData.deploymentRunemark);
     }
-  
     drawMove(move);
     drawWounds(wounds);
     drawToughness(toughness);
