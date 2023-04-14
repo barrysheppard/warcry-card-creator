@@ -817,8 +817,8 @@ function drawOverlayTexts(fighterData) {
     drawBorder();
   
     // Draw subfaction runemark if enabled
-    if (showSubfactionRunemark && subfactionRunemark) {
-      drawSubfactionRunemark(subfactionRunemark);
+    if (!(document.getElementById('subfaction-runemarks/none/blank.gif').checked) && fighterData.subfactionRunemark != null) {
+        drawSubfactionRunemark(subfactionRunemark);
     }
   
     // Draw deployment runemark if enabled
