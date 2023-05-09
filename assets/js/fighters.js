@@ -1389,7 +1389,7 @@ async function getFighterList(){
 
 function updateFighterListDropdown(data){
     $.each(data, function(i, option) {
-        $('#sel').append($('<option/>').attr("value", option.id).text(option.Name + " " + option.Subtitle + " - " + option.Warband));
+        $('#sel').append($('<option/>').attr("value", option.id).text(option.name + " - " + option.warband));
     });
 }
 
@@ -1424,7 +1424,7 @@ async function loadFighterByName(name, warband) {
       console.log("Fuzzy matching fighter.");
       let options = {
         includeScore: true,
-        keys: ["Name", "Subtitle"],
+        keys: ["name", "subtitle"],
         threshold: 0.4, // adjust the threshold as needed
       };
       let fuse = new Fuse(filteredData, options);
@@ -1455,40 +1455,38 @@ function saveFighterFromList(fighter){
     fighterData.base64Image = null;
     fighterData.base64CustomBackground = null;
     
-    fighterData.factionRunemark = getFactionRunemark(fighter.Warband);    
-    fighterData.fighterName = fighter.Name;
-    fighterData.fighterName2 = fighter.Subtitle;
-    fighterData.toughness = fighter.Toughness;
-    fighterData.wounds = fighter.Wounds;
-    fighterData.move = fighter.Movement;
-    fighterData.pointCost = fighter.Points;
-    fighterData.tagRunemarks = getRunemarks(fighter.Runemarks);
+    fighterData.factionRunemark = getFactionRunemark(fighter.warband);    
+    fighterData.fighterName = fighter.name.replace(fighter.subtitle, "");;
+    fighterData.fighterName2 = fighter.subtitle;
+    fighterData.toughness = fighter.toughness;
+    fighterData.wounds = fighter.wounds;
+    fighterData.move = fighter.movement;
+    fighterData.pointCost = fighter.points;
+    fighterData.tagRunemarks = getRunemarks(fighter.runemarks);
     fighterData.weapon1 = getDefaultWeaponData1();
     fighterData.weapon1.enabled = true;
-    fighterData.weapon1.rangeMin = fighter.Weapon1_Min_Range;
-    fighterData.weapon1.rangeMax = fighter.Weapon1_Max_Range;
-    fighterData.weapon1.attacks = fighter.Weapon1_Attacks;
-    fighterData.weapon1.strength = fighter.Weapon1_Strength;
-    fighterData.weapon1.damageBase = fighter.Weapon1_Dmg_Hit;
-    fighterData.weapon1.damageCrit = fighter.Weapon1_Dmg_Crit;
-    fighterData.weapon1.runemark = getWeaponRunemark(fighter.Weapon1_Runemark);
+    fighterData.weapon1.rangeMin = fighter.attacks[0].min_range;
+    fighterData.weapon1.rangeMax = fighter.attacks[0].max_range;
+    fighterData.weapon1.attacks = fighter.attacks[0].attacks;;
+    fighterData.weapon1.strength = fighter.attacks[0].strength;
+    fighterData.weapon1.damageBase = fighter.attacks[0].dmg_hit;
+    fighterData.weapon1.damageCrit = fighter.attacks[0].dmg_crit;
+    fighterData.weapon1.runemark = getWeaponRunemark(fighter.attacks[0].runemark);
 
     fighterData.weapon2 = getDefaultWeaponData2();
-    if (fighter.Weapon2 == "TRUE"){
+    if (fighter.attacks && fighter.attacks.length > 1 && fighter.attacks[1].hasOwnProperty("attacks")) {
         fighterData.weapon2.enabled = true;
+        fighterData.weapon2.rangeMin = fighter.attacks[1].min_range;
+        fighterData.weapon2.rangeMax = fighter.attacks[1].max_range;
+        fighterData.weapon2.attacks = fighter.attacks[1].attacks;
+        fighterData.weapon2.strength = fighter.attacks[1].strength;
+        fighterData.weapon2.damageBase = fighter.attacks[1].dmg_hit;
+        fighterData.weapon2.damageCrit = fighter.attacks[1].dmg_crit;
+        fighterData.weapon2.runemark = getWeaponRunemark(fighter.attacks[1].runemark);
     } else {
         fighterData.weapon2.enabled = false;
     }
-    fighterData.weapon2.rangeMin = fighter.Weapon2_Min_Range;
-    fighterData.weapon2.rangeMax = fighter.Weapon2_Max_Range;
-    fighterData.weapon2.attacks = fighter.Weapon2_Attacks;
-    fighterData.weapon2.strength = fighter.Weapon2_Strength;
-    fighterData.weapon2.damageBase = fighter.Weapon2_Dmg_Hit;
-    fighterData.weapon2.damageCrit = fighter.Weapon2_Dmg_Crit;
-    fighterData.weapon2.runemark = fighter.Weapon2_Runemark;
-    fighterData.weapon2.runemark = getWeaponRunemark(fighter.Weapon2_Runemark);
-
-    fighterData.subfactionRunemark = getBladebornRunemark(fighter.Bladeborn);
+    fighterData.subfactionRunemark = getBladebornRunemark(fighter.bladeborn);
     fighterData.deploymentRunemark = null;
     fighterData.bg01 = oldData.bg01;
     fighterData.bg02 = oldData.bg02;
