@@ -1540,6 +1540,7 @@ function getFactionRunemark(warband){
     else if(warband == "Legions of Nagash") {runemark = "runemarks/white/factions-death-legions-of-nagash.svg";}
     else if(warband == "Nighthaunt") {runemark = "runemarks/white/factions-death-nighthaunt.svg";}
     else if(warband == "Ossiarch Bonereapers") {runemark = "runemarks/white/factions-death-ossiarch-bonereapers.svg";}
+    else if(warband == "Royal Beastflayers") {runemark = "runemarks/white/factions-death-royal-beastflayers.svg";}
     else if(warband == "Soulblight Gravelords") {runemark = "runemarks/white/factions-death-soulblight-gravelords.svg";}
     else if(warband == "Bonesplitterz") {runemark = "runemarks/white/factions-destruction-bonesplitterz.svg";}
     else if(warband == "Gloomspite Gitz") {runemark = "runemarks/white/factions-destruction-gloomspite-gitz.svg";}
