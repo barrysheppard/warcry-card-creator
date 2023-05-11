@@ -1428,7 +1428,7 @@ async function loadFighterByName(name, warband) {
       if (warband) {
         return (
           fullName.toLowerCase().includes(name.toLowerCase()) &&
-          fighter.Warband.toLowerCase().includes(warband.toLowerCase())
+          fighter.warband.toLowerCase().includes(warband.toLowerCase())
         );
       } else {
         return fullName.toLowerCase().includes(name.toLowerCase());
