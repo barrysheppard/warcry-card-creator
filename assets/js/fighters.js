@@ -134,7 +134,7 @@ drawCardElementFromInputId = function (inputId, pixelPosition) {
 }
 
 drawFighterName = function (value) {
-    startX = 860;
+    startX = 850;
     startY = 700;
     if (document.getElementById('bg-13').checked){
         getContext().font = '44px schoensperger';
@@ -158,7 +158,7 @@ drawFighterName = function (value) {
 }
 
 drawFighterName2 = function (value) {
-    startX = 860;
+    startX = 850;
     startY = 732;
     if (document.getElementById('bg-13').checked){
         getContext().font = '32px schoensperger';
@@ -947,10 +947,10 @@ function defaultFighterData() {
     fighterData.bg08 = false;
     fighterData.bg09 = false;
     fighterData.bg10 = false;
-    fighterData.bg11 = false;
+    fighterData.bg11 = true;
     fighterData.bg12 = false;
     fighterData.bg13 = false;
-    fighterData.bg14 = true;
+    fighterData.bg14 = false;
     fighterData.bg15 = false;
     fighterData.bg16 = false;
 
@@ -1054,31 +1054,7 @@ async function handleImageUrlFromDisk(imageUrl) {
 
     return imageUrl;
 }
-/*
-async function saveFighterData(fighterData) {
-    var finishSaving = function () {
-        var map = loadFighterDataMap();
-        map[fighterData.name] = fighterData;
-        window.localStorage.setItem("fighterDataMap", JSON.stringify(map));
-    };
 
-    if (fighterData != null &&
-        fighterData.name) {
-        // handle images we may have loaded from disk...
-        fighterData.imageUrl = await handleImageUrlFromDisk(fighterData.imageUrl);
-        fighterData.factionRunemark = await handleImageUrlFromDisk(fighterData.factionRunemark);
-        fighterData.subfactionRunemark = await handleImageUrlFromDisk(fighterData.subfactionRunemark);
-        fighterData.deploymentRunemark = await handleImageUrlFromDisk(fighterData.deploymentRunemark);
-        for (i = 0; i < fighterData.tagRunemarks.length; i++) {
-            fighterData.tagRunemarks[i] = await handleImageUrlFromDisk(fighterData.tagRunemarks[i]);
-        }
-        fighterData.weapon1.runemark = await handleImageUrlFromDisk(fighterData.weapon1.runemark);
-        fighterData.weapon2.runemark = await handleImageUrlFromDisk(fighterData.weapon2.runemark);
-
-        finishSaving();
-    }
-}
-*/
 function getLatestFighterDataName() {
     return "latestFighterData";
 }
@@ -1096,10 +1072,13 @@ window.onload = function () {
         var queryString = window.location.search;
         var urlParams = new URLSearchParams(queryString);
         
+        var id = urlParams.get('id');
         var fighter = urlParams.get('fighter');
         var warband = urlParams.get('warband');
         
-        if (fighter && fighter.trim() !== '' && validateInput(warband)) {
+        if (id && id.trim() !== '') {
+            loadFighterById(id);
+        } else if (fighter && fighter.trim() !== '' && validateInput(warband)) {
             loadFighterByName(fighter, warband);
         } else {
             console.log("Invalid input parameters.");
@@ -1420,6 +1399,30 @@ function loadFighterFromList(){
         .then((data) => saveFighterFromList(data[y[x].index]));
 }
 
+
+
+async function loadFighterById(id) {
+    // Load the JSON file
+    fetch("assets/fighters.json")
+      .then(response => response.json())
+      .then(data => {
+        // Find the fighter with the matching id
+        const fighter = data.find(f => f._id === id);
+        
+        // Check if fighter is found
+        if (fighter) {
+          // Call saveFighterFromList with the fighter as input
+          saveFighterFromList(fighter);
+        } else {
+          console.log("Fighter not found.");
+        }
+      })
+      .catch(error => {
+        console.log("Error loading fighters:", error);
+      });
+  }
+  
+
 async function loadFighterByName(name, warband) {
     let response = await fetch("assets/fighters.json");
     let data = await response.json();
@@ -1435,7 +1438,7 @@ async function loadFighterByName(name, warband) {
       }
     });
   
-    if (filteredData.length === 1) {
+    if (filteredData.length == 1) {
       saveFighterFromList(filteredData[0]);
     } else if (filteredData.length > 1) {
       // Fuzzy match
@@ -1472,10 +1475,21 @@ function saveFighterFromList(fighter){
     fighterData.customBackgroundProperties = oldData.customBackgroundProperties;
     fighterData.base64Image = null;
     fighterData.base64CustomBackground = null;
-    
-    fighterData.factionRunemark = getFactionRunemark(fighter.warband);    
-    fighterData.fighterName = fighter.name.replace(fighter.subtitle, "");;
-    fighterData.fighterName2 = fighter.subtitle;
+    fighterData.factionRunemark = getFactionRunemark(fighter.warband);
+
+    fighterName = fighter.name;
+    fighterName2 = " ";
+  
+    if (fighter.name.length > 20) {
+      const lastSpaceIndex = fighter.name.lastIndexOf(" ", 20);
+      if (lastSpaceIndex !== -1) {
+        fighterName = fighter.name.substring(0, lastSpaceIndex);
+        fighterName2 = fighter.name.substring(lastSpaceIndex + 1);
+      }
+    }
+
+    fighterData.fighterName = fighterName;
+    fighterData.fighterName2 = fighterName2;
     fighterData.toughness = fighter.toughness;
     fighterData.wounds = fighter.wounds;
     fighterData.move = fighter.movement;
@@ -1483,24 +1497,24 @@ function saveFighterFromList(fighter){
     fighterData.tagRunemarks = getRunemarks(fighter.runemarks);
     fighterData.weapon1 = getDefaultWeaponData1();
     fighterData.weapon1.enabled = true;
-    fighterData.weapon1.rangeMin = fighter.attacks[0].min_range;
-    fighterData.weapon1.rangeMax = fighter.attacks[0].max_range;
-    fighterData.weapon1.attacks = fighter.attacks[0].attacks;;
-    fighterData.weapon1.strength = fighter.attacks[0].strength;
-    fighterData.weapon1.damageBase = fighter.attacks[0].dmg_hit;
-    fighterData.weapon1.damageCrit = fighter.attacks[0].dmg_crit;
-    fighterData.weapon1.runemark = getWeaponRunemark(fighter.attacks[0].runemark);
+    fighterData.weapon1.rangeMin = fighter.weapons[0].min_range;
+    fighterData.weapon1.rangeMax = fighter.weapons[0].max_range;
+    fighterData.weapon1.attacks = fighter.weapons[0].attacks;;
+    fighterData.weapon1.strength = fighter.weapons[0].strength;
+    fighterData.weapon1.damageBase = fighter.weapons[0].dmg_hit;
+    fighterData.weapon1.damageCrit = fighter.weapons[0].dmg_crit;
+    fighterData.weapon1.runemark = getWeaponRunemark(fighter.weapons[0].runemark);
 
     fighterData.weapon2 = getDefaultWeaponData2();
-    if (fighter.attacks && fighter.attacks.length > 1 && fighter.attacks[1].hasOwnProperty("attacks")) {
+    if (fighter.weapons && fighter.weapons.length > 1 && fighter.weapons[1].hasOwnProperty("attacks")) {
         fighterData.weapon2.enabled = true;
-        fighterData.weapon2.rangeMin = fighter.attacks[1].min_range;
-        fighterData.weapon2.rangeMax = fighter.attacks[1].max_range;
-        fighterData.weapon2.attacks = fighter.attacks[1].attacks;
-        fighterData.weapon2.strength = fighter.attacks[1].strength;
-        fighterData.weapon2.damageBase = fighter.attacks[1].dmg_hit;
-        fighterData.weapon2.damageCrit = fighter.attacks[1].dmg_crit;
-        fighterData.weapon2.runemark = getWeaponRunemark(fighter.attacks[1].runemark);
+        fighterData.weapon2.rangeMin = fighter.weapons[1].min_range;
+        fighterData.weapon2.rangeMax = fighter.weapons[1].max_range;
+        fighterData.weapon2.attacks = fighter.weapons[1].attacks;
+        fighterData.weapon2.strength = fighter.weapons[1].strength;
+        fighterData.weapon2.damageBase = fighter.weapons[1].dmg_hit;
+        fighterData.weapon2.damageCrit = fighter.weapons[1].dmg_crit;
+        fighterData.weapon2.runemark = getWeaponRunemark(fighter.weapons[1].runemark);
     } else {
         fighterData.weapon2.enabled = false;
     }
@@ -1525,11 +1539,9 @@ function saveFighterFromList(fighter){
     writeControls(fighterData);
 }
 
-
-
 function getFactionRunemark(warband){
     if(warband == "Beasts of Chaos") {runemark = "runemarks/white/factions-chaos-beasts-of-chaos.svg"} 
-    else if(warband == "Chaos Legionnaaires") {runemark = "runemarks/white/factions-chaos-chaos-legionnaires.svg";}
+    else if(warband == "Chaos Legionnaires") {runemark = "runemarks/white/factions-chaos-chaos-legionnaires.svg";}
     else if(warband == "Corvus Cabal") {runemark = "runemarks/white/factions-chaos-corvus-cabal.svg";}
     else if(warband == "Cypher Lords") {runemark = "runemarks/white/factions-chaos-cypher-lords.svg";}
     else if(warband == "Darkoath Savagers") {runemark = "runemarks/white/factions-chaos-darkoath-savagers.svg";}
@@ -1537,22 +1549,22 @@ function getFactionRunemark(warband){
     else if(warband == "Horns of Hashut") {runemark = "runemarks/white/factions-chaos-horns-of-hashut.svg";}
     else if(warband == "Iron Golems") {runemark = "runemarks/white/factions-chaos-iron-golems.svg";}
     else if(warband == "Jade Obelisk") {runemark = "runemarks/white/factions-chaos-jade-obelisk.svg";}
-    else if(warband == "Khorne Bloodbound") {runemark = "runemarks/white/factions-chaos-khorne-bloodbound.svg";}
+    else if(warband == "Blades of Khorne Bloodbound") {runemark = "runemarks/white/factions-chaos-khorne-bloodbound.svg";}
     else if(warband == "Daemons of Khorne") {runemark = "runemarks/white/factions-chaos-khorne-daemons.svg";}
-    else if(warband == "Daemons of Nurgle") {runemark = "runemarks/white/factions-chaos-nurgle-daemons.svg";}
-    else if(warband == "Nurgle Rotbringers") {runemark = "runemarks/white/factions-chaos-nurgle-rotbringers.svg";}
+    else if(warband == "Maggotkin of Nurgle Daemons") {runemark = "runemarks/white/factions-chaos-nurgle-daemons.svg";}
+    else if(warband == "Maggotkin of Nurgle Rotbringers") {runemark = "runemarks/white/factions-chaos-nurgle-rotbringers.svg";}
     else if(warband == "Rotmire Creed") {runemark = "runemarks/white/factions-chaos-rotmire-creed.svg";}
     else if(warband == "Scions of the Flame") {runemark = "runemarks/white/factions-chaos-scions-of-the-flame.svg";}
     else if(warband == "Skaven") {runemark = "runemarks/white/factions-chaos-skaven.svg";}
-    else if(warband == "Daemons of Slaanesh") {runemark = "runemarks/white/factions-chaos-slaanesh-daemons.svg";}
-    else if(warband == "Slaanesh Sybarites") {runemark = "runemarks/white/factions-chaos-slaanesh-sybarites.svg";}
+    else if(warband == "Hedonites of Slaanesh Daemons") {runemark = "runemarks/white/factions-chaos-slaanesh-daemons.svg";}
+    else if(warband == "Hedonites of Slaanesh Sybarites") {runemark = "runemarks/white/factions-chaos-slaanesh-sybarites.svg";}
     else if(warband == "Slaves to Darkness") {runemark = "runemarks/white/factions-chaos-slaves-to-darkness.svg";}
     else if(warband == "Spire Tyrants") {runemark = "runemarks/white/factions-chaos-spire-tyrants.svg";}
     else if(warband == "Splintered Fang") {runemark = "runemarks/white/factions-chaos-splintered-fang.svg";}
     else if(warband == "Tarantulos Brood") {runemark = "runemarks/white/factions-chaos-tarantulos-brood.svg";}
     else if(warband == "The Unmade") {runemark = "runemarks/white/factions-chaos-the-unmade.svg";}
-    else if(warband == "Tzeentch Arcanites") {runemark = "runemarks/white/factions-chaos-tzeentch-arcanites.svg";}
-    else if(warband == "Daemons of Tzeentch") {runemark = "runemarks/white/factions-chaos-tzeentch-daemons.svg";}
+    else if(warband == "Disciples of Tzeentch Arcanites") {runemark = "runemarks/white/factions-chaos-tzeentch-arcanites.svg";}
+    else if(warband == "Disciples of Tzeentch Daemons") {runemark = "runemarks/white/factions-chaos-tzeentch-daemons.svg";}
     else if(warband == "Untamed Beasts") {runemark = "runemarks/white/factions-chaos-untamed-beasts.svg";}
     else if(warband == "Flesh-eater Courts") {runemark = "runemarks/white/factions-death-flesh-eater-courts.svg";}
     else if(warband == "Legions of Nagash") {runemark = "runemarks/white/factions-death-legions-of-nagash.svg";}
@@ -1565,21 +1577,18 @@ function getFactionRunemark(warband){
     else if(warband == "Ironjawz") {runemark = "runemarks/white/factions-destruction-ironjawz.svg";}
     else if(warband == "Kruleboyz") {runemark = "runemarks/white/factions-destruction-kruleboyz.svg";}
     else if(warband == "Ogor Mawtribes") {runemark = "runemarks/white/factions-destruction-ogor-mawtribes.svg";}
-
-    else if(warband == "ChaosAllyThrallMonster") {runemark = "runemarks/white/grand-alliance-chaos.svg";}
-    else if(warband == "OrderAllyThrallMonster") {runemark = "runemarks/white/grand-alliance-order.svg";}
-    else if(warband == "DestAllyThrallMonster") {runemark = "runemarks/white/grand-alliance-destruction.svg";}
-    else if(warband == "DeathAllyThrallMonster") {runemark = "runemarks/white/grand-alliance-death.svg";}
-    /*
-    else if(warband = "Cities of Sigmar Alt") {runemark = "runemarks/white/factions-order-cities-of-sigmar-alternative.svg";}
-    else if(warband = "Chaos Legionnaaires") {runemark = "runemarks/white/factions-order-cities-of-sigmar-anvilgard.svg";}
-    else if(warband = "Chaos Legionnaaires") {runemark = "runemarks/white/factions-order-cities-of-sigmar-greywater-fastness.svg";}
-    else if(warband = "Chaos Legionnaaires") {runemark = "runemarks/white/factions-order-cities-of-sigmar-hallowheart.svg";}
-    else if(warband = "Chaos Legionnaaires") {runemark = "runemarks/white/factions-order-cities-of-sigmar-hammerhal.svg";}
-    else if(warband = "Chaos Legionnaaires") {runemark = "runemarks/white/factions-order-cities-of-sigmar-tempests-eye.svg";}
-    else if(warband = "Chaos Legionnaaires") {runemark = "runemarks/white/factions-order-cities-of-sigmar-the-living-city.svg";}
-    else if(warband = "Chaos Legionnaaires") {runemark = "runemarks/white/factions-order-cities-of-sigmar-the-phoenicium.svg";}
-    */
+    else if(warband == "chaos_ally") {runemark = "runemarks/white/grand-alliance-chaos.svg";}
+    else if(warband == "chaos_thrall") {runemark = "runemarks/white/grand-alliance-chaos.svg";}
+    else if(warband == "chaos_monster") {runemark = "runemarks/white/grand-alliance-chaos.svg";}
+    else if(warband == "order_ally") {runemark = "runemarks/white/grand-alliance-order.svg";}
+    else if(warband == "order_thrall") {runemark = "runemarks/white/grand-alliance-order.svg";}
+    else if(warband == "order_monster") {runemark = "runemarks/white/grand-alliance-order.svg";}
+    else if(warband == "destruction_ally") {runemark = "runemarks/white/grand-alliance-destruction.svg";}
+    else if(warband == "destruction_monster") {runemark = "runemarks/white/grand-alliance-destruction.svg";}
+    else if(warband == "destruction_thrall") {runemark = "runemarks/white/grand-alliance-destruction.svg";}
+    else if(warband == "death_ally") {runemark = "runemarks/white/grand-alliance-death.svg";}
+    else if(warband == "death_thrall") {runemark = "runemarks/white/grand-alliance-death.svg";}
+    else if(warband == "death_monster") {runemark = "runemarks/white/grand-alliance-death.svg";}
     else if(warband == "Cities of Sigmar") {runemark = "runemarks/white/factions-order-cities-of-sigmar.svg";}
     else if(warband == "Daughters of Khaine") {runemark = "runemarks/white/factions-order-daughters-of-khaine.svg";}
     else if(warband == "Fyreslayers") {runemark = "runemarks/white/factions-order-fyreslayers.svg";}
@@ -1589,14 +1598,11 @@ function getFactionRunemark(warband){
     else if(warband == "Kharadron Overlords") {runemark = "runemarks/white/factions-order-kharadron-overlords.svg";}
     else if(warband == "Lumineth Realm-lords") {runemark = "runemarks/white/factions-order-lumineth-realmlords.svg";}
     else if(warband == "Seraphon") {runemark = "runemarks/white/factions-order-seraphon.svg";}
-    //else if(warband = "Chaos Legionnaaires") {runemark = "runemarks/white/factions-order-stormcast-eternals-alternative.svg";}
-    else if(warband == "SCE:Sacrosanct") {runemark = "runemarks/white/factions-order-stormcast-eternals-sacrosanct.svg";}
-    else if(warband == "SCE:Thunderstrike") {runemark = "runemarks/white/factions-order-stormcast-eternals-thunderstrike.svg";}
-    else if(warband == "SCE:Vanguard") {runemark = "runemarks/white/factions-order-stormcast-eternals-vanguard.svg";}
-    else if(warband == "SCE:Warrior") {runemark = "runemarks/white/factions-order-stormcast-eternals-warrior.svg";}
-    else if(warband == "SCE:Questor Soulsworn") {runemark = "runemarks/white/factions-order-stormcast-eternals-questor-soulsworn.svg";}
-
-    //else if(warband = "Chaos Legionnaaires") {runemark = "runemarks/white/factions-order-sylvaneth-alternative.svg";}
+    else if(warband == "Stormcast Eternals Sacrosanct Chamber") {runemark = "runemarks/white/factions-order-stormcast-eternals-sacrosanct.svg";}
+    else if(warband == "Stormcast Eternals Thunderstrike Stormcast") {runemark = "runemarks/white/factions-order-stormcast-eternals-thunderstrike.svg";}
+    else if(warband == "Stormcast Eternals Vanguard Auxiliary Chamber") {runemark = "runemarks/white/factions-order-stormcast-eternals-vanguard.svg";}
+    else if(warband == "Stormcast Eternals Warrior Chamber") {runemark = "runemarks/white/factions-order-stormcast-eternals-warrior.svg";}
+    else if(warband == "Stormcast Eternals Questor Soulsworn") {runemark = "runemarks/white/factions-order-stormcast-eternals-questor-soulsworn.svg";}
     else if(warband == "Sylvaneth") {runemark = "runemarks/white/factions-order-sylvaneth.svg";}
     else if(warband == "Askurgan Trueblades") {runemark = "runemarks/white/factions-death-askurgan-trueblades.svg";}
     else if(warband == "Claws of Karanak") {runemark = "runemarks/white/factions-chaos-claws-of-karanak.svg";}
@@ -1607,79 +1613,79 @@ function getFactionRunemark(warband){
 function getRunemarks(runemarks){
     tagRunemarks = new Array;
 
-    if (runemarks.includes("Agile")){
+    if (runemarks.includes("agile")){
         tagRunemarks.push('runemarks/black/fighters-agile.svg');
         }
-    if (runemarks.includes("Fly")){
+    if (runemarks.includes("fly")){
        tagRunemarks.push('runemarks/black/fighters-fly.svg');
         }
-    if (runemarks.includes("Beast")){
+    if (runemarks.includes("beast")){
         tagRunemarks.push('runemarks/black/fighters-beast.svg');
     }
-    if (runemarks.includes("Berserker")){
+    if (runemarks.includes("berserker")){
         tagRunemarks.push('runemarks/black/fighters-berserker.svg');
         }
-    if (runemarks.includes("Brute")){
+    if (runemarks.includes("brute")){
         tagRunemarks.push('runemarks/black/fighters-brute.svg');
     }
-    if (runemarks.includes("Bulwark")){
+    if (runemarks.includes("bulwark")){
         tagRunemarks.push('runemarks/black/fighters-bulwark.svg');
     }
-    if (runemarks.includes("Champion")){
+    if (runemarks.includes("champion")){
         tagRunemarks.push('runemarks/black/fighters-champion.svg');
     }
-    if (runemarks.includes("Sentience")){
+    if (runemarks.includes("sentience")){
         tagRunemarks.push('runemarks/black/fighters-sentience.svg');
     }
-    if (runemarks.includes("Destroyer")){
+    if (runemarks.includes("destroyer")){
         tagRunemarks.push('runemarks/black/fighters-destroyer.svg');
     }
-    if (runemarks.includes("Elite")){
+    if (runemarks.includes("elite")){
         tagRunemarks.push('runemarks/black/fighters-elite.svg');
     }
-    if (runemarks.includes("Icon Bearer")){ 
+    if (runemarks.includes("icon bearer")){ 
         tagRunemarks.push('runemarks/black/fighters-icon-bearer.svg');
     }
-    if (runemarks.includes("Mount")){
+    if (runemarks.includes("mount")){
         tagRunemarks.push('runemarks/black/fighters-mount.svg');
     }
-    if (runemarks.includes("Hero")){
+    if (runemarks.includes("hero")){
         tagRunemarks.push('runemarks/black/fighters-leader.svg');
     }
-    if (runemarks.includes("Mystic")){
+    if (runemarks.includes("mystic")){
         tagRunemarks.push('runemarks/black/fighters-mystic.svg');
     }
-    if (runemarks.includes("Minion")){
+    if (runemarks.includes("minion")){
         tagRunemarks.push('runemarks/black/fighters-minion.svg');
     }
-    if (runemarks.includes("Scout")){
+    if (runemarks.includes("scout")){
         tagRunemarks.push('runemarks/black/fighters-scout.svg');
     }
-    if (runemarks.includes("Trapper")){
+    if (runemarks.includes("trapper")){
         tagRunemarks.push('runemarks/black/fighters-trapper.svg');
     }
-    if (runemarks.includes("Warrior")){
+    if (runemarks.includes("warrior")){
         tagRunemarks.push('runemarks/black/fighters-warrior.svg');
     }
-    if (runemarks.includes("Monster")){
+    if (runemarks.includes("monster")){
         tagRunemarks.push('runemarks/black/fighters-gargantuan.svg');
     }
-    if (runemarks.includes("Thrall")){
+    if (runemarks.includes("thrall")){
         tagRunemarks.push('runemarks/black/fighters-thrall.svg');
     }
-    if (runemarks.includes("Ally")){
+    if (runemarks.includes("ally")){
         tagRunemarks.push('runemarks/black/fighters-ally.svg');
     }
-    if (runemarks.includes("Ferocious")){
+    if (runemarks.includes("ferocious")){
         tagRunemarks.push('runemarks/black/fighters-ferocious.svg');
     }
-    if (runemarks.includes("Frenzied")){
+    if (runemarks.includes("frenzied")){
         tagRunemarks.push('runemarks/black/fighters-frenzied.svg');
     }
-    if (runemarks.includes("Priest")){
+    if (runemarks.includes("priest")){
         tagRunemarks.push('runemarks/black/fighters-priest.svg');
     }
-    if (runemarks.includes("Terrifying")){
+    if (runemarks.includes("terrifying")){
         tagRunemarks.push('runemarks/black/fighters-terrifying.svg');
     }
     return tagRunemarks;
@@ -1687,23 +1693,23 @@ function getRunemarks(runemarks){
 
 
 function getWeaponRunemark(weaponSymbol){
-    if(weaponSymbol == "Axe") {runemark = "runemarks/black/weapons-axe.svg"} 
-    else if(weaponSymbol == "Bident") {runemark = "runemarks/black/weapons-bident.svg";}
-    else if(weaponSymbol == "Blast") {runemark = "runemarks/black/weapons-blast.svg";}
-    else if(weaponSymbol == "Claws") {runemark = "runemarks/black/weapons-claws.svg";}
-    else if(weaponSymbol == "Club") {runemark = "runemarks/black/weapons-club.svg";}
-    else if(weaponSymbol == "Dagger") {runemark = "runemarks/black/weapons-dagger.svg";}
-    else if(weaponSymbol == "Fangs") {runemark = "runemarks/black/weapons-fangs.svg";}
-    else if(weaponSymbol == "Hammer") {runemark = "runemarks/black/weapons-hammer.svg";}
-    else if(weaponSymbol == "Hook") {runemark = "runemarks/black/weapons-hook.svg";}
-    else if(weaponSymbol == "Mace") {runemark = "runemarks/black/weapons-mace.svg";}
-    else if(weaponSymbol == "Ranged Weapon") {runemark = "runemarks/black/weapons-ranged-weapon.svg";}
-    else if(weaponSymbol == "Reach Weapon") {runemark = "runemarks/black/weapons-reach-weapon.svg";}
-    else if(weaponSymbol == "Scythe") {runemark = "runemarks/black/weapons-scythe.svg";}
-    else if(weaponSymbol == "Spear") {runemark = "runemarks/black/weapons-spear.svg";}
-    else if(weaponSymbol == "Sword") {runemark = "runemarks/black/weapons-sword.svg";}
-    else if(weaponSymbol == "Unarmed") {runemark = "runemarks/black/weapons-unarmed.svg";}
-    else if(weaponSymbol == "Pistol") {runemark = "runemarks/black/weapons-pistol.svg";}
+    if(weaponSymbol == "axe") {runemark = "runemarks/black/weapons-axe.svg"} 
+    else if(weaponSymbol == "bident") {runemark = "runemarks/black/weapons-bident.svg";}
+    else if(weaponSymbol == "blast") {runemark = "runemarks/black/weapons-blast.svg";}
+    else if(weaponSymbol == "claws") {runemark = "runemarks/black/weapons-claws.svg";}
+    else if(weaponSymbol == "club") {runemark = "runemarks/black/weapons-club.svg";}
+    else if(weaponSymbol == "dagger") {runemark = "runemarks/black/weapons-dagger.svg";}
+    else if(weaponSymbol == "fangs") {runemark = "runemarks/black/weapons-fangs.svg";}
+    else if(weaponSymbol == "hammer") {runemark = "runemarks/black/weapons-hammer.svg";}
+    else if(weaponSymbol == "hook") {runemark = "runemarks/black/weapons-hook.svg";}
+    else if(weaponSymbol == "mace") {runemark = "runemarks/black/weapons-mace.svg";}
+    else if(weaponSymbol == "ranged") {runemark = "runemarks/black/weapons-ranged-weapon.svg";}
+    else if(weaponSymbol == "reach") {runemark = "runemarks/black/weapons-reach-weapon.svg";}
+    else if(weaponSymbol == "scythe") {runemark = "runemarks/black/weapons-scythe.svg";}
+    else if(weaponSymbol == "spear") {runemark = "runemarks/black/weapons-spear.svg";}
+    else if(weaponSymbol == "sword") {runemark = "runemarks/black/weapons-sword.svg";}
+    else if(weaponSymbol == "unarmed") {runemark = "runemarks/black/weapons-unarmed.svg";}
+    else if(weaponSymbol == "pistol") {runemark = "runemarks/black/weapons-pistol.svg";}
     else { runemark = "runemarks/black/weapons-dagger.svg";}
     return runemark;
 }
