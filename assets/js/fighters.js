@@ -1383,13 +1383,31 @@ async function getFighterList(){
     // only proceed once promise is resolved
     let data = await response.json();
     // only proceed once second promise is resolved
-    return data;
+        // Sort the data array by warband then name
+        const sortedData = data.sort((a, b) => {
+            if (a.warband === b.warband) {
+            return a.name.localeCompare(b.name);
+            } else {
+            return a.warband.localeCompare(b.warband);
+            }
+        });
+    return sortedData;
 }
 
 
 function updateFighterListDropdown(data){
-    $.each(data, function(i, option) {
-        $('#sel').append($('<option/>').attr("value", option.id).text(option.name + " - " + option.warband));
+
+    // Sort the data array by warband then name
+    const sortedData = data.sort((a, b) => {
+        if (a.warband === b.warband) {
+        return a.name.localeCompare(b.name);
+        } else {
+        return a.warband.localeCompare(b.warband);
+        }
+    });
+
+    $.each(sortedData, function(i, option) {
+        $('#sel').append($('<option/>').attr("value", option.id).text(option.warband + " - " + option.name));
     });
 }
 
@@ -1406,7 +1424,7 @@ async function loadFighterByName(name, warband) {
     let response = await fetch("assets/fighters.json");
     let data = await response.json();
     let filteredData = data.filter((fighter) => {
-      let fullName = fighter.Name + " " + fighter.Subtitle;
+      let fullName = fighter.name + " " + fighter.subtitle;
       if (warband) {
         return (
           fullName.toLowerCase().includes(name.toLowerCase()) &&
