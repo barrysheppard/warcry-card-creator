@@ -1297,7 +1297,7 @@ function saveCardAsImage() {
     var element = document.createElement('a');
     element.setAttribute('href', document.getElementById('canvas').toDataURL('image/png'));
     file_name = "warcry_fighter_" + data.fighterName.replace(/ /g, "_");
-    if (data.fighterName2 == "") {
+    if (data.fighterName2 == "" || data.fighterName2 == " ") {
         file_name = file_name + ".png";
     } else {
         file_name = file_name +  "_" + data.fighterName2.replace(/ /g, "_") + ".png";
