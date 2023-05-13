@@ -191,11 +191,8 @@ function drawAbility(id, pixelPosition) {
         fitWidth = 1200;
     }
 
-
-
     // this will add carriage turns if needed
     lines = splitWordWrap(getContext(), text, fitWidth, titleWidth);
-
 
     for (var i = 0; i < lines.length; i++) {
         if (i == 0) {
@@ -292,10 +289,8 @@ function drawAbilityLarge(id, pixelPosition) {
     var titleWidth = getContext().measureText(title).width;
     getContext().font = '48px Georgia, serif';
 
-
     // this will add carriage turns if needed
     lines = splitWordWrap(getContext(), text, fitWidth, titleWidth);
-
 
     for (var i = 0; i < lines.length; i++) {
         if (i == 0) {
@@ -341,9 +336,7 @@ function drawCardTranslationAbilities(value) {
 }
 
 function drawFactionRunemark(image, inc) {
-
     // for 7 spacing its + 150 for 6 spacing it's + 175
-
     // if we have 6 items then it's different spacing to seven both start here
     y_pos = 205;
 
@@ -363,9 +356,7 @@ function drawFactionRunemark(image, inc) {
 }
 
 function drawFactionRunemarkLarge(image, inc) {
-
     // for 7 spacing its + 150 for 6 spacing it's + 175
-
     // if we have 6 items then it's different spacing to seven both start here
     y_pos = 205;
 
@@ -404,10 +395,8 @@ function drawImageSrc(scaledPosition, scaledSize, imageSrc) {
 }
 
 function drawSubfactionRunemark(image, inc) {
-
     // draw image on header
     drawImageSrc({ x: 224, y: 58 }, { x: 90, y: 90 }, image);
-
     // if we have 6 items then it's different spacing to seven both start here
     y_pos = 205;
 
@@ -568,7 +557,7 @@ function drawTagRunemark(index, runemark, row) {
             y_value = positions[index].y + 200;
         } else {
             x_value = positions[index].x + 45;
-            y_value = positions[index].y + 120;
+            y_value = positions[index].y + 100;
         }
 
         writeScaled(value, { x: x_value+2, y: y_value+2 });

@@ -513,7 +513,7 @@ function getDefaultWeaponData() {
     weaponData.strength = 3;
     weaponData.damageBase = 1;
     weaponData.damageCrit = 2;
-    weaponData.runemark = null;
+    weaponData.runemark = "runemarks/black/weapons-dagger.svg";
     return weaponData;
 }
 
@@ -762,7 +762,7 @@ const renderFighterImage = function(fighterData) {
         image.onload = function() {
             const position = scalePixelPosition({
                 x: 600 + fighterData.imageProperties.offsetX,
-                y: 200 + fighterData.imageProperties.offsetY
+                y: 30 + fighterData.imageProperties.offsetY
             });
             const scale = fighterData.imageProperties.scalePercent / 100.0;
             const width = image.width * scale;
