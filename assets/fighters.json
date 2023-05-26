@@ -1773,7 +1773,7 @@
         "bladeborn": "",
         "grand_alliance": "chaos",
         "movement": 4,
-        "name": "Bloodmaster Herald of Khorne",
+        "name": "Bloodmaster, Herald of Khorne",
         "points": 165,
         "runemarks": [
             "hero",
@@ -1803,7 +1803,7 @@
         "points": 170,
         "runemarks": [
             "destroyer",
-            "mounted"
+            "mount"
         ],
         "toughness": 4,
         "warband": "Blades of Khorne: Daemons",
@@ -1856,7 +1856,7 @@
         "runemarks": [
             "hero",
             "destroyer",
-            "mounted"
+            "mount"
         ],
         "toughness": 4,
         "warband": "Blades of Khorne: Daemons",
@@ -1905,7 +1905,7 @@
         "bladeborn": "",
         "grand_alliance": "chaos",
         "movement": 6,
-        "name": "Skullmaster Herald of Khorne",
+        "name": "Skullmaster, Herald of Khorne",
         "points": 285,
         "runemarks": [
             "hero",
@@ -4451,7 +4451,7 @@
                 "dmg_hit": 1,
                 "max_range": 2,
                 "min_range": 0,
-                "runemark": "spear",
+                "runemark": "claws",
                 "strength": 3
             }
         ],
@@ -4488,7 +4488,7 @@
         "_id": "1afe3c1c",
         "bladeborn": "",
         "grand_alliance": "chaos",
-        "movement": 10,
+        "movement": 8,
         "name": "Blissbringer",
         "points": 205,
         "runemarks": [
@@ -4518,7 +4518,8 @@
         "name": "The Contorted Epitome",
         "points": 220,
         "runemarks": [
-            "hero"
+            "hero",
+            "terrifying"
         ],
         "toughness": 3,
         "warband": "Hedonites of Slaanesh: Daemons",
@@ -4529,7 +4530,7 @@
                 "dmg_hit": 2,
                 "max_range": 1,
                 "min_range": 0,
-                "runemark": "dagger",
+                "runemark": "claws",
                 "strength": 3
             },
             {
@@ -4832,7 +4833,7 @@
         "points": 150,
         "runemarks": [
             "minion",
-            "mounted"
+            "mount"
         ],
         "toughness": 3,
         "warband": "Hedonites of Slaanesh: Sybarites",
@@ -4998,7 +4999,7 @@
         "runemarks": [
             "hero",
             "minion",
-            "mounted"
+            "mount"
         ],
         "toughness": 3,
         "warband": "Hedonites of Slaanesh: Sybarites",
@@ -5239,7 +5240,7 @@
         "bladeborn": "",
         "grand_alliance": "chaos",
         "movement": 4,
-        "name": "Demolisher with Crushing Weapon & Shield",
+        "name": "Demolisher with Crushing Weapon and Shield",
         "points": 105,
         "runemarks": [
             "warrior"
@@ -5651,7 +5652,7 @@
                 "dmg_crit": 3,
                 "dmg_hit": 1,
                 "max_range": 1,
-                "min_range": 3,
+                "min_range": 0,
                 "runemark": "dagger",
                 "strength": 3
             },
@@ -5671,9 +5672,9 @@
         "_id": "0107090d",
         "bladeborn": "",
         "grand_alliance": "chaos",
-        "movement": 3,
+        "movement": 4,
         "name": "Defacer with Stonecutter Tools",
-        "points": 100,
+        "points": 95,
         "runemarks": [
             "warrior"
         ],
@@ -5690,7 +5691,7 @@
                 "strength": 4
             }
         ],
-        "wounds": 12
+        "wounds": 10
     },
     {
         "_id": "0f01b0fc",
@@ -5827,7 +5828,7 @@
         "name": "Plaguebearer",
         "points": 50,
         "runemarks": [
-            "minion"
+            "warrior"
         ],
         "toughness": 4,
         "warband": "Maggotkin of Nurgle: Daemons",
@@ -6272,7 +6273,7 @@
         "bladeborn": "",
         "grand_alliance": "chaos",
         "movement": 6,
-        "name": "Harbringer of Decay",
+        "name": "Harbinger of Decay",
         "points": 195,
         "runemarks": [
             "hero",
@@ -6431,36 +6432,11 @@
         "wounds": 28
     },
     {
-        "_id": "ba18c8ea",
-        "bladeborn": "",
-        "grand_alliance": "chaos",
-        "movement": 4,
-        "name": "Mirefolk Outcasts with Bilewood Weapon & Shield",
-        "points": 65,
-        "runemarks": [
-            "scout"
-        ],
-        "toughness": 4,
-        "warband": "Rotmire Creed",
-        "weapons": [
-            {
-                "attacks": 3,
-                "dmg_crit": 4,
-                "dmg_hit": 1,
-                "max_range": 2,
-                "min_range": 0,
-                "runemark": "spear",
-                "strength": 3
-            }
-        ],
-        "wounds": 10
-    },
-    {
         "_id": "5fde0ee8",
         "bladeborn": "",
         "grand_alliance": "chaos",
         "movement": 4,
-        "name": "Mirefolk Outcasts with Bilewood Weapons",
+        "name": "Mirefolk Outcast with Bilewood Weapons",
         "points": 65,
         "runemarks": [
             "scout"
@@ -6481,11 +6457,36 @@
         "wounds": 10
     },
     {
+        "_id": "ba18c8ea",
+        "bladeborn": "",
+        "grand_alliance": "chaos",
+        "movement": 4,
+        "name": "Mirefolk Outcast with Bilewood Weapon and Shield",
+        "points": 75,
+        "runemarks": [
+            "scout"
+        ],
+        "toughness": 4,
+        "warband": "Rotmire Creed",
+        "weapons": [
+            {
+                "attacks": 3,
+                "dmg_crit": 4,
+                "dmg_hit": 1,
+                "max_range": 2,
+                "min_range": 0,
+                "runemark": "spear",
+                "strength": 3
+            }
+        ],
+        "wounds": 10
+    },
+    {
         "_id": "9eaa12db",
         "bladeborn": "",
         "grand_alliance": "chaos",
         "movement": 4,
-        "name": "Carrion Catcher with Snatcher Hook",
+        "name": "Carrion Catcher with Snatcher-hook",
         "points": 110,
         "runemarks": [
             "scout",
@@ -6536,7 +6537,7 @@
         "bladeborn": "",
         "grand_alliance": "chaos",
         "movement": 4,
-        "name": "Bloated one with Raker-claws and Hooked Net",
+        "name": "Bloated one with Raker-claw and Hooked Net",
         "points": 140,
         "runemarks": [
             "brute",
@@ -10511,7 +10512,7 @@
                 "dmg_hit": 1,
                 "max_range": 1,
                 "min_range": 0,
-                "runemark": "fangs",
+                "runemark": "claws",
                 "strength": 4
             }
         ],
@@ -10985,7 +10986,8 @@
         "name": "Crypt Haunter Courtier",
         "points": 250,
         "runemarks": [
-            "hero"
+            "hero",
+            "elite"
         ],
         "toughness": 4,
         "warband": "Flesh-eater Courts",
@@ -11214,7 +11216,7 @@
         "bladeborn": "The Grymwatch",
         "grand_alliance": "death",
         "movement": 5,
-        "name": "Gristlewel Greatsword",
+        "name": "Gristlewel, Greatsword",
         "points": 80,
         "runemarks": [
             "minion"
@@ -11244,7 +11246,7 @@
         "runemarks": [
             "hero"
         ],
-        "toughness": 5,
+        "toughness": 3,
         "warband": "Flesh-eater Courts",
         "weapons": [
             {
@@ -11257,7 +11259,7 @@
                 "strength": 4
             }
         ],
-        "wounds": 22
+        "wounds": 20
     },
     {
         "_id": "fb7ec24d",
@@ -11528,7 +11530,7 @@
                 "max_range": 10,
                 "min_range": 3,
                 "runemark": "ranged",
-                "strength": 3
+                "strength": 4
             }
         ],
         "wounds": 15
@@ -11956,7 +11958,7 @@
         "bladeborn": "Thorns of the Briar Queen",
         "grand_alliance": "death",
         "movement": 5,
-        "name": "Chainrasp Thorns of the Briar Queen",
+        "name": "Thorns of the Briar Queen Chainrasp",
         "points": 90,
         "runemarks": [
             "fly",
@@ -12069,7 +12071,7 @@
         "bladeborn": "",
         "grand_alliance": "death",
         "movement": 3,
-        "name": "Mortek Guard with Greatblade",
+        "name": "Mortek Guard with Soulcleaver Greatblade",
         "points": 50,
         "runemarks": [],
         "toughness": 4,
@@ -12092,7 +12094,7 @@
         "bladeborn": "",
         "grand_alliance": "death",
         "movement": 3,
-        "name": "Mortek Guard with Blade",
+        "name": "Mortek Guard with Nadirite Blade",
         "points": 55,
         "runemarks": [
             "bulwark"
@@ -12102,7 +12104,7 @@
         "weapons": [
             {
                 "attacks": 3,
-                "dmg_crit": 3,
+                "dmg_crit": 4,
                 "dmg_hit": 1,
                 "max_range": 1,
                 "min_range": 0,
@@ -12117,7 +12119,7 @@
         "bladeborn": "",
         "grand_alliance": "death",
         "movement": 3,
-        "name": "Mortek Guard with Spear",
+        "name": "Mortek Guard with Nadirite Spear",
         "points": 55,
         "runemarks": [
             "bulwark"
@@ -12168,7 +12170,7 @@
         "bladeborn": "",
         "grand_alliance": "death",
         "movement": 8,
-        "name": "Kavalos Deathrider with Blade",
+        "name": "Kavalos Deathrider with Nadirite Blade",
         "points": 145,
         "runemarks": [
             "warrior",
@@ -12194,7 +12196,7 @@
         "bladeborn": "",
         "grand_alliance": "death",
         "movement": 8,
-        "name": "Kavalos Deathrider with Spear",
+        "name": "Kavalos Deathrider with Nadirite Spear",
         "points": 145,
         "runemarks": [
             "warrior",
@@ -12351,7 +12353,7 @@
         "bladeborn": "",
         "grand_alliance": "death",
         "movement": 5,
-        "name": "Necropolis Stalkers with Dread Falchions",
+        "name": "Necropolis Stalker with Dread Falchions",
         "points": 195,
         "runemarks": [
             "destroyer"
@@ -12428,7 +12430,7 @@
         "bladeborn": "",
         "grand_alliance": "death",
         "movement": 8,
-        "name": "Morghast Harbringer with Swords",
+        "name": "Morghast Harbinger with Spirit Swords",
         "points": 265,
         "runemarks": [
             "fly",
@@ -12481,7 +12483,7 @@
         "bladeborn": "",
         "grand_alliance": "death",
         "movement": 8,
-        "name": "Morghast Harbringer with Halberd",
+        "name": "Morghast Harbinger with Spirit Halberd",
         "points": 270,
         "runemarks": [
             "fly",
@@ -12507,7 +12509,7 @@
         "bladeborn": "",
         "grand_alliance": "death",
         "movement": 8,
-        "name": "Morghast Archai with Swords",
+        "name": "Morghast Archai with Spirit Swords",
         "points": 275,
         "runemarks": [
             "fly"
@@ -12532,7 +12534,7 @@
         "bladeborn": "",
         "grand_alliance": "death",
         "movement": 8,
-        "name": "Morghast Archai with Halberd",
+        "name": "Morghast Archai with Spirit Halberd",
         "points": 280,
         "runemarks": [
             "fly"
@@ -12688,13 +12690,13 @@
         "_id": "f647899c",
         "bladeborn": "Kainan's Reapers",
         "grand_alliance": "death",
-        "movement": 5,
+        "movement": 4,
         "name": "Mir Kainan",
         "points": 230,
         "runemarks": [
             "hero"
         ],
-        "toughness": 4,
+        "toughness": 5,
         "warband": "Ossiarch Bonereapers",
         "weapons": [
             {
@@ -13265,7 +13267,7 @@
         "bladeborn": "",
         "grand_alliance": "death",
         "movement": 8,
-        "name": "Blood Knight with Lance",
+        "name": "Blood Knight with Templar Lance",
         "points": 200,
         "runemarks": [
             "mount",
@@ -13291,7 +13293,7 @@
         "bladeborn": "",
         "grand_alliance": "death",
         "movement": 8,
-        "name": "Blood Knight with Blade",
+        "name": "Blood Knight with Templar Blade",
         "points": 205,
         "runemarks": [
             "mount",
@@ -13421,37 +13423,12 @@
         "wounds": 28
     },
     {
-        "_id": "463478bd",
-        "bladeborn": "The Crimson Court",
-        "grand_alliance": "death",
-        "movement": 5,
-        "name": "Vellas Von Faine",
-        "points": 105,
-        "runemarks": [
-            "terrifying"
-        ],
-        "toughness": 4,
-        "warband": "Soulblight Gravelords",
-        "weapons": [
-            {
-                "attacks": 4,
-                "dmg_crit": 5,
-                "dmg_hit": 1,
-                "max_range": 1,
-                "min_range": 0,
-                "runemark": "sword",
-                "strength": 3
-            }
-        ],
-        "wounds": 16
-    },
-    {
         "_id": "212b60f9",
         "bladeborn": "The Crimson Court",
         "grand_alliance": "death",
         "movement": 6,
         "name": "Ennias Curse-Born",
-        "points": 120,
+        "points": 115,
         "runemarks": [
             "fly",
             "terrifying"
@@ -13472,12 +13449,37 @@
         "wounds": 16
     },
     {
+        "_id": "463478bd",
+        "bladeborn": "The Crimson Court",
+        "grand_alliance": "death",
+        "movement": 5,
+        "name": "Vellas Von Faine",
+        "points": 120,
+        "runemarks": [
+            "terrifying"
+        ],
+        "toughness": 4,
+        "warband": "Soulblight Gravelords",
+        "weapons": [
+            {
+                "attacks": 4,
+                "dmg_crit": 5,
+                "dmg_hit": 1,
+                "max_range": 1,
+                "min_range": 0,
+                "runemark": "sword",
+                "strength": 3
+            }
+        ],
+        "wounds": 16
+    },
+    {
         "_id": "b20fc155",
         "bladeborn": "The Crimson Court",
         "grand_alliance": "death",
         "movement": 5,
         "name": "Gorath the Enforcer",
-        "points": 130,
+        "points": 150,
         "runemarks": [
             "terrifying"
         ],
@@ -13502,7 +13504,7 @@
         "grand_alliance": "death",
         "movement": 5,
         "name": "Prince Duvalle",
-        "points": 210,
+        "points": 205,
         "runemarks": [
             "hero",
             "terrifying"
@@ -13789,7 +13791,7 @@
         "name": "The Champion",
         "points": 75,
         "runemarks": [
-            "elite"
+            "champion"
         ],
         "toughness": 3,
         "warband": "Soulblight Gravelords",
@@ -13814,7 +13816,7 @@
         "name": "The Prince of Dust",
         "points": 105,
         "runemarks": [
-            "elite"
+            "champion"
         ],
         "toughness": 4,
         "warband": "Soulblight Gravelords",
@@ -14094,7 +14096,7 @@
         "bladeborn": "",
         "grand_alliance": "destruction",
         "movement": 4,
-        "name": "Savage Orruk with Chompa and Shield",
+        "name": "Savage Orruk with Chompa and Bone Shield",
         "points": 80,
         "runemarks": [],
         "toughness": 4,
@@ -14117,7 +14119,7 @@
         "bladeborn": "",
         "grand_alliance": "destruction",
         "movement": 4,
-        "name": "Savage Orruk with Stikka and Shield",
+        "name": "Savage Orruk with Savage Stikka and Bone Shield",
         "points": 80,
         "runemarks": [],
         "toughness": 4,
@@ -14247,7 +14249,7 @@
         "bladeborn": "",
         "grand_alliance": "destruction",
         "movement": 10,
-        "name": "Savage Boarboy with Stikka",
+        "name": "Savage Boarboy with Savage Stikka",
         "points": 140,
         "runemarks": [
             "mount"
@@ -14307,7 +14309,7 @@
         "bladeborn": "",
         "grand_alliance": "destruction",
         "movement": 4,
-        "name": "Savage Orruk Boss with Chompa & Boneshield",
+        "name": "Savage Orruk Boss with Chompa and Bone Shield",
         "points": 155,
         "runemarks": [
             "hero"
@@ -14672,7 +14674,7 @@
         "bladeborn": "Hedrakka's Madmob",
         "grand_alliance": "destruction",
         "movement": 4,
-        "name": "Wollop da Skull",
+        "name": "Wollop da Skul",
         "points": 120,
         "runemarks": [],
         "toughness": 3,
@@ -14695,7 +14697,7 @@
         "bladeborn": "Hedrakka's Madmob",
         "grand_alliance": "destruction",
         "movement": 4,
-        "name": "Hedkrakka Gob of Gork",
+        "name": "Hedkrakka,  Gob of Gork",
         "points": 225,
         "runemarks": [
             "hero",
@@ -14780,7 +14782,7 @@
         "bladeborn": "",
         "grand_alliance": "destruction",
         "movement": 4,
-        "name": "Stabba with Spear and Shield",
+        "name": "Stabba with Pokin' Spear and Moon Shield",
         "points": 55,
         "runemarks": [],
         "toughness": 4,
@@ -14803,7 +14805,7 @@
         "bladeborn": "",
         "grand_alliance": "destruction",
         "movement": 4,
-        "name": "Stabba with Stabba and Shield",
+        "name": "Stabba with Stabba and Moon Shield",
         "points": 55,
         "runemarks": [],
         "toughness": 4,
@@ -15151,7 +15153,7 @@
         "points": 125,
         "runemarks": [
             "hero",
-            "Priest"
+            "priest"
         ],
         "toughness": 3,
         "warband": "Gloomspite Gitz",
@@ -15516,7 +15518,7 @@
         "bladeborn": "Grinkrak's Looncourt",
         "grand_alliance": "destruction",
         "movement": 4,
-        "name": "Pokin Snark",
+        "name": "Pokin' Snark",
         "points": 100,
         "runemarks": [],
         "toughness": 4,
@@ -15925,7 +15927,7 @@
         "bladeborn": "",
         "grand_alliance": "destruction",
         "movement": 3,
-        "name": "Orruk Ardboy with Big Choppa",
+        "name": "Orruk Ardboy with Ardboy Big Choppa",
         "points": 80,
         "runemarks": [],
         "toughness": 4,
@@ -15948,7 +15950,7 @@
         "bladeborn": "",
         "grand_alliance": "destruction",
         "movement": 3,
-        "name": "Orruk Ardboy with Choppa",
+        "name": "Orruk Ardboy with Ardboy Choppas",
         "points": 80,
         "runemarks": [],
         "toughness": 4,
@@ -15971,7 +15973,7 @@
         "bladeborn": "",
         "grand_alliance": "destruction",
         "movement": 3,
-        "name": "Orruk Ardboy with Choppa & Shield",
+        "name": "Orruk Ardboy with Ardboy Choppa and Orruk-forged Shield",
         "points": 80,
         "runemarks": [],
         "toughness": 5,
@@ -16019,7 +16021,7 @@
         "bladeborn": "",
         "grand_alliance": "destruction",
         "movement": 3,
-        "name": "Orruk Brute with pair Choppas",
+        "name": "Orruk Brute with pair of Brute Choppas",
         "points": 140,
         "runemarks": [
             "brute"
@@ -16181,7 +16183,7 @@
         "bladeborn": "",
         "grand_alliance": "destruction",
         "movement": 3,
-        "name": "Brute Boss with Boss Klaw and Smasha",
+        "name": "Brute Boss with Boss Klaw and Brute Smasha",
         "points": 195,
         "runemarks": [
             "hero",
@@ -16192,13 +16194,13 @@
         "warband": "Ironjawz",
         "weapons": [
             {
-                "attacks": 3,
-                "dmg_crit": 6,
-                "dmg_hit": 3,
+                "attacks": 4,
+                "dmg_crit": 5,
+                "dmg_hit": 2,
                 "max_range": 1,
                 "min_range": 0,
                 "runemark": "club",
-                "strength": 6
+                "strength": 5
             }
         ],
         "wounds": 30
@@ -16236,7 +16238,10 @@
         "movement": 8,
         "name": "Orruk Gore-Grunta with Jagged Gore-Hacka",
         "points": 245,
-        "runemarks": [],
+        "runemarks": [
+            "ferocious",
+            "mount"
+        ],
         "toughness": 4,
         "warband": "Ironjawz",
         "weapons": [
@@ -16246,7 +16251,7 @@
                 "dmg_hit": 2,
                 "max_range": 2,
                 "min_range": 0,
-                "runemark": "axe",
+                "runemark": "spear",
                 "strength": 5
             }
         ],
@@ -16257,9 +16262,12 @@
         "bladeborn": "",
         "grand_alliance": "destruction",
         "movement": 8,
-        "name": "Orruk Gore-Grunta with Pig iron Choppa",
+        "name": "Orruk Gore-Grunta with Pig-iron Choppa",
         "points": 250,
-        "runemarks": [],
+        "runemarks": [
+            "ferocious",
+            "mount"
+        ],
         "toughness": 4,
         "warband": "Ironjawz",
         "weapons": [
@@ -16453,7 +16461,7 @@
         "bladeborn": "Morgok's Krushas",
         "grand_alliance": "destruction",
         "movement": 3,
-        "name": "Ardskull",
+        "name": "'Ardskull",
         "points": 190,
         "runemarks": [
             "brute"
@@ -16589,7 +16597,7 @@
         "bladeborn": "",
         "grand_alliance": "destruction",
         "movement": 4,
-        "name": "Gutrippa with Wicked Hakka",
+        "name": "Gutrippa with Wicked Hacka",
         "points": 75,
         "runemarks": [
             "warrior"
@@ -16642,7 +16650,7 @@
         "name": "Hobgrot Boss",
         "points": 75,
         "runemarks": [
-            "hero",
+            "champion",
             "minion"
         ],
         "toughness": 3,
@@ -16709,7 +16717,7 @@
         "bladeborn": "",
         "grand_alliance": "destruction",
         "movement": 4,
-        "name": "Gutrippa Boss with Mace & Sword",
+        "name": "Gutrippa Boss with Mace and Sword",
         "points": 140,
         "runemarks": [
             "hero",
@@ -16801,7 +16809,7 @@
             {
                 "attacks": 3,
                 "dmg_crit": 4,
-                "dmg_hit": 2,
+                "dmg_hit": 1,
                 "max_range": 2,
                 "min_range": 0,
                 "runemark": "club",
@@ -16860,7 +16868,7 @@
         "bladeborn": "",
         "grand_alliance": "destruction",
         "movement": 4,
-        "name": "Killaboss with Boss-Hacka and Shield",
+        "name": "Killaboss with Boss-Hacka and Skareshield",
         "points": 180,
         "runemarks": [
             "hero",
@@ -16887,7 +16895,7 @@
         "bladeborn": "",
         "grand_alliance": "destruction",
         "movement": 4,
-        "name": "Killaboss with Boss-Hakka and Flail",
+        "name": "Killaboss with Boss-Hacka and Rusting Flail",
         "points": 190,
         "runemarks": [
             "hero",
@@ -16996,7 +17004,7 @@
         "name": "Krookgrin",
         "points": 80,
         "runemarks": [
-            "elite",
+            "champion",
             "minion"
         ],
         "toughness": 3,
@@ -17492,7 +17500,7 @@
         "runemarks": [
             "hero",
             "brute",
-            "trapper"
+            "scout"
         ],
         "toughness": 4,
         "warband": "Ogor Mawtribes",
@@ -17523,7 +17531,7 @@
         "bladeborn": "",
         "grand_alliance": "destruction",
         "movement": 8,
-        "name": "Mournfang Rider with Club & Ironfist",
+        "name": "Mournfang Rider with Culling Club and Ironfist",
         "points": 295,
         "runemarks": [
             "brute",
@@ -17581,7 +17589,7 @@
         "runemarks": [
             "hero",
             "brute",
-            "elite"
+            "champion"
         ],
         "toughness": 5,
         "warband": "Ogor Mawtribes",
@@ -17701,7 +17709,7 @@
         "name": "Kagey",
         "points": 60,
         "runemarks": [
-            "agile"
+            "scout"
         ],
         "toughness": 3,
         "warband": "Ogor Mawtribes",
@@ -21412,7 +21420,7 @@
             "agile"
         ],
         "toughness": 2,
-        "warband": "Hunters of Hunachi",
+        "warband": "Hunters of Huanchi",
         "weapons": [
             {
                 "attacks": 2,
@@ -21438,7 +21446,7 @@
             "trapper"
         ],
         "toughness": 3,
-        "warband": "Hunters of Hunachi",
+        "warband": "Hunters of Huanchi",
         "weapons": [
             {
                 "attacks": 3,
@@ -21464,7 +21472,7 @@
             "scout"
         ],
         "toughness": 2,
-        "warband": "Hunters of Hunachi",
+        "warband": "Hunters of Huanchi",
         "weapons": [
             {
                 "attacks": 3,
@@ -21490,7 +21498,7 @@
             "scout"
         ],
         "toughness": 2,
-        "warband": "Hunters of Hunachi",
+        "warband": "Hunters of Huanchi",
         "weapons": [
             {
                 "attacks": 2,
@@ -21516,7 +21524,7 @@
             "icon-bearer"
         ],
         "toughness": 3,
-        "warband": "Hunters of Hunachi",
+        "warband": "Hunters of Huanchi",
         "weapons": [
             {
                 "attacks": 2,
@@ -21542,7 +21550,7 @@
             "agile"
         ],
         "toughness": 2,
-        "warband": "Hunters of Hunachi",
+        "warband": "Hunters of Huanchi",
         "weapons": [
             {
                 "attacks": 2,
@@ -21569,7 +21577,7 @@
             "trapper"
         ],
         "toughness": 3,
-        "warband": "Hunters of Hunachi",
+        "warband": "Hunters of Huanchi",
         "weapons": [
             {
                 "attacks": 4,
@@ -21587,7 +21595,7 @@
         "_id": "1f36c1e8",
         "bladeborn": "",
         "grand_alliance": "order",
-        "movement": 8,
+        "movement": 10,
         "name": "Terrawing",
         "points": 90,
         "runemarks": [
@@ -21595,7 +21603,7 @@
             "beast"
         ],
         "toughness": 3,
-        "warband": "Hunters of Hunachi",
+        "warband": "Hunters of Huanchi",
         "weapons": [
             {
                 "attacks": 3,
@@ -21607,7 +21615,7 @@
                 "strength": 3
             }
         ],
-        "wounds": 10
+        "wounds": 8
     },
     {
         "_id": "435555ec",
@@ -22283,7 +22291,7 @@
         "bladeborn": "",
         "grand_alliance": "order",
         "movement": 3,
-        "name": "Arkanaut with Axe & Pistol",
+        "name": "Arkanaut Company Privateer with Privateer Pistol and Arkanaut Cutter",
         "points": 50,
         "runemarks": [],
         "toughness": 3,
@@ -22315,7 +22323,7 @@
         "bladeborn": "",
         "grand_alliance": "order",
         "movement": 3,
-        "name": "Arkanaut with Skypike",
+        "name": "Arkanaut Company Privateer with Skypike",
         "points": 75,
         "runemarks": [],
         "toughness": 3,
@@ -22338,7 +22346,7 @@
         "bladeborn": "",
         "grand_alliance": "order",
         "movement": 3,
-        "name": "Arkanaut with Volleygun",
+        "name": "Arkanaut Company Privateer with Aethermatic Volley Gun",
         "points": 80,
         "runemarks": [],
         "toughness": 3,
@@ -22404,7 +22412,7 @@
         "bladeborn": "",
         "grand_alliance": "order",
         "movement": 3,
-        "name": "Arkanaut with Light Skyhook",
+        "name": "Arkanaut Company Privateer with Light Skyhook",
         "points": 105,
         "runemarks": [],
         "toughness": 3,
@@ -22436,7 +22444,7 @@
         "bladeborn": "",
         "grand_alliance": "order",
         "movement": 3,
-        "name": "Grundstock Thunderer with Aethershot Rifle",
+        "name": "Grundstok Thunderer with Aethershot Rifle",
         "points": 105,
         "runemarks": [
             "elite"
@@ -22470,7 +22478,7 @@
         "bladeborn": "",
         "grand_alliance": "order",
         "movement": 3,
-        "name": "Grundstock Thunderer with Decksweeper",
+        "name": "Grundstok Thunderer with Decksweeper",
         "points": 105,
         "runemarks": [
             "elite"
@@ -22504,7 +22512,7 @@
         "bladeborn": "",
         "grand_alliance": "order",
         "movement": 3,
-        "name": "Grundstock Thunderer with Fumigator",
+        "name": "Grundstok Thunderer with Aetheric Fumigator",
         "points": 105,
         "runemarks": [
             "elite"
@@ -22529,7 +22537,7 @@
         "bladeborn": "",
         "grand_alliance": "order",
         "movement": 3,
-        "name": "Grundstock Thunderer with Aethercannon",
+        "name": "Grundstok Thunderer with Aethercannon",
         "points": 110,
         "runemarks": [
             "elite"
@@ -22598,7 +22606,7 @@
         "bladeborn": "",
         "grand_alliance": "order",
         "movement": 3,
-        "name": "Grundstock Thunderer with Mortar",
+        "name": "Grundstok Thunderer with Grundstok Mortar",
         "points": 130,
         "runemarks": [
             "elite"
@@ -22622,7 +22630,7 @@
                 "max_range": 12,
                 "min_range": 6,
                 "runemark": "ranged",
-                "strength": 4
+                "strength": 3
             }
         ],
         "wounds": 12
@@ -22763,7 +22771,7 @@
         "bladeborn": "",
         "grand_alliance": "order",
         "movement": 10,
-        "name": "Endrinrigger with Volleygun",
+        "name": "Endrinrigger with Aethermatic Volley Gun",
         "points": 170,
         "runemarks": [
             "fly"
@@ -22797,7 +22805,7 @@
         "bladeborn": "",
         "grand_alliance": "order",
         "movement": 10,
-        "name": "Skywarden with Volley Gun",
+        "name": "Skywarden with Aethermatic Volley Gun",
         "points": 175,
         "runemarks": [
             "fly",
@@ -22832,7 +22840,7 @@
         "bladeborn": "",
         "grand_alliance": "order",
         "movement": 10,
-        "name": "Skywarden with Pistol & Skypike",
+        "name": "Skywarden with Vulcaniser Pistol and Skypike",
         "points": 185,
         "runemarks": [
             "fly",
@@ -22902,7 +22910,7 @@
         "bladeborn": "",
         "grand_alliance": "order",
         "movement": 10,
-        "name": "Endrinrigger with Aethermatic Saw & Rivet Gun",
+        "name": "Endrinrigger with Rapid-fire Rivet Gun and Aethermatic Saw",
         "points": 190,
         "runemarks": [
             "fly"
@@ -22972,7 +22980,7 @@
         "bladeborn": "",
         "grand_alliance": "order",
         "movement": 10,
-        "name": "Endrinrigger with Drill-launcher",
+        "name": "Endrinrigger with Drill Launcher",
         "points": 215,
         "runemarks": [
             "fly"
@@ -23166,12 +23174,12 @@
             },
             {
                 "attacks": 2,
-                "dmg_crit": 3,
+                "dmg_crit": 4,
                 "dmg_hit": 1,
                 "max_range": 8,
                 "min_range": 0,
                 "runemark": "ranged",
-                "strength": 3
+                "strength": 4
             }
         ],
         "wounds": 20
@@ -23181,7 +23189,7 @@
         "bladeborn": "",
         "grand_alliance": "order",
         "movement": 10,
-        "name": "Endrinmaster with Dirigible Suite",
+        "name": "Endrinmaster with Dirigible Suit",
         "points": 275,
         "runemarks": [
             "fly",
@@ -23216,7 +23224,7 @@
         "bladeborn": "Thundrik's Profiteers",
         "grand_alliance": "order",
         "movement": 3,
-        "name": "Garodd Alesen",
+        "name": "Garodd Alensen",
         "points": 70,
         "runemarks": [],
         "toughness": 3,
@@ -28743,11 +28751,10 @@
         "bladeborn": "",
         "grand_alliance": "order",
         "movement": 4,
-        "name": "Spite Revenant",
+        "name": "Spite-Revenant",
         "points": 75,
         "runemarks": [
-            "fly",
-            "sentience"
+            "terrifying"
         ],
         "toughness": 3,
         "warband": "Sylvaneth",
@@ -29238,7 +29245,7 @@
                 "max_range": 2,
                 "min_range": 0,
                 "runemark": "sythe",
-                "strength": 4
+                "strength": 5
             }
         ],
         "wounds": 32
@@ -29440,7 +29447,7 @@
         "bladeborn": "Ylthari's Guardians",
         "grand_alliance": "order",
         "movement": 4,
-        "name": "Ahnslaine",
+        "name": "Ahnslaine, Revenant Archer",
         "points": 85,
         "runemarks": [],
         "toughness": 3,
