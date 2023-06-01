@@ -1358,7 +1358,7 @@ async function fileChange(file) {
 
 async function getFighterList(){
     // await response of fetch call
-    let response = await fetch("assets/fighters.json");
+    let response = await fetch("https://raw.githubusercontent.com/krisling049/warcry_data/main/data/fighters.json");
     // only proceed once promise is resolved
     let data = await response.json();
     // only proceed once second promise is resolved
@@ -1403,7 +1403,7 @@ function loadFighterFromList(){
 
 async function loadFighterById(id) {
     // Load the JSON file
-    fetch("assets/fighters.json")
+    fetch("https://raw.githubusercontent.com/krisling049/warcry_data/main/data/fighters.json")
       .then(response => response.json())
       .then(data => {
         // Find the fighter with the matching id
@@ -1424,7 +1424,7 @@ async function loadFighterById(id) {
   
 
 async function loadFighterByName(name, warband) {
-    let response = await fetch("assets/fighters.json");
+    let response = await fetch("https://raw.githubusercontent.com/krisling049/warcry_data/main/data/fighters.json");
     let data = await response.json();
     let filteredData = data.filter((fighter) => {
       let fullName = fighter.name + " " + fighter.subtitle;
