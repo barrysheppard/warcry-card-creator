@@ -143,6 +143,19 @@ function drawAbility(id, pixelPosition) {
     if(id == 6){ max_tagRunemarks = readTagRunemark("Six").length}
     if(id == 7){ max_tagRunemarks = readTagRunemark("Seven").length }
 
+    // Adding option to align text
+    if (document.getElementById('align-abilities').checked){
+        max_tagRunemarks = Math.max(
+            readTagRunemark("One").length,
+            readTagRunemark("Two").length,
+            readTagRunemark("Three").length,
+            readTagRunemark("Four").length,
+            readTagRunemark("Five").length,
+            readTagRunemark("Six").length,
+            readTagRunemark("Seven").length
+            );
+    }
+    
 
     if(getSelectedFactionRunemark() == "assets/img/blank.gif"){
         max_tagRunemarks = max_tagRunemarks -1;
@@ -262,11 +275,25 @@ function drawAbilityLarge(id, pixelPosition) {
     if(id == 5){ max_tagRunemarks = readTagRunemark("Five").length }
     if(id == 6){ max_tagRunemarks = readTagRunemark("Six").length}
     if(id == 7){ max_tagRunemarks = readTagRunemark("Seven").length }
-    
+
+    // Adding option to align text
+    if (document.getElementById('align-abilities').checked){
+        max_tagRunemarks = Math.max(
+            readTagRunemark("One").length,
+            readTagRunemark("Two").length,
+            readTagRunemark("Three").length,
+            readTagRunemark("Four").length,
+            readTagRunemark("Five").length,
+            readTagRunemark("Six").length,
+            readTagRunemark("Seven").length
+            );
+    }
+
     // Adjust if faction runemark if blank
     if(getSelectedFactionRunemark() == "assets/img/blank.gif"){
         max_tagRunemarks = max_tagRunemarks -1;
     }
+
 
     if (max_tagRunemarks < 0) {
         fitWidth = 1600;
