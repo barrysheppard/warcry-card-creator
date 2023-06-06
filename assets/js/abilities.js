@@ -528,7 +528,11 @@ function drawTagRunemark(index, runemark, row) {
 
     // if the blank faction icon is selected move all the runemarks left by 100
     if(getSelectedFactionRunemark() == "assets/img/blank.gif"){
-        positions = positions.map(({x, y}) => ({x: x - 180, y}));
+        if (tripleCheck) {
+            positions = positions.map(({x, y}) => ({x: x - 180, y}));
+        } else {
+            positions = positions.map(({x, y}) => ({x: x - 100, y}));   
+        }
     }
 
     if (index >= positions.length) return;
