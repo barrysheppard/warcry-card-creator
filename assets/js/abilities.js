@@ -776,7 +776,7 @@ function getTagRunemarkId(runemark, ability) {
         result = result + "Eighteen"
     }
     else if (runemark == "runemarks/black/fighters-priest.svg") {
-        result = result + "Ninteen"
+        result = result + "Nineteen"
     }
     else if (runemark == "runemarks/black/fighters-scout.svg") {
         result = result + "Twenty"
@@ -1381,9 +1381,6 @@ function writeControls(cardData) {
     }
 
 
-
-
-
     setSelectedFactionRunemark(cardData.factionRunemark);
     setSelectedSubfactionRunemark(cardData.subfactionRunemark);
 
@@ -1540,6 +1537,26 @@ window.onload = function () {
     var cardData = loadLatestCardData();
     writeControls(cardData);
     refreshSaveSlots();
+
+
+    getAbilityList()
+        // log response or catch error of fetch promise
+        .then((data) => updateAbilityListDropdown(data))
+    
+        var queryString = window.location.search;
+        var urlParams = new URLSearchParams(queryString);
+        
+        var id = urlParams.get('id');
+        var ability = urlParams.get('ability');
+        var warband = urlParams.get('warband');
+        
+        if (id && id.trim() !== '') {
+            loadAbilityById(id);
+        } else if (ability && ability.trim() !== '' && validateInput(warband)) {
+            loadFighterByName(ability, warband);
+        } else {
+            console.log("Invalid input parameters.");
+        }
 }
 
 function writeScaled(value, pixelPos) {
@@ -1606,3 +1623,198 @@ function splitWordWrap(context, text, fitWidth, titleWidth) {
 }
 
 
+
+function updateAbilityListDropdown(data){
+
+    // Sort the data array by warband then cost
+    const sortedData = data.sort((a, b) => {
+        if (a.warband === b.warband) {
+          const costOrder = { reaction: 1, double: 2, triple: 3, quad: 4 };
+      
+          if (a.cost in costOrder && b.cost in costOrder) {
+            return costOrder[a.cost] - costOrder[b.cost];
+          } else if (a.cost in costOrder) {
+            return -1;
+          } else if (b.cost in costOrder) {
+            return 1;
+          }
+        }
+      
+        return a.warband.localeCompare(b.warband);
+      });
+      
+
+    for (let i = 1; i <= 7; i++) {
+      $.each(sortedData, function(index, option) {
+        $('#sel' + i).append($('<option/>').attr("value", option.id).text(option.warband + " - [" + option.cost + "] - " + option.name));
+      });
+    }
+}
+
+function loadAbilityFromList(abilityNumber){
+    elementName = "sel" + abilityNumber;
+    var x = document.getElementById(elementName).selectedIndex;
+    var y = document.getElementById(elementName).options;
+    console.log("Index: " + y[x].index + " is " + y[x].text);
+    getAbilityList()
+    // log response or catch error of fetch promise
+    .then((data) => saveAbilityFromList(data[y[x].index], abilityNumber));
+}
+
+
+async function getAbilityList(){
+    // await response of fetch call
+    let response = await fetch("https://raw.githubusercontent.com/krisling049/warcry_data/main/data/abilities.json");
+    // only proceed once promise is resolved
+    let data = await response.json();
+    // only proceed once second promise is resolved
+    const sortedData = data.map(item => {
+        if (item.cost === "reaction") {
+          item.cost = "Reaction";
+        } else if (item.cost === "double") {
+          item.cost = "Double";
+        } else if (item.cost === "triple") {
+          item.cost = "Triple";
+        } else if (item.cost === "quad") {
+          item.cost = "Quad";
+        }
+        return item;
+      }).sort((a, b) => {
+        if (a.warband === b.warband) {
+          const costOrder = { Reaction: 1, Double: 2, Triple: 3, Quad: 4 };
+      
+          if (a.cost in costOrder && b.cost in costOrder) {
+            return costOrder[a.cost] - costOrder[b.cost];
+          } else if (a.cost in costOrder) {
+            return -1;
+          } else if (b.cost in costOrder) {
+            return 1;
+          }
+        }
+      
+        return a.warband.localeCompare(b.warband);
+      });
+      
+          
+    return sortedData;
+}
+
+function saveAbilityFromList(ability, abilityNumber){
+    
+    var data = readControls();
+    // change from just runemark name to full path
+
+    runemarks =  getRunemarks(ability.runemarks);
+    
+    dynamicAbilityName = "ability" + abilityNumber + "Name";
+    dynamicAbilityText = "ability" + abilityNumber + "Text";
+    dynamicAbilityReactionChecked = "ability" + abilityNumber + "ReactionChecked";
+    dynamicAbilityDoubleChecked = "ability" + abilityNumber + "DoubleChecked";
+    dynamicAbilityTripleChecked = "ability" + abilityNumber + "TripleChecked";
+    dynamicAbilityQuadChecked = "ability" + abilityNumber + "QuadChecked";
+    
+    data[dynamicAbilityName] = ability.name;
+    data[dynamicAbilityText] = ability.description;
+    data[dynamicAbilityReactionChecked] = false;
+    data[dynamicAbilityDoubleChecked] = false;
+    data[dynamicAbilityTripleChecked] = false;
+    data[dynamicAbilityQuadChecked] = false;
+    if(ability.cost == "Reaction"){data[dynamicAbilityReactionChecked] = true;}
+    else if(ability.cost == "Double"){data[dynamicAbilityDoubleChecked] = true;}
+    else if(ability.cost == "Triple"){data[dynamicAbilityTripleChecked] = true;}
+    else if(ability.cost == "Quad"){data[dynamicAbilityQuadChecked] = true;}
+
+    if(abilityNumber == 1) {data.tagRunemarksOne = runemarks}
+    if(abilityNumber == 2) {data.tagRunemarksTwo = runemarks}
+    if(abilityNumber == 3) {data.tagRunemarksThree = runemarks}
+    if(abilityNumber == 4) {data.tagRunemarksFour = runemarks}
+    if(abilityNumber == 5) {data.tagRunemarksFive = runemarks}
+    if(abilityNumber == 6) {data.tagRunemarksSix = runemarks}
+    if(abilityNumber == 7) {data.tagRunemarksSeven = runemarks}
+    console.log(data);
+    writeControls(data);
+
+}
+
+
+
+function getRunemarks(runemarks){
+    tagRunemarks = new Array;
+
+    if (runemarks.includes("agile")){
+        tagRunemarks.push('runemarks/black/fighters-agile.svg');
+        }
+    if (runemarks.includes("fly")){
+       tagRunemarks.push('runemarks/black/fighters-fly.svg');
+        }
+    if (runemarks.includes("beast")){
+        tagRunemarks.push('runemarks/black/fighters-beast.svg');
+    }
+    if (runemarks.includes("berserker")){
+        tagRunemarks.push('runemarks/black/fighters-berserker.svg');
+        }
+    if (runemarks.includes("brute")){
+        tagRunemarks.push('runemarks/black/fighters-brute.svg');
+    }
+    if (runemarks.includes("bulwark")){
+        tagRunemarks.push('runemarks/black/fighters-bulwark.svg');
+    }
+    if (runemarks.includes("champion")){
+        tagRunemarks.push('runemarks/black/fighters-champion.svg');
+    }
+    if (runemarks.includes("sentience")){
+        tagRunemarks.push('runemarks/black/fighters-sentience.svg');
+    }
+    if (runemarks.includes("destroyer")){
+        tagRunemarks.push('runemarks/black/fighters-destroyer.svg');
+    }
+    if (runemarks.includes("elite")){
+        tagRunemarks.push('runemarks/black/fighters-elite.svg');
+    }
+    if (runemarks.includes("icon bearer")){ 
+        tagRunemarks.push('runemarks/black/fighters-icon-bearer.svg');
+    }
+    if (runemarks.includes("mount")){
+        tagRunemarks.push('runemarks/black/fighters-mount.svg');
+    }
+    if (runemarks.includes("hero")){
+        tagRunemarks.push('runemarks/black/fighters-leader.svg');
+    }
+    if (runemarks.includes("mystic")){
+        tagRunemarks.push('runemarks/black/fighters-mystic.svg');
+    }
+    if (runemarks.includes("minion")){
+        tagRunemarks.push('runemarks/black/fighters-minion.svg');
+    }
+    if (runemarks.includes("scout")){
+        tagRunemarks.push('runemarks/black/fighters-scout.svg');
+    }
+    if (runemarks.includes("trapper")){
+        tagRunemarks.push('runemarks/black/fighters-trapper.svg');
+    }
+    if (runemarks.includes("warrior")){
+        tagRunemarks.push('runemarks/black/fighters-warrior.svg');
+    }
+    if (runemarks.includes("monster")){
+        tagRunemarks.push('runemarks/black/fighters-gargantuan.svg');
+    }
+    if (runemarks.includes("thrall")){
+        tagRunemarks.push('runemarks/black/fighters-thrall.svg');
+    }
+    if (runemarks.includes("ally")){
+        tagRunemarks.push('runemarks/black/fighters-ally.svg');
+    }
+    if (runemarks.includes("ferocious")){
+        tagRunemarks.push('runemarks/black/fighters-ferocious.svg');
+    }
+    if (runemarks.includes("frenzied")){
+        tagRunemarks.push('runemarks/black/fighters-frenzied.svg');
+    }
+    if (runemarks.includes("priest")){
+        tagRunemarks.push('runemarks/black/fighters-priest.svg');
+    }
+    if (runemarks.includes("terrifying")){
+        tagRunemarks.push('runemarks/black/fighters-terrifying.svg');
+    }
+    return tagRunemarks;
+}
