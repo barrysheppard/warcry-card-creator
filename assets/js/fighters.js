@@ -31,56 +31,57 @@ getContext = function () {
 }
 
 getBackgroundImage = function () {
-    if (document.getElementById('bg-01').checked) {
+    var selectedOption = document.getElementById('background-list').value;
+
+    if (selectedOption === 'bg-01') {
         return document.getElementById('bg-dark-102');
 
-    } else if (document.getElementById('bg-02').checked) {
+    } else if (selectedOption === 'bg-02') {
         return document.getElementById('bg-dark-112');
 
-    } else if (document.getElementById('bg-03').checked) {
+    } else if (selectedOption === 'bg-03') {
         return document.getElementById('bg-dark-302');
 
-    } else if (document.getElementById('bg-04').checked) {
+    } else if (selectedOption === 'bg-04') {
         return document.getElementById('bg-dark-312');
 
-    } else if (document.getElementById('bg-05').checked) {
+    } else if (selectedOption === 'bg-05') {
         return document.getElementById('bg-fire-102');
 
-    } else if (document.getElementById('bg-06').checked) {
+    } else if (selectedOption === 'bg-06') {
         return document.getElementById('bg-fire-112');
 
-    } else if (document.getElementById('bg-07').checked) {
+    } else if (selectedOption === 'bg-07') {
         return document.getElementById('bg-ghur-401');
 
-    } else if (document.getElementById('bg-08').checked) {
+    } else if (selectedOption === 'bg-08') {
         return document.getElementById('bg-ghur-402');
 
-    } else if (document.getElementById('bg-09').checked) {
+    } else if (selectedOption === 'bg-09') {
         return document.getElementById('bg-ghur-403');
 
-    } else if (document.getElementById('bg-10').checked) {
+    } else if (selectedOption === 'bg-10') {
         return document.getElementById('bg-ghur-404');
 
-    } else if (document.getElementById('bg-11').checked) {
+    } else if (selectedOption === 'bg-11') {
         return document.getElementById('bg-ghur-501');
 
-    } else if (document.getElementById('bg-12').checked) {
+    } else if (selectedOption === 'bg-12') {
         return document.getElementById('bg-christmas-001');
-    
-    } else if (document.getElementById('bg-13').checked) {
+
+    } else if (selectedOption === 'bg-13') {
         return document.getElementById('mordheim01');
 
-    } else if (document.getElementById('bg-14').checked) {
+    } else if (selectedOption === 'bg-14') {
         return document.getElementById('bg-aos');
 
-    } else if (document.getElementById('bg-15').checked) {
+    } else if (selectedOption === 'bg-15') {
         return document.getElementById('bg-green');
 
-    } else if (document.getElementById('bg-16').checked) {
+    } else if (selectedOption === 'bg-16') {
         return document.getElementById('bg-red');
 
     }
-
 }
 
 drawFrame = function(){
@@ -136,11 +137,11 @@ drawCardElementFromInputId = function (inputId, pixelPosition) {
 drawFighterName = function (value) {
     startX = 850;
     startY = 700;
-    if (document.getElementById('bg-13').checked){
+    if (document.getElementById('background-list').value === 'bg-13') {
         getContext().font = '44px schoensperger';
     } else {
         getContext().font = '44px rodchenkoctt';
-    }
+    }    
     
     getContext().fillStyle = 'white';
     getContext().textAlign = "center";
@@ -160,11 +161,12 @@ drawFighterName = function (value) {
 drawFighterName2 = function (value) {
     startX = 850;
     startY = 732;
-    if (document.getElementById('bg-13').checked){
-        getContext().font = '32px schoensperger';
+    if (document.getElementById('background-list').value === 'bg-13') {
+        getContext().font = '44px schoensperger';
     } else {
-        getContext().font = '32px rodchenkoctt';
+        getContext().font = '44px rodchenkoctt';
     }
+    
     
     getContext().fillStyle = 'white';
     getContext().textAlign = "center";
@@ -641,6 +643,7 @@ function readControls() {
     data.bg14 = document.getElementById('bg-14').checked;
     data.bg15 = document.getElementById('bg-15').checked;
     data.bg16 = document.getElementById('bg-16').checked;
+    data.bgselected = document.getElementById('background-list').value;
 
     return data;
 }
@@ -909,6 +912,7 @@ async function writeControls(fighterData) {
     document.getElementById('bg-14').checked = fighterData.bg14;
     document.getElementById('bg-15').checked = fighterData.bg15;
     document.getElementById('bg-16').checked = fighterData.bg16;
+    document.getElementById('background-list').value = fighterData.bgselected;
 
     // render the updated info
     render(fighterData);
@@ -953,6 +957,7 @@ function defaultFighterData() {
     fighterData.bg14 = false;
     fighterData.bg15 = false;
     fighterData.bg16 = false;
+    fighterData.bgselected = "bg-11";
 
     return fighterData;
 }
@@ -1061,6 +1066,7 @@ function getLatestFighterDataName() {
 
 window.onload = function () {
     //window.localStorage.clear();
+
     var fighterData = loadLatestFighterData();
     writeControls(fighterData);
     refreshSaveSlots();
@@ -1272,7 +1278,7 @@ async function onSaveClicked() {
         'weapon2', 'attacks', 'damageBase', 'damageCrit',
         'enabled', 'rangeMax', 'rangeMin', 'runemark', 'strength',
         'bg01', 'bg02', 'bg03', 'bg04', 'bg05', 'bg06', 'bg07', 'bg08', 'bg09', 'bg10', 
-        'bg11','bg12','bg13', 'bg14', 'bg15', 'bg16',
+        'bg11','bg12','bg13', 'bg14', 'bg15', 'bg16', 'bgselected',
         'customBackgroundUrl', 'customBackgroundProperties','customBackgroundOffsetX', 
         'customBackgroundOffsetY', 'customBackgroundScalePercent',
         'base64CustomBackground', 'base64Image'], 4);
@@ -1345,6 +1351,27 @@ async function fileChange(file) {
         if (typeof json.customBackgroundProperties === "undefined") {
             json.customBackgroundProperties = getDefaultModelImageProperties();
         }
+
+        // Check with old jsons where bgselected didn't exist
+        let bgSelectedValue;
+
+        // Check if fighterData.bgselected value already exists
+        if (!json.bgselected) {
+        // Iterate through each bg option in fighterData
+        for (const prop in json) {
+            if (prop.startsWith('bg') && json[prop]) {
+            bgSelectedValue = prop.replace('bg', 'bg-');
+            break;
+            }
+        }
+
+        // Update fighterData.bgselected only if a value is found
+        if (bgSelectedValue) {
+            json.bgselected = bgSelectedValue;
+        }
+        }
+
+
         writeControls(json);
     };
 
@@ -1536,6 +1563,7 @@ function saveFighterFromList(fighter){
     fighterData.bg14 = oldData.bg14;
     fighterData.bg15 = oldData.bg15;
     fighterData.bg16 = oldData.bg16;
+    fighterData.bgselected = oldData.bgselected;
     writeControls(fighterData);
 }
 
