@@ -1429,6 +1429,10 @@ function loadFighterFromList(){
 
 
 async function loadFighterById(id) {
+
+    // I want the runemark ticked
+    document.getElementById("runemark-names").checked = true;
+
     // Load the JSON file
     fetch("https://raw.githubusercontent.com/krisling049/warcry_data/main/data/fighters.json")
       .then(response => response.json())
