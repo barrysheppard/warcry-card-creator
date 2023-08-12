@@ -18,11 +18,23 @@
                     oninput="onAnyChange()">
             </div>
             <div class="form-group">
+                <label for="nameSize">Font Size</label>
+                <input class="form-control" id="nameSize" min="0" name="nameSize"
+                    oninput="onAnyChange()" type="number" value="60">
+                    <label for="colorPicker">Choose a Color:</label>
+                    <input type="color" id="colorPicker" name="colorPicker" value="#E0DDDC" oninput="onAnyChange()">
+            </div>
+
+            <div class="form-group">
                 <label for="object-title">Title</label>
                 <input class="form-control" type="text" id="object-title" name="object-title" value="Lesser Artefact"
                     oninput="onAnyChange()">
             </div>
-
+            <div class="form-group">
+                <label for="titleSize">Font Size</label>
+                <input class="form-control" id="titleSize" min="0" name="titleSize"
+                    oninput="onAnyChange()" type="number" value="50">
+            </div>
             <div class="form-group">
                 <label for="object-italic-text">Italic Text - Use returns to align and break</label>
                 <textarea class="form-control" id="object-italic-text" name="object-italic-text" rows="3"
@@ -32,6 +44,11 @@
                 <label for="object-text">Text - Use returns to align and break</label>
                 <textarea class="form-control" id="object-text" name="object-text" rows="3"
                     oninput="onAnyChange()">[Consumable] Discard this card after use. Bonus Action: Heal 1d6 damage from this fighter.</textarea>
+            </div>
+            <div class="form-group">
+                <label for="textSize">Font Size</label>
+                <input class="form-control" id="textSize" min="0" name="textSize"
+                    oninput="onAnyChange()" type="number" value="50">
             </div>
 
         </div>

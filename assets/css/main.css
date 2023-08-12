@@ -39,6 +39,18 @@
         url("../fonts/rodchenkoctt.svg#rodchenkoctt") format("svg");
 }
 
+@font-face {
+    font-family: "lithosblack";
+    font-style: normal;
+    font-weight: normal;
+    src: url("../fonts/lithosblack.eot");
+    src: url("../fonts/lithosblack.eot?#iefix") format("embedded-opentype"),
+        url("../fonts/lithosblack.woff2") format("woff2"),
+        url("../fonts/lithosblack.woff") format("woff"),
+        url("../fonts/lithosblack.ttf") format("truetype"),
+        url("../fonts/lithosblack.svg#lithosblack") format("svg");
+}
+
 /* @media (prefers-color-scheme: dark) {
     a, .btn-link { color: tomato; }
 }

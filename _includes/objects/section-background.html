@@ -11,42 +11,36 @@
 
     <div class="collapse" id="abilitiesCollapseOne">
         <div class="card-body">
+     
+            <div class="row">
+                <div class="col-6">
+                    <select class="form-select" id="background-list" name="background-list" onchange="onAnyChange()">
+                        <optgroup label="Ghur">
+                          <option value="bg_ghur">Ghur Default</option>
+                          <option value="bg_ghurplain">Ghur Plain</option>
+                        </optgroup>
+                        <optgroup label="Fire">
+                          <option value="bg_fire">Fire</option>
+                          <option value="bg_dark">Dark Fire</option>
+                        </optgroup>
+                        <optgroup label="Arcane">
+                            <option value="bg_arcane">Arcane</option>
+                            <option value="bg_arcaneblue">Arcane Blue</option>
+                            <option value="bg_green">Arcane Green</option>
+                            <option value="bg_red">Arcane Red</option>
+                          </optgroup>
+                          <optgroup label="Others">
+                            <option value="bg_plain">Plain</option>
+                            <option value="bg_cursedcity">Cursed City</option>
+                            <option value="bg_mordheim">Mordheim</option>
 
-            <div class="form-check form-check-inline">
-                <input checked class="form-check-input" id="bg_ghur" name="toggle-backgrounds" oninput="onAnyChange()"
-                    type="radio">
-                <label class="form-check-label" for="bg_ghur">Ghur</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" id="bg_red" name="toggle-backgrounds" oninput="onAnyChange()"
-                    type="radio">
-                <label class="form-check-label" for="bg_red">Red</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" id="bg_green" name="toggle-backgrounds" oninput="onAnyChange()"
-                    type="radio">
-                <label class="form-check-label" for="bg_green">Green</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" id="bg_black" name="toggle-backgrounds" oninput="onAnyChange()"
-                    type="radio">
-                <label class="form-check-label" for="bg_black">Black</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" id="bg_fire" name="toggle-backgrounds" oninput="onAnyChange()"
-                    type="radio">
-                <label class="form-check-label" for="bg_fire">Fire</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" id="bg_ice" name="toggle-backgrounds" oninput="onAnyChange()"
-                    type="radio">
-                <label class="form-check-label" for="bg_ice">Ice</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" id="bg_xmas" name="toggle-backgrounds" oninput="onAnyChange()"
-                    type="radio">
-                <label class="form-check-label" for="bg_xmas">Xmas</label>
-            </div>
+                        </optgroup>
+                      </select>
+
+                      
+                </div>
+              </div>
+              
 
 
             {% comment %}

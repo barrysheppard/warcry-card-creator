@@ -24,27 +24,47 @@ getContext = function () {
 }
 
 getBackgroundImage = function () {
-    if (document.getElementById('bg_ghur').checked) {
+
+    var selectedOption = document.getElementById('background-list').value;
+
+    if (selectedOption === 'bg_ghur') {
         return document.getElementById('warcry_object_ghur');
     }
-    if (document.getElementById('bg_red').checked) {
-        return document.getElementById('warcry_object_red');
-    }
-    if (document.getElementById('bg_green').checked) {
-        return document.getElementById('warcry_object_green');
-    }
-    if (document.getElementById('bg_black').checked) {
-        return document.getElementById('warcry_object_black');
-    }
-    if (document.getElementById('bg_fire').checked) {
+    else if (selectedOption === 'bg_fire') {
         return document.getElementById('warcry_object_fire');
     }
-    if (document.getElementById('bg_ice').checked) {
-        return document.getElementById('warcry_object_ice');
+    else if (selectedOption === 'bg_arcane') {
+        return document.getElementById('warcry_object_arcane');
     }
-    if (document.getElementById('bg_xmas').checked) {
-        return document.getElementById('warcry_object_xmas');
+    else if (selectedOption === 'bg_arcaneblue') {
+        return document.getElementById('warcry_object_arcaneblue');
     }
+    else if (selectedOption === 'bg_blackmarble') {
+        return document.getElementById('warcry_object_blackmarble');
+    }
+    else if (selectedOption === 'bg_cursedcity') {
+        return document.getElementById('warcry_object_cursedcity');
+    }
+    else if (selectedOption === 'bg_dark') {
+        return document.getElementById('warcry_object_dark');
+    }
+    else if (selectedOption === 'bg_ghurplain') {
+        return document.getElementById('warcry_object_ghurplain');
+    }
+    else if (selectedOption === 'bg_green') {
+        return document.getElementById('warcry_object_green');
+    }
+    else if (selectedOption === 'bg_plain') {
+        return document.getElementById('warcry_object_plain');
+    }
+    else if (selectedOption === 'bg_red') {
+        return document.getElementById('warcry_object_red');
+    }
+    else if (selectedOption === 'bg_mordheim') {
+        return document.getElementById('warcry_object_mordheim');
+    }
+
+    
 }
 
 drawBackground = function () {
@@ -73,64 +93,75 @@ drawCardElementFromInputId = function (inputId, pixelPosition) {
 }
 
 drawObjectTitle = function (value) {
-    getContext().font = '10px rodchenkoctt';
-    getContext().fillStyle = "#E0DDDC";
+    var objectData = readControls();
+    font_size = objectData.titleSize;
+    colour = objectData.nameColour;
+    x_pos = 822/2;
+    y_pos = 1030;
+
+    // Dark Border first.
+    if (document.getElementById('background-list').value === 'bg_mordheim') {
+        getContext().font = font_size + 'px schoensperger';
+    } else {
+        getContext().font = font_size + 'px lithosblack';
+    }        getContext().fillStyle = "Black";
     getContext().textAlign = 'center';
-    writeScaled(value, { x: 88, y: 20 });
+    writeScaled(value, { x: x_pos +2, y: y_pos+2 });
+    writeScaled(value, { x: x_pos -2, y: y_pos-2 });
+    writeScaled(value, { x: x_pos +2, y: y_pos-2 });
+    writeScaled(value, { x: x_pos -2, y: y_pos+2 });
+
+
+    getContext().fillStyle = colour;
+    writeScaled(value, { x: x_pos, y: y_pos });
 }
 
 drawObjectName = function (value) {
-    getContext().font = '18px rodchenkoctt';
-    getContext().fillStyle = "#E0DDDC";
-    getContext().textAlign = 'center ';
-    writeScaled(value, { x: 88, y: 36 });
-}
+    var objectData = readControls();
+    font_size = objectData.nameSize;
+    colour = objectData.nameColour;
+    x_pos = 822/2;
+    y_pos = 140;
+    // Dark Border first.s
+    if (document.getElementById('background-list').value === 'bg_mordheim') {
+        getContext().font = font_size + 'px schoensperger';
+    } else {
+        getContext().font = font_size + 'px lithosblack';
+    }    
+    getContext().fillStyle = "Black";
+    writeScaled(value, { x: x_pos +2, y: y_pos+2 });
+    writeScaled(value, { x: x_pos -2, y: y_pos-2 });
+    writeScaled(value, { x: x_pos +2, y: y_pos-2 });
+    writeScaled(value, { x: x_pos -2, y: y_pos+2 });
 
-drawObjectText = function (value) {
-    getContext().font = '9px helvetica';
-    getContext().fillStyle = 'black';
-    getContext().textAlign = 'left';
-
-    lines = splitWordWrap(getContext(), value, 150);
-
-    for (var i = 0; i < lines.length; i++) {
-        writeScaled(lines[i], { x: 20, y: 80 + (i * 10) });
-    }
-}
-
-drawObjectItalicText = function (value) {
-    getContext().font = 'italic 9px helvetica';
-    getContext().fillStyle = 'black';
-    getContext().textAlign = 'left';
-
-    lines = splitWordWrap(getContext(), value, 150);
-
-    for (var i = 0; i < lines.length; i++) {
-        writeScaled(lines[i], { x: 20, y: 70 + (i * 10) });
-    }
+    getContext().fillStyle = colour;
+    writeScaled(value, { x: x_pos, y: y_pos });
 }
 
 drawBodyText = function (italicText, normalText) {
+    var objectData = readControls();
+    font_size = objectData.textSize;
 
-    getContext().font = 'italic 9px helvetica';
+    getContext().font = 'italic '+ font_size + 'px rodchenkoctt';
     getContext().fillStyle = 'black';
-    getContext().textAlign = 'center';
+    getContext().textAlign = 'left';
 
-    currentPrintLine = 70; // The y for the first line
-    nextLineSize = 10; // The amount to add to y for next line
+    currentPrintLine = 250; // The y for the first line
+    nextLineSize = parseInt(font_size); // The amount to add to y for next line
 
-    lines = splitWordWrap(getContext(), italicText, 150);
+
+    lines = splitWordWrap(getContext(), italicText, 500);
     for (var i = 0; i < lines.length; i++) {
-        writeScaled(lines[i], { x: 88, y: currentPrintLine });
+        writeScaled(lines[i], { x: 170, y: currentPrintLine });
         currentPrintLine = currentPrintLine + nextLineSize;
     }
 
     // Same again but this time without italics
-    getContext().font = '9px helvetica';
+    getContext().font = font_size + 'px rodchenkoctt';
 
-    lines = splitWordWrap(getContext(), normalText, 150);
+    lines = splitWordWrap(getContext(), normalText, 500);
     for (var i = 0; i < lines.length; i++) {
-        writeScaled(lines[i], { x: 88, y: currentPrintLine });
+        writeScaled(lines[i], { x: 170, y: currentPrintLine });
         currentPrintLine = currentPrintLine + nextLineSize;
     }
 }
@@ -169,17 +200,6 @@ function drawImageSrc(scaledPosition, scaledSize, imageSrc) {
 function setModelImage(image) {
     console.log("setModelImage:" + image);
     $("#objectImageUrl")[0].value = image;
-
-
-    //    var imageSelect = $("#imageSelect")[0];
-
-    //    if (image != null) {
-    // TODO: Not sure how to do this. It might not even be possible! Leave it for now...
-    // imageSelect.files[0] = image;
-    //    }
-    //    else {
-    //        imageSelect.value = null;
-    //    }
 }
 
 function getDefaultModelImageProperties() {
@@ -255,11 +275,15 @@ function readControls() {
     data.objectText = document.getElementById('object-text').value;
     data.objectItalicText = document.getElementById('object-italic-text').value;
 
-    data.bg_ghur = document.getElementById('bg_ghur').checked;
-    data.bg_red = document.getElementById('bg_red').checked;
-    data.bg_green = document.getElementById('bg_green').checked;
-    data.bg_black = document.getElementById('bg_black').checked;
-    data.bg_fire = document.getElementById('bg_fire').checked;
+    data.nameSize = document.getElementById('nameSize').value;
+    data.nameColour = document.getElementById('colorPicker').value;
+
+    data.titleSize = document.getElementById('titleSize').value;
+    data.textSize = document.getElementById('textSize').value;
+
+    data.bgselected = document.getElementById('background-list').value;
+
+
     return data;
 }
 
@@ -293,17 +317,16 @@ render = function (cardData) {
         drawObjectName(cardData.objectName);
         drawBodyText(cardData.objectItalicText, cardData.objectText);
     }
+    drawBorder();
 };
 
 async function writeControls(cardData) {
-    //setName(cardData.name);
 
     console.log("writeControls");
     console.log(cardData);
 
     // here we check for base64 loaded image and convert it back to imageUrl
-    if (cardData.base64Image != null) {
-
+    if (cardData.base64Image) {
         // first convert to blob
         const dataToBlob = async (imageData) => {
             return await (await fetch(imageData)).blob();
@@ -313,8 +336,6 @@ async function writeControls(cardData) {
         cardData.imageUrl = URL.createObjectURL(blob);
         // Now that's saved, clear out the base64 so we don't reassign
         cardData.base64Image = null;
-    } else {
-        cardData.imageUrl = null;
     }
 
     setModelImage(cardData.imageUrl);
@@ -325,12 +346,13 @@ async function writeControls(cardData) {
     $('#object-text')[0].value = cardData.objectText;
     $('#object-italic-text')[0].value = cardData.objectItalicText;
 
-    // check and uncheck if needed
-    document.getElementById('bg_ghur').checked = cardData.bg_ghur;
-    document.getElementById('bg_red').checked = cardData.bg_red;
-    document.getElementById('bg_green').checked = cardData.bg_green;
-    document.getElementById('bg_black').checked = cardData.bg_black;
-    document.getElementById('bg_fire').checked = cardData.bg_fire;
+    $('#nameSize')[0].value = cardData.nameSize;
+    $('#colorPicker')[0].value = cardData.nameColour;
+
+    $('#titleSize')[0].value = cardData.titleSize;
+    $('#textSize')[0].value = cardData.textSize;
+
+    document.getElementById('background-list').value = cardData.bgselected;
 
     // render the updated info
     render(cardData);
@@ -347,11 +369,12 @@ function defaultCardData() {
     cardData.objectText = "[Consumable] Discard this card after use. Bonus Action: Heal 1d6 damage from this fighter.";
     cardData.objectItalicText = "Flavour text in italics.";
 
-    cardData.bg_ghur = true;
-    cardData.bg_red = false;
-    cardData.bg_green = false;
-    cardData.bg_black = false;
-    cardData.bg_fire = false;
+    cardData.bgselected = "bg_ghur";
+
+    cardData.nameSize = 60;
+    cardData.nameColour = '#E0DDDC';
+    cardData.titleSize = 50;
+    cardData.textSize = 50;
 
     return cardData;
 }
@@ -377,7 +400,6 @@ function loadLatestCardData() {
     if (latestObjectName == null) {
         latestObjectName = "Warcry_Object";
     }
-
     console.log("Loading '" + latestObjectName + "'...");
 
     var data = loadCardData(latestObjectName);
@@ -389,7 +411,6 @@ function loadLatestCardData() {
         console.log("Failed to load data, loading default.");
         data = defaultCardData();
     }
-
     return data;
 }
 
@@ -407,12 +428,10 @@ function loadCardData(cardDataName) {
     if (!cardDataName) {
         return null;
     }
-
     var map = loadCardDataMap();
     if (map[cardDataName]) {
         return map[cardDataName];
     }
-
     return null;
 }
 
@@ -420,12 +439,9 @@ function getBase64Image(img) {
     var canvas = document.createElement("canvas");
     canvas.width = img.width;
     canvas.height = img.height;
-
     var ctx = canvas.getContext("2d");
     ctx.drawImage(img, 0, 0);
-
     var dataURL = canvas.toDataURL("image/png");
-
     return dataURL;
 }
 
@@ -451,25 +467,9 @@ async function handleImageUrlFromDisk(imageUrl) {
         // The image was loaded from disk. So we can load it later, we need to stringify it.
         imageUrl = await getBase64ImgFromUrl(imageUrl);
     }
-
     return imageUrl;
 }
-/*
-async function saveCardData(cardData) {
-    var finishSaving = function () {
-        var map = loadCardDataMap();
-        map[cardData.name] = cardData;
-        window.localStorage.setItem("cardDataMap", JSON.stringify(map));
-    };
 
-    if (cardData != null && cardData.name) {
-        // handle images we may have loaded from disk...
-        cardData.imageUrl = await handleImageUrlFromDisk(cardData.imageUrl);
-
-        finishSaving();
-    }
-}
-*/
 function getLatestCardDataName() {
     return "latestCardData";
 }
@@ -487,7 +487,6 @@ onAnyChange = function () {
     saveLatestCardData();
 }
 
-
 addToImageRadioSelector = function (imageSrc, imageSelector, radioGroupName, bgColor) {
     var div = document.createElement('div');
     div.setAttribute('class', 'mr-0');
@@ -498,7 +497,6 @@ addToImageRadioSelector = function (imageSrc, imageSelector, radioGroupName, bgC
     imageSelector.appendChild(div);
     return div;
 }
-
 
 function addToImageCheckboxSelector(imgSrc, grid, bgColor) {
     var div = document.createElement('div');
@@ -512,7 +510,6 @@ function addToImageCheckboxSelector(imgSrc, grid, bgColor) {
     // grid.appendChild(div);
     return div;
 }
-
 
 function onClearCache() {
     window.localStorage.clear();
@@ -589,10 +586,6 @@ function onDeleteClicked() {
     refreshSaveSlots();
 }
 
-// …
-// …
-// …
-
 function saveCardAsImage() {
     var element = document.createElement('a');
     element.setAttribute('href', document.getElementById('canvas').toDataURL('image/png'));
@@ -611,10 +604,6 @@ $(document).ready(function () {
     // ctx.stroke();
 });
 
-
-
-
-
 async function readJSONFile(file) {
     // Function will return a new Promise which will resolve or reject based on whether the JSON file is read and parsed successfully
     return new Promise((resolve, reject) => {
@@ -630,9 +619,7 @@ async function readJSONFile(file) {
         // Read from the file, which will kick-off the onload or onerror events defined above based on the outcome
         fileReader.readAsText(file);
     });
-
 }
-
 
 async function fileChange(file) {
     // Function to be triggered when file input changes
@@ -701,4 +688,10 @@ function saveLatestObjectData() {
     }
     window.localStorage.setItem("latestObjectName", objectData.name);
     //saveObjectData(objectData);
+}
+
+drawBorder = function () {
+    if(!document.getElementById("removeBorder").checked){
+        getContext().drawImage(document.getElementById('card-border'), 0, 0, 822, 1122);
+    }
 }

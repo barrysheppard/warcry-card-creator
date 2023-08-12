@@ -81,6 +81,9 @@ getBackgroundImage = function () {
     } else if (selectedOption === 'bg-16') {
         return document.getElementById('bg-red');
 
+    } else if (selectedOption === 'bg-17') {
+        return document.getElementById('bg-dark-arcane');
+
     }
 }
 
