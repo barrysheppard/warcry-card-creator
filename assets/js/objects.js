@@ -149,13 +149,13 @@ drawBodyText = function (italicText, normalText) {
     currentPrintLine = 250; // The y for the first line
     nextLineSize = parseInt(font_size); // The amount to add to y for next line
 
-
-    lines = splitWordWrap(getContext(), italicText, 500);
-    for (var i = 0; i < lines.length; i++) {
-        writeScaled(lines[i], { x: 170, y: currentPrintLine });
-        currentPrintLine = currentPrintLine + nextLineSize;
+    if (italicText != ""){
+        lines = splitWordWrap(getContext(), italicText, 500);
+        for (var i = 0; i < lines.length; i++) {
+            writeScaled(lines[i], { x: 170, y: currentPrintLine });
+            currentPrintLine = currentPrintLine + nextLineSize;
+        }
     }
-
     // Same again but this time without italics
     getContext().font = font_size + 'px rodchenkoctt';
 
