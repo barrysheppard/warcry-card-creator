@@ -365,7 +365,7 @@ function drawCardTranslationAbilities(value) {
 function drawFactionRunemark(image, inc) {
     // for 7 spacing its + 150 for 6 spacing it's + 175
     // if we have 6 items then it's different spacing to seven both start here
-    y_pos = 205;
+    y_pos = 140;
 
     ability = ['ability1-toggle', 'ability2-toggle', 'ability3-toggle', 'ability4-toggle',
         'ability5-toggle', 'ability6-toggle', 'ability7-toggle'];
@@ -373,10 +373,10 @@ function drawFactionRunemark(image, inc) {
     // for 7 spacing its + 150 for 6 spacing it's + 175
     for (x in ability) {
         if (document.getElementById(ability[x]).checked) {
-            var positions = { x: 65, y: y_pos },
+            var positions = { x: 50, y: y_pos },
                 replacedImage = image.replace('white', 'black');
-            drawImage(positions, { x: 90, y: 90 }, $("#circle")[0]);
-            drawImageSrc(positions, { x: 90, y: 90 }, replacedImage);
+            drawImage(positions, scalePixelPosition({ x: 80, y: 80 }), $("#circle")[0]);
+            drawImageSrc(positions, scalePixelPosition({ x: 80, y: 80 }), replacedImage);
         }
         y_pos += inc;
     }
@@ -385,8 +385,8 @@ function drawFactionRunemark(image, inc) {
 function drawFactionRunemarkLarge(image, inc) {
     // for 7 spacing its + 150 for 6 spacing it's + 175
     // if we have 6 items then it's different spacing to seven both start here
-    y_pos = 205;
-
+    y_pos = 150;
+    inc = 200;
     ability = ['ability1-toggle', 'ability2-toggle', 'ability3-toggle', 'ability4-toggle',
         'ability5-toggle', 'ability6-toggle', 'ability7-toggle'];
 
@@ -395,8 +395,8 @@ function drawFactionRunemarkLarge(image, inc) {
         if (document.getElementById(ability[x]).checked) {
             var positions = { x: 65, y: y_pos },
                 replacedImage = image.replace('white', 'black');
-            drawImage(positions, { x: 180, y: 180 }, $("#circle")[0]);
-            drawImageSrc(positions, { x: 180, y: 180 }, replacedImage);
+            drawImage(positions, { x: 100, y: 100 }, $("#circle")[0]);
+            drawImageSrc(positions, { x: 100, y: 100 }, replacedImage);
         }
         y_pos += inc;
     }
@@ -423,9 +423,11 @@ function drawImageSrc(scaledPosition, scaledSize, imageSrc) {
 
 function drawSubfactionRunemark(image, inc) {
     // draw image on header
-    drawImageSrc({ x: 224, y: 58 }, { x: 90, y: 90 }, image);
+    drawImageSrc({ x: 150, y: 40 }, { x: 70, y: 70 }, image);
+    drawImageSrc({ x: 900, y: 40 }, { x: 70, y: 70 }, image);
+
     // if we have 6 items then it's different spacing to seven both start here
-    y_pos = 205;
+    y_pos = 140;
 
     ability = ['ability1-toggle', 'ability2-toggle', 'ability3-toggle', 'ability4-toggle',
         'ability5-toggle', 'ability6-toggle', 'ability7-toggle'];
@@ -435,10 +437,10 @@ function drawSubfactionRunemark(image, inc) {
 
     for (x in ability) {
         if (document.getElementById(ability[x]).checked) {
-            var positions = { x: 65, y: y_pos },
+            var positions = { x: 50, y: y_pos },
                 replacedImage = image.replace('white', 'black');
-            drawImage(positions, { x: 90, y: 90 }, $("#circle")[0]);
-            drawImageSrc(positions, { x: 90, y: 90 }, replacedImage);
+            drawImage(positions, scalePixelPosition({ x: 80, y: 80 }), $("#circle")[0]);
+            drawImageSrc(positions, scalePixelPosition({ x: 80, y: 80 }), replacedImage);
         }
         y_pos += inc;
     }
@@ -448,10 +450,12 @@ function drawSubfactionRunemark(image, inc) {
 function drawSubfactionRunemarkLarge(image, inc) {
 
     // draw image on header
-    drawImageSrc({ x: 224, y: 58 }, { x: 90, y: 90 }, image);
+    drawImageSrc({ x: 150, y: 30 }, { x: 80, y: 80 }, image);
+    drawImageSrc({ x: 900, y: 30 }, { x: 80, y: 80 }, image);
+
 
     // if we have 6 items then it's different spacing to seven both start here
-    y_pos = 205;
+    y_pos = 150;
 
     ability = ['ability1-toggle', 'ability2-toggle', 'ability3-toggle', 'ability4-toggle',
         'ability5-toggle', 'ability6-toggle', 'ability7-toggle'];
@@ -463,8 +467,8 @@ function drawSubfactionRunemarkLarge(image, inc) {
         if (document.getElementById(ability[x]).checked) {
             var positions = { x: 65, y: y_pos },
                 replacedImage = image.replace('white', 'black');
-            drawImage(positions, { x: 180, y: 180 }, $("#circle")[0]);
-            drawImageSrc(positions, { x: 180, y: 180 }, replacedImage);
+            drawImage(positions, { x: 100, y: 100 }, $("#circle")[0]);
+            drawImageSrc(positions, { x: 100, y: 100 }, replacedImage);
         }
         y_pos += inc;
     }
@@ -486,43 +490,43 @@ function drawTagRunemark(index, runemark, row) {
     var positions = []
     if (tripleCheck) {
         if (row == 1 && document.getElementById('ability1-toggle').checked) {
-            positions = [{ x: 255, y: 210 }, { x: 440, y: 210 }];
+            positions = [{ x: 270, y: 230 }, { x: 440, y: 230 }];
         } else if (row == 2 && document.getElementById('ability2-toggle').checked) {
-            positions = [{ x: 255, y: 510 }, { x: 440, y: 510 }];
+            positions = [{ x: 270, y: 530 }, { x: 440, y: 530 }];
         } else if (row == 3 && document.getElementById('ability3-toggle').checked) {
-            positions = [{ x: 255, y: 810 }, { x: 440, y: 810 }];
+            positions = [{ x: 270, y: 830 }, { x: 440, y: 830 }];
         }
     }
     else if (document.getElementById('ability7-toggle').checked) {
         if (row == 1 && document.getElementById('ability1-toggle').checked) {
-            positions = [{ x: 175, y: 210 }, { x: 285, y: 210 }, { x: 395, y: 210 }];
+            positions = [{ x: 175, y: 210 }, { x: 275, y: 210 }, { x: 375, y: 210 }];
         } else if (row == 2 && document.getElementById('ability2-toggle').checked) {
-            positions = [{ x: 175, y: 360 }, { x: 285, y: 360 }, { x: 395, y: 360 }];
+            positions = [{ x: 175, y: 360 }, { x: 275, y: 360 }, { x: 375, y: 360 }];
         } else if (row == 3 && document.getElementById('ability3-toggle').checked) {
-            positions = [{ x: 175, y: 510 }, { x: 285, y: 510 }, { x: 395, y: 510 }];
+            positions = [{ x: 175, y: 510 }, { x: 275, y: 510 }, { x: 375, y: 510 }];
         } else if (row == 4 && document.getElementById('ability4-toggle').checked) {
-            positions = [{ x: 175, y: 660 }, { x: 285, y: 660 }, { x: 395, y: 660 }];
+            positions = [{ x: 175, y: 660 }, { x: 275, y: 660 }, { x: 375, y: 660 }];
         } else if (row == 5 && document.getElementById('ability5-toggle').checked) {
-            positions = [{ x: 175, y: 810 }, { x: 285, y: 810 }, { x: 395, y: 810 }];
+            positions = [{ x: 175, y: 810 }, { x: 275, y: 810 }, { x: 375, y: 810 }];
         } else if (row == 6 && document.getElementById('ability6-toggle').checked) {
-            positions = [{ x: 175, y: 960 }, { x: 285, y: 960 }, { x: 395, y: 960 }];
+            positions = [{ x: 175, y: 960 }, { x: 275, y: 960 }, { x: 375, y: 960 }];
         } else if (row == 7 && document.getElementById('ability7-toggle').checked) {
-            positions = [{ x: 175, y: 1110 }, { x: 285, y: 1110 }, { x: 395, y: 1110 }];
+            positions = [{ x: 175, y: 1110 }, { x: 285, y: 1110 }, { x: 375, y: 1110 }];
         }
     }
     else {
         if (row == 1 && document.getElementById('ability1-toggle').checked) {
-            positions = [{ x: 175, y: 210 }, { x: 285, y: 210 }, { x: 395, y: 210 }];
+            positions = [{ x: 175, y: 210 }, { x: 275, y: 210 }, { x: 375, y: 210 }];
         } else if (row == 2 && document.getElementById('ability2-toggle').checked) {
-            positions = [{ x: 175, y: 385 }, { x: 285, y: 385 }, { x: 395, y: 385 }];
+            positions = [{ x: 175, y: 385 }, { x: 275, y: 385 }, { x: 375, y: 385 }];
         } else if (row == 3 && document.getElementById('ability3-toggle').checked) {
-            positions = [{ x: 175, y: 560 }, { x: 285, y: 560 }, { x: 395, y: 560 }];
+            positions = [{ x: 175, y: 560 }, { x: 275, y: 560 }, { x: 375, y: 560 }];
         } else if (row == 4 && document.getElementById('ability4-toggle').checked) {
-            positions = [{ x: 175, y: 735 }, { x: 285, y: 735 }, { x: 395, y: 735 }];
+            positions = [{ x: 175, y: 735 }, { x: 275, y: 735 }, { x: 375, y: 735 }];
         } else if (row == 5 && document.getElementById('ability5-toggle').checked) {
-            positions = [{ x: 175, y: 900 }, { x: 285, y: 900 }, { x: 395, y: 900 }];
+            positions = [{ x: 175, y: 900 }, { x: 275, y: 900 }, { x: 375, y: 900 }];
         } else if (row == 6 && document.getElementById('ability6-toggle').checked) {
-            positions = [{ x: 175, y: 1075 }, { x: 285, y: 1075 }, { x: 395, y: 1075 }];
+            positions = [{ x: 175, y: 1075 }, { x: 275, y: 1075 }, { x: 375, y: 1075 }];
         }
     }
 
@@ -540,18 +544,18 @@ function drawTagRunemark(index, runemark, row) {
     if (tripleCheck) {
         var img = $("#circle")[0],
             position = scalePixelPosition(positions[index]),
-            size = scalePixelPosition({ x: 180, y: 180 });
+            size = scalePixelPosition({ x: 150, y: 150 });
     } else {
         var img = $("#circle")[0],
             position = scalePixelPosition(positions[index]),
-            size = scalePixelPosition({ x: 90, y: 90 });
+            size = scalePixelPosition({ x: 80, y: 80 });
     }
 
     position = scalePixelPosition({ x: positions[index].x, y: positions[index].y });
     if (tripleCheck) {
-        drawImage(position, { x: 180, y: 180 }, img);
+        drawImage(position, scalePixelPosition({ x: 150, y: 150 }), img);
     } else {
-        drawImage(position, { x: 90, y: 90 }, img);
+        drawImage(position, scalePixelPosition({ x: 80, y: 80 }), img);
 
     }
     drawImageSrc(position, size, runemark);
@@ -584,8 +588,8 @@ function drawTagRunemark(index, runemark, row) {
         getContext().textBaseline = "middle";
 
         if (tripleCheck) { 
-            x_value = positions[index].x + 90;
-            y_value = positions[index].y + 200;
+            x_value = positions[index].x + 150/2;
+            y_value = positions[index].y + 180;
         } else {
             x_value = positions[index].x + 45;
             y_value = positions[index].y + 100;
@@ -1132,25 +1136,29 @@ function render(cardData) {
     if(getSelectedFactionRunemark() != "assets/img/blank.gif"){
         // sybmols at the top
         if (tripleCheck) {
-            drawImageSrc({ x: 92.5, y: 35 }, { x: 135, y: 135 }, cardData.factionRunemark);
+            drawImageSrc({ x: 60, y: 35 }, { x: 70, y: 70 }, cardData.factionRunemark);
+            drawImageSrc({ x: 998, y: 35 }, { x: 70, y: 70 }, cardData.factionRunemark);
+
             if (cardData.subfactionRunemark == 'assets/img/blank.gif') {
-                drawFactionRunemarkLarge(cardData.factionRunemark, 302);
+                drawFactionRunemarkLarge(cardData.factionRunemark, 200);
             }
-            drawSubfactionRunemarkLarge(cardData.subfactionRunemark, 302);
+            drawSubfactionRunemarkLarge(cardData.subfactionRunemark, 200);
         }
         else if (document.getElementById('ability7-toggle').checked) {
-            drawImageSrc({ x: 92.5, y: 35 }, { x: 135, y: 135 }, cardData.factionRunemark);
+            drawImageSrc({ x: 50, y: 39 }, { x: 65, y: 65 }, cardData.factionRunemark);
+            drawImageSrc({ x: 1008, y: 39 }, { x: 65, y: 65 }, cardData.factionRunemark);
             if (cardData.subfactionRunemark == 'assets/img/blank.gif') {
-                drawFactionRunemark(cardData.factionRunemark, 151);
+                drawFactionRunemark(cardData.factionRunemark, 98);
             }
-            drawSubfactionRunemark(cardData.subfactionRunemark, 151);
+            drawSubfactionRunemark(cardData.subfactionRunemark, 98);
         }
         else {
-            drawImageSrc({ x: 92.5, y: 35 }, { x: 135, y: 135 }, cardData.factionRunemark);
+            drawImageSrc({ x: 50, y: 39 }, { x: 65, y: 65 }, cardData.factionRunemark);
+            drawImageSrc({ x: 1008, y: 39 }, { x: 65, y: 65 }, cardData.factionRunemark);
             if (cardData.subfactionRunemark == 'assets/img/blank.gif') {
-                drawFactionRunemark(cardData.factionRunemark, 174);
+                drawFactionRunemark(cardData.factionRunemark, 115);
             }
-            drawSubfactionRunemark(cardData.subfactionRunemark, 174);
+            drawSubfactionRunemark(cardData.subfactionRunemark, 115);
         }
     }
 
@@ -1158,7 +1166,7 @@ function render(cardData) {
     // then adjust the text size to account.
     // would need to check cardData.tagRunemarksOne
 
-    x_value = 300;
+    x_value = 290;
 
     // for 7 spacing its + 150 for 6 spacing it's + 175
 
@@ -1188,7 +1196,7 @@ function render(cardData) {
         }
         // Drawing the ability text if we have 6 abilities
     } else {
-        y_value = 225;
+        y_value = 235;
         for (i in ability) {
             if (document.getElementById(ability[i]).checked) {
                 num = parseInt(i) + 1;
@@ -1211,6 +1219,7 @@ function render(cardData) {
 
         }
     }
+    drawBorder();
 }
 
 function saveCardAsImage() {
@@ -1817,4 +1826,11 @@ function getRunemarks(runemarks){
         tagRunemarks.push('runemarks/black/fighters-terrifying.svg');
     }
     return tagRunemarks;
+}
+
+
+drawBorder = function () {
+    if(!document.getElementById("removeBorder").checked){
+        getContext().drawImage(document.getElementById('card-border'), 0, 0, 1122, 822);
+    }
 }
