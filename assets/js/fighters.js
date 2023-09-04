@@ -1792,6 +1792,10 @@ function getBladebornRunemark(bladeborn){
     else if(bladeborn == "Zarbag's Gitz") {runemark = "runemarks/white/bladeborn-zarbag.svg";}
     else if(bladeborn == "Grinkrak's Looncourt") {runemark = "runemarks/white/bladeborn-grinkrakslooncourt.svg";}
     else if(bladeborn == "Gryselle's Arenai") {runemark = "runemarks/white/bladeborn-grysellesarenai.svg";}
+    else if(bladeborn == "Skabbik's Plaguepack") {runemark = "runemarks/white/bladeborn-skabbiks.svg";}
+    else if(bladeborn == "The Headmen's Curse") {runemark = "runemarks/white/bladeborn-theheadsmen.svg";}
+    else if(bladeborn == "Ephilim's Pandaemonium") {runemark = "runemarks/white/bladeborn-ephilims.svg";}
+    else if(bladeborn == "Domitan's Stormcoven") {runemark = "runemarks/white/bladeborn-domitans.svg";}
     else runemark = null;
     return runemark;
 }
