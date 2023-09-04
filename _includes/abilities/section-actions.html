@@ -1,7 +1,19 @@
+
+
 <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="removeBorder" checked onchange="onAnyChange()">
+    <input class="form-check-input" id="removeBorder" oninput="onAnyChange()" type="checkbox">
     <label class="form-check-label" for="removeBorder">Remove border to add bleed area for printing</label>
 </div>
+
+<div class="form-group form-check">
+    <input class="form-check-input" id="runemark-names" oninput="onAnyChange()" type="checkbox">
+    <label class="form-check-label" for="runemark-names">Show Runemark Names</label>
+</div>
+<div class="form-group form-check">
+    <input class="form-check-input" id="align-abilities" oninput="onAnyChange()" type="checkbox">
+    <label class="form-check-label" for="align-abilities">Align Ability text</label>
+</div>
+
 
 <div class="mt-4">
     <button type="submit" class="btn btn-success" id="saveCanvasButton" onclick="saveCardAsImage()">

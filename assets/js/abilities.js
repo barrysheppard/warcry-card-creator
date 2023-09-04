@@ -82,7 +82,7 @@ function defaultCardData() {
 }
 
 function drawAbility(id, pixelPosition) {
-    getContext().font = '28px Georgia, serif';
+    getContext().font = '14px Georgia, serif';
     getContext().fillStyle = 'black';
     getContext().textAlign = 'left';
 
@@ -168,40 +168,40 @@ function drawAbility(id, pixelPosition) {
         pixelPosition.x = pixelPosition.x - 100;
     }
     if (max_tagRunemarks == 1) {
-        pixelPosition.x = pixelPosition.x;
+        pixelPosition.x = pixelPosition.x -10;
     }
     if (max_tagRunemarks == 2) {
-        pixelPosition.x = pixelPosition.x + 100;
+        pixelPosition.x = pixelPosition.x + 80;
     }
     if (max_tagRunemarks > 2) {
-        pixelPosition.x = pixelPosition.x + 200;
+        pixelPosition.x = pixelPosition.x + 160;
     }
 
     // Print new title variable
-    getContext().font = 'bold 28px Georgia, serif';
+    getContext().font = 'bold 18px Georgia, serif';
     writeScaled(title, { x: pixelPosition.x, y: pixelPosition.y });
     // record the bold width for later use
     var titleWidth = getContext().measureText(title).width;
-    getContext().font = '28px Georgia, serif';
+    getContext().font = '18px Georgia, serif';
 
 
     // Get how many runemarks are tick
     // This will determine how far the word wrap should go
 
     if (max_tagRunemarks < 0) {
-        fitWidth = 1600;
+        fitWidth = 1000;
     }
     if (max_tagRunemarks == 0) {
-        fitWidth = 1500;
+        fitWidth = 900;
     }
     if (max_tagRunemarks == 1) {
-        fitWidth = 1400;
+        fitWidth = 800;
     }
     if (max_tagRunemarks == 2) {
-        fitWidth = 1300;
+        fitWidth = 700;
     }
     if (max_tagRunemarks > 2) {
-        fitWidth = 1200;
+        fitWidth = 700;
     }
 
     // this will add carriage turns if needed
@@ -209,9 +209,9 @@ function drawAbility(id, pixelPosition) {
 
     for (var i = 0; i < lines.length; i++) {
         if (i == 0) {
-            writeScaled(lines[i], { x: pixelPosition.x + titleWidth, y: pixelPosition.y + (i * 35) });
+            writeScaled(lines[i], { x: pixelPosition.x + titleWidth, y: pixelPosition.y + (i * 22) });
         } else {
-            writeScaled(lines[i], { x: pixelPosition.x, y: pixelPosition.y + (i * 35) });
+            writeScaled(lines[i], { x: pixelPosition.x, y: pixelPosition.y + (i * 22) });
         }
     }
 }
@@ -219,7 +219,7 @@ function drawAbility(id, pixelPosition) {
 
 
 function drawAbilityLarge(id, pixelPosition) {
-    getContext().font = '48px Georgia, serif';
+    getContext().font = '24px Georgia, serif';
     getContext().fillStyle = 'black';
     getContext().textAlign = 'left';
 
@@ -296,34 +296,34 @@ function drawAbilityLarge(id, pixelPosition) {
 
 
     if (max_tagRunemarks < 0) {
-        fitWidth = 1600;
-        pixelPosition.x = pixelPosition.x - 180;
+        fitWidth = 1000;
+        pixelPosition.x = pixelPosition.x - 160;
     } else if (max_tagRunemarks == 0) {
-        fitWidth = 1400;
-        pixelPosition.x = pixelPosition.x + 10;
+        fitWidth = 880;
+        pixelPosition.x = pixelPosition.x - 60;
     } else if (max_tagRunemarks == 1) {
-        fitWidth = 1200;
-        pixelPosition.x = pixelPosition.x + 180;
+        fitWidth = 750;
+        pixelPosition.x = pixelPosition.x + 50;
     } else if (max_tagRunemarks >= 2) {
-        fitWidth = 1100;
-        pixelPosition.x = pixelPosition.x + 350;
+        fitWidth = 650;
+        pixelPosition.x = pixelPosition.x + 150;
     }
 
     // Print new title variable
-    getContext().font = 'bold 48px Georgia, serif';
+    getContext().font = 'bold 32px Georgia, serif';
     writeScaled(title, { x: pixelPosition.x, y: pixelPosition.y });
     // record the bold width for later use
     var titleWidth = getContext().measureText(title).width;
-    getContext().font = '48px Georgia, serif';
+    getContext().font = '32px Georgia, serif';
 
     // this will add carriage turns if needed
     lines = splitWordWrap(getContext(), text, fitWidth, titleWidth);
 
     for (var i = 0; i < lines.length; i++) {
         if (i == 0) {
-            writeScaled(lines[i], { x: pixelPosition.x + titleWidth, y: pixelPosition.y + (i * 60) });
+            writeScaled(lines[i], { x: pixelPosition.x + titleWidth, y: pixelPosition.y + (i * 38) });
         } else {
-            writeScaled(lines[i], { x: pixelPosition.x, y: pixelPosition.y + (i * 60) });
+            writeScaled(lines[i], { x: pixelPosition.x, y: pixelPosition.y + (i * 38) });
         }
     }
 }
@@ -344,14 +344,14 @@ function drawCardElementFromInputId(inputId, pixelPosition) {
 
 function drawCardTitle(value) {
     if (document.getElementById('bg-09').checked) {
-        getContext().font = '92px schoensperger';
+        getContext().font = '70px schoensperger';
     } else {
-        getContext().font = '92px rodchenkoctt';
+        getContext().font = '70px rodchenkoctt';
     }
     getContext().fillStyle = 'white';
     getContext().textAlign = "center";
     getContext().textBaseline = "middle";
-    writeScaled(value, { x: (1772 / 2), y: 110 });
+    writeScaled(value, { x: (1122 / 2), y: 90 });
 }
 
 function drawCardTranslationAbilities(value) {
@@ -359,7 +359,7 @@ function drawCardTranslationAbilities(value) {
     getContext().fillStyle = 'white';
     getContext().textAlign = "center";
     getContext().textBaseline = "middle";
-    writeScaled(value, { x: (1772 / 2), y: 50 });
+    //writeScaled(value, { x: (1772 / 2), y: 80 });
 }
 
 function drawFactionRunemark(image, inc) {
@@ -423,8 +423,8 @@ function drawImageSrc(scaledPosition, scaledSize, imageSrc) {
 
 function drawSubfactionRunemark(image, inc) {
     // draw image on header
-    drawImageSrc({ x: 150, y: 40 }, { x: 70, y: 70 }, image);
-    drawImageSrc({ x: 900, y: 40 }, { x: 70, y: 70 }, image);
+    //drawImageSrc({ x: 150, y: 40 }, { x: 70, y: 70 }, image);
+    //drawImageSrc({ x: 900, y: 40 }, { x: 70, y: 70 }, image);
 
     // if we have 6 items then it's different spacing to seven both start here
     y_pos = 140;
@@ -450,8 +450,8 @@ function drawSubfactionRunemark(image, inc) {
 function drawSubfactionRunemarkLarge(image, inc) {
 
     // draw image on header
-    drawImageSrc({ x: 150, y: 30 }, { x: 80, y: 80 }, image);
-    drawImageSrc({ x: 900, y: 30 }, { x: 80, y: 80 }, image);
+    //drawImageSrc({ x: 150, y: 30 }, { x: 80, y: 80 }, image);
+    //drawImageSrc({ x: 900, y: 30 }, { x: 80, y: 80 }, image);
 
 
     // if we have 6 items then it's different spacing to seven both start here
@@ -490,52 +490,52 @@ function drawTagRunemark(index, runemark, row) {
     var positions = []
     if (tripleCheck) {
         if (row == 1 && document.getElementById('ability1-toggle').checked) {
-            positions = [{ x: 270, y: 230 }, { x: 440, y: 230 }];
+            positions = [{ x: 175, y: 150 }, { x: 280, y: 150 }];
         } else if (row == 2 && document.getElementById('ability2-toggle').checked) {
-            positions = [{ x: 270, y: 530 }, { x: 440, y: 530 }];
+            positions = [{ x: 175, y: 350 }, { x: 280, y: 350 }];
         } else if (row == 3 && document.getElementById('ability3-toggle').checked) {
-            positions = [{ x: 270, y: 830 }, { x: 440, y: 830 }];
+            positions = [{ x: 175, y: 550 }, { x: 280, y: 550 }];
         }
     }
     else if (document.getElementById('ability7-toggle').checked) {
         if (row == 1 && document.getElementById('ability1-toggle').checked) {
-            positions = [{ x: 175, y: 210 }, { x: 275, y: 210 }, { x: 375, y: 210 }];
+            positions = [{ x: 140, y: 140 }, { x: 230, y: 140 }, { x: 320, y: 140 }];
         } else if (row == 2 && document.getElementById('ability2-toggle').checked) {
-            positions = [{ x: 175, y: 360 }, { x: 275, y: 360 }, { x: 375, y: 360 }];
+            positions = [{ x: 140, y: 140 + 90*1 }, { x: 230, y: 140 + 90*1}, { x: 320, y: 140 + 90*1 }];
         } else if (row == 3 && document.getElementById('ability3-toggle').checked) {
-            positions = [{ x: 175, y: 510 }, { x: 275, y: 510 }, { x: 375, y: 510 }];
+            positions = [{ x: 140, y: 140 + 90*2 }, { x: 230, y: 140 + 90*2 }, { x: 320, y: 140 + 90*2 }];
         } else if (row == 4 && document.getElementById('ability4-toggle').checked) {
-            positions = [{ x: 175, y: 660 }, { x: 275, y: 660 }, { x: 375, y: 660 }];
+            positions = [{ x: 140, y: 140 + 90*3 }, { x: 230, y: 140 + 90*3 }, { x: 320, y: 140 + 90*3 }];
         } else if (row == 5 && document.getElementById('ability5-toggle').checked) {
-            positions = [{ x: 175, y: 810 }, { x: 275, y: 810 }, { x: 375, y: 810 }];
+            positions = [{ x: 140, y: 140 + 90*4 }, { x: 230, y: 140 + 90*4 }, { x: 320, y: 140 + 90*4 }];
         } else if (row == 6 && document.getElementById('ability6-toggle').checked) {
-            positions = [{ x: 175, y: 960 }, { x: 275, y: 960 }, { x: 375, y: 960 }];
+            positions = [{ x: 140, y: 140 + 90*5 }, { x: 230, y: 140 + 90*5 }, { x: 320, y: 140 + 90*5 }];
         } else if (row == 7 && document.getElementById('ability7-toggle').checked) {
-            positions = [{ x: 175, y: 1110 }, { x: 285, y: 1110 }, { x: 375, y: 1110 }];
+            positions = [{ x: 140, y: 140 + 90*6 }, { x: 230, y: 140 + 90*6 }, { x: 320, y: 140 + 90*6 }];
         }
     }
     else {
         if (row == 1 && document.getElementById('ability1-toggle').checked) {
-            positions = [{ x: 175, y: 210 }, { x: 275, y: 210 }, { x: 375, y: 210 }];
+            positions = [{ x: 140, y: 140 }, { x: 230, y: 140 }, { x: 320, y: 140 }];
         } else if (row == 2 && document.getElementById('ability2-toggle').checked) {
-            positions = [{ x: 175, y: 385 }, { x: 275, y: 385 }, { x: 375, y: 385 }];
+            positions = [{ x: 140, y: 140 + 110*1 }, { x: 230, y: 140 + 110*1}, { x: 320, y: 140 + 110*1 }];
         } else if (row == 3 && document.getElementById('ability3-toggle').checked) {
-            positions = [{ x: 175, y: 560 }, { x: 275, y: 560 }, { x: 375, y: 560 }];
+            positions = [{ x: 140, y: 140 + 110*2 }, { x: 230, y: 140 + 110*2 }, { x: 320, y: 140 + 110*2 }];
         } else if (row == 4 && document.getElementById('ability4-toggle').checked) {
-            positions = [{ x: 175, y: 735 }, { x: 275, y: 735 }, { x: 375, y: 735 }];
+            positions = [{ x: 140, y: 140 + 110*3 }, { x: 230, y: 140 + 110*3 }, { x: 320, y: 140 + 110*3 }];
         } else if (row == 5 && document.getElementById('ability5-toggle').checked) {
-            positions = [{ x: 175, y: 900 }, { x: 275, y: 900 }, { x: 375, y: 900 }];
+            positions = [{ x: 140, y: 140 + 110*4 }, { x: 230, y: 140 + 110*4 }, { x: 320, y: 140 + 110*4 }];
         } else if (row == 6 && document.getElementById('ability6-toggle').checked) {
-            positions = [{ x: 175, y: 1075 }, { x: 275, y: 1075 }, { x: 375, y: 1075 }];
+            positions = [{ x: 140, y: 140 + 110*5 }, { x: 230, y: 140 + 110*5 }, { x: 320, y: 140 + 110*5 }];
         }
     }
 
     // if the blank faction icon is selected move all the runemarks left by 100
     if(getSelectedFactionRunemark() == "assets/img/blank.gif"){
         if (tripleCheck) {
-            positions = positions.map(({x, y}) => ({x: x - 180, y}));
+            positions = positions.map(({x, y}) => ({x: x - 90, y}));
         } else {
-            positions = positions.map(({x, y}) => ({x: x - 100, y}));   
+            positions = positions.map(({x, y}) => ({x: x - 90, y}));   
         }
     }
 
@@ -544,7 +544,7 @@ function drawTagRunemark(index, runemark, row) {
     if (tripleCheck) {
         var img = $("#circle")[0],
             position = scalePixelPosition(positions[index]),
-            size = scalePixelPosition({ x: 150, y: 150 });
+            size = scalePixelPosition({ x: 100, y: 100 });
     } else {
         var img = $("#circle")[0],
             position = scalePixelPosition(positions[index]),
@@ -553,58 +553,60 @@ function drawTagRunemark(index, runemark, row) {
 
     position = scalePixelPosition({ x: positions[index].x, y: positions[index].y });
     if (tripleCheck) {
-        drawImage(position, scalePixelPosition({ x: 150, y: 150 }), img);
+        drawImage(position, scalePixelPosition({ x: 100, y: 100 }), img);
     } else {
         drawImage(position, scalePixelPosition({ x: 80, y: 80 }), img);
 
     }
-    drawImageSrc(position, size, runemark);
 
-    // write the runemark name underneath
-    if (document.getElementById('runemark-names').checked){
-
-        value = runemark.slice(25);
-        value = value.replace(".svg", "");
-        if (value == "leader"){
-            value = "hero";
-        }
-
-        if (tripleCheck) { 
-            if (document.getElementById('bg-09').checked){
-                getContext().font = '48px schoensperger';
-            } else {
-                getContext().font = '48px rodchenkoctt';
+    var image = new Image();
+    image.onload = function () {
+        drawImage(position, size, image);
+    
+        // write the runemark name underneath
+        if (document.getElementById('runemark-names').checked){
+            value = runemark.slice(25);
+            value = value.replace(".svg", "");
+            if (value == "leader"){
+                value = "hero";
             }
-        } else {
-            if (document.getElementById('bg-09').checked){
-                getContext().font = '32px schoensperger';
+            if (tripleCheck) { 
+                if (document.getElementById('bg-09').checked){
+                    getContext().font = '22px schoensperger';
+                } else {
+                    getContext().font = '22px rodchenkoctt';
+                }
             } else {
-                getContext().font = '32px rodchenkoctt';
+                if (document.getElementById('bg-09').checked){
+                    getContext().font = '20px schoensperger';
+                } else {
+                    getContext().font = '20px rodchenkoctt';
+                }
+            }  
+            getContext().fillStyle = 'white';
+            getContext().textAlign = "center";
+            getContext().textBaseline = "middle";
+            if (tripleCheck) { 
+                x_value = positions[index].x + 100/2;
+                y_value = positions[index].y + 110;
+            } else {
+                x_value = positions[index].x + 40;
+                y_value = positions[index].y + 80;
             }
-        }
-        
-        getContext().fillStyle = 'white';
-        getContext().textAlign = "center";
-        getContext().textBaseline = "middle";
-
-        if (tripleCheck) { 
-            x_value = positions[index].x + 150/2;
-            y_value = positions[index].y + 180;
-        } else {
-            x_value = positions[index].x + 45;
-            y_value = positions[index].y + 100;
+            text = value.charAt(0).toUpperCase() + value.slice(1);
+            writeScaled(text, { x: x_value+2, y: y_value+2 });
+            writeScaled(text, { x: x_value+2, y: y_value-2 });
+            writeScaled(text, { x: x_value-2, y: y_value+2 });
+            writeScaled(text, { x: x_value-2, y: y_value-2 });
+            getContext().fillStyle = 'black';
+            getContext().textAlign = "center";
+            getContext().textBaseline = "middle";
+            writeScaled(text, { x: x_value, y: y_value });
         }
 
-        writeScaled(value, { x: x_value+2, y: y_value+2 });
-        writeScaled(value, { x: x_value+2, y: y_value-2 });
-        writeScaled(value, { x: x_value-2, y: y_value+2 });
-        writeScaled(value, { x: x_value-2, y: y_value-2 });
+    };
+    image.src = runemark;
 
-        getContext().fillStyle = 'black';
-        getContext().textAlign = "center";
-        getContext().textBaseline = "middle";
-        writeScaled(value, { x: x_value, y: y_value });
-    }
 }
 
 async function fileChange(file) {
@@ -698,8 +700,10 @@ function getName() {
 
 function getScalingFactor(canvas, warcryCardOne) {
     return {
-        x: canvas.width / warcryCardOne.width,
-        y: canvas.height / warcryCardOne.height
+        //x: canvas.width / warcryCardOne.width,
+        //y: canvas.height / warcryCardOne.height
+        x: canvas.width / canvas.width,
+        y: canvas.height / canvas.height
     };
 }
 
@@ -1136,8 +1140,8 @@ function render(cardData) {
     if(getSelectedFactionRunemark() != "assets/img/blank.gif"){
         // sybmols at the top
         if (tripleCheck) {
-            drawImageSrc({ x: 60, y: 35 }, { x: 70, y: 70 }, cardData.factionRunemark);
-            drawImageSrc({ x: 998, y: 35 }, { x: 70, y: 70 }, cardData.factionRunemark);
+            //drawImageSrc({ x: 60, y: 35 }, { x: 70, y: 70 }, cardData.factionRunemark);
+            //drawImageSrc({ x: 998, y: 35 }, { x: 70, y: 70 }, cardData.factionRunemark);
 
             if (cardData.subfactionRunemark == 'assets/img/blank.gif') {
                 drawFactionRunemarkLarge(cardData.factionRunemark, 200);
@@ -1145,20 +1149,20 @@ function render(cardData) {
             drawSubfactionRunemarkLarge(cardData.subfactionRunemark, 200);
         }
         else if (document.getElementById('ability7-toggle').checked) {
-            drawImageSrc({ x: 50, y: 39 }, { x: 65, y: 65 }, cardData.factionRunemark);
-            drawImageSrc({ x: 1008, y: 39 }, { x: 65, y: 65 }, cardData.factionRunemark);
+            //drawImageSrc({ x: 50, y: 39 }, { x: 65, y: 65 }, cardData.factionRunemark);
+            //drawImageSrc({ x: 1008, y: 39 }, { x: 65, y: 65 }, cardData.factionRunemark);
             if (cardData.subfactionRunemark == 'assets/img/blank.gif') {
-                drawFactionRunemark(cardData.factionRunemark, 98);
+                drawFactionRunemark(cardData.factionRunemark, 90);
             }
-            drawSubfactionRunemark(cardData.subfactionRunemark, 98);
+            drawSubfactionRunemark(cardData.subfactionRunemark, 90);
         }
         else {
-            drawImageSrc({ x: 50, y: 39 }, { x: 65, y: 65 }, cardData.factionRunemark);
-            drawImageSrc({ x: 1008, y: 39 }, { x: 65, y: 65 }, cardData.factionRunemark);
+            //drawImageSrc({ x: 50, y: 39 }, { x: 65, y: 65 }, cardData.factionRunemark);
+            //drawImageSrc({ x: 1008, y: 39 }, { x: 65, y: 65 }, cardData.factionRunemark);
             if (cardData.subfactionRunemark == 'assets/img/blank.gif') {
-                drawFactionRunemark(cardData.factionRunemark, 115);
+                drawFactionRunemark(cardData.factionRunemark, 110);
             }
-            drawSubfactionRunemark(cardData.subfactionRunemark, 115);
+            drawSubfactionRunemark(cardData.subfactionRunemark, 110);
         }
     }
 
@@ -1166,7 +1170,7 @@ function render(cardData) {
     // then adjust the text size to account.
     // would need to check cardData.tagRunemarksOne
 
-    x_value = 290;
+    x_value = 250;
 
     // for 7 spacing its + 150 for 6 spacing it's + 175
 
@@ -1175,34 +1179,34 @@ function render(cardData) {
 
     // Drawing the ability text if we have 3 abilities
     if (tripleCheck) {
-        y_value = 250;
+        y_value = 180;
         for (i in ability) {
             if (document.getElementById(ability[i]).checked) {
                 num = parseInt(i) + 1;
                 drawAbilityLarge(num, { x: x_value, y: y_value });
             }
-            y_value += 304;
+            y_value += 200;
         }
     }
     // Drawing the ability text if we have 7 abilities
     else if (document.getElementById('ability7-toggle').checked) {
-        y_value = 210;
+        y_value = 150;
         for (i in ability) {
             if (document.getElementById(ability[i]).checked) {
                 num = parseInt(i) + 1;
                 drawAbility(num, { x: x_value, y: y_value });
             }
-            y_value += 150;
+            y_value += 90;
         }
         // Drawing the ability text if we have 6 abilities
     } else {
-        y_value = 235;
+        y_value = 155;
         for (i in ability) {
             if (document.getElementById(ability[i]).checked) {
                 num = parseInt(i) + 1;
                 drawAbility(num, { x: x_value, y: y_value });
             }
-            y_value += 175;
+            y_value += 105;
         }
 
     }
@@ -1216,7 +1220,6 @@ function render(cardData) {
         for (i in tagRunemark[x]) {
             // this will only draw the first 3 runemarks per row
             drawTagRunemark(parseInt(i), tagRunemark[x][i], parseInt(x) + 1);
-
         }
     }
     drawBorder();
@@ -1290,7 +1293,9 @@ async function saveCardData(cardData) {
 
 function scalePixelPosition(pixelPosition) {
     var scalingFactor = getScalingFactor(getCanvas(), getBackgroundImage());
-    var scaledPosition = { x: pixelPosition.x * scalingFactor.x, y: pixelPosition.y * scalingFactor.y };
+    //var scaledPosition = { x: pixelPosition.x * scalingFactor.x, y: pixelPosition.y * scalingFactor.y };
+    var scaledPosition = pixelPosition;
+
     return scaledPosition;
 }
 

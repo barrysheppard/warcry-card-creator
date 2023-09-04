@@ -139,7 +139,7 @@ drawCardElementFromInputId = function (inputId, pixelPosition) {
 
 drawFighterName = function (value) {
     startX = 850;
-    startY = 700;
+    startY = 690;
     if (document.getElementById('background-list').value === 'bg-13') {
         getContext().font = '44px schoensperger';
     } else {
@@ -163,7 +163,7 @@ drawFighterName = function (value) {
 
 drawFighterName2 = function (value) {
     startX = 850;
-    startY = 732;
+    startY = 725;
     if (document.getElementById('background-list').value === 'bg-13') {
         getContext().font = '44px schoensperger';
     } else {
