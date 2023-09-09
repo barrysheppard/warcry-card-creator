@@ -1585,6 +1585,7 @@ function getFactionRunemark(warband){
     else if(warband == "Iron Golems") {runemark = "runemarks/white/factions-chaos-iron-golems.svg";}
     else if(warband == "Jade Obelisk") {runemark = "runemarks/white/factions-chaos-jade-obelisk.svg";}
     else if(warband == "Blades of Khorne: Bloodbound") {runemark = "runemarks/white/factions-chaos-khorne-bloodbound.svg";}
+    else if(warband == "Blades of Khorne: Daemons") {runemark = "runemarks/white/factions-chaos-khorne-daemons.svg";}
     else if(warband == "Daemons of Khorne") {runemark = "runemarks/white/factions-chaos-khorne-daemons.svg";}
     else if(warband == "Maggotkin of Nurgle: Daemons") {runemark = "runemarks/white/factions-chaos-nurgle-daemons.svg";}
     else if(warband == "Maggotkin of Nurgle: Rotbringers") {runemark = "runemarks/white/factions-chaos-nurgle-rotbringers.svg";}
