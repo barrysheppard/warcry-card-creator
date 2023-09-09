@@ -1584,22 +1584,22 @@ function getFactionRunemark(warband){
     else if(warband == "Horns of Hashut") {runemark = "runemarks/white/factions-chaos-horns-of-hashut.svg";}
     else if(warband == "Iron Golems") {runemark = "runemarks/white/factions-chaos-iron-golems.svg";}
     else if(warband == "Jade Obelisk") {runemark = "runemarks/white/factions-chaos-jade-obelisk.svg";}
-    else if(warband == "Blades of Khorne Bloodbound") {runemark = "runemarks/white/factions-chaos-khorne-bloodbound.svg";}
+    else if(warband == "Blades of Khorne: Bloodbound") {runemark = "runemarks/white/factions-chaos-khorne-bloodbound.svg";}
     else if(warband == "Daemons of Khorne") {runemark = "runemarks/white/factions-chaos-khorne-daemons.svg";}
-    else if(warband == "Maggotkin of Nurgle Daemons") {runemark = "runemarks/white/factions-chaos-nurgle-daemons.svg";}
-    else if(warband == "Maggotkin of Nurgle Rotbringers") {runemark = "runemarks/white/factions-chaos-nurgle-rotbringers.svg";}
+    else if(warband == "Maggotkin of Nurgle: Daemons") {runemark = "runemarks/white/factions-chaos-nurgle-daemons.svg";}
+    else if(warband == "Maggotkin of Nurgle: Rotbringers") {runemark = "runemarks/white/factions-chaos-nurgle-rotbringers.svg";}
     else if(warband == "Rotmire Creed") {runemark = "runemarks/white/factions-chaos-rotmire-creed.svg";}
     else if(warband == "Scions of the Flame") {runemark = "runemarks/white/factions-chaos-scions-of-the-flame.svg";}
     else if(warband == "Skaven") {runemark = "runemarks/white/factions-chaos-skaven.svg";}
-    else if(warband == "Hedonites of Slaanesh Daemons") {runemark = "runemarks/white/factions-chaos-slaanesh-daemons.svg";}
-    else if(warband == "Hedonites of Slaanesh Sybarites") {runemark = "runemarks/white/factions-chaos-slaanesh-sybarites.svg";}
+    else if(warband == "Hedonites of Slaanesh: Daemons") {runemark = "runemarks/white/factions-chaos-slaanesh-daemons.svg";}
+    else if(warband == "Hedonites of Slaanesh: Sybarites") {runemark = "runemarks/white/factions-chaos-slaanesh-sybarites.svg";}
     else if(warband == "Slaves to Darkness") {runemark = "runemarks/white/factions-chaos-slaves-to-darkness.svg";}
     else if(warband == "Spire Tyrants") {runemark = "runemarks/white/factions-chaos-spire-tyrants.svg";}
     else if(warband == "Splintered Fang") {runemark = "runemarks/white/factions-chaos-splintered-fang.svg";}
     else if(warband == "Tarantulos Brood") {runemark = "runemarks/white/factions-chaos-tarantulos-brood.svg";}
     else if(warband == "The Unmade") {runemark = "runemarks/white/factions-chaos-the-unmade.svg";}
-    else if(warband == "Disciples of Tzeentch Arcanites") {runemark = "runemarks/white/factions-chaos-tzeentch-arcanites.svg";}
-    else if(warband == "Disciples of Tzeentch Daemons") {runemark = "runemarks/white/factions-chaos-tzeentch-daemons.svg";}
+    else if(warband == "Disciples of Tzeentch: Arcanites") {runemark = "runemarks/white/factions-chaos-tzeentch-arcanites.svg";}
+    else if(warband == "Disciples of Tzeentch: Daemons") {runemark = "runemarks/white/factions-chaos-tzeentch-daemons.svg";}
     else if(warband == "Untamed Beasts") {runemark = "runemarks/white/factions-chaos-untamed-beasts.svg";}
     else if(warband == "Flesh-eater Courts") {runemark = "runemarks/white/factions-death-flesh-eater-courts.svg";}
     else if(warband == "Legions of Nagash") {runemark = "runemarks/white/factions-death-legions-of-nagash.svg";}
@@ -1612,22 +1612,22 @@ function getFactionRunemark(warband){
     else if(warband == "Ironjawz") {runemark = "runemarks/white/factions-destruction-ironjawz.svg";}
     else if(warband == "Kruleboyz") {runemark = "runemarks/white/factions-destruction-kruleboyz.svg";}
     else if(warband == "Ogor Mawtribes") {runemark = "runemarks/white/factions-destruction-ogor-mawtribes.svg";}
-    else if(warband == "chaos_ally") {runemark = "runemarks/white/grand-alliance-chaos.svg";}
-    else if(warband == "chaos_thrall") {runemark = "runemarks/white/grand-alliance-chaos.svg";}
-    else if(warband == "chaos_monster") {runemark = "runemarks/white/grand-alliance-chaos.svg";}
-    else if(warband == "order_ally") {runemark = "runemarks/white/grand-alliance-order.svg";}
-    else if(warband == "order_thrall") {runemark = "runemarks/white/grand-alliance-order.svg";}
-    else if(warband == "order_monster") {runemark = "runemarks/white/grand-alliance-order.svg";}
-    else if(warband == "destruction_ally") {runemark = "runemarks/white/grand-alliance-destruction.svg";}
-    else if(warband == "destruction_monster") {runemark = "runemarks/white/grand-alliance-destruction.svg";}
-    else if(warband == "destruction_thrall") {runemark = "runemarks/white/grand-alliance-destruction.svg";}
-    else if(warband == "death_ally") {runemark = "runemarks/white/grand-alliance-death.svg";}
-    else if(warband == "death_thrall") {runemark = "runemarks/white/grand-alliance-death.svg";}
-    else if(warband == "death_monster") {runemark = "runemarks/white/grand-alliance-death.svg";}
+    else if(warband == "chaos") {runemark = "runemarks/white/grand-alliance-chaos.svg";}
+    else if(warband == "chaos") {runemark = "runemarks/white/grand-alliance-chaos.svg";}
+    else if(warband == "chaos") {runemark = "runemarks/white/grand-alliance-chaos.svg";}
+    else if(warband == "order") {runemark = "runemarks/white/grand-alliance-order.svg";}
+    else if(warband == "order") {runemark = "runemarks/white/grand-alliance-order.svg";}
+    else if(warband == "order") {runemark = "runemarks/white/grand-alliance-order.svg";}
+    else if(warband == "destruction") {runemark = "runemarks/white/grand-alliance-destruction.svg";}
+    else if(warband == "destruction") {runemark = "runemarks/white/grand-alliance-destruction.svg";}
+    else if(warband == "destruction") {runemark = "runemarks/white/grand-alliance-destruction.svg";}
+    else if(warband == "death") {runemark = "runemarks/white/grand-alliance-death.svg";}
+    else if(warband == "death") {runemark = "runemarks/white/grand-alliance-death.svg";}
+    else if(warband == "death") {runemark = "runemarks/white/grand-alliance-death.svg";}
     else if(warband == "Cities of Sigmar") {runemark = "runemarks/white/factions-order-cities-of-sigmar.svg";}
     else if(warband == "Daughters of Khaine") {runemark = "runemarks/white/factions-order-daughters-of-khaine.svg";}
     else if(warband == "Fyreslayers") {runemark = "runemarks/white/factions-order-fyreslayers.svg";}
-    else if(warband == "Hunters of Hunachi") {runemark = "runemarks/white/factions-order-hunters-of-huanchi.svg";}
+    else if(warband == "Hunters of Huanchi") {runemark = "runemarks/white/factions-order-hunters-of-huanchi.svg";}
     else if(warband == "Idoneth Deepkin") {runemark = "runemarks/white/factions-order-idoneth-deepkin.svg";}
     else if(warband == "Khainite Shadowstalkers") {runemark = "runemarks/white/factions-order-khainite-shadowstalkers.svg";}
     else if(warband == "Kharadron Overlords") {runemark = "runemarks/white/factions-order-kharadron-overlords.svg";}
