@@ -1,0 +1,40 @@
+<div class="card">
+    <!-- Existing Characteristics Section -->
+    <div class="card-header" id="missionsHeadingFive">
+        <h2 class="h5 mb-0">
+            <button class="btn btn-link" data-toggle="collapse" data-target="#missionsCollapseFive"
+                aria-expanded="false" aria-controls="missionsCollapseFive">
+                Characteristics
+            </button>
+        </h2>
+    </div>
+    <div class="collapse" id="missionsCollapseFive">
+        <div class="card-body">
+            <div class="form-group">
+                <label for="missionName">Mission Name</label>
+                <input class="form-control" type="text" id="missionName" name="missionName" value=" "
+                    oninput="onAnyChange()">
+            </div>
+            <div class="form-group">
+                <label for="missionType">Mission Type</label>
+                <input class="form-control" type="text" id="missionType" name="missionType" value=" "
+                    oninput="onAnyChange()">
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="symmetrical" name="symmetrical"
+                     onchange="onAnyChange()">
+                <label class="form-check-label" for="symmetrical">Symmetrical</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="orientation" name="orientation"
+                    checked onchange="onAnyChange()">
+                <label class="form-check-label" for="orientation">Orientation</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="white" name="white"
+                     onchange="onAnyChange()">
+                <label class="form-check-label" for="white">White</label>
+            </div>
+        </div>
+    </div>
+    

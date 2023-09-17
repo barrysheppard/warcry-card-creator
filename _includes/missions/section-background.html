@@ -1,0 +1,191 @@
+<div class="card">
+
+    <div class="card-header" id="missionsHeadingOne">
+        <h2 class="h5 mb-0">
+            <button class="btn btn-link" data-toggle="collapse" data-target="#missionsCollapseOne" aria-expanded="false"
+                aria-controls="missionsCollapseOne">
+                Background
+            </button>
+        </h2>
+    </div>
+
+    <div class="collapse" id="missionsCollapseOne">
+        <div class="card-body">
+
+            <div class="row">
+                <div class="col-6">
+                  <select class="form-select" id="background-list" name="background-list" onchange="onAnyChange()">
+                    <optgroup label="Ghur">
+                      <option value="bg-10">Ghur</option>
+                    </optgroup>
+                    <optgroup label="Simple">
+                      <option value="bg-07">Plain</option>
+                      <option value="bg-14">Light</option>
+                      <option value="bg-15">Green</option>
+                      <option value="bg-16">Red</option>
+                    </optgroup>
+                    <optgroup label="Dark">
+                      <option value="bg-04">Dark 2 B</option>
+                      <option value="bg-17">Dark Arcane</option>
+                    </optgroup>
+                    <optgroup label="Themed">
+                      <option value="bg-08">Shyish</option>
+                      <option value="bg-13">Mordheim 1</option>
+                    </optgroup>
+                  </select>
+                </div>
+              </div>
+            
+              <div style="display: none;">
+            <div class="row">
+                <div class="form-check form-check-inline">
+                    <input checked class="form-check-input" id="bg-14" name="toggle-backgrounds" oninput="onAnyChange()"
+                        type="radio">
+                    <label class="form-check-label" for="bg-14">Light</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input checked class="form-check-input" id="bg-15" name="toggle-backgrounds" oninput="onAnyChange()"
+                        type="radio">
+                    <label class="form-check-label" for="bg-15">Green</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input checked class="form-check-input" id="bg-16" name="toggle-backgrounds" oninput="onAnyChange()"
+                        type="radio">
+                    <label class="form-check-label" for="bg-16">Red</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" id="bg-01" name="toggle-backgrounds" oninput="onAnyChange()"
+                        type="radio">
+                    <label class="form-check-label" for="bg-01">Dark 1 A</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" id="bg-02" name="toggle-backgrounds" oninput="onAnyChange()"
+                        type="radio">
+                    <label class="form-check-label" for="bg-02">Dark 1 B</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" id="bg-03" name="toggle-backgrounds" oninput="onAnyChange()"
+                        type="radio">
+                    <label class="form-check-label" for="bg-03">Dark 2 A</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" id="bg-04" name="toggle-backgrounds" oninput="onAnyChange()"
+                        type="radio">
+                    <label class="form-check-label" for="bg-04">Dark 2 B</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" id="bg-05" name="toggle-backgrounds" oninput="onAnyChange()"
+                        type="radio">
+                    <label class="form-check-label" for="bg-05">Fire 1 A</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" id="bg-06" name="toggle-backgrounds" oninput="onAnyChange()"
+                        type="radio">
+                    <label class="form-check-label" for="bg-06">Fire 1 B</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" id="bg-07" name="toggle-backgrounds" oninput="onAnyChange()"
+                        type="radio">
+                    <label class="form-check-label" for="bg-07">Plain</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" id="bg-08" name="toggle-backgrounds" oninput="onAnyChange()"
+                        type="radio">
+                    <label class="form-check-label" for="bg-08">Shyish</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" id="bg-09" name="toggle-backgrounds" oninput="onAnyChange()"
+                        type="radio">
+                    <label class="form-check-label" for="bg-09">Ghur A</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" id="bg-10" name="toggle-backgrounds" oninput="onAnyChange()"
+                        type="radio">
+                    <label class="form-check-label" for="bg-10">Ghur B</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" id="bg-11" name="toggle-backgrounds" oninput="onAnyChange()"
+                        type="radio">
+                    <label class="form-check-label" for="bg-11">Ghur Default</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" id="bg-12" name="toggle-backgrounds" oninput="onAnyChange()"
+                        type="radio">
+                    <label class="form-check-label" for="bg-12">Christmas A</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" id="bg-13" name="toggle-backgrounds" oninput="onAnyChange()"
+                        type="radio">
+                    <label class="form-check-label" for="bg-13">Mordheim 1</label>
+                </div>
+            </div>
+        </div>
+
+            {% comment %}
+            <div class="form-group mt-4">
+                <label for="backgroundSelect">Load custom background</label>
+                <input disabled aria-describedby="fileHelp" class="form-control-file" id="backgroundSelect"
+                    oninput="onAnyChange()" type="file">
+                <!-- <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small> -->
+            </div>
+            {% endcomment %}
+
+        </div>
+        <div class="card">
+
+            <div class="card-header" id="customBackgroundHeading">
+                <h2 class="h5 mb-0">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#customBackgroundCollapse" aria-expanded="false"
+                        aria-controls="customBackgroundCollapse">
+                        Custom Background</button>
+                </h2>
+            </div>
+        
+            <div class="collapse" id="customBackgroundCollapse">
+                <div class="card-body">
+        
+                    <div class="form-group">
+                        <label for="customBackgroundSelect">Load image</label>
+                        <input class="form-control-file" id="customBackgroundSelect" oninput="onCustomBackgroundUpload()" type="file">
+                    </div>
+        
+                    <input type="hidden" id="customBackgroundUrl" name="customBackgroundUrl" value="">
+        
+                    <div class="form-group">
+                        <label for="customBackgroundOffsetX">X offset (&#8596;)</label>
+                        <input class="form-control" id="customBackgroundOffsetX" oninput="onAnyChange()" type="number" value="0" />
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="customBackgroundOffsetY">Y offset (&#8597;)</label>
+                        <input class="form-control" id="customBackgroundOffsetY" oninput="onAnyChange()" type="number" value="0" />
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="customBackgroundScalePercent">Scale (%)</label>
+                        <input class="form-control" id="customBackgroundScalePercent" min="0" max="300" oninput="onAnyChange()"
+                            type="number" value="100" />
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+<div class="form-group">
+    
+</div>
+
+<div class="form-group form-check">
+    <input class="form-check-input" id="removeDeployment" onchange="onAnyChange()" type="checkbox">
+    <label class="form-check-label" for="removeDeployment">Remove Deployment Map</label>
+</div>
+<div class="form-group form-check">
+    <input class="form-check-input" id="removeBorder" onchange="onAnyChange()" type="checkbox">
+    <label class="form-check-label" for="removeBorder">Remove border to add bleed area for printing</label>
+</div>
+
+<div class="mt-4">
+    <button type="submit" class="btn btn-success" id="saveCanvasButton" onclick="saveCardAsImage()">
+        Save card as image
+    </button>
+</div>
+
+<div class="mt-4">
+    <button type="submit" class="btn btn-success" id="saveButton" onclick="onSaveClicked()">
+        Save card as file
+    </button>
+</div>
+
+<div class="mt-4">
+    <label for="loadbutton">Load card file</label>
+    <input class="form-control-file" id="loadbutton" oninput="fileChange(this.files[0])" type="file">
+</div>
+
+<div class="mt-4">
+    <button type="submit" class="btn btn-success" id="clearCacheButton" onclick="onClearCache()">
+        Reset all
+    </button>
+    <br><hr>
+</div>
+
+
+<div class="mt-4">
+
+</div>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>

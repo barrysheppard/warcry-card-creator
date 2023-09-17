@@ -26,11 +26,11 @@
 </head>
 
 <body>
+    <div class="font-hack2 sr-only" style="font-family:'schoensperger';visibility:hidden;">Nothing to see here, move
+        along…</div>
     <div class="font-hack sr-only" style="font-family:'rodchenkoctt';visibility:hidden;">Nothing to see here, move
         along…</div>
-    <div class="font-hack2 sr-only" style="font-family:'lithosblack';visibility:hidden;">Nothing to see here, move
-            along…</div>
-    <div class="font-hack3 sr-only" style="font-family:'schoensperger';visibility:hidden;">Nothing to see here, move
+        <div class="font-hack3 sr-only" style="font-family:'lithosblack';visibility:hidden;">Nothing to see here, move
             along…</div>
 
     <div class="container-fluid">
@@ -55,10 +55,10 @@
                         <a class="nav-link" href="abilities.html">Abilities</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="objects.html" onclick="onClearCache()">Objects</a>
+                        <a class="nav-link" href="objects.html" onclick="onClearCache()">Objects</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="missions.html" onclick="onClearCache()">Mission</a>
+                        <a class="nav-link active" href="missions.html" onclick="onClearCache()">Mission</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="about.html">About</a>
@@ -71,14 +71,16 @@
 
         </nav>
 
-        {% include tabs/tabContentObjects.html %}
+        {% include tabs/tabContentMissions.html %}
 
     </div>
 
     <script src="assets/vendors/jquery.js"></script>
     <script src="assets/vendors/popper.min.js"></script>
     <script src="assets/vendors/bootstrap.min.js"></script>
-    <script src="assets/js/objects.js"></script>
+    <script src="assets/js/missions.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.js"></script>
+
 
 </body>
 

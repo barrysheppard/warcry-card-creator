@@ -1,0 +1,189 @@
+
+
+    <!-- Red Section -->
+    <div class="card-header" id="redHeading">
+        <h2 class="h5 mb-0">
+            <button class="btn btn-link" data-toggle="collapse" data-target="#redCollapse"
+                aria-expanded="false" aria-controls="redCollapse">
+                Red Deployment
+            </button>
+        </h2>
+    </div>
+    <div class="collapse" id="redCollapse">
+        <div class="card-body">
+            <div class="form-group row">
+                <label for="redHammerX" class="col-sm-3 col-form-label">Hammer</label>
+                <div class="col-sm-3">
+                    <label for="redHammerX">X</label>
+                    <input class="form-control" type="number" id="redHammerX" name="redHammerX" value="24"
+                        min="0" max="30" oninput="onAnyChange()">
+                </div>
+                <div class="col-sm-3">
+                    <label for="redHammerY">Y</label>
+                    <input class="form-control" type="number" id="redHammerY" name="redHammerY" value="17"
+                        min="0" max="22" oninput="onAnyChange()">
+                </div>
+                <div class="col-sm-3">
+                    <label for="redHammerTurn">Turn</label>
+                    <input class="form-control" type="number" id="redHammerTurn" name="redHammerTurn" value="1"
+                        min="1" max="4" oninput="onAnyChange()">
+                </div>
+            </div>
+        
+        
+            <div class="form-group row">
+                <label for="redDaggerX" class="col-sm-3 col-form-label">Dagger</label>
+                <div class="col-sm-3">
+                    <label for="redDaggerX">X</label>
+                    <input class="form-control" type="number" id="redDaggerX" name="redDaggerX" value="6"
+                        min="0" max="30" oninput="onAnyChange()">
+                </div>
+                <div class="col-sm-3">
+                    <label for="redHDaggerY">Y</label>
+                    <input class="form-control" type="number" id="redDaggerY" name="redDaggerY" value="17"
+                        min="0" max="22" oninput="onAnyChange()">
+                </div>
+                <div class="col-sm-3">
+                    <label for="redDaggerTurn">Turn</label>
+                    <input class="form-control" type="number" id="redDaggerTurn" name="redDaggerTurn" value="1"
+                        min="1" max="4" oninput="onAnyChange()">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="redShieldX" class="col-sm-3 col-form-label">Shield</label>
+                <div class="col-sm-3">
+                    <label for="redShieldX">X</label><input class="form-control" type="number" id="redShieldX" name="redShieldX" value="15"
+                        min="0" max="30" oninput="onAnyChange()">
+                </div>
+                <div class="col-sm-3">
+                    <label for="redShieldY">Y</label>
+                    <input class="form-control" type="number" id="redShieldY" name="redShieldY" value="15"
+                        min="0" max="22" oninput="onAnyChange()">
+                </div>
+                <div class="col-sm-3">
+                    <label for="redShieldTurn">Turn</label>
+                    <input class="form-control" type="number" id="redShieldTurn" name="redShieldTurn" value="1"
+                        min="1" max="4" oninput="onAnyChange()">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="redHammerLineDeployment" class="col-sm-6 col-form-label">Hammer Line Deployment</label>
+                <div class="col-sm-3">
+                    <input class="form-check-input" type="checkbox" id="redHammerLineDeployment" name="redHammerLineDeployment" onchange="onAnyChange()">
+                </div>
+            </div>     
+            <div class="form-group row">
+                <label for="redDaggerLineDeployment" class="col-sm-6 col-form-label">Dagger Line Deployment</label>
+                <div class="col-sm-3">
+                    <input class="form-check-input" type="checkbox" id="redDaggerLineDeployment" name="redDaggerLineDeployment" onchange="onAnyChange()">
+                </div>
+            </div> 
+            <div class="form-group row">
+                <label for="redShieldLineDeployment" class="col-sm-6 col-form-label">Shield Line Deployment</label>
+                <div class="col-sm-3">
+                    <input class="form-check-input" type="checkbox" id="redShieldLineDeployment" name="redShieldLineDeployment" onchange="onAnyChange()">
+                </div>
+            </div>    
+            <div class="form-group row">
+                <label for="removeRedDeployment" class="col-sm-6 col-form-label">Remove Red Deployment</label>
+                <div class="col-sm-3">
+                    <input class="form-check-input" type="checkbox" id="removeRedDeployment" name="removeRedDeployment" onchange="onAnyChange()">
+                </div>
+            </div>      
+        </div>
+
+    </div>
+
+    
+    <!-- Blue Section -->
+    <div class="card-header" id="blueHeading">
+        <h2 class="h5 mb-0">
+            <button class="btn btn-link" data-toggle="collapse" data-target="#blueCollapse"
+                aria-expanded="false" aria-controls="blueCollapse">
+                Blue Deployment
+            </button>
+        </h2>
+    </div>
+    <div class="collapse" id="blueCollapse">
+        <div class="card-body">
+            <div class="form-group row">
+                <label for="blueHammerX" class="col-sm-3 col-form-label">Hammer</label>
+                <div class="col-sm-3">
+                    <label for="blueHammerX">X</label>
+                    <input class="form-control" type="number" id="blueHammerX" name="blueHammerX" value="24"
+                        min="0" max="30" oninput="onAnyChange()">
+                </div>
+                <div class="col-sm-3">
+                    <label for="blueHammerY">Y</label>
+                    <input class="form-control" type="number" id="blueHammerY" name="blueHammerY" value="5"
+                        min="0" max="22" oninput="onAnyChange()">
+                </div>
+                <div class="col-sm-3">
+                    <label for="blueHammerTurn">Turn</label>
+                    <input class="form-control" type="number" id="blueHammerTurn" name="blueHammerTurn" value="1"
+                        min="1" max="4" oninput="onAnyChange()">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="blueDaggerX" class="col-sm-3 col-form-label">Dagger</label>
+                <div class="col-sm-3">
+                    <label for="blueDaggerX">X</label>
+                    <input class="form-control" type="number" id="blueDaggerX" name="blueDaggerX" value="6"
+                        min="0" max="30" oninput="onAnyChange()">
+                </div>
+                <div class="col-sm-3">
+                    <label for="blueHDaggerY">Y</label>
+                    <input class="form-control" type="number" id="blueDaggerY" name="blueDaggerY" value="5"
+                        min="0" max="22" oninput="onAnyChange()">
+                </div>
+                <div class="col-sm-3">
+                    <label for="blueDaggerTurn">Turn</label>
+                    <input class="form-control" type="number" id="blueDaggerTurn" name="blueDaggerTurn" value="1"
+                        min="1" max="4" oninput="onAnyChange()">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="blueShieldX" class="col-sm-3 col-form-label">Shield</label>
+                <div class="col-sm-3">
+                    <label for="blueShieldX">X</label><input class="form-control" type="number" id="blueShieldX" name="blueShieldX" value="15"
+                        min="0" max="30" oninput="onAnyChange()">
+                </div>
+                <div class="col-sm-3">
+                    <label for="blueShieldY">Y</label>
+                    <input class="form-control" type="number" id="blueShieldY" name="blueShieldY" value="7"
+                        min="0" max="22" oninput="onAnyChange()">
+                </div>
+                <div class="col-sm-3">
+                    <label for="blueShieldTurn">Turn</label>
+                    <input class="form-control" type="number" id="blueShieldTurn" name="blueShieldTurn" value="0"
+                        min="1" max="4" oninput="onAnyChange()">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="blueHammerLineDeployment" class="col-sm-6 col-form-label">Hammer Line Deployment</label>
+                <div class="col-sm-3">
+                    <input class="form-check-input" type="checkbox" id="blueHammerLineDeployment" name="blueHammerLineDeployment" onchange="onAnyChange()">
+                </div>
+            </div>     
+            <div class="form-group row">
+                <label for="blueDaggerLineDeployment" class="col-sm-6 col-form-label">Dagger Line Deployment</label>
+                <div class="col-sm-3">
+                    <input class="form-check-input" type="checkbox" id="blueDaggerLineDeployment" name="blueDaggerLineDeployment" onchange="onAnyChange()">
+                </div>
+            </div> 
+            <div class="form-group row">
+                <label for="blueShieldLineDeployment" class="col-sm-6 col-form-label">Shield Line Deployment</label>
+                <div class="col-sm-3">
+                    <input class="form-check-input" type="checkbox" id="blueShieldLineDeployment" name="blueShieldLineDeployment" onchange="onAnyChange()">
+                </div>
+            </div>   
+            <div class="form-group row">
+                <label for="removeBlueDeployment" class="col-sm-6 col-form-label">Remove Blue Deployment</label>
+                <div class="col-sm-3">
+                    <input class="form-check-input" type="checkbox" id="removeBlueDeployment" name="removeBlueDeployment" onchange="onAnyChange()">
+                </div>
+            </div>   
+        </div>
+    </div>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+<div class="card">
+
+    <div class="card-header" id="missionsHeadingTwo">
+        <h2 class="h5 mb-0">
+            <button class="btn btn-link" data-toggle="collapse" data-target="#missionsCollapseTwo" aria-expanded="false"
+                aria-controls="missionsCollapseTwo">
+                Terrain Image
+            </button>
+        </h2>
+    </div>
+
+    <div class="collapse" id="missionsCollapseTwo">
+        <div class="card-body">
+
+            <div class="form-group">
+                <label for="imageSelect">Load image</label>
+                <input class="form-control-file" id="imageSelect" oninput="onFighterImageUpload()" type="file">
+            </div>
+
+            <input type="hidden" id="missionImageUrl" name="missionImageUrl" value="">
+
+            <div class="form-group">
+                <label for="imageOffsetX">X offset (&#8596;)</label>
+                <input class="form-control" id="imageOffsetX" oninput="onAnyChange()" type="number" value="0" />
+            </div>
+
+            <div class="form-group">
+                <label for="imageOffsetY">Y offset (&#8597;)</label>
+                <input class="form-control" id="imageOffsetY" oninput="onAnyChange()" type="number" value="0" />
+            </div>
+
+            <div class="form-group">
+                <label for="imageScalePercent">Scale (%)</label>
+                <input class="form-control" id="imageScalePercent" min="1" oninput="onAnyChange()"
+                    type="number" value="100" />
+            </div>
+
+            <div class="form-group">
+                For best results, use <a href="https://www.remove.bg" target="new">https://www.remove.bg</a> to make the background of the image transparent.
+                The idea for this one is to take a picture of your own terrain deployment and make a card from it.
+            </div>
+
+        </div>
+    </div>
+
+</div>

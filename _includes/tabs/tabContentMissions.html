@@ -1,0 +1,71 @@
+<div class="row mt-3">
+    <div id="image-container" style="display: none;"></div>
+
+    <div class="col-lg-8">
+        <img id="card-border" style="display: none;" src="assets/img/missions/card-border.png">
+        <img id="map" style="display: none;" src="assets/img/missions/map.png">
+        <img id="red_shield" style="display: none;" src="assets/img/missions/red_shield.png">
+        <img id="red_dagger" style="display: none;" src="assets/img/missions/red_dagger.png">
+        <img id="red_hammer" style="display: none;" src="assets/img/missions/red_hammer.png">
+        <img id="blue_shield" style="display: none;" src="assets/img/missions/blue_shield.png">
+        <img id="blue_dagger" style="display: none;" src="assets/img/missions/blue_dagger.png">
+        <img id="blue_hammer" style="display: none;" src="assets/img/missions/blue_hammer.png">
+        <img id="red_objective_1" style="display: none;" src="assets/img/missions/red_objective_1.png">
+        <img id="red_objective_2" style="display: none;" src="assets/img/missions/red_objective_2.png">
+        <img id="red_objective_3" style="display: none;" src="assets/img/missions/red_objective_3.png">
+        <img id="red_objective_4" style="display: none;" src="assets/img/missions/red_objective_4.png">
+        <img id="red_objective_5" style="display: none;" src="assets/img/missions/red_objective_5.png">
+        <img id="red_objective_6" style="display: none;" src="assets/img/missions/red_objective_6.png">
+        <img id="red_objective_7" style="display: none;" src="assets/img/missions/red_objective_7.png">
+        <img id="red_objective_8" style="display: none;" src="assets/img/missions/red_objective_8.png">
+        <img id="red_objective_9" style="display: none;" src="assets/img/missions/red_objective_9.png">
+        <img id="green_objective_1" style="display: none;" src="assets/img/missions/green_objective_1.png">
+        <img id="green_objective_2" style="display: none;" src="assets/img/missions/green_objective_2.png">
+        <img id="green_objective_3" style="display: none;" src="assets/img/missions/green_objective_3.png">
+        <img id="green_objective_4" style="display: none;" src="assets/img/missions/green_objective_4.png">
+        <img id="green_objective_5" style="display: none;" src="assets/img/missions/green_objective_5.png">
+        <img id="green_objective_6" style="display: none;" src="assets/img/missions/green_objective_6.png">
+        <img id="green_objective_7" style="display: none;" src="assets/img/missions/green_objective_7.png">
+        <img id="green_objective_8" style="display: none;" src="assets/img/missions/green_objective_8.png">
+        <img id="green_objective_9" style="display: none;" src="assets/img/missions/green_objective_9.png">
+
+        <img id="bg-dark-312" style="display: none;" src="assets/img/missions/bg-dark-312.jpg">
+        <img id="bg-ghur-401" style="display: none;" src="assets/img/missions/bg-ghur-401.jpg">
+        <img id="bg-ghur-402" style="display: none;" src="assets/img/missions/bg-ghur-402.jpg">
+        <img id="bg-ghur-404" style="display: none;" src="assets/img/missions/bg-ghur-404.jpg">
+        <img id="mordheim01" style="display: none;" src="assets/img/missions/mordheim01.png">
+        <img id="bg-aos" style="display: none;" src="assets/img/missions/bg-aos.jpg">
+        <img id="bg-green" style="display: none;" src="assets/img/missions/bg-green.png">
+        <img id="bg-red" style="display: none;" src="assets/img/missions/bg-red.png">
+        <img id="bg-dark-arcane" style="display: none;" src="assets/img/missions/bg-dark-arcane.png">
+        <img id="circle" style="display: none;" src="assets/img/circle.png">
+        <img id="circle_black" style="display: none;" src="assets/img/circle_black.png">
+        <img id="orientation_icon" style="display: none;" src="runemarks/black/twists-orientation.svg">
+        <img id="symmetrical_icon" style="display: none;" src="runemarks/black/card-decks-symmetrical.svg">
+        <img id="orientation_icon_white" style="display: none;" src="runemarks/white/twists-orientation.svg">
+        <img id="symmetrical_icon_white" style="display: none;" src="runemarks/white/card-decks-symmetrical.svg">
+
+        <canvas class="canvas rounded" id="canvas" width="1122" height="822">
+            Sorry, your browser doesn't support the &lt;canvas&gt; element.
+        </canvas>
+    </div>
+
+    <div class="col-lg-4 scroll-area-fade">
+        <div class="scroll-area">
+            <div class="accordion">
+
+                {% include missions/section-characteristics.html %}
+                {% include missions/section-deployment.html %}
+                {% include missions/section-objectives.html %}
+                {% include missions/section-image.html %}
+                {% include missions/section-text.html %}
+                {% include missions/section-background.html %}
+                {% include missions/section-actions.html %}
+
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
