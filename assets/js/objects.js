@@ -96,6 +96,7 @@ drawObjectTitle = function (value) {
     var objectData = readControls();
     font_size = objectData.titleSize;
     colour = objectData.nameColour;
+    colourBorder = objectData.nameColourBorder;
     x_pos = 822/2;
     y_pos = 1030;
 
@@ -104,7 +105,7 @@ drawObjectTitle = function (value) {
         getContext().font = font_size + 'px schoensperger';
     } else {
         getContext().font = font_size + 'px lithosblack';
-    }        getContext().fillStyle = "Black";
+    }        getContext().fillStyle = colourBorder;
     getContext().textAlign = 'center';
     writeScaled(value, { x: x_pos +2, y: y_pos+2 });
     writeScaled(value, { x: x_pos -2, y: y_pos-2 });
@@ -128,7 +129,7 @@ drawObjectName = function (value) {
     } else {
         getContext().font = font_size + 'px lithosblack';
     }    
-    getContext().fillStyle = "Black";
+    getContext().fillStyle = colourBorder;
     writeScaled(value, { x: x_pos +2, y: y_pos+2 });
     writeScaled(value, { x: x_pos -2, y: y_pos-2 });
     writeScaled(value, { x: x_pos +2, y: y_pos-2 });
@@ -277,6 +278,7 @@ function readControls() {
 
     data.nameSize = document.getElementById('nameSize').value;
     data.nameColour = document.getElementById('colorPicker').value;
+    data.nameColourBorder = document.getElementById('colorPickerBorder').value;
 
     data.titleSize = document.getElementById('titleSize').value;
     data.textSize = document.getElementById('textSize').value;
@@ -348,6 +350,7 @@ async function writeControls(cardData) {
 
     $('#nameSize')[0].value = cardData.nameSize;
     $('#colorPicker')[0].value = cardData.nameColour;
+    $('#colorPickerBorder')[0].value = cardData.nameColourBorder;
 
     $('#titleSize')[0].value = cardData.titleSize;
     $('#textSize')[0].value = cardData.textSize;
@@ -372,7 +375,8 @@ function defaultCardData() {
     cardData.bgselected = "bg_ghur";
 
     cardData.nameSize = 60;
-    cardData.nameColour = '#E0DDDC';
+    cardData.nameColour = '#000000';
+    cardData.nameColourBorder = '#E0DDDC';
     cardData.titleSize = 50;
     cardData.textSize = 50;
 
