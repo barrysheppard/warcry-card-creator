@@ -94,8 +94,11 @@ drawMissionName = function (value) {
     } else {
         getContext().font = '60px lithosblack';
     }    
-    
-    getContext().fillStyle = 'white';
+    if (document.getElementById("white").checked){
+        getContext().fillStyle = 'black';
+    } else {
+        getContext().fillStyle = 'white';
+    }
     getContext().textAlign = "center";
     getContext().textBaseline = "middle";
     writeScaled(value, { x: startX+2, y: startY });
@@ -105,7 +108,11 @@ drawMissionName = function (value) {
     writeScaled(value, { x: startX, y: startY-2 });
     writeScaled(value, { x: startX-2, y: startY-2 });
 
-    getContext().fillStyle = 'black';
+    if (document.getElementById("white").checked){
+        getContext().fillStyle = 'white';
+    } else {
+        getContext().fillStyle = 'black';
+    }
     writeScaled(value, { x: startX, y: startY });
     
 
@@ -121,7 +128,11 @@ drawMissionType = function (value) {
         getContext().font = '40px lithosblack';
     }    
     
-    getContext().fillStyle = 'white';
+    if (document.getElementById("white").checked){
+        getContext().fillStyle = 'black';
+    } else {
+        getContext().fillStyle = 'white';
+    }
     getContext().textAlign = "center";
     getContext().textBaseline = "middle";
     writeScaled(value, { x: startX+2, y: startY });
@@ -131,7 +142,11 @@ drawMissionType = function (value) {
     writeScaled(value, { x: startX, y: startY-2 });
     writeScaled(value, { x: startX-2, y: startY-2 });
 
-    getContext().fillStyle = 'black';
+    if (document.getElementById("white").checked){
+        getContext().fillStyle = 'white';
+    } else {
+        getContext().fillStyle = 'black';
+    }
     writeScaled(value, { x: startX, y: startY });
 }
 
