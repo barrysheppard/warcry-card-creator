@@ -379,8 +379,8 @@ const renderFighterImage = function(missionData) {
         const image = new Image();
         image.onload = function() {
             const position = scalePixelPosition({
-                x: 100+ missionData.imageProperties.offsetX,
-                y: 100 + missionData.imageProperties.offsetY
+                x: 160+ missionData.imageProperties.offsetX,
+                y: 160 + missionData.imageProperties.offsetY
             });
             const scale = missionData.imageProperties.scalePercent / 100.0;
             const width = image.width * scale;
