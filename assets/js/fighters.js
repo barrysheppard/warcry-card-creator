@@ -161,29 +161,48 @@ drawFighterName = function (value) {
     
 }
 
-drawFighterName2 = function (value) {
-    startX = 850;
-    startY = 725;
+function scaleFontSizeToFit(text, maxWidth, startingFontSize) {
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('2d');
+    let fontSize = startingFontSize;
+  
+    let textWidth; // Define textWidth here
+  
+    do {
+      context.font = fontSize + 'px sans-serif'; // Change the font family as needed
+      textWidth = context.measureText(text).width; // Calculate textWidth
+      fontSize--;
+    } while (textWidth > maxWidth && fontSize > 0);
+  
+    return fontSize;
+  }
+  
+  function drawFighterName2(value) {
+    const startX = 850;
+    const startY = 725;
+    maxWidth = 450;
+    const font = scaleFontSizeToFit(value, maxWidth, 44);
+  
     if (document.getElementById('background-list').value === 'bg-13') {
-        getContext().font = '44px schoensperger';
+      getContext().font = font + 'px schoensperger';
     } else {
-        getContext().font = '44px rodchenkoctt';
+      getContext().font = font + 'px rodchenkoctt';
     }
-    
-    
+  
     getContext().fillStyle = 'white';
-    getContext().textAlign = "center";
-    getContext().textBaseline = "middle";
-    writeScaled(value, { x: startX+2, y: startY });
-    writeScaled(value, { x: startX, y: startY+2 });
-    writeScaled(value, { x: startX+2, y: startY+2 });
-    writeScaled(value, { x: startX-2, y: startY });
-    writeScaled(value, { x: startX, y: startY-2 });
-    writeScaled(value, { x: startX-2, y: startY-2 });
-
+    getContext().textAlign = 'center';
+    getContext().textBaseline = 'middle';
+    writeScaled(value, { x: startX + 2, y: startY });
+    writeScaled(value, { x: startX, y: startY + 2 });
+    writeScaled(value, { x: startX + 2, y: startY + 2 });
+    writeScaled(value, { x: startX - 2, y: startY });
+    writeScaled(value, { x: startX, y: startY - 2 });
+    writeScaled(value, { x: startX - 2, y: startY - 2 });
+  
     getContext().fillStyle = 'black';
     writeScaled(value, { x: startX, y: startY });
-}
+  }  
+  
 
 drawToughness = function (value) {
     getContext().font = "60px rodchenkoctt";
