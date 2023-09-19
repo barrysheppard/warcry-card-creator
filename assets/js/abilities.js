@@ -370,15 +370,31 @@ function drawCardElementFromInputId(inputId, pixelPosition) {
 }
 
 function drawCardTitle(value) {
+
+    startX = 1122/2;
+    startY = 90;
     if (document.getElementById('bg-09').checked) {
         getContext().font = '70px schoensperger';
     } else {
-        getContext().font = '70px rodchenkoctt';
+        getContext().font = '70px lithosblack';
     }
+
     getContext().fillStyle = 'white';
+
     getContext().textAlign = "center";
     getContext().textBaseline = "middle";
-    writeScaled(value, { x: (1122 / 2), y: 90 });
+    writeScaled(value, { x: startX+2, y: startY });
+    writeScaled(value, { x: startX, y: startY+2 });
+    writeScaled(value, { x: startX+2, y: startY+2 });
+    writeScaled(value, { x: startX-2, y: startY });
+    writeScaled(value, { x: startX, y: startY-2 });
+    writeScaled(value, { x: startX-2, y: startY-2 });
+
+    getContext().fillStyle = 'black';
+
+    writeScaled(value, { x: startX, y: startY });
+
+
 }
 
 function drawCardTranslationAbilities(value) {

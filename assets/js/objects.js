@@ -372,7 +372,7 @@ function defaultCardData() {
     cardData.objectText = "[Consumable] Discard this card after use. Bonus Action: Heal 1d6 damage from this fighter.";
     cardData.objectItalicText = "Flavour text in italics.";
 
-    cardData.bgselected = "bg_ghur";
+    cardData.bgselected = "bg_plain";
 
     cardData.nameSize = 60;
     cardData.nameColour = '#000000';
