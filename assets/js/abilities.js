@@ -82,7 +82,7 @@ function defaultCardData() {
 }
 
 function drawAbility(id, pixelPosition) {
-    getContext().font = '14px Georgia, serif';
+
     getContext().fillStyle = 'black';
     getContext().textAlign = 'left';
 
@@ -96,6 +96,11 @@ function drawAbility(id, pixelPosition) {
         transDouble = document.getElementById('card-translation-double').value,
         transTriple = document.getElementById('card-translation-triple').value,
         transQuad = document.getElementById('card-translation-quad').value;
+
+    // Calculate the font size based on the total characters and maxWidth
+    var fontSize = calculateFontSizeToFit(3000, 18, minFontSize = 16, name + text);
+    // Set the font size
+    getContext().font = fontSize + 'px Georgia, serif';
 
     // https://stackoverflow.com/a/35119260; http://jsfiddle.net/BaG4J/1/
     //var textblock = (function () {
@@ -155,12 +160,10 @@ function drawAbility(id, pixelPosition) {
             readTagRunemark("Seven").length
             );
     }
-    
 
     if(getSelectedFactionRunemark() == "assets/img/blank.gif"){
         max_tagRunemarks = max_tagRunemarks -1;
     }
-
     if (max_tagRunemarks < 0) {
         pixelPosition.x = pixelPosition.x - 200;
     }
@@ -178,12 +181,13 @@ function drawAbility(id, pixelPosition) {
     }
 
     // Print new title variable
-    getContext().font = 'bold 18px Georgia, serif';
+        // Set the font size
+        getContext().font = 'bold ' + fontSize + 'px Georgia, serif';
     writeScaled(title, { x: pixelPosition.x, y: pixelPosition.y });
     // record the bold width for later use
     var titleWidth = getContext().measureText(title).width;
-    getContext().font = '18px Georgia, serif';
-
+        // Set the font size
+        getContext().font = fontSize + 'px Georgia, serif';
 
     // Get how many runemarks are tick
     // This will determine how far the word wrap should go
@@ -201,7 +205,7 @@ function drawAbility(id, pixelPosition) {
         fitWidth = 700;
     }
     if (max_tagRunemarks > 2) {
-        fitWidth = 700;
+        fitWidth = 600;
     }
 
     // this will add carriage turns if needed
@@ -215,6 +219,26 @@ function drawAbility(id, pixelPosition) {
         }
     }
 }
+
+function calculateFontSizeToFit(maxWidth, startingFontSize, minFontSize, text) {
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('2d');
+    let fontSize = startingFontSize;
+
+    do {
+        context.font = fontSize + 'px Georgia, serif';
+        const textWidth = context.measureText(text).width;
+        
+        if (textWidth <= maxWidth) {
+            break; // If the text fits, exit the loop
+        }
+        
+        fontSize--; // Reduce the font size if text width is greater than maxWidth
+    } while (fontSize > minFontSize);
+
+    return fontSize;
+}
+
 
 
 
@@ -294,7 +318,6 @@ function drawAbilityLarge(id, pixelPosition) {
         max_tagRunemarks = max_tagRunemarks -1;
     }
 
-
     if (max_tagRunemarks < 0) {
         fitWidth = 1000;
         pixelPosition.x = pixelPosition.x - 160;
@@ -309,21 +332,25 @@ function drawAbilityLarge(id, pixelPosition) {
         pixelPosition.x = pixelPosition.x + 150;
     }
 
+    // Calculate the font size based on the total characters and maxWidth
+    var fontSize = calculateFontSizeToFit(3300, 32, minFontSize = 24, name + text);
+
+
     // Print new title variable
-    getContext().font = 'bold 32px Georgia, serif';
+    getContext().font = 'bold ' + fontSize + 'px Georgia, serif';
     writeScaled(title, { x: pixelPosition.x, y: pixelPosition.y });
     // record the bold width for later use
     var titleWidth = getContext().measureText(title).width;
-    getContext().font = '32px Georgia, serif';
+    getContext().font = fontSize + 'px Georgia, serif';
 
     // this will add carriage turns if needed
     lines = splitWordWrap(getContext(), text, fitWidth, titleWidth);
 
     for (var i = 0; i < lines.length; i++) {
         if (i == 0) {
-            writeScaled(lines[i], { x: pixelPosition.x + titleWidth, y: pixelPosition.y + (i * 38) });
+            writeScaled(lines[i], { x: pixelPosition.x + titleWidth, y: pixelPosition.y + (i * fontSize * 1.25) });
         } else {
-            writeScaled(lines[i], { x: pixelPosition.x, y: pixelPosition.y + (i * 38) });
+            writeScaled(lines[i], { x: pixelPosition.x, y: pixelPosition.y + (i * fontSize * 1.25) });
         }
     }
 }
