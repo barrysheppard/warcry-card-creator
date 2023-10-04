@@ -114,7 +114,6 @@ drawMissionName = function (value) {
         getContext().fillStyle = 'black';
     }
     writeScaled(value, { x: startX, y: startY });
-    
 
 
 }
@@ -952,8 +951,6 @@ function convertInchesToPixelsLine(x_inches, y_inches){
 
     return { x, y };
 }
-
-
 function drawThickLine(ctx, x1, y1, x2, y2, thickness, color = "black", arrowSize = 10) {
     // Calculate the angle of the line from start to end
     var angle = Math.atan2(y2 - y1, x2 - x1);
@@ -989,12 +986,26 @@ function drawThickLine(ctx, x1, y1, x2, y2, thickness, color = "black", arrowSiz
     ctx.fill();
     ctx.restore();
 
+    // Draw the arrowhead at the end of the line
+    ctx.save();
+    ctx.translate(end.x, end.y);
+    ctx.rotate(angle); // Use the original angle
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.lineTo(-arrowSize, arrowSize);
+    ctx.lineTo(-arrowSize, -arrowSize);
+    ctx.closePath();
+    ctx.fillStyle = color;
+    ctx.fill();
+    ctx.restore();
+
     // Restore the original stroke style and line width
     ctx.strokeStyle = originalStrokeStyle;
     ctx.lineWidth = originalLineWidth;
 
     ctx.closePath();
 }
+
 
 
 function drawLines(XValue, YValue, Turn) {
@@ -1340,36 +1351,28 @@ function drawDeployment(){
     var blueHammerYValue = document.getElementById("blueHammerY").value;
     var blueHammerLine = document.getElementById("blueHammerLineDeployment").checked;
     var blueHammerTurn = document.getElementById("blueHammerTurn").value;
-
     var blueShieldXValue = document.getElementById("blueShieldX").value;
     var blueShieldYValue = document.getElementById("blueShieldY").value;
     var blueShieldLine = document.getElementById("blueShieldLineDeployment").checked;
     var blueShieldTurn = document.getElementById("blueShieldTurn").value;
-
     var blueDaggerXValue = document.getElementById("blueDaggerX").value;
     var blueDaggerYValue = document.getElementById("blueDaggerY").value;
     var blueDaggerLine = document.getElementById("blueDaggerLineDeployment").checked;
     var blueDaggerTurn = document.getElementById("blueDaggerTurn").value;
-
     var removeBlueDeployment = document.getElementById("removeBlueDeployment").checked;
-
     var redHammerXValue = document.getElementById("redHammerX").value;
     var redHammerYValue = document.getElementById("redHammerY").value;
     var redHammerLine = document.getElementById("redHammerLineDeployment").checked;
     var redHammerTurn = document.getElementById("redHammerTurn").value;
-
     var redShieldXValue = document.getElementById("redShieldX").value;
     var redShieldYValue = document.getElementById("redShieldY").value;
     var redShieldLine = document.getElementById("redShieldLineDeployment").checked;
     var redShieldTurn = document.getElementById("redShieldTurn").value;
-
     var redDaggerXValue = document.getElementById("redDaggerX").value;
     var redDaggerYValue = document.getElementById("redDaggerY").value;
     var redDaggerLine = document.getElementById("redDaggerLineDeployment").checked;
     var redDaggerTurn = document.getElementById("redDaggerTurn").value;
-
     var removeRedDeployment = document.getElementById("removeRedDeployment").checked;
-
 
     var objective1XValue = document.getElementById("objective1X").value;
     var objective1YValue = document.getElementById("objective1Y").value;
@@ -1390,7 +1393,6 @@ function drawDeployment(){
     var objective6YValue = document.getElementById("objective6Y").value;
     var objective6Icon = document.getElementById("objective6Icon").value;
 
-
     // prepare text for line drawing
     // Draw the text in the middle of the line
     getContext().font = "24px LithosBlack"; // Adjust the font size and style as needed
@@ -1398,6 +1400,10 @@ function drawDeployment(){
     getContext().textAlign = "center";
     getContext().textBaseline = "middle";
     
+
+
+
+
 
     // Treasure and Objectives Lines
     if(objective1Icon>0){
@@ -1418,6 +1424,7 @@ function drawDeployment(){
     if(objective6Icon>0){
         drawLines(objective6XValue, objective6YValue, "");
     }
+
     
     if(!removeRedDeployment){
         if(redShieldLine){
@@ -1474,6 +1481,7 @@ function drawDeployment(){
         if(objective6Icon>0){
             drawIcon("green_objective_" + objective6Icon, objective6XValue, objective6YValue);
         }
+
 
         // input is in inches, X 0 to 30, Y 0 to 22
         if(!removeRedDeployment){

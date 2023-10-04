@@ -183,7 +183,7 @@ function drawAbility(id, pixelPosition) {
     // Print new title variable
         // Set the font size
         getContext().font = 'bold ' + fontSize + 'px Georgia, serif';
-    writeScaled(title, { x: pixelPosition.x, y: pixelPosition.y });
+        writeScaled(title, { x: pixelPosition.x, y: pixelPosition.y });
     // record the bold width for later use
     var titleWidth = getContext().measureText(title).width;
         // Set the font size
