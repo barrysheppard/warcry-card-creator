@@ -1407,7 +1407,7 @@ async function fileChange(file) {
 
 async function getFighterList(){
     // await response of fetch call
-    let response = await fetch("https://raw.githubusercontent.com/krisling049/warcry_data/main/data/fighters.json");
+    let response = await fetch("assets/fighters.json");
     // only proceed once promise is resolved
     let data = await response.json();
     // only proceed once second promise is resolved
@@ -1661,6 +1661,11 @@ function getFactionRunemark(warband){
     else if(warband == "Sylvaneth") {runemark = "runemarks/white/factions-order-sylvaneth.svg";}
     else if(warband == "Askurgan Trueblades") {runemark = "runemarks/white/factions-death-askurgan-trueblades.svg";}
     else if(warband == "Claws of Karanak") {runemark = "runemarks/white/factions-chaos-claws-of-karanak.svg";}
+    else if(warband == "Wildercorps Hunters") {runemark = "runemarks/white/factions-order-wildercorps-hunters.svg";}
+    else if(warband == "Gorgor Mawpack") {runemark = "runemarks/white/factions-destruction-gorgor-mawpack.svg";}
+    else if(warband == "Monsta Killaz") {runemark = "runemarks/white/factions-destruction-monsta-killaz.svg";}
+    else if(warband == "Vulkyn Flameseekers") {runemark = "runemarks/white/factions-order-vulkyn-flameseekers.svg";}
+
     else { runemark = "runemarks/white/factions-chaos-everchosen.svg";}
     return runemark;
 }
