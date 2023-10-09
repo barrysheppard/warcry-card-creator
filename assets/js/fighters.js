@@ -1663,7 +1663,7 @@ function getFactionRunemark(warband){
     else if(warband == "Claws of Karanak") {runemark = "runemarks/white/factions-chaos-claws-of-karanak.svg";}
     else if(warband == "Wildercorps Hunters") {runemark = "runemarks/white/factions-order-wildercorps-hunters.svg";}
     else if(warband == "Gorgor Mawpack") {runemark = "runemarks/white/factions-destruction-gorgor-mawpack.svg";}
-    else if(warband == "Monsta Killaz") {runemark = "runemarks/white/factions-destruction-monsta-killaz.svg";}
+    else if(warband == "Kruleboyz Monsta-killaz") {runemark = "runemarks/white/factions-destruction-monsta-killaz.svg";}
     else if(warband == "Vulkyn Flameseekers") {runemark = "runemarks/white/factions-order-vulkyn-flameseekers.svg";}
 
     else { runemark = "runemarks/white/factions-chaos-everchosen.svg";}
