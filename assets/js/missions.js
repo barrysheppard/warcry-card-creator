@@ -946,8 +946,8 @@ function convertInchesToPixelsLine(x_inches, y_inches){
     // in inches that 504 is 22 inches. 504/22 = 22.9
     startX = 205;
     startY = 200;
-    x = startX + x_inches * 23.7;
-    y = startY + y_inches * 22.9;
+    x = startX + (x_inches * 23.7);
+    y = startY + (y_inches * 22.9);
 
     return { x, y };
 }
@@ -1061,8 +1061,65 @@ function drawLines(XValue, YValue, Turn) {
         }
 
     }
-
 }
+function drawLinesFromCentre(XValue, YValue, Turn) {
+    if (XValue !== 15) {
+        if (XValue < 15) {
+            drawThickLine(getContext(), 15, YValue, XValue, YValue, 6, color = "black");
+            if (XValue !== 15) {
+                let value = (15 - XValue).toString() + '"';
+                let newX = 15 + (XValue - 15) / 2;
+                let x = convertInchesToPixelsLine(newX, YValue).x;
+                let y = convertInchesToPixelsLine(newX, YValue).y;
+                writeScaledBorder(value, x, y);
+            }
+
+        } else {
+            drawThickLine(getContext(), 15, YValue, XValue, YValue, 6, color = "black");
+            if (XValue !== 15) {
+                let value = (XValue-15).toString() + '"';
+                let newX = 15 + (XValue - 15) / 2;
+                let x = convertInchesToPixelsLine(newX, YValue).x;
+                let y = convertInchesToPixelsLine(newX, YValue).y;
+                writeScaledBorder(value, x, y);
+            }
+        }
+    }
+    if (YValue !== 11) {
+        if (YValue < 11) {
+            drawThickLine(getContext(), XValue, 11, XValue, YValue, 6, color = "black");
+            if (YValue !== 11) {
+                let value = (11 - YValue).toString() + '"';
+                let newY = 11 + (YValue - 11) / 2;
+                let x = convertInchesToPixelsLine(XValue, newY).x;
+                let y = convertInchesToPixelsLine(XValue, newY).y;
+                writeScaledBorder(value, x, y);
+            }
+        } else {
+            drawThickLine(getContext(), XValue, 11, XValue, YValue, 6, color = "black");
+            if (YValue !== 0 && YValue !== 22) {
+                let value = (YValue - 11).toString() + '"';
+                let newY = 11 + (YValue - 11) / 2;
+                let x = convertInchesToPixelsLine(XValue, newY).x;
+                let y = convertInchesToPixelsLine(XValue, newY).y;
+                writeScaledBorder(value, x, y);
+            }
+        }
+    }
+    if (Turn > 1) {
+        let x = convertInchesToPixelsLine(XValue, YValue).x;
+        let value = "Rnd " + Turn.toString();
+        let y;
+        if (YValue < 11) {
+            y = convertInchesToPixelsLine(XValue, YValue).y + 40;
+        } else {
+            y = convertInchesToPixelsLine(XValue, YValue).y - 40;
+        }
+        writeScaledBorder(value, x, y);
+    }
+}
+
+
 
 function writeScaledBorder(value, startX, startY) {
     getContext().fillStyle = 'white';
@@ -1393,6 +1450,22 @@ function drawDeployment(){
     var objective6YValue = document.getElementById("objective6Y").value;
     var objective6Icon = document.getElementById("objective6Icon").value;
 
+    var redShieldLineFromCentre = document.getElementById("redShieldLineFromCentre").checked;
+    var redDaggerLineFromCentre = document.getElementById("redDaggerLineFromCentre").checked;
+    var redHammerLineFromCentre = document.getElementById("redHammerLineFromCentre").checked;
+    var blueShieldLineFromCentre = document.getElementById("blueShieldLineFromCentre").checked;
+    var blueDaggerLineFromCentre = document.getElementById("blueDaggerLineFromCentre").checked;
+    var blueHammerLineFromCentre = document.getElementById("blueHammerLineFromCentre").checked;
+    
+    var objective1LineFromCentre = document.getElementById("objective1LineFromCentre").checked;
+    var objective2LineFromCentre = document.getElementById("objective2LineFromCentre").checked;
+    var objective3LineFromCentre = document.getElementById("objective3LineFromCentre").checked;
+    var objective4LineFromCentre = document.getElementById("objective4LineFromCentre").checked;
+    var objective5LineFromCentre = document.getElementById("objective5LineFromCentre").checked;
+    var objective6LineFromCentre = document.getElementById("objective6LineFromCentre").checked;
+
+    
+
     // prepare text for line drawing
     // Draw the text in the middle of the line
     getContext().font = "24px LithosBlack"; // Adjust the font size and style as needed
@@ -1407,60 +1480,106 @@ function drawDeployment(){
 
     // Treasure and Objectives Lines
     if(objective1Icon>0){
-        drawLines(objective1XValue, objective1YValue, "");
+        if(objective1LineFromCentre){
+            drawLinesFromCentre(objective1XValue, objective1YValue, "");
+        } else {
+            drawLines(objective1XValue, objective1YValue, "");
+        }
     }
-    if(objective2Icon>0){
-        drawLines(objective2XValue, objective2YValue, "");
+    if(objective2Icon > 0){
+        if(objective2LineFromCentre){
+            drawLinesFromCentre(objective2XValue, objective2YValue, "");
+        } else {
+            drawLines(objective2XValue, objective2YValue, "");
+        }
     }
-    if(objective3Icon>0){
-        drawLines(objective3XValue, objective3YValue, "");
+    
+    if(objective3Icon > 0){
+        if(objective3LineFromCentre){
+            drawLinesFromCentre(objective3XValue, objective3YValue, "");
+        } else {
+            drawLines(objective3XValue, objective3YValue, "");
+        }
     }
-    if(objective4Icon>0){
-        drawLines(objective4XValue, objective4YValue, "");
+    
+    if(objective4Icon > 0){
+        if(objective4LineFromCentre){
+            drawLinesFromCentre(objective4XValue, objective4YValue, "");
+        } else {
+            drawLines(objective4XValue, objective4YValue, "");
+        }
     }
-    if(objective5Icon>0){
-        drawLines(objective5XValue, objective5YValue, "");
+    
+    if(objective5Icon > 0){
+        if(objective5LineFromCentre){
+            drawLinesFromCentre(objective5XValue, objective5YValue, "");
+        } else {
+            drawLines(objective5XValue, objective5YValue, "");
+        }
     }
-    if(objective6Icon>0){
-        drawLines(objective6XValue, objective6YValue, "");
+    
+    if(objective6Icon > 0){
+        if(objective6LineFromCentre){
+            drawLinesFromCentre(objective6XValue, objective6YValue, "");
+        } else {
+            drawLines(objective6XValue, objective6YValue, "");
+        }
     }
+    
 
     
     if(!removeRedDeployment){
         if(redShieldLine){
             drawBorderLine(redShieldXValue, redShieldYValue, redShieldTurn);
+        } else if (redShieldLineFromCentre){
+            drawLinesFromCentre(redShieldXValue, redShieldYValue, redShieldTurn);
         } else {
             drawLines(redShieldXValue, redShieldYValue, redShieldTurn);
         }
+
         if(redDaggerLine){
             drawBorderLine(redDaggerXValue, redDaggerYValue, redDaggerTurn);
+        } else if (redDaggerLineFromCentre){
+            drawLinesFromCentre(redDaggerXValue, redDaggerYValue, redDaggerTurn);
         } else {
             drawLines(redDaggerXValue, redDaggerYValue, redDaggerTurn);
         }
+
         if(redHammerLine){
             drawBorderLine(redHammerXValue, redHammerYValue, redHammerTurn);
-        } else {
+        } else if (redHammerLineFromCentre){
+            drawLinesFromCentre(redHammerXValue, redHammerYValue, redHammerTurn);
+        } else {redHammerYValue
             drawLines(redHammerXValue, redHammerYValue, redHammerTurn);
         }
     }
 
-    if(!removeBlueDeployment){
-        if(blueShieldLine){
+    if (!removeBlueDeployment) {
+        if (blueShieldLine) {
             drawBorderLine(blueShieldXValue, blueShieldYValue, blueShieldTurn);
+        } else if (blueShieldLineFromCentre) {
+            drawLinesFromCentre(blueShieldXValue, blueShieldYValue, blueShieldTurn);
         } else {
             drawLines(blueShieldXValue, blueShieldYValue, blueShieldTurn);
         }
-        if(blueDaggerLine){
+    
+        if (blueDaggerLine) {
             drawBorderLine(blueDaggerXValue, blueDaggerYValue, blueDaggerTurn);
+        } else if (blueDaggerLineFromCentre) {
+            drawLinesFromCentre(blueDaggerXValue, blueDaggerYValue, blueDaggerTurn);
         } else {
             drawLines(blueDaggerXValue, blueDaggerYValue, blueDaggerTurn);
         }
-        if(blueHammerLine){
+    
+        if (blueHammerLine) {
             drawBorderLine(blueHammerXValue, blueHammerYValue, blueHammerTurn);
+        } else if (blueHammerLineFromCentre) {
+            drawLinesFromCentre(blueHammerXValue, blueHammerYValue, blueHammerTurn);
         } else {
             drawLines(blueHammerXValue, blueHammerYValue, blueHammerTurn);
         }
     }
+    
 
         // Treasure and Objectives Icons
         if(objective1Icon>0){
