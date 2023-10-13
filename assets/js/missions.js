@@ -325,6 +325,20 @@ function readControls() {
 
     data.textValue = document.getElementById("textValue").value;
 
+    data.redShieldLineFromCentre = document.getElementById("redShieldLineFromCentre").checked;
+    data.redDaggerLineFromCentre = document.getElementById("redDaggerLineFromCentre").checked;
+    data.redHammerLineFromCentre = document.getElementById("redHammerLineFromCentre").checked;
+    data.blueShieldLineFromCentre = document.getElementById("blueShieldLineFromCentre").checked;
+    data.blueDaggerLineFromCentre = document.getElementById("blueDaggerLineFromCentre").checked;
+    data.blueHammerLineFromCentre = document.getElementById("blueHammerLineFromCentre").checked;
+    
+    data.objective1LineFromCentre = document.getElementById("objective1LineFromCentre").checked;
+    data.objective2LineFromCentre = document.getElementById("objective2LineFromCentre").checked;
+    data.objective3LineFromCentre = document.getElementById("objective3LineFromCentre").checked;
+    data.objective4LineFromCentre = document.getElementById("objective4LineFromCentre").checked;
+    data.objective5LineFromCentre = document.getElementById("objective5LineFromCentre").checked;
+    data.objective6LineFromCentre = document.getElementById("objective6LineFromCentre").checked;
+
 
     return data;
 }
@@ -507,6 +521,21 @@ async function writeControls(data) {
     document.getElementById("white").checked = data.white;
     
     document.getElementById("textValue").value = data.textValue;
+
+    document.getElementById("redShieldLineFromCentre").checked = data.redShieldLineFromCentre;
+    document.getElementById("redDaggerLineFromCentre").checked = data.redDaggerLineFromCentre;
+    document.getElementById("redHammerLineFromCentre").checked = data.redHammerLineFromCentre;
+    document.getElementById("blueShieldLineFromCentre").checked = data.blueShieldLineFromCentre;
+    document.getElementById("blueDaggerLineFromCentre").checked = data.blueDaggerLineFromCentre;
+    document.getElementById("blueHammerLineFromCentre").checked = data.blueHammerLineFromCentre;
+
+    document.getElementById("objective1LineFromCentre").checked = data.objective1LineFromCentre;
+    document.getElementById("objective2LineFromCentre").checked = data.objective2LineFromCentre;
+    document.getElementById("objective3LineFromCentre").checked = data.objective3LineFromCentre;
+    document.getElementById("objective4LineFromCentre").checked = data.objective4LineFromCentre;
+    document.getElementById("objective5LineFromCentre").checked = data.objective5LineFromCentre;
+    document.getElementById("objective6LineFromCentre").checked = data.objective6LineFromCentre;
+
     
     // render the updated info
     render(data);
