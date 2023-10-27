@@ -1111,6 +1111,7 @@ window.onload = function () {
         } else {
             console.log("Invalid input parameters.");
         }
+    updateStats();
 }
 
 function validateInput(input) {
@@ -1123,6 +1124,7 @@ onAnyChange = function () {
     var fighterData = readControls();
     render(fighterData);
     saveLatestFighterData();
+    updateStats();
 }
 
 onFighterImageUpload = function () {
@@ -1140,19 +1142,24 @@ function onWeaponControlsToggled(weaponCheckbox) {
     onAnyChange();
 }
 
-onWeaponMinRangeChanged = function (minRange) {
-    var maxRange = $(minRange.parentNode).find("#rangeMax")[0];
-    maxRange.value = Math.max(minRange.value, maxRange.value);
-
+function onWeaponMinRangeChanged(minRangeInput) {
+    var maxRange = $(minRangeInput.parentNode).find(".form-control[name='rangeMax']")[0];
+    if (maxRange) {
+        maxRange.value = Math.max(minRangeInput.value, maxRange.value);
+        onAnyChange();
+    }
     onAnyChange();
 }
 
-onWeaponMaxRangeChanged = function (maxRange) {
-    var minRange = $(maxRange.parentNode).find("#rangeMin")[0];
-    minRange.value = Math.min(maxRange.value, minRange.value);
-
+function onWeaponMaxRangeChanged(maxRangeInput) {
+    var minRange = $(maxRangeInput.parentNode).find(".form-control[name='rangeMin']")[0];
+    if (minRange) {
+        minRange.value = Math.min(minRange.value, maxRangeInput.value);
+        onAnyChange();
+    }
     onAnyChange();
 }
+
 
 onRunemarkSelectionChanged = function (radioButton, backgroundColor) {
     var radioSection = radioButton.parentNode.parentNode;
@@ -1511,6 +1518,7 @@ async function loadFighterByName(name, warband) {
     } else {
       console.log("No matching fighter found.");
     }
+    updateStats();
   }
   
   
@@ -1591,6 +1599,7 @@ function saveFighterFromList(fighter){
     fighterData.bg16 = oldData.bg16;
     fighterData.bgselected = oldData.bgselected;
     writeControls(fighterData);
+    updateStats();
 }
 
 function getFactionRunemark(warband){
@@ -1662,7 +1671,7 @@ function getFactionRunemark(warband){
     else if(warband == "Askurgan Trueblades") {runemark = "runemarks/white/factions-death-askurgan-trueblades.svg";}
     else if(warband == "Claws of Karanak") {runemark = "runemarks/white/factions-chaos-claws-of-karanak.svg";}
     else if(warband == "Wildercorps Hunters") {runemark = "runemarks/white/factions-order-wildercorps-hunters.svg";}
-    else if(warband == "Gorgor Mawpack") {runemark = "runemarks/white/factions-destruction-gorgor-mawpack.svg";}
+    else if(warband == "Gorger Mawpack") {runemark = "runemarks/white/factions-destruction-gorgor-mawpack.svg";}
     else if(warband == "Kruleboyz Monsta-killaz") {runemark = "runemarks/white/factions-destruction-monsta-killaz.svg";}
     else if(warband == "Vulkyn Flameseekers") {runemark = "runemarks/white/factions-order-vulkyn-flameseekers.svg";}
 
@@ -1863,4 +1872,138 @@ onCustomBackgroundUpload = function () {
 function getCustomBackgroundUrl() {
     var imageSelect = $("#customBackgroundUrl")[0].value;
     return imageSelect;
+}
+
+function updateStats(){
+    estimatePoints();
+    calculateDamage();
+}
+
+function calculateDamage() {
+    var fighterData = readControls();
+
+    var attacks = fighterData.weapon1.attacks;
+    var strength = fighterData.weapon1.strength;
+    var damage = fighterData.weapon1.damageBase;
+    var crit = fighterData.weapon1.damageCrit;
+    var name = 'Weapon 1';
+
+    var averageDamageT3 = calculateAverageDamage(attacks, strength, damage, crit, 3);
+    var averageDamageT4 = calculateAverageDamage(attacks, strength, damage, crit, 4);
+    var averageDamageT5 = calculateAverageDamage(attacks, strength, damage, crit, 5);
+
+    var resultText = `${name} - T3: ${averageDamageT3.toFixed(2)}, T4: ${averageDamageT4.toFixed(2)}, T5: ${averageDamageT5.toFixed(2)}`;
+
+    document.getElementById('weapon1_stats').innerText = resultText;
+
+    if(fighterData.weapon2.enabled){
+        var attacks = fighterData.weapon2.attacks;
+        var strength = fighterData.weapon2.strength;
+        var damage = fighterData.weapon2.damageBase;
+        var crit = fighterData.weapon2.damageCrit;
+        var name = 'Weapon 2';
+
+        var averageDamageT3 = calculateAverageDamage(attacks, strength, damage, crit, 3);
+        var averageDamageT4 = calculateAverageDamage(attacks, strength, damage, crit, 4);
+        var averageDamageT5 = calculateAverageDamage(attacks, strength, damage, crit, 5);
+
+        var resultText = `${name} - T3: ${averageDamageT3.toFixed(2)}, T4: ${averageDamageT4.toFixed(2)}, T5: ${averageDamageT5.toFixed(2)}`;
+
+        document.getElementById('weapon2_stats').innerText = resultText;
+    } else {
+        var resultText = ' ';
+
+        document.getElementById('weapon2_stats').innerText = resultText;
+    }
+}
+
+function calculateAverageDamage(attacks, strength, damage, crit, toughness) {
+    var averageDamage = 0;
+    var hitProbability = 0;
+    var critProbability = 1 / 6;
+
+    if (strength > toughness) {
+        hitProbability = 3 / 6;
+    } else if (strength == toughness) {
+        hitProbability = 2 / 6;
+    } else if (strength < toughness) {
+        hitProbability = 1 / 6;
+    }
+
+    averageDamage += attacks * hitProbability * damage;
+    averageDamage += attacks * critProbability * crit;
+
+    return averageDamage;
+}
+
+
+function estimatePoints() {
+    var fighterData = readControls();
+    var averageDamage1T4 = calculateAverageDamage(fighterData.weapon1.attacks, fighterData.weapon1.strength, 
+                                                fighterData.weapon1.damageBase, fighterData.weapon1.damageCrit, 4);
+    var averageDamage2T4 = calculateAverageDamage(fighterData.weapon2.attacks, fighterData.weapon2.strength, 
+                                                fighterData.weapon2.damageBase, fighterData.weapon2.damageCrit, 4);
+
+    var points = 0;
+    var points_for_wounds = 25 * fighterData.wounds / 3;
+    if (averageDamage1T4 > averageDamage2T4) {
+        points_for_damage = 25 * averageDamage1T4;
+    } else {
+        points_for_damage = 25 * averageDamage2T4;
+    }
+    if (!fighterData.weapon2.enabled){
+        points_for_damage = 25 * averageDamage1T4;
+    }
+    basepoints = Math.round((points_for_wounds + points_for_damage)/2);
+    // Calculate the adjustment percentage based on the difference from the baseline
+    percentage = 0
+    
+    if (fighterData.move > 3) {
+        percentage +=  (fighterData.move - 4) * 5
+    } else {
+        percentage -=  20
+    }
+
+    percentage +=  (fighterData.toughness - 4) * 5
+
+    if (fighterData.weapon1.rangeMax > 0) {
+        if (fighterData.weapon1.rangeMax > 1 && fighterData.weapon1.rangeMax <= 3){
+            percentage += 5;
+        } else if (fighterData.weapon1.rangeMax > 3 && fighterData.weapon1.rangeMax <= 8) {
+            percentage += 10;
+        } else if (fighterData.weapon1.rangeMax > 8 && fighterData.weapon1.rangeMax <= 14) {
+            percentage += 15;
+        } else if (fighterData.weapon1.rangeMax > 14 && fighterData.weapon1.rangeMax <= 16) {
+            percentage += 20;
+        } else if (fighterData.weapon1.rangeMax > 20 ) {
+            percentage += 25;
+        }
+    }
+
+    if (fighterData.weapon2.rangeMax > 0) {
+        if (fighterData.weapon2.rangeMax > 1 && fighterData.weapon2.rangeMax <= 3){
+            percentage += 5;
+        } else if (fighterData.weapon2.rangeMax > 3 && fighterData.weapon2.rangeMax <= 8) {
+            percentage += 10;
+        } else if (fighterData.weapon2.rangeMax > 8 && fighterData.weapon2.rangeMax <= 14) {
+            percentage += 15;
+        } else if (fighterData.weapon2.rangeMax > 14 && fighterData.weapon2.rangeMax <= 16) {
+            percentage += 20;
+        } else if (fighterData.weapon2.rangeMax > 20 ) {
+            percentage += 25;
+        }
+    }
+
+    if(tagRunemarks.includes("runemarks/black/fighters-fly.svg")){
+        percentage += 10;
+    }
+    
+
+    percentage = Math.round(percentage)
+    // Apply the adjustment to the points value
+    points = basepoints * (1 + percentage / 100);
+
+    points = Math.round(points / 5) * 5;
+    var resultText = `Estimated points - ${points} (base ${basepoints} with ${percentage}% adjustment)`;
+    document.getElementById('estimated_points').innerText = resultText;
 }
