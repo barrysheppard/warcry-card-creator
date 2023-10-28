@@ -1958,52 +1958,85 @@ function estimatePoints() {
     // Calculate the adjustment percentage based on the difference from the baseline
     percentage = 0
     
-    if (fighterData.move > 3) {
-        percentage +=  (fighterData.move - 4) * 5
+    if (fighterData.move > 4) {
+        move_percentage = 5
+        move_percentage +=  (fighterData.move - 4) * 5
+    } else if (fighterData.move < 4) {
+        move_percentage =  -20
     } else {
-        percentage -=  20
+        move_percentage =  0
     }
 
-    percentage +=  (fighterData.toughness - 4) * 5
+    toughness_percentage =  (fighterData.toughness - 4) * 5
 
-    if (fighterData.weapon1.rangeMax > 0) {
-        if (fighterData.weapon1.rangeMax > 1 && fighterData.weapon1.rangeMax <= 3){
-            percentage += 5;
-        } else if (fighterData.weapon1.rangeMax > 3 && fighterData.weapon1.rangeMax <= 8) {
-            percentage += 10;
-        } else if (fighterData.weapon1.rangeMax > 8 && fighterData.weapon1.rangeMax <= 14) {
-            percentage += 15;
-        } else if (fighterData.weapon1.rangeMax > 14 && fighterData.weapon1.rangeMax <= 16) {
-            percentage += 20;
-        } else if (fighterData.weapon1.rangeMax > 20 ) {
-            percentage += 25;
+    weaponrange_percentage = 0;
+
+    if ((averageDamage1T4 > averageDamage2T4 && fighterData.weapon1.enabled) || !fighterData.weapon2.enabled){
+        if (fighterData.weapon1.rangeMax > 1) {
+            if (fighterData.weapon1.rangeMax > 1 && fighterData.weapon1.rangeMax <= 3){
+                weaponrange_percentage = 5;
+            } else if (fighterData.weapon1.rangeMax > 3 && fighterData.weapon1.rangeMax <= 8) {
+                weaponrange_percentage = 10;
+            } else if (fighterData.weapon1.rangeMax > 8 && fighterData.weapon1.rangeMax <= 14) {
+                weaponrange_percentage = 15;
+            } else if (fighterData.weapon1.rangeMax > 14 && fighterData.weapon1.rangeMax <= 16) {
+                weaponrange_percentage = 20;
+            } else if (fighterData.weapon1.rangeMax > 16 ) {
+                weaponrange_percentage = 25;
+            }
+        }
+        if (fighterData.weapon1.rangeMin > 1){
+            weaponrange_percentage -= 5;
+        }
+    }
+    if ((averageDamage1T4 <= averageDamage2T4 && fighterData.weapon2.enabled) || !fighterData.weapon1.enabled){
+        if (fighterData.weapon2.rangeMax > 1) {
+            if (fighterData.weapon2.rangeMax > 1 && fighterData.weapon2.rangeMax <= 3){
+                weaponrange_percentage = 5;
+            } else if (fighterData.weapon2.rangeMax > 3 && fighterData.weapon2.rangeMax <= 8) {
+                weaponrange_percentage = 10;
+            } else if (fighterData.weapon2.rangeMax > 8 && fighterData.weapon2.rangeMax <= 14) {
+                weaponrange_percentage = 15;
+            } else if (fighterData.weapon2.rangeMax > 14 && fighterData.weapon2.rangeMax <= 16) {
+                weaponrange_percentage = 20;
+            } else if (fighterData.weapon2.rangeMax > 20 ) {
+                weaponrange_percentage = 25;
+            }
+        }
+        if (fighterData.weapon2.rangeMin > 1){
+            weaponrange_percentage -= 5;
         }
     }
 
-    if (fighterData.weapon2.rangeMax > 0) {
-        if (fighterData.weapon2.rangeMax > 1 && fighterData.weapon2.rangeMax <= 3){
-            percentage += 5;
-        } else if (fighterData.weapon2.rangeMax > 3 && fighterData.weapon2.rangeMax <= 8) {
-            percentage += 10;
-        } else if (fighterData.weapon2.rangeMax > 8 && fighterData.weapon2.rangeMax <= 14) {
-            percentage += 15;
-        } else if (fighterData.weapon2.rangeMax > 14 && fighterData.weapon2.rangeMax <= 16) {
-            percentage += 20;
-        } else if (fighterData.weapon2.rangeMax > 20 ) {
-            percentage += 25;
-        }
+    dualweapons_percentage = 0;
+    if (fighterData.weapon1.enabled && fighterData.weapon2.enabled){
+        dualweapons_percentage = 5;
     }
 
-    if(tagRunemarks.includes("runemarks/black/fighters-fly.svg")){
-        percentage += 10;
+    fly_percentage = 0;
+    if(fighterData.tagRunemarks.includes("runemarks/black/fighters-fly.svg")){
+        fly_percentage = 10;
     }
     
+    percentage += move_percentage;
+    percentage += toughness_percentage;
+    percentage += weaponrange_percentage;
+    percentage += fly_percentage;
+    percentage += dualweapons_percentage;
 
     percentage = Math.round(percentage)
     // Apply the adjustment to the points value
     points = basepoints * (1 + percentage / 100);
 
     points = Math.round(points / 5) * 5;
-    var resultText = `Estimated points - ${points} (base ${basepoints} with ${percentage}% adjustment)`;
+    var resultText = `Estimated points: ${points}
+
+    Base ${basepoints} points with ${percentage}% adjustment: 
+        - Movement : ${move_percentage}%    
+        - Toughness : ${toughness_percentage}%
+        - Weapon range : ${weaponrange_percentage}%
+        - Fly : ${fly_percentage}%
+        - Dual Weapons : ${dualweapons_percentage}%
+        `;
     document.getElementById('estimated_points').innerText = resultText;
 }
