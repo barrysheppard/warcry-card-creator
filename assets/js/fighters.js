@@ -1944,16 +1944,62 @@ function estimatePoints() {
     var averageDamage2T4 = calculateAverageDamage(fighterData.weapon2.attacks, fighterData.weapon2.strength, 
                                                 fighterData.weapon2.damageBase, fighterData.weapon2.damageCrit, 4);
 
-    var points = 0;
-    var points_for_wounds = 25 * fighterData.wounds / 3;
-    if (averageDamage1T4 > averageDamage2T4) {
-        points_for_damage = 25 * averageDamage1T4;
-    } else {
-        points_for_damage = 25 * averageDamage2T4;
+
+
+    // To select the primary weapon we can't just do max damage, we need to adjust by range scaling.
+
+    weapon1range_percentage = 0;
+    if (fighterData.weapon1.rangeMax > 1) {
+        if (fighterData.weapon1.rangeMax > 1 && fighterData.weapon1.rangeMax <= 3){
+            weapon1range_percentage = 5;
+        } else if (fighterData.weapon1.rangeMax > 3 && fighterData.weapon1.rangeMax <= 7) {
+            weapon1range_percentage = 10;
+        } else if (fighterData.weapon1.rangeMax > 7 && fighterData.weapon1.rangeMax <= 10) {
+            weapon1range_percentage = 15;
+        } else if (fighterData.weapon1.rangeMax > 10 && fighterData.weapon1.rangeMax <= 15) {
+            weapon1range_percentage = 20;
+        } else if (fighterData.weapon1.rangeMax > 15 ) {
+            weapon1range_percentage = 30;
+        }
     }
-    if (!fighterData.weapon2.enabled){
-        points_for_damage = 25 * averageDamage1T4;
+    if (fighterData.weapon1.rangeMin > 1 && (averageDamage2T4 < averageDamage1T4 || !fighterData.weapon2.enabled)){
+        weapon1range_percentage -= 5;
     }
+    weapon1points = averageDamage1T4 * 25 *  (1 + weapon1range_percentage / 100);
+
+    weapon2range_percentage = 0;
+    if (fighterData.weapon2.rangeMax > 1) {
+        if (fighterData.weapon2.rangeMax > 1 && fighterData.weapon2.rangeMax <= 3){
+            weapon2range_percentage = 5;
+        } else if (fighterData.weapon2.rangeMax > 3 && fighterData.weapon2.rangeMax <= 7) {
+            weapon2range_percentage = 10;
+        } else if (fighterData.weapon2.rangeMax > 7 && fighterData.weapon2.rangeMax <= 10) {
+            weapon2range_percentage = 15;
+        } else if (fighterData.weapon2.rangeMax > 10 && fighterData.weapon2.rangeMax <= 15) {
+            weapon2range_percentage = 20;
+        } else if (fighterData.weapon2.rangeMax > 15 ) {
+            weapon2range_percentage = 30;
+        }
+    }
+    if (fighterData.weapon2.rangeMin > 1 && (averageDamage1T4 < averageDamage2T4 || !fighterData.weapon1.enabled)){
+        weapon2range_percentage -= 5;
+    }
+    weapon2points = averageDamage2T4 * 25 *  (1 + weapon2range_percentage / 100);
+
+    if (weapon1points > weapon2points|| !fighterData.weapon2.enabled) {
+        primaryWeaponDamage = averageDamage1T4;
+        weaponrange_percentage = weapon1range_percentage;
+    } else if (weapon2points > weapon1points || !fighterData.weapon1.enabled){
+        primaryWeaponDamage = averageDamage2T4;
+        weaponrange_percentage = weapon2range_percentage;
+    }
+
+
+
+    points = 0;
+    points_for_wounds = 25 * fighterData.wounds / 3;
+    points_for_damage = 25 * primaryWeaponDamage;
+
     basepoints = Math.round((points_for_wounds + points_for_damage)/2);
     // Calculate the adjustment percentage based on the difference from the baseline
     percentage = 0
@@ -1969,44 +2015,6 @@ function estimatePoints() {
 
     toughness_percentage =  (fighterData.toughness - 4) * 5
 
-    weaponrange_percentage = 0;
-
-    if ((averageDamage1T4 > averageDamage2T4 && fighterData.weapon1.enabled) || !fighterData.weapon2.enabled){
-        if (fighterData.weapon1.rangeMax > 1) {
-            if (fighterData.weapon1.rangeMax > 1 && fighterData.weapon1.rangeMax <= 3){
-                weaponrange_percentage = 5;
-            } else if (fighterData.weapon1.rangeMax > 3 && fighterData.weapon1.rangeMax <= 8) {
-                weaponrange_percentage = 10;
-            } else if (fighterData.weapon1.rangeMax > 8 && fighterData.weapon1.rangeMax <= 14) {
-                weaponrange_percentage = 15;
-            } else if (fighterData.weapon1.rangeMax > 14 && fighterData.weapon1.rangeMax <= 16) {
-                weaponrange_percentage = 20;
-            } else if (fighterData.weapon1.rangeMax > 16 ) {
-                weaponrange_percentage = 25;
-            }
-        }
-        if (fighterData.weapon1.rangeMin > 1){
-            weaponrange_percentage -= 5;
-        }
-    }
-    if ((averageDamage1T4 <= averageDamage2T4 && fighterData.weapon2.enabled) || !fighterData.weapon1.enabled){
-        if (fighterData.weapon2.rangeMax > 1) {
-            if (fighterData.weapon2.rangeMax > 1 && fighterData.weapon2.rangeMax <= 3){
-                weaponrange_percentage = 5;
-            } else if (fighterData.weapon2.rangeMax > 3 && fighterData.weapon2.rangeMax <= 8) {
-                weaponrange_percentage = 10;
-            } else if (fighterData.weapon2.rangeMax > 8 && fighterData.weapon2.rangeMax <= 14) {
-                weaponrange_percentage = 15;
-            } else if (fighterData.weapon2.rangeMax > 14 && fighterData.weapon2.rangeMax <= 16) {
-                weaponrange_percentage = 20;
-            } else if (fighterData.weapon2.rangeMax > 20 ) {
-                weaponrange_percentage = 25;
-            }
-        }
-        if (fighterData.weapon2.rangeMin > 1){
-            weaponrange_percentage -= 5;
-        }
-    }
 
     dualweapons_percentage = 0;
     if (fighterData.weapon1.enabled && fighterData.weapon2.enabled){
