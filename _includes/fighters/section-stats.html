@@ -10,7 +10,6 @@
 
     <div class="collapse" id="fightersCollapseStats">
         <div class="card-body">
-
             <div><b>This feature being tested</b></div>
             <div>&nbsp;</div>
             <div>Average Damage:</div>
@@ -18,8 +17,24 @@
             <div id="weapon2_stats"></div>
             <div>&nbsp;</div>
             <div id="estimated_points"></div>
+    
+            <div class="card-header" id="details">
+                <h2 class="h5 mb-0">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#estimated_details" aria-expanded="false" aria-controls="fightersCollapseSix">
+                        Details
+                    </button>
+                </h2>
+            </div>
+            <div class="collapse" id="estimated_details">
 
+            <div id="estimated_points_details"></div>
+            <div class="form-group">
+                <label for="adjustment">Adjustment:</label>
+                <input type="number" id="adjustment" name="adjustment" min="-50" max="50" step="5" value="0" oninput="onAnyChange()">
+            </div>
+            </div>
         </div>
     </div>
+    
 
 </div>
