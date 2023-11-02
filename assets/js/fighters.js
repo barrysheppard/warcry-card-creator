@@ -1650,16 +1650,7 @@ function getFactionRunemark(warband){
     else if(warband == "Kruleboyz") {runemark = "runemarks/white/factions-destruction-kruleboyz.svg";}
     else if(warband == "Ogor Mawtribes") {runemark = "runemarks/white/factions-destruction-ogor-mawtribes.svg";}
     else if(warband == "chaos") {runemark = "runemarks/white/grand-alliance-chaos.svg";}
-    else if(warband == "chaos") {runemark = "runemarks/white/grand-alliance-chaos.svg";}
-    else if(warband == "chaos") {runemark = "runemarks/white/grand-alliance-chaos.svg";}
-    else if(warband == "order") {runemark = "runemarks/white/grand-alliance-order.svg";}
-    else if(warband == "order") {runemark = "runemarks/white/grand-alliance-order.svg";}
-    else if(warband == "order") {runemark = "runemarks/white/grand-alliance-order.svg";}
     else if(warband == "destruction") {runemark = "runemarks/white/grand-alliance-destruction.svg";}
-    else if(warband == "destruction") {runemark = "runemarks/white/grand-alliance-destruction.svg";}
-    else if(warband == "destruction") {runemark = "runemarks/white/grand-alliance-destruction.svg";}
-    else if(warband == "death") {runemark = "runemarks/white/grand-alliance-death.svg";}
-    else if(warband == "death") {runemark = "runemarks/white/grand-alliance-death.svg";}
     else if(warband == "death") {runemark = "runemarks/white/grand-alliance-death.svg";}
     else if(warband == "Cities of Sigmar") {runemark = "runemarks/white/factions-order-cities-of-sigmar.svg";}
     else if(warband == "Daughters of Khaine") {runemark = "runemarks/white/factions-order-daughters-of-khaine.svg";}
@@ -1682,8 +1673,11 @@ function getFactionRunemark(warband){
     else if(warband == "Gorger Mawpack") {runemark = "runemarks/white/factions-destruction-gorgor-mawpack.svg";}
     else if(warband == "Kruleboyz Monsta-killaz") {runemark = "runemarks/white/factions-destruction-monsta-killaz.svg";}
     else if(warband == "Vulkyn Flameseekers") {runemark = "runemarks/white/factions-order-vulkyn-flameseekers.svg";}
-
+    else if(warband == "Blacktalons") {runemark = "runemarks/white/factions-order-blacktalons.svg";}
     else { runemark = "runemarks/white/factions-chaos-everchosen.svg";}
+    console.log(warband)
+    console.log(runemark)
+    
     return runemark;
 }
 
