@@ -1612,22 +1612,22 @@ function drawDeployment(){
 
         // Treasure and Objectives Icons
         if(objective1Icon>0){
-            drawIcon("green_objective_" + objective1Icon, objective1XValue, objective1YValue);
+            drawIcon("objective_" + objective1Icon, objective1XValue, objective1YValue);
         }
         if(objective2Icon>0){
-            drawIcon("green_objective_" + objective2Icon, objective2XValue, objective2YValue);
+            drawIcon("objective_" + objective2Icon, objective2XValue, objective2YValue);
         }
         if(objective3Icon>0){
-            drawIcon("green_objective_" + objective3Icon, objective3XValue, objective3YValue);
+            drawIcon("objective_" + objective3Icon, objective3XValue, objective3YValue);
         }
         if(objective4Icon>0){
-            drawIcon("green_objective_" + objective4Icon, objective4XValue, objective4YValue);
+            drawIcon("objective_" + objective4Icon, objective4XValue, objective4YValue);
         }
         if(objective5Icon>0){
-            drawIcon("green_objective_" + objective5Icon, objective5XValue, objective5YValue);
+            drawIcon("objective_" + objective5Icon, objective5XValue, objective5YValue);
         }
         if(objective6Icon>0){
-            drawIcon("green_objective_" + objective6Icon, objective6XValue, objective6YValue);
+            drawIcon("objective_" + objective6Icon, objective6XValue, objective6YValue);
         }
 
 
