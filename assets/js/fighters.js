@@ -1674,6 +1674,7 @@ function getFactionRunemark(warband){
     else if(warband == "Kruleboyz Monsta-killaz") {runemark = "runemarks/white/factions-destruction-monsta-killaz.svg";}
     else if(warband == "Vulkyn Flameseekers") {runemark = "runemarks/white/factions-order-vulkyn-flameseekers.svg";}
     else if(warband == "Blacktalons") {runemark = "runemarks/white/factions-order-blacktalons.svg";}
+    else if(warband == "Order of Azyr") {runemark = "runemarks/white/factions-order-the-order-of-azyr.svg";}
     else { runemark = "runemarks/white/factions-chaos-everchosen.svg";}
     console.log(warband)
     console.log(runemark)
@@ -1832,6 +1833,9 @@ function getBladebornRunemark(bladeborn){
     else if(bladeborn == "The Headmen's Curse") {runemark = "runemarks/white/bladeborn-theheadsmen.svg";}
     else if(bladeborn == "Ephilim's Pandaemonium") {runemark = "runemarks/white/bladeborn-ephilims.svg";}
     else if(bladeborn == "Domitan's Stormcoven") {runemark = "runemarks/white/bladeborn-domitans.svg";}
+    else if(bladeborn == "The Shadeborn") {runemark = "runemarks/white/bladeborn-the-shadeborn.svg";}
+    else if(bladeborn == "Gorechosen of Dromm") {runemark = "runemarks/white/bladeborn-gorechhosen-of-dromm.svg";}
+    else if(bladeborn == "Skittershank's Clawpack") {runemark = "runemarks/white/bladeborn-skittershanks-clawpack.svg";}
     else runemark = null;
     return runemark;
 }
