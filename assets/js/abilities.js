@@ -98,7 +98,11 @@ function drawAbility(id, pixelPosition) {
         transQuad = document.getElementById('card-translation-quad').value;
 
     // Calculate the font size based on the total characters and maxWidth
-    var fontSize = calculateFontSizeToFit(3000, 18, minFontSize = 16, name + text);
+    if(document.getElementById('remove-scaling').checked){
+        var fontSize = 18;
+    } else {
+        var fontSize = calculateFontSizeToFit(3000, 18, minFontSize = 16, name + text);
+    }
     // Set the font size
     getContext().font = fontSize + 'px Georgia, serif';
 
@@ -334,7 +338,12 @@ function drawAbilityLarge(id, pixelPosition) {
 
     // Calculate the font size based on the total characters and maxWidth
     var fontSize = calculateFontSizeToFit(3300, 32, minFontSize = 24, name + text);
-
+    // Calculate the font size based on the total characters and maxWidth
+    if(document.getElementById('remove-scaling').checked){
+        var fontSize = 32;
+    } else {
+        var fontSize = calculateFontSizeToFit(3300, 32, minFontSize = 24, name + text);
+    }
 
     // Print new title variable
     getContext().font = 'bold ' + fontSize + 'px Georgia, serif';
