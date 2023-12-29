@@ -1471,7 +1471,7 @@ async function loadFighterById(id) {
     document.getElementById("runemark-names").checked = true;
 
     // Load the JSON file
-    fetch("https://raw.githubusercontent.com/krisling049/warcry_data/main/data/fighters.json")
+    fetch("https://krisling049.github.io/warcry_data/fighters.json")
       .then(response => response.json())
       .then(data => {
         // Find the fighter with the matching id
@@ -1492,7 +1492,7 @@ async function loadFighterById(id) {
   
 
 async function loadFighterByName(name, warband) {
-    let response = await fetch("https://raw.githubusercontent.com/krisling049/warcry_data/main/data/fighters.json");
+    let response = await fetch("https://krisling049.github.io/warcry_data/fighters.jsonn");
     let data = await response.json();
     let filteredData = data.filter((fighter) => {
       let fullName = fighter.name + " " + fighter.subtitle;
