@@ -1422,7 +1422,7 @@ async function fileChange(file) {
 
 async function getFighterList(){
     // await response of fetch call
-    let response = await fetch("https://raw.githubusercontent.com/krisling049/warcry_data/main/data/fighters.json");
+    let response = await fetch("https://krisling049.github.io/warcry_data/fighters.json");
     // only proceed once promise is resolved
     let data = await response.json();
     // only proceed once second promise is resolved
