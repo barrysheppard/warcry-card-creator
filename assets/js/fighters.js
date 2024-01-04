@@ -431,6 +431,7 @@ function drawTagRunemark(index, runemark) {
 
         value = runemark.slice(25);
         value = value.replace(".svg", "");
+        value = value.replace("-", "");
         if (value == "leader"){
             value = "hero";
         }
@@ -845,7 +846,10 @@ function drawOverlayTexts(fighterData) {
     drawBorder();
   
     // Draw subfaction runemark if enabled
-    if (!(document.getElementById('subfaction-runemarks/none/blank.gif').checked) && fighterData.subfactionRunemark != null) {
+    if (!(document.getElementById('subfaction-runemarks/none/blank.gif').checked) 
+        && fighterData.subfactionRunemark != null
+        && !document.getElementById("bladebornRunemark").checked
+        ) {
         drawSubfactionRunemark(subfactionRunemark);
     }
   
@@ -868,6 +872,14 @@ function drawOverlayTexts(fighterData) {
       drawWeapon(weapon2, { x: 68, y: 550 }); // Default was x:29, y:463
     }
   
+    if (!(document.getElementById('subfaction-runemarks/none/blank.gif').checked) 
+          && fighterData.subfactionRunemark != null
+          && document.getElementById("bladebornRunemark").checked
+          ) {
+        blackRunemark = subfactionRunemark.replace('runemarks/white/', 'runemarks/black/');
+        tagRunemarks.unshift(blackRunemark);
+    }
+
     // Draw tag runemarks
     for (let i = 0; i < tagRunemarks.length; i++) {
       drawTagRunemark(i, tagRunemarks[i]);
