@@ -1687,6 +1687,10 @@ function getFactionRunemark(warband){
     else if(warband == "Vulkyn Flameseekers") {runemark = "runemarks/white/factions-order-vulkyn-flameseekers.svg";}
     else if(warband == "Blacktalons") {runemark = "runemarks/white/factions-order-blacktalons.svg";}
     else if(warband == "Order of Azyr") {runemark = "runemarks/white/factions-order-the-order-of-azyr.svg";}
+    else if(warband == "Cities of Sigmar: Castelite Hosts") {runemark = "runemarks/white/factions-order-cities-of-sigmar-castelite-hosts.svg";}
+    else if(warband == "Cities of Sigmar: Dispossessed") {runemark = "runemarks/white/factions-order-cities-of-sigmar-dispossessed.svg";}
+    else if(warband == "Cities of Sigmar: Darkling Covens") {runemark = "runemarks/white/factions-order-cities-of-sigmar-darkling-covens.svg";}
+    
     else { runemark = "runemarks/white/factions-chaos-everchosen.svg";}
     console.log(warband)
     console.log(runemark)
