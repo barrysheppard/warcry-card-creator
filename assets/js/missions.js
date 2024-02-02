@@ -1575,25 +1575,6 @@ function drawDeployment(){
     var redDaggerTurn = document.getElementById("redDaggerTurn").value;
     var removeRedDeployment = document.getElementById("removeRedDeployment").checked;
 
-    var objective1XValue = document.getElementById("objective1X").value;
-    var objective1YValue = document.getElementById("objective1Y").value;
-    var objective1Icon = document.getElementById("objective1Icon").value;
-    var objective2XValue = document.getElementById("objective2X").value;
-    var objective2YValue = document.getElementById("objective2Y").value;
-    var objective2Icon = document.getElementById("objective2Icon").value;
-    var objective3XValue = document.getElementById("objective3X").value;
-    var objective3YValue = document.getElementById("objective3Y").value;
-    var objective3Icon = document.getElementById("objective3Icon").value;
-    var objective4XValue = document.getElementById("objective4X").value;
-    var objective4YValue = document.getElementById("objective4Y").value;
-    var objective4Icon = document.getElementById("objective4Icon").value;
-    var objective5XValue = document.getElementById("objective5X").value;
-    var objective5YValue = document.getElementById("objective5Y").value;
-    var objective5Icon = document.getElementById("objective5Icon").value;
-    var objective6XValue = document.getElementById("objective6X").value;
-    var objective6YValue = document.getElementById("objective6Y").value;
-    var objective6Icon = document.getElementById("objective6Icon").value;
-
     var redShieldLineFromCentre = document.getElementById("redShieldLineFromCentre").checked;
     var redDaggerLineFromCentre = document.getElementById("redDaggerLineFromCentre").checked;
     var redHammerLineFromCentre = document.getElementById("redHammerLineFromCentre").checked;
@@ -1608,21 +1589,6 @@ function drawDeployment(){
     var blueDaggerLineShort = document.getElementById("blueDaggerLineShort").checked;
     var blueHammerLineShort = document.getElementById("blueHammerLineShort").checked;
 
-    var objective1LineFromCentre = document.getElementById("objective1LineFromCentre").checked;
-    var objective2LineFromCentre = document.getElementById("objective2LineFromCentre").checked;
-    var objective3LineFromCentre = document.getElementById("objective3LineFromCentre").checked;
-    var objective4LineFromCentre = document.getElementById("objective4LineFromCentre").checked;
-    var objective5LineFromCentre = document.getElementById("objective5LineFromCentre").checked;
-    var objective6LineFromCentre = document.getElementById("objective6LineFromCentre").checked;
-
-    var objective1LineShort = document.getElementById("objective1LineShort").checked;
-    var objective2LineShort = document.getElementById("objective2LineShort").checked;
-    var objective3LineShort = document.getElementById("objective3LineShort").checked;
-    var objective4LineShort = document.getElementById("objective4LineShort").checked;
-    var objective5LineShort = document.getElementById("objective5LineShort").checked;
-    var objective6LineShort = document.getElementById("objective6LineShort").checked;
-
-
     // prepare text for line drawing
     // Draw the text in the middle of the line
     getContext().font = "24px LithosBlack"; // Adjust the font size and style as needed
@@ -1631,71 +1597,26 @@ function drawDeployment(){
     getContext().textBaseline = "middle";
 
 
+    // Treasure and Objectives
+    for (let i=1; i <= 6; i++) {
+      let xValue = document.getElementById("objective" + i + "X").value;
+      let yValue = document.getElementById("objective" + i + "Y").value;
+      let icon = document.getElementById("objective" + i + "Icon").value;
+      let renderFromCentre = document.getElementById("objective" + i + "LineFromCentre").checked;
+      let renderShort = document.getElementById("objective" + i + "LineShort").checked;
 
-
-
-
-    // Treasure and Objectives Lines
-    if(objective1Icon>0){
-        if(objective1LineShort){
-            drawLinesShort(objective1XValue, objective1YValue, "");
-        } else if(objective1LineFromCentre){
-            drawLinesFromCentre(objective1XValue, objective1YValue, "");
+      if (icon > 0) {
+        if (renderShort) {
+          drawLinesShort(xValue, yValue, "");
+        } else if (renderFromCentre) {
+          drawLinesFromCentre(xValue, yValue, "");
         } else {
-            drawLines(objective1XValue, objective1YValue, "");
+          drawLines(xValue, yValue, "");
         }
-    }
-    if(objective2Icon > 0){
-        if(objective2LineShort){
-            drawLinesShort(objective2XValue, objective2YValue, "");
-        } else if(objective2LineFromCentre){
-            drawLinesFromCentre(objective2XValue, objective2YValue, "");
-        } else {
-            drawLines(objective2XValue, objective2YValue, "");
-        }
-    }
 
-    if(objective3Icon > 0){
-        if(objective3LineShort){
-            drawLinesShort(objective3XValue, objective3YValue, "");
-        } else if(objective3LineFromCentre){
-            drawLinesFromCentre(objective3XValue, objective3YValue, "");
-        } else {
-            drawLines(objective3XValue, objective3YValue, "");
-        }
+        drawIcon("objective_" + icon, xValue, yValue);
+      }
     }
-
-    if(objective4Icon > 0){
-        if(objective4LineShort){
-            drawLinesShort(objective4XValue, objective4YValue, "");
-        } else if(objective4LineFromCentre){
-            drawLinesFromCentre(objective4XValue, objective4YValue, "");
-        } else {
-            drawLines(objective4XValue, objective4YValue, "");
-        }
-    }
-
-    if(objective5Icon > 0){
-        if(objective5LineShort){
-            drawLinesShort(objective5XValue, objective5YValue, "");
-        } else if(objective5LineFromCentre){
-            drawLinesFromCentre(objective5XValue, objective5YValue, "");
-        } else {
-            drawLines(objective5XValue, objective5YValue, "");
-        }
-    }
-
-    if(objective6Icon > 0){
-        if(objective6LineShort){
-            drawLinesShort(objective6XValue, objective6YValue, "");
-        } else if(objective6LineFromCentre){
-            drawLinesFromCentre(objective6XValue, objective6YValue, "");
-        } else {
-            drawLines(objective6XValue, objective6YValue, "");
-        }
-    }
-
-
 
     if(!removeRedDeployment){
         if(redShieldLine){
@@ -1762,25 +1683,6 @@ function drawDeployment(){
     }
 
 
-        // Treasure and Objectives Icons
-        if(objective1Icon>0){
-            drawIcon("objective_" + objective1Icon, objective1XValue, objective1YValue);
-        }
-        if(objective2Icon>0){
-            drawIcon("objective_" + objective2Icon, objective2XValue, objective2YValue);
-        }
-        if(objective3Icon>0){
-            drawIcon("objective_" + objective3Icon, objective3XValue, objective3YValue);
-        }
-        if(objective4Icon>0){
-            drawIcon("objective_" + objective4Icon, objective4XValue, objective4YValue);
-        }
-        if(objective5Icon>0){
-            drawIcon("objective_" + objective5Icon, objective5XValue, objective5YValue);
-        }
-        if(objective6Icon>0){
-            drawIcon("objective_" + objective6Icon, objective6XValue, objective6YValue);
-        }
 
 
         // input is in inches, X 0 to 30, Y 0 to 22
