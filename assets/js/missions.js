@@ -1,3 +1,6 @@
+const GROUPS = ["Shield", "Dagger", "Hammer"];
+const COLOURS = ["red", "blue"];
+
 const writeValue = function(ctx, value, position) {
     if (!ctx || typeof ctx.fillText !== 'function') {
       throw new Error('Invalid canvas context');
@@ -263,61 +266,23 @@ function readControls() {
     data.missionType = document.getElementById("missionType").value;
     data.bgselected = document.getElementById('background-list').value;
 
-    data.removeBlueDeployment = document.getElementById("removeBlueDeployment").checked;
+    COLOURS.forEach(colour => {
+      data["remove" + titelize(colour) + "Deployment"] = document.getElementById("remove" + titelize(colour) + "Deployment").checked;
 
-    data.blueHammerRenderMode = document.getElementById("blueHammerRenderMode").value;
-    data.blueShieldRenderMode = document.getElementById("blueShieldRenderMode").value;
-    data.blueDaggerRenderMode = document.getElementById("blueDaggerRenderMode").value;
+      GROUPS.forEach(group => {
+        data[colour + group + "RenderMode"] = document.getElementById(colour + group + "RenderMode").value;
+        data[colour + group + "XValue"] = document.getElementById(colour + group + "X").value;
+        data[colour + group + "YValue"] = document.getElementById(colour + group + "Y").value;
+        data[colour + group + "Turn"] = document.getElementById(colour + group + "Turn").value;
+      });
+    });
 
-    data.blueHammerXValue = document.getElementById("blueHammerX").value;
-    data.blueHammerYValue = document.getElementById("blueHammerY").value;
-    data.blueHammerTurn = document.getElementById("blueHammerTurn").value;
-
-    data.blueShieldXValue = document.getElementById("blueShieldX").value;
-    data.blueShieldYValue = document.getElementById("blueShieldY").value;
-    data.blueShieldTurn = document.getElementById("blueShieldTurn").value;
-
-    data.blueDaggerXValue = document.getElementById("blueDaggerX").value;
-    data.blueDaggerYValue = document.getElementById("blueDaggerY").value;
-    data.blueDaggerTurn = document.getElementById("blueDaggerTurn").value;
-
-
-    data.removeRedDeployment = document.getElementById("removeRedDeployment").checked;
-
-    data.redHammerRenderMode = document.getElementById("redHammerRenderMode").value;
-    data.redShieldRenderMode = document.getElementById("redShieldRenderMode").value;
-    data.redDaggerRenderMode = document.getElementById("redDaggerRenderMode").value;
-
-    data.redHammerXValue = document.getElementById("redHammerX").value;
-    data.redHammerYValue = document.getElementById("redHammerY").value;
-    data.redHammerTurn = document.getElementById("redHammerTurn").value;
-
-    data.redShieldXValue = document.getElementById("redShieldX").value;
-    data.redShieldYValue = document.getElementById("redShieldY").value;
-    data.redShieldTurn = document.getElementById("redShieldTurn").value;
-
-    data.redDaggerXValue = document.getElementById("redDaggerX").value;
-    data.redDaggerYValue = document.getElementById("redDaggerY").value;
-    data.redDaggerTurn = document.getElementById("redDaggerTurn").value;
-
-    data.objective1XValue = document.getElementById("objective1X").value;
-    data.objective1YValue = document.getElementById("objective1Y").value;
-    data.objective1Icon = document.getElementById("objective1Icon").value;
-    data.objective2XValue = document.getElementById("objective2X").value;
-    data.objective2YValue = document.getElementById("objective2Y").value;
-    data.objective2Icon = document.getElementById("objective2Icon").value;
-    data.objective3XValue = document.getElementById("objective3X").value;
-    data.objective3YValue = document.getElementById("objective3Y").value;
-    data.objective3Icon = document.getElementById("objective3Icon").value;
-    data.objective4XValue = document.getElementById("objective4X").value;
-    data.objective4YValue = document.getElementById("objective4Y").value;
-    data.objective4Icon = document.getElementById("objective4Icon").value;
-    data.objective5XValue = document.getElementById("objective5X").value;
-    data.objective5YValue = document.getElementById("objective5Y").value;
-    data.objective5Icon = document.getElementById("objective5Icon").value;
-    data.objective6XValue = document.getElementById("objective6X").value;
-    data.objective6YValue = document.getElementById("objective6Y").value;
-    data.objective6Icon = document.getElementById("objective6Icon").value;
+    for (let i=1; i <= 6; i++) {
+      data["objective" + i + "XValue"] = document.getElementById("objective" + i + "X").value;
+      data["objective" + i + "YValue"] = document.getElementById("objective" + i + "Y").value;
+      data["objective" + i + "Icon"] = document.getElementById("objective" + i + "Icon").value;
+      data["objective" + i + "RenderMode"] = document.getElementById("objective" + i + "RenderMode").value;
+    }
 
     data.removeBorder = document.getElementById("removeBorder").checked;
     data.removeDeployment = document.getElementById("removeDeployment").checked;
@@ -326,13 +291,6 @@ function readControls() {
     data.white = document.getElementById("white").checked;
 
     data.textValue = document.getElementById("textValue").value;
-
-    data.objective1RenderMode = document.getElementById("objective1RenderMode").value;
-    data.objective2RenderMode = document.getElementById("objective2RenderMode").value;
-    data.objective3RenderMode = document.getElementById("objective3RenderMode").value;
-    data.objective4RenderMode = document.getElementById("objective4RenderMode").value;
-    data.objective5RenderMode = document.getElementById("objective5RenderMode").value;
-    data.objective6RenderMode = document.getElementById("objective6RenderMode").value;
 
     return data;
 }
@@ -455,60 +413,23 @@ async function writeControls(data) {
 
     document.getElementById('background-list').value = data.bgselected;
 
-    document.getElementById("blueHammerRenderMode").value = data.blueHammerRenderMode || "edge";
-    document.getElementById("blueShieldRenderMode").value = data.blueShieldRenderMode || "edge";
-    document.getElementById("blueDaggerRenderMode").value = data.blueDaggerRenderMode || "edge";
+    COLOURS.forEach(colour => {
+      document.getElementById("remove" + titelize(colour) + "Deployment").checked = data["remove" + titelize(colour) + "Deployment"];
 
-    document.getElementById("blueHammerX").value = data.blueHammerXValue;
-    document.getElementById("blueHammerY").value = data.blueHammerYValue;
-    document.getElementById("blueHammerTurn").value = data.blueHammerTurn;
+      GROUPS.forEach(group => {
+        document.getElementById(colour + group + "RenderMode").value = data[colour + group + "RenderMode"];
+        document.getElementById(colour + group + "X").value = data[colour + group + "XValue"];
+        document.getElementById(colour + group + "Y").value = data[colour + group + "YValue"];
+        document.getElementById(colour + group + "Turn").value = data[colour + group + "Turn"];
+      });
+    });
 
-    document.getElementById("blueShieldX").value = data.blueShieldXValue;
-    document.getElementById("blueShieldY").value = data.blueShieldYValue;
-    document.getElementById("blueShieldTurn").value = data.blueShieldTurn;
-
-    document.getElementById("blueDaggerX").value = data.blueDaggerXValue;
-    document.getElementById("blueDaggerY").value = data.blueDaggerYValue;
-    document.getElementById("blueDaggerTurn").value = data.blueDaggerTurn;
-
-    document.getElementById("removeBlueDeployment").checked = data.removeBlueDeployment;
-
-    document.getElementById("redHammerRenderMode").value = data.redHammerRenderMode || "edge";
-    document.getElementById("redShieldRenderMode").value = data.redShieldRenderMode || "edge";
-    document.getElementById("redDaggerRenderMode").value = data.redDaggerRenderMode || "edge";
-
-    document.getElementById("redHammerX").value = data.redHammerXValue;
-    document.getElementById("redHammerY").value = data.redHammerYValue;
-    document.getElementById("redHammerTurn").value = data.redHammerTurn;
-
-    document.getElementById("redShieldX").value = data.redShieldXValue;
-    document.getElementById("redShieldY").value = data.redShieldYValue;
-    document.getElementById("redShieldTurn").value = data.redShieldTurn;
-
-    document.getElementById("redDaggerX").value = data.redDaggerXValue;
-    document.getElementById("redDaggerY").value = data.redDaggerYValue;
-    document.getElementById("redDaggerTurn").value = data.redDaggerTurn;
-
-    document.getElementById("removeRedDeployment").checked = data.removeRedDeployment;
-
-    document.getElementById("objective1X").value = data.objective1XValue;
-    document.getElementById("objective1Y").value = data.objective1YValue;
-    document.getElementById("objective1Icon").value = data.objective1Icon;
-    document.getElementById("objective2X").value = data.objective2XValue;
-    document.getElementById("objective2Y").value = data.objective2YValue;
-    document.getElementById("objective2Icon").value = data.objective2Icon;
-    document.getElementById("objective3X").value = data.objective3XValue;
-    document.getElementById("objective3Y").value = data.objective3YValue;
-    document.getElementById("objective3Icon").value = data.objective3Icon;
-    document.getElementById("objective4X").value = data.objective4XValue;
-    document.getElementById("objective4Y").value = data.objective4YValue;
-    document.getElementById("objective4Icon").value = data.objective4Icon;
-    document.getElementById("objective5X").value = data.objective5XValue;
-    document.getElementById("objective5Y").value = data.objective5YValue;
-    document.getElementById("objective5Icon").value = data.objective5Icon;
-    document.getElementById("objective6X").value = data.objective6XValue;
-    document.getElementById("objective6Y").value = data.objective6YValue;
-    document.getElementById("objective6Icon").value = data.objective6Icon;
+    for (let i=1; i <= 6; i++) {
+      document.getElementById("objective" + i + "X").value = data["objective" + i + "XValue"];
+      document.getElementById("objective" + i + "Y").value = data["objective" + i + "YValue"];
+      document.getElementById("objective" + i + "Icon").value = data["objective" + i + "Icon"];
+      document.getElementById("objective" + i + "RenderMode").value = data["objective" + i + "RenderMode"];
+    }
 
     document.getElementById("removeBorder").checked = data.removeBorder;
     document.getElementById("removeDeployment").checked = data.removeDeployment;
@@ -517,13 +438,6 @@ async function writeControls(data) {
     document.getElementById("white").checked = data.white;
 
     document.getElementById("textValue").value = data.textValue;
-
-    document.getElementById("objective1RenderMode").value = data.objective1RenderMode || "edge";
-    document.getElementById("objective2RenderMode").value = data.objective2RenderMode || "edge";
-    document.getElementById("objective3RenderMode").value = data.objective3RenderMode || "edge";
-    document.getElementById("objective4RenderMode").value = data.objective4RenderMode || "edge";
-    document.getElementById("objective5RenderMode").value = data.objective5RenderMode || "edge";
-    document.getElementById("objective6RenderMode").value = data.objective6RenderMode || "edge";
 
     // render the updated info
     render(data);
@@ -1550,15 +1464,14 @@ function drawDeployment() {
     }
   }
 
-  let groups = ["Shield", "Dagger", "Hammer"];
   let deployments = [];
   if (!removeRedDeployment) {
-    groups.forEach(group => {
+    GROUPS.forEach(group => {
       deployments.push("red" + group);
     });
   }
   if (!removeBlueDeployment) {
-    groups.forEach(group => {
+    GROUPS.forEach(group => {
       deployments.push("blue" + group);
     });
   }
@@ -1602,6 +1515,11 @@ function drawDeployment() {
 
 function camelToSnake(str) {
   return str.replace(/([a-zA-Z])(?=[A-Z])/g,'$1_').toLowerCase()
+}
+
+function titelize(str) {
+  const b = str.substr(0,4).normalize();
+  return b[0].toUpperCase() + b.substr(1) + str.substr(4);
 }
 
 function drawArrow(context, startX, startY, endX, endY, arrowSize = 10, color = "black") {
