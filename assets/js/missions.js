@@ -1168,7 +1168,7 @@ function drawLinesShort(XValue, YValue, Turn) {
     if (XValue < 8) {
       // draw from edge
       drawThickLine(getContext(), 0, YValue, XValue, YValue, 6, color)
-      if (XValue!=0 && XValue!=30) {
+      if (XValue != 0) {
         let value = XValue.toString() + '"';
         let x = convertInchesToPixelsLine(XValue/2, YValue).x;
         let y = convertInchesToPixelsLine(XValue/2, YValue).y;
@@ -1193,7 +1193,7 @@ function drawLinesShort(XValue, YValue, Turn) {
     } else {
       // draw from edge
       drawThickLine(getContext(), 30, YValue, XValue, YValue, 6, color)
-      if (XValue!=0 && XValue!=30) {
+      if (XValue != 30) {
         let value = (30-XValue).toString() + '"';
         let x = convertInchesToPixelsLine(15 + XValue/2, YValue).x;
         let y = convertInchesToPixelsLine(15 + XValue/2, YValue).y;
@@ -1239,15 +1239,14 @@ function drawLinesShort(XValue, YValue, Turn) {
       }
     }
   }
-  // TODO: Position so it doesn't conflict with lines
   if (Turn > 1) {
     let x = convertInchesToPixelsLine(XValue, YValue).x;
     let value = "Rnd " + Turn.toString();
     let y;
-    if (YValue < 11) {
-      y = convertInchesToPixelsLine(XValue, YValue).y + 40;
-    } else {
+    if ((YValue > 5 && YValue < 12) || YValue > 16) {
       y = convertInchesToPixelsLine(XValue, YValue).y - 40;
+    } else {
+      y = convertInchesToPixelsLine(XValue, YValue).y + 40;
     }
     writeScaledBorder(value, x, y);
   }
