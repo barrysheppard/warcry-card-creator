@@ -327,19 +327,12 @@ function readControls() {
 
     data.textValue = document.getElementById("textValue").value;
 
-    data.objective1LineFromCentre = document.getElementById("objective1LineFromCentre").checked;
-    data.objective2LineFromCentre = document.getElementById("objective2LineFromCentre").checked;
-    data.objective3LineFromCentre = document.getElementById("objective3LineFromCentre").checked;
-    data.objective4LineFromCentre = document.getElementById("objective4LineFromCentre").checked;
-    data.objective5LineFromCentre = document.getElementById("objective5LineFromCentre").checked;
-    data.objective6LineFromCentre = document.getElementById("objective6LineFromCentre").checked;
-
-    data.objective1LineShort = document.getElementById("objective1LineShort").checked;
-    data.objective2LineShort = document.getElementById("objective2LineShort").checked;
-    data.objective3LineShort = document.getElementById("objective3LineShort").checked;
-    data.objective4LineShort = document.getElementById("objective4LineShort").checked;
-    data.objective5LineShort = document.getElementById("objective5LineShort").checked;
-    data.objective6LineShort = document.getElementById("objective6LineShort").checked;
+    data.objective1RenderMode = document.getElementById("objective1RenderMode").value;
+    data.objective2RenderMode = document.getElementById("objective2RenderMode").value;
+    data.objective3RenderMode = document.getElementById("objective3RenderMode").value;
+    data.objective4RenderMode = document.getElementById("objective4RenderMode").value;
+    data.objective5RenderMode = document.getElementById("objective5RenderMode").value;
+    data.objective6RenderMode = document.getElementById("objective6RenderMode").value;
 
     return data;
 }
@@ -525,19 +518,12 @@ async function writeControls(data) {
 
     document.getElementById("textValue").value = data.textValue;
 
-    document.getElementById("objective1LineFromCentre").checked = data.objective1LineFromCentre;
-    document.getElementById("objective2LineFromCentre").checked = data.objective2LineFromCentre;
-    document.getElementById("objective3LineFromCentre").checked = data.objective3LineFromCentre;
-    document.getElementById("objective4LineFromCentre").checked = data.objective4LineFromCentre;
-    document.getElementById("objective5LineFromCentre").checked = data.objective5LineFromCentre;
-    document.getElementById("objective6LineFromCentre").checked = data.objective6LineFromCentre;
-
-    document.getElementById("objective1LineShort").checked = data.objective1LineShort;
-    document.getElementById("objective2LineShort").checked = data.objective2LineShort;
-    document.getElementById("objective3LineShort").checked = data.objective3LineShort;
-    document.getElementById("objective4LineShort").checked = data.objective4LineShort;
-    document.getElementById("objective5LineShort").checked = data.objective5LineShort;
-    document.getElementById("objective6LineShort").checked = data.objective6LineShort;
+    document.getElementById("objective1RenderMode").value = data.objective1RenderMode || "edge";
+    document.getElementById("objective2RenderMode").value = data.objective2RenderMode || "edge";
+    document.getElementById("objective3RenderMode").value = data.objective3RenderMode || "edge";
+    document.getElementById("objective4RenderMode").value = data.objective4RenderMode || "edge";
+    document.getElementById("objective5RenderMode").value = data.objective5RenderMode || "edge";
+    document.getElementById("objective6RenderMode").value = data.objective6RenderMode || "edge";
 
     // render the updated info
     render(data);
@@ -1543,11 +1529,13 @@ function drawDeployment() {
     let xValue = document.getElementById("objective" + i + "X").value;
     let yValue = document.getElementById("objective" + i + "Y").value;
     let icon = document.getElementById("objective" + i + "Icon").value;
-    let renderLine = false;
-    let renderFromCentre = document.getElementById("objective" + i + "LineFromCentre").checked;
-    let renderShort = document.getElementById("objective" + i + "LineShort").checked;
     let label = "";
     let iconName = "objective_" + icon;
+    let renderMode = document.getElementById("objective" + i + "RenderMode").value;
+
+    let renderLine = renderMode == "line";
+    let renderShort = renderMode == "short";
+    let renderFromCentre = renderMode == "centre";
 
     if (icon > 0) {
       components.push({
@@ -1584,10 +1572,6 @@ function drawDeployment() {
     let renderLine = renderMode == "line";
     let renderShort = renderMode == "short";
     let renderFromCentre = renderMode == "centre";
-
-    //let renderLine = document.getElementById(deployment + "LineDeployment").checked;
-    //let renderShort = document.getElementById(deployment + "LineShort").checked;
-    //let renderFromCentre = document.getElementById(deployment + "LineFromCentre").checked;
 
     let iconName = camelToSnake(deployment);
 
