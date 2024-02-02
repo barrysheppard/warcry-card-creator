@@ -969,6 +969,10 @@ function drawLines(XValue, YValue, Turn) {
         writeScaledBorder(value, point.x + labelOffsetX, point.y);
       }
     } else {
+      if (XValue == 15) {
+        // Special case - mirrow label placement on centre line
+        labelOffsetX = labelOffsetX * -1;
+      }
       drawThickLine(getContext(), XValue, 22, XValue, YValue, 6, color);
       if (YValue != 22) {
         let value = (22 - YValue) + '"';
@@ -1024,8 +1028,12 @@ function drawLinesFromCentre(XValue, YValue, Turn) {
         writeScaledBorder(value, point.x + labelOffsetX, point.y);
       }
     } else {
+      if (XValue == 15) {
+        // Special case - mirrow label placement on centre line
+        labelOffsetX = labelOffsetX * -1;
+      }
       drawThickLine(getContext(), XValue, 11, XValue, YValue, 6, color);
-      if (YValue != 0 && YValue != 22) {
+      if (YValue != 22) {
         let value = (YValue - 11) + '"';
         let newY = 11 + (YValue - 11) / 2;
         let point = convertInchesToPixelsLine(XValue, newY);
@@ -1085,6 +1093,10 @@ function drawLinesShort(XValue, YValue, Turn) {
   }
 
   if (YValue != 11) {
+    if (YValue > 11 && XValue == 15) {
+      // Special case - mirrow label placement on centre line
+      labelOffsetX = labelOffsetX * -1;
+    }
     if (YValue < 6) {
       // draw from edge
       drawThickLine(getContext(), XValue, 0, XValue, YValue, 6, color)
