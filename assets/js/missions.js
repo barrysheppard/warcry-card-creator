@@ -1542,164 +1542,102 @@ function drawText(){
 
 }
 
-function drawDeployment(){
+function drawDeployment() {
+  const removeDeployment = document.getElementById("removeDeployment").checked;
+  const removeBlueDeployment = document.getElementById("removeBlueDeployment").checked;
+  const removeRedDeployment = document.getElementById("removeRedDeployment").checked;
 
-    const removeDeployment = document.getElementById("removeDeployment").checked;
-    if(!removeDeployment){
-    drawMap();
+  if (removeDeployment) {
+    return;
+  }
 
-    var blueHammerXValue = document.getElementById("blueHammerX").value;
-    var blueHammerYValue = document.getElementById("blueHammerY").value;
-    var blueHammerLine = document.getElementById("blueHammerLineDeployment").checked;
-    var blueHammerTurn = document.getElementById("blueHammerTurn").value;
-    var blueShieldXValue = document.getElementById("blueShieldX").value;
-    var blueShieldYValue = document.getElementById("blueShieldY").value;
-    var blueShieldLine = document.getElementById("blueShieldLineDeployment").checked;
-    var blueShieldTurn = document.getElementById("blueShieldTurn").value;
-    var blueDaggerXValue = document.getElementById("blueDaggerX").value;
-    var blueDaggerYValue = document.getElementById("blueDaggerY").value;
-    var blueDaggerLine = document.getElementById("blueDaggerLineDeployment").checked;
-    var blueDaggerTurn = document.getElementById("blueDaggerTurn").value;
-    var removeBlueDeployment = document.getElementById("removeBlueDeployment").checked;
-    var redHammerXValue = document.getElementById("redHammerX").value;
-    var redHammerYValue = document.getElementById("redHammerY").value;
-    var redHammerLine = document.getElementById("redHammerLineDeployment").checked;
-    var redHammerTurn = document.getElementById("redHammerTurn").value;
-    var redShieldXValue = document.getElementById("redShieldX").value;
-    var redShieldYValue = document.getElementById("redShieldY").value;
-    var redShieldLine = document.getElementById("redShieldLineDeployment").checked;
-    var redShieldTurn = document.getElementById("redShieldTurn").value;
-    var redDaggerXValue = document.getElementById("redDaggerX").value;
-    var redDaggerYValue = document.getElementById("redDaggerY").value;
-    var redDaggerLine = document.getElementById("redDaggerLineDeployment").checked;
-    var redDaggerTurn = document.getElementById("redDaggerTurn").value;
-    var removeRedDeployment = document.getElementById("removeRedDeployment").checked;
+  drawMap();
 
-    var redShieldLineFromCentre = document.getElementById("redShieldLineFromCentre").checked;
-    var redDaggerLineFromCentre = document.getElementById("redDaggerLineFromCentre").checked;
-    var redHammerLineFromCentre = document.getElementById("redHammerLineFromCentre").checked;
-    var blueShieldLineFromCentre = document.getElementById("blueShieldLineFromCentre").checked;
-    var blueDaggerLineFromCentre = document.getElementById("blueDaggerLineFromCentre").checked;
-    var blueHammerLineFromCentre = document.getElementById("blueHammerLineFromCentre").checked;
+  // prepare text for line drawing
+  // Draw the text in the middle of the line
+  getContext().font = "24px LithosBlack"; // Adjust the font size and style as needed
+  getContext().fillStyle = "black";
+  getContext().textAlign = "center";
+  getContext().textBaseline = "middle";
 
-    var redShieldLineShort = document.getElementById("redShieldLineShort").checked;
-    var redDaggerLineShort = document.getElementById("redDaggerLineShort").checked;
-    var redHammerLineShort = document.getElementById("redHammerLineShort").checked;
-    var blueShieldLineShort = document.getElementById("blueShieldLineShort").checked;
-    var blueDaggerLineShort = document.getElementById("blueDaggerLineShort").checked;
-    var blueHammerLineShort = document.getElementById("blueHammerLineShort").checked;
+  let components = [];
 
-    // prepare text for line drawing
-    // Draw the text in the middle of the line
-    getContext().font = "24px LithosBlack"; // Adjust the font size and style as needed
-    getContext().fillStyle = "black";
-    getContext().textAlign = "center";
-    getContext().textBaseline = "middle";
+  // Treasure and Objectives
+  for (let i=1; i <= 6; i++) {
+    let xValue = document.getElementById("objective" + i + "X").value;
+    let yValue = document.getElementById("objective" + i + "Y").value;
+    let icon = document.getElementById("objective" + i + "Icon").value;
+    let renderLine = false;
+    let renderFromCentre = document.getElementById("objective" + i + "LineFromCentre").checked;
+    let renderShort = document.getElementById("objective" + i + "LineShort").checked;
+    let label = "";
+    let iconName = "objective_" + icon;
 
-
-    // Treasure and Objectives
-    for (let i=1; i <= 6; i++) {
-      let xValue = document.getElementById("objective" + i + "X").value;
-      let yValue = document.getElementById("objective" + i + "Y").value;
-      let icon = document.getElementById("objective" + i + "Icon").value;
-      let renderFromCentre = document.getElementById("objective" + i + "LineFromCentre").checked;
-      let renderShort = document.getElementById("objective" + i + "LineShort").checked;
-
-      if (icon > 0) {
-        if (renderShort) {
-          drawLinesShort(xValue, yValue, "");
-        } else if (renderFromCentre) {
-          drawLinesFromCentre(xValue, yValue, "");
-        } else {
-          drawLines(xValue, yValue, "");
-        }
-
-        drawIcon("objective_" + icon, xValue, yValue);
-      }
+    if (icon > 0) {
+      components.push({
+        xValue: xValue,
+        yValue: yValue,
+        iconName: iconName,
+        label: label,
+        renderLine: renderLine,
+        renderFromCentre: renderFromCentre,
+        renderShort: renderShort
+      });
     }
+  }
 
-    if(!removeRedDeployment){
-        if(redShieldLine){
-            drawBorderLine(redShieldXValue, redShieldYValue, redShieldTurn);
-        } else if (redShieldLineShort){
-            drawLinesShort(redShieldXValue, redShieldYValue, redShieldTurn);
-        } else if (redShieldLineFromCentre){
-            drawLinesFromCentre(redShieldXValue, redShieldYValue, redShieldTurn);
-        } else {
-            drawLines(redShieldXValue, redShieldYValue, redShieldTurn);
-        }
+  let groups = ["Shield", "Dagger", "Hammer"];
+  let deployments = [];
+  if (!removeRedDeployment) {
+    groups.forEach(group => {
+      deployments.push("red" + group);
+    });
+  }
+  if (!removeBlueDeployment) {
+    groups.forEach(group => {
+      deployments.push("blue" + group);
+    });
+  }
 
-        if(redDaggerLine){
-            drawBorderLine(redDaggerXValue, redDaggerYValue, redDaggerTurn);
-        } else if (redDaggerLineShort){
-            drawLinesShort(redDaggerXValue, redDaggerYValue, redDaggerTurn);
-        } else if (redDaggerLineFromCentre){
-            drawLinesFromCentre(redDaggerXValue, redDaggerYValue, redDaggerTurn);
-        } else {
-            drawLines(redDaggerXValue, redDaggerYValue, redDaggerTurn);
-        }
+  deployments.forEach(deployment => {
+    let xValue = document.getElementById(deployment + "X").value;
+    let yValue = document.getElementById(deployment + "Y").value;
+    let label = document.getElementById(deployment + "Turn").value;
 
-        if(redHammerLine){
-            drawBorderLine(redHammerXValue, redHammerYValue, redHammerTurn);
-        } else if (redHammerLineShort){
-            drawLinesShort(redHammerXValue, redHammerYValue, redHammerTurn);
-        } else if (redHammerLineFromCentre){
-            drawLinesFromCentre(redHammerXValue, redHammerYValue, redHammerTurn);
-        } else {redHammerYValue
-            drawLines(redHammerXValue, redHammerYValue, redHammerTurn);
-        }
+    let renderLine = document.getElementById(deployment + "LineDeployment").checked;
+    let renderShort = document.getElementById(deployment + "LineShort").checked;
+    let renderFromCentre = document.getElementById(deployment + "LineFromCentre").checked;
+
+    let iconName = camelToSnake(deployment);
+
+    components.push({
+      xValue: xValue,
+      yValue: yValue,
+      iconName: iconName,
+      label: label,
+      renderLine: renderLine,
+      renderFromCentre: renderFromCentre,
+      renderShort: renderShort
+    });
+  });
+
+  components.forEach(component => {
+    if (component.renderLine) {
+      drawBorderLine(component.xValue, component.yValue, component.label);
+    } else if (component.renderShort) {
+      drawLinesShort(component.xValue, component.yValue, component.label);
+    } else if (component.renderFromCentre) {
+      drawLinesFromCentre(component.xValue, component.yValue, component.label);
+    } else {
+      drawLines(component.xValue, component.yValue, component.label);
     }
-
-    if (!removeBlueDeployment) {
-        if (blueShieldLine) {
-            drawBorderLine(blueShieldXValue, blueShieldYValue, blueShieldTurn);
-        } else if (blueShieldLineShort) {
-            drawLinesShort(blueShieldXValue, blueShieldYValue, blueShieldTurn);
-        } else if (blueShieldLineFromCentre) {
-            drawLinesFromCentre(blueShieldXValue, blueShieldYValue, blueShieldTurn);
-        } else {
-            drawLines(blueShieldXValue, blueShieldYValue, blueShieldTurn);
-        }
-
-        if (blueDaggerLine) {
-            drawBorderLine(blueDaggerXValue, blueDaggerYValue, blueDaggerTurn);
-        } else if (blueDaggerLineShort) {
-            drawLinesShort(blueDaggerXValue, blueDaggerYValue, blueDaggerTurn);
-        } else if (blueDaggerLineFromCentre) {
-            drawLinesFromCentre(blueDaggerXValue, blueDaggerYValue, blueDaggerTurn);
-        } else {
-            drawLines(blueDaggerXValue, blueDaggerYValue, blueDaggerTurn);
-        }
-
-        if (blueHammerLine) {
-            drawBorderLine(blueHammerXValue, blueHammerYValue, blueHammerTurn);
-        } else if (blueHammerLineShort) {
-            drawLinesShort(blueHammerXValue, blueHammerYValue, blueHammerTurn);
-        } else if (blueHammerLineFromCentre) {
-            drawLinesFromCentre(blueHammerXValue, blueHammerYValue, blueHammerTurn);
-        } else {
-            drawLines(blueHammerXValue, blueHammerYValue, blueHammerTurn);
-        }
-    }
-
-
-
-
-        // input is in inches, X 0 to 30, Y 0 to 22
-        if(!removeRedDeployment){
-            drawIcon("red_shield", redShieldXValue, redShieldYValue)
-            drawIcon("red_dagger", redDaggerXValue, redDaggerYValue);
-            drawIcon("red_hammer", redHammerXValue, redHammerYValue);
-        }
-        if(!removeBlueDeployment){
-        drawIcon("blue_shield", blueShieldXValue, blueShieldYValue);
-        drawIcon("blue_dagger", blueDaggerXValue, blueDaggerYValue);
-        drawIcon("blue_hammer", blueHammerXValue, blueHammerYValue);
-        }
-
-    }
+    drawIcon(component.iconName, component.xValue, component.yValue);
+  });
 }
 
+function camelToSnake(str) {
+  return str.replace(/([a-zA-Z])(?=[A-Z])/g,'$1_').toLowerCase()
+}
 
 function drawArrow(context, startX, startY, endX, endY, arrowSize = 10, color = "black") {
     // Calculate the angle of the line
