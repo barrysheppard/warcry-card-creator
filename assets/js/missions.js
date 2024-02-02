@@ -263,40 +263,42 @@ function readControls() {
     data.missionType = document.getElementById("missionType").value;
     data.bgselected = document.getElementById('background-list').value;
 
+    data.removeBlueDeployment = document.getElementById("removeBlueDeployment").checked;
+
+    data.blueHammerRenderMode = document.getElementById("blueHammerRenderMode").value;
+    data.blueShieldRenderMode = document.getElementById("blueShieldRenderMode").value;
+    data.blueDaggerRenderMode = document.getElementById("blueDaggerRenderMode").value;
 
     data.blueHammerXValue = document.getElementById("blueHammerX").value;
     data.blueHammerYValue = document.getElementById("blueHammerY").value;
-    data.blueHammerLine = document.getElementById("blueHammerLineDeployment").checked;
     data.blueHammerTurn = document.getElementById("blueHammerTurn").value;
 
     data.blueShieldXValue = document.getElementById("blueShieldX").value;
     data.blueShieldYValue = document.getElementById("blueShieldY").value;
-    data.blueShieldLine = document.getElementById("blueShieldLineDeployment").checked;
     data.blueShieldTurn = document.getElementById("blueShieldTurn").value;
 
     data.blueDaggerXValue = document.getElementById("blueDaggerX").value;
     data.blueDaggerYValue = document.getElementById("blueDaggerY").value;
-    data.blueDaggerLine = document.getElementById("blueDaggerLineDeployment").checked;
     data.blueDaggerTurn = document.getElementById("blueDaggerTurn").value;
 
-    data.removeBlueDeployment = document.getElementById("removeBlueDeployment").checked;
+
+    data.removeRedDeployment = document.getElementById("removeRedDeployment").checked;
+
+    data.redHammerRenderMode = document.getElementById("redHammerRenderMode").value;
+    data.redShieldRenderMode = document.getElementById("redShieldRenderMode").value;
+    data.redDaggerRenderMode = document.getElementById("redDaggerRenderMode").value;
 
     data.redHammerXValue = document.getElementById("redHammerX").value;
     data.redHammerYValue = document.getElementById("redHammerY").value;
-    data.redHammerLine = document.getElementById("redHammerLineDeployment").checked;
     data.redHammerTurn = document.getElementById("redHammerTurn").value;
 
     data.redShieldXValue = document.getElementById("redShieldX").value;
     data.redShieldYValue = document.getElementById("redShieldY").value;
-    data.redShieldLine = document.getElementById("redShieldLineDeployment").checked;
     data.redShieldTurn = document.getElementById("redShieldTurn").value;
 
     data.redDaggerXValue = document.getElementById("redDaggerX").value;
     data.redDaggerYValue = document.getElementById("redDaggerY").value;
-    data.redDaggerLine = document.getElementById("redDaggerLineDeployment").checked;
     data.redDaggerTurn = document.getElementById("redDaggerTurn").value;
-
-    data.removeRedDeployment = document.getElementById("removeRedDeployment").checked;
 
     data.objective1XValue = document.getElementById("objective1X").value;
     data.objective1YValue = document.getElementById("objective1Y").value;
@@ -324,20 +326,6 @@ function readControls() {
     data.white = document.getElementById("white").checked;
 
     data.textValue = document.getElementById("textValue").value;
-
-    data.redShieldLineFromCentre = document.getElementById("redShieldLineFromCentre").checked;
-    data.redDaggerLineFromCentre = document.getElementById("redDaggerLineFromCentre").checked;
-    data.redHammerLineFromCentre = document.getElementById("redHammerLineFromCentre").checked;
-    data.blueShieldLineFromCentre = document.getElementById("blueShieldLineFromCentre").checked;
-    data.blueDaggerLineFromCentre = document.getElementById("blueDaggerLineFromCentre").checked;
-    data.blueHammerLineFromCentre = document.getElementById("blueHammerLineFromCentre").checked;
-
-    data.redShieldLineShort = document.getElementById("redShieldLineShort").checked;
-    data.redDaggerLineShort = document.getElementById("redDaggerLineShort").checked;
-    data.redHammerLineShort = document.getElementById("redHammerLineShort").checked;
-    data.blueShieldLineShort = document.getElementById("blueShieldLineShort").checked;
-    data.blueDaggerLineShort = document.getElementById("blueDaggerLineShort").checked;
-    data.blueHammerLineShort = document.getElementById("blueHammerLineShort").checked;
 
     data.objective1LineFromCentre = document.getElementById("objective1LineFromCentre").checked;
     data.objective2LineFromCentre = document.getElementById("objective2LineFromCentre").checked;
@@ -474,36 +462,38 @@ async function writeControls(data) {
 
     document.getElementById('background-list').value = data.bgselected;
 
+    document.getElementById("blueHammerRenderMode").value = data.blueHammerRenderMode || "edge";
+    document.getElementById("blueShieldRenderMode").value = data.blueShieldRenderMode || "edge";
+    document.getElementById("blueDaggerRenderMode").value = data.blueDaggerRenderMode || "edge";
+
     document.getElementById("blueHammerX").value = data.blueHammerXValue;
     document.getElementById("blueHammerY").value = data.blueHammerYValue;
-    document.getElementById("blueHammerLineDeployment").checked = data.blueHammerLine;
     document.getElementById("blueHammerTurn").value = data.blueHammerTurn;
 
     document.getElementById("blueShieldX").value = data.blueShieldXValue;
     document.getElementById("blueShieldY").value = data.blueShieldYValue;
-    document.getElementById("blueShieldLineDeployment").checked = data.blueShieldLine;
     document.getElementById("blueShieldTurn").value = data.blueShieldTurn;
 
     document.getElementById("blueDaggerX").value = data.blueDaggerXValue;
     document.getElementById("blueDaggerY").value = data.blueDaggerYValue;
-    document.getElementById("blueDaggerLineDeployment").checked = data.blueDaggerLine;
     document.getElementById("blueDaggerTurn").value = data.blueDaggerTurn;
 
     document.getElementById("removeBlueDeployment").checked = data.removeBlueDeployment;
 
+    document.getElementById("redHammerRenderMode").value = data.redHammerRenderMode || "edge";
+    document.getElementById("redShieldRenderMode").value = data.redShieldRenderMode || "edge";
+    document.getElementById("redDaggerRenderMode").value = data.redDaggerRenderMode || "edge";
+
     document.getElementById("redHammerX").value = data.redHammerXValue;
     document.getElementById("redHammerY").value = data.redHammerYValue;
-    document.getElementById("redHammerLineDeployment").checked = data.redHammerLine;
     document.getElementById("redHammerTurn").value = data.redHammerTurn;
 
     document.getElementById("redShieldX").value = data.redShieldXValue;
     document.getElementById("redShieldY").value = data.redShieldYValue;
-    document.getElementById("redShieldLineDeployment").checked = data.redShieldLine;
     document.getElementById("redShieldTurn").value = data.redShieldTurn;
 
     document.getElementById("redDaggerX").value = data.redDaggerXValue;
     document.getElementById("redDaggerY").value = data.redDaggerYValue;
-    document.getElementById("redDaggerLineDeployment").checked = data.redDaggerLine;
     document.getElementById("redDaggerTurn").value = data.redDaggerTurn;
 
     document.getElementById("removeRedDeployment").checked = data.removeRedDeployment;
@@ -534,20 +524,6 @@ async function writeControls(data) {
     document.getElementById("white").checked = data.white;
 
     document.getElementById("textValue").value = data.textValue;
-
-    document.getElementById("redShieldLineFromCentre").checked = data.redShieldLineFromCentre;
-    document.getElementById("redDaggerLineFromCentre").checked = data.redDaggerLineFromCentre;
-    document.getElementById("redHammerLineFromCentre").checked = data.redHammerLineFromCentre;
-    document.getElementById("blueShieldLineFromCentre").checked = data.blueShieldLineFromCentre;
-    document.getElementById("blueDaggerLineFromCentre").checked = data.blueDaggerLineFromCentre;
-    document.getElementById("blueHammerLineFromCentre").checked = data.blueHammerLineFromCentre;
-
-    document.getElementById("redShieldLineShort").checked = data.redShieldLineShort;
-    document.getElementById("redDaggerLineShort").checked = data.redDaggerLineShort;
-    document.getElementById("redHammerLineShort").checked = data.redHammerLineShort;
-    document.getElementById("blueShieldLineShort").checked = data.blueShieldLineShort;
-    document.getElementById("blueDaggerLineShort").checked = data.blueDaggerLineShort;
-    document.getElementById("blueHammerLineShort").checked = data.blueHammerLineShort;
 
     document.getElementById("objective1LineFromCentre").checked = data.objective1LineFromCentre;
     document.getElementById("objective2LineFromCentre").checked = data.objective2LineFromCentre;
@@ -790,7 +766,7 @@ function onResetToDefault() {
 
 function refreshSaveSlots() {
     // Remove all
-    $('select').children('option').remove();
+    $('select:not([data-clear-on-load="false"])').children('option').remove();
 
     var missionDataName = readControls().name;
 
@@ -1603,10 +1579,15 @@ function drawDeployment() {
     let xValue = document.getElementById(deployment + "X").value;
     let yValue = document.getElementById(deployment + "Y").value;
     let label = document.getElementById(deployment + "Turn").value;
+    let renderMode = document.getElementById(deployment + "RenderMode").value;
 
-    let renderLine = document.getElementById(deployment + "LineDeployment").checked;
-    let renderShort = document.getElementById(deployment + "LineShort").checked;
-    let renderFromCentre = document.getElementById(deployment + "LineFromCentre").checked;
+    let renderLine = renderMode == "line";
+    let renderShort = renderMode == "short";
+    let renderFromCentre = renderMode == "centre";
+
+    //let renderLine = document.getElementById(deployment + "LineDeployment").checked;
+    //let renderShort = document.getElementById(deployment + "LineShort").checked;
+    //let renderFromCentre = document.getElementById(deployment + "LineFromCentre").checked;
 
     let iconName = camelToSnake(deployment);
 

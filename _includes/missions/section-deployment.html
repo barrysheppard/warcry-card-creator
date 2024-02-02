@@ -12,6 +12,13 @@
     <div class="collapse" id="redCollapse">
         <div class="card-body">
             <div class="form-group row">
+                <label for="removeRedDeployment" class="col-sm-6 col-form-label">Remove Red Deployment</label>
+                <div class="col-sm-3">
+                    <input class="form-check-input" type="checkbox" id="removeRedDeployment" name="removeRedDeployment" onchange="onAnyChange()">
+                </div>
+            </div>
+
+            <div class="form-group row">
                 <label for="redHammerX" class="col-sm-3 col-form-label">Hammer</label>
                 <div class="col-sm-3">
                     <label for="redHammerX">X</label>
@@ -29,8 +36,6 @@
                         min="1" max="4" oninput="onAnyChange()">
                 </div>
             </div>
-
-
             <div class="form-group row">
                 <label for="redDaggerX" class="col-sm-3 col-form-label">Dagger</label>
                 <div class="col-sm-3">
@@ -66,71 +71,41 @@
                         min="1" max="4" oninput="onAnyChange()">
                 </div>
             </div>
-            <div class="form-group row">
-                <label for="redHammerLineDeployment" class="col-sm-6 col-form-label">Hammer Line Deployment</label>
-                <div class="col-sm-3">
-                    <input class="form-check-input" type="checkbox" id="redHammerLineDeployment" name="redHammerLineDeployment" onchange="onAnyChange()">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="redDaggerLineDeployment" class="col-sm-6 col-form-label">Dagger Line Deployment</label>
-                <div class="col-sm-3">
-                    <input class="form-check-input" type="checkbox" id="redDaggerLineDeployment" name="redDaggerLineDeployment" onchange="onAnyChange()">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="redShieldLineDeployment" class="col-sm-6 col-form-label">Shield Line Deployment</label>
-                <div class="col-sm-3">
-                    <input class="form-check-input" type="checkbox" id="redShieldLineDeployment" name="redShieldLineDeployment" onchange="onAnyChange()">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="removeRedDeployment" class="col-sm-6 col-form-label">Remove Red Deployment</label>
-                <div class="col-sm-3">
-                    <input class="form-check-input" type="checkbox" id="removeRedDeployment" name="removeRedDeployment" onchange="onAnyChange()">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="redHammerLineFromCentre" class="col-sm-6 col-form-label">Hammer Line From Centre</label>
-                <div class="col-sm-3">
-                    <input class="form-check-input" type="checkbox" id="redHammerLineFromCentre" name="redHammerLineFromCentre" onchange="onAnyChange()">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="redDaggerLineFromCentre" class="col-sm-6 col-form-label">Dagger Line From Centre</label>
-                <div class="col-sm-3">
-                    <input class="form-check-input" type="checkbox" id="redDaggerLineFromCentre" name="redDaggerLineFromCentre" onchange="onAnyChange()">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="redShieldLineFromCentre" class="col-sm-6 col-form-label">Shield Line From Centre</label>
-                <div class="col-sm-3">
-                    <input class="form-check-input" type="checkbox" id="redShieldLineFromCentre" name="redShieldLineFromCentre" onchange="onAnyChange()">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="redHammerLineShort" class="col-sm-6 col-form-label">Hammer Line Shortest Path</label>
-                <div class="col-sm-3">
-                    <input class="form-check-input" type="checkbox" id="redHammerLineShort" name="redHammerLineShort" onchange="onAnyChange()">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="redDaggerLineShort" class="col-sm-6 col-form-label">Dagger Line Shortest Path</label>
-                <div class="col-sm-3">
-                    <input class="form-check-input" type="checkbox" id="redDaggerLineShort" name="redDaggerLineShort" onchange="onAnyChange()">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="redShieldLineShort" class="col-sm-6 col-form-label">Shield Line Shortest Path</label>
-                <div class="col-sm-3">
-                    <input class="form-check-input" type="checkbox" id="redShieldLineShort" name="redShieldLineShort" onchange="onAnyChange()">
-                </div>
-            </div>
 
-
+            <div class="form-group row">
+                <label for="redHammerRenderMode" class="col-sm-6 col-form-label">Hammer render mode</label>
+                <div class="col-sm-3">
+                  <select class="form-select" id="redHammerRenderMode" name="redHammerRenderMode" data-clear-on-load="false" onchange="onAnyChange()">
+                    <option value="edge">From Edges</option>
+                    <option value="centre">From Centre</option>
+                    <option value="short">Shortest Path</option>
+                    <option value="line">Line Deployment</option>
+                  </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="redDaggerRenderMode" class="col-sm-6 col-form-label">Dagger render mode</label>
+                <div class="col-sm-3">
+                  <select class="form-select" id="redDaggerRenderMode" name="redDaggerRenderMode" data-clear-on-load="false" onchange="onAnyChange()">
+                    <option value="edge">From Edges</option>
+                    <option value="centre">From Centre</option>
+                    <option value="short">Shortest Path</option>
+                    <option value="line">Line Deployment</option>
+                  </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="redShieldRenderMode" class="col-sm-6 col-form-label">Shield render mode</label>
+                <div class="col-sm-3">
+                  <select class="form-select" id="redShieldRenderMode" name="redShieldRenderMode" data-clear-on-load="false" onchange="onAnyChange()">
+                    <option value="edge">From Edges</option>
+                    <option value="centre">From Centre</option>
+                    <option value="short">Shortest Path</option>
+                    <option value="line">Line Deployment</option>
+                  </select>
+                </div>
+            </div>
         </div>
-
-
     </div>
 
 
@@ -145,6 +120,14 @@
     </div>
     <div class="collapse" id="blueCollapse">
         <div class="card-body">
+
+            <div class="form-group row">
+                <label for="removeBlueDeployment" class="col-sm-6 col-form-label">Remove Blue Deployment</label>
+                <div class="col-sm-3">
+                    <input class="form-check-input" type="checkbox" id="removeBlueDeployment" name="removeBlueDeployment" onchange="onAnyChange()">
+                </div>
+            </div>
+
             <div class="form-group row">
                 <label for="blueHammerX" class="col-sm-3 col-form-label">Hammer</label>
                 <div class="col-sm-3">
@@ -199,69 +182,40 @@
                         min="1" max="4" oninput="onAnyChange()">
                 </div>
             </div>
-            <div class="form-group row">
-                <label for="blueHammerLineDeployment" class="col-sm-6 col-form-label">Hammer Line Deployment</label>
-                <div class="col-sm-3">
-                    <input class="form-check-input" type="checkbox" id="blueHammerLineDeployment" name="blueHammerLineDeployment" onchange="onAnyChange()">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="blueDaggerLineDeployment" class="col-sm-6 col-form-label">Dagger Line Deployment</label>
-                <div class="col-sm-3">
-                    <input class="form-check-input" type="checkbox" id="blueDaggerLineDeployment" name="blueDaggerLineDeployment" onchange="onAnyChange()">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="blueShieldLineDeployment" class="col-sm-6 col-form-label">Shield Line Deployment</label>
-                <div class="col-sm-3">
-                    <input class="form-check-input" type="checkbox" id="blueShieldLineDeployment" name="blueShieldLineDeployment" onchange="onAnyChange()">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="removeBlueDeployment" class="col-sm-6 col-form-label">Remove Blue Deployment</label>
-                <div class="col-sm-3">
-                    <input class="form-check-input" type="checkbox" id="removeBlueDeployment" name="removeBlueDeployment" onchange="onAnyChange()">
-                </div>
-            </div>
 
             <div class="form-group row">
-                <label for="blueHammerLineFromCentre" class="col-sm-6 col-form-label">Hammer Line From Centre</label>
+                <label for="blueHammerRenderMode" class="col-sm-6 col-form-label">Hammer render mode</label>
                 <div class="col-sm-3">
-                    <input class="form-check-input" type="checkbox" id="blueHammerLineFromCentre" name="blueHammerLineFromCentre" onchange="onAnyChange()">
+                  <select class="form-select" id="blueHammerRenderMode" name="blueHammerRenderMode" data-clear-on-load="false" onchange="onAnyChange()">
+                    <option value="edge">From Edges</option>
+                    <option value="centre">From Centre</option>
+                    <option value="short">Shortest Path</option>
+                    <option value="line">Line Deployment</option>
+                  </select>
                 </div>
             </div>
             <div class="form-group row">
-                <label for="blueDaggerLineFromCentre" class="col-sm-6 col-form-label">Dagger Line From Centre</label>
+                <label for="blueDaggerRenderMode" class="col-sm-6 col-form-label">Dagger render mode</label>
                 <div class="col-sm-3">
-                    <input class="form-check-input" type="checkbox" id="blueDaggerLineFromCentre" name="blueDaggerLineFromCentre" onchange="onAnyChange()">
+                  <select class="form-select" id="blueDaggerRenderMode" name="blueDaggerRenderMode" data-clear-on-load="false" onchange="onAnyChange()">
+                    <option value="edge">From Edges</option>
+                    <option value="centre">From Centre</option>
+                    <option value="short">Shortest Path</option>
+                    <option value="line">Line Deployment</option>
+                  </select>
                 </div>
             </div>
             <div class="form-group row">
-                <label for="blueShieldLineFromCentre" class="col-sm-6 col-form-label">Shield Line From Centre</label>
+                <label for="blueShieldRenderMode" class="col-sm-6 col-form-label">Shield render mode</label>
                 <div class="col-sm-3">
-                    <input class="form-check-input" type="checkbox" id="blueShieldLineFromCentre" name="blueShieldLineFromCentre" onchange="onAnyChange()">
+                  <select class="form-select" id="blueShieldRenderMode" name="blueShieldRenderMode" data-clear-on-load="false" onchange="onAnyChange()">
+                    <option value="edge">From Edges</option>
+                    <option value="centre">From Centre</option>
+                    <option value="short">Shortest Path</option>
+                    <option value="line">Line Deployment</option>
+                  </select>
                 </div>
             </div>
-
-            <div class="form-group row">
-                <label for="blueHammerLineShort" class="col-sm-6 col-form-label">Hammer Line Shortest Path</label>
-                <div class="col-sm-3">
-                    <input class="form-check-input" type="checkbox" id="blueHammerLineShort" name="blueHammerLineShort" onchange="onAnyChange()">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="blueDaggerLineShort" class="col-sm-6 col-form-label">Dagger Line Shortest Path</label>
-                <div class="col-sm-3">
-                    <input class="form-check-input" type="checkbox" id="blueDaggerLineShort" name="blueDaggerLineShort" onchange="onAnyChange()">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="blueShieldLineShort" class="col-sm-6 col-form-label">Shield Line Shortest Path</label>
-                <div class="col-sm-3">
-                    <input class="form-check-input" type="checkbox" id="blueShieldLineShort" name="blueShieldLineShort" onchange="onAnyChange()">
-                </div>
-            </div>
-
 
         </div>
     </div>
