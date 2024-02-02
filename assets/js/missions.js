@@ -346,6 +346,12 @@ function readControls() {
     data.objective5LineFromCentre = document.getElementById("objective5LineFromCentre").checked;
     data.objective6LineFromCentre = document.getElementById("objective6LineFromCentre").checked;
 
+    data.objective1LineShort = document.getElementById("objective1LineShort").checked;
+    data.objective2LineShort = document.getElementById("objective2LineShort").checked;
+    data.objective3LineShort = document.getElementById("objective3LineShort").checked;
+    data.objective4LineShort = document.getElementById("objective4LineShort").checked;
+    data.objective5LineShort = document.getElementById("objective5LineShort").checked;
+    data.objective6LineShort = document.getElementById("objective6LineShort").checked;
 
     return data;
 }
@@ -550,6 +556,12 @@ async function writeControls(data) {
     document.getElementById("objective5LineFromCentre").checked = data.objective5LineFromCentre;
     document.getElementById("objective6LineFromCentre").checked = data.objective6LineFromCentre;
 
+    document.getElementById("objective1LineShort").checked = data.objective1LineShort;
+    document.getElementById("objective2LineShort").checked = data.objective2LineShort;
+    document.getElementById("objective3LineShort").checked = data.objective3LineShort;
+    document.getElementById("objective4LineShort").checked = data.objective4LineShort;
+    document.getElementById("objective5LineShort").checked = data.objective5LineShort;
+    document.getElementById("objective6LineShort").checked = data.objective6LineShort;
 
     // render the updated info
     render(data);
@@ -1603,6 +1615,12 @@ function drawDeployment(){
     var objective5LineFromCentre = document.getElementById("objective5LineFromCentre").checked;
     var objective6LineFromCentre = document.getElementById("objective6LineFromCentre").checked;
 
+    var objective1LineShort = document.getElementById("objective1LineShort").checked;
+    var objective2LineShort = document.getElementById("objective2LineShort").checked;
+    var objective3LineShort = document.getElementById("objective3LineShort").checked;
+    var objective4LineShort = document.getElementById("objective4LineShort").checked;
+    var objective5LineShort = document.getElementById("objective5LineShort").checked;
+    var objective6LineShort = document.getElementById("objective6LineShort").checked;
 
 
     // prepare text for line drawing
@@ -1619,14 +1637,18 @@ function drawDeployment(){
 
     // Treasure and Objectives Lines
     if(objective1Icon>0){
-        if(objective1LineFromCentre){
+        if(objective1LineShort){
+            drawLinesShort(objective1XValue, objective1YValue, "");
+        } else if(objective1LineFromCentre){
             drawLinesFromCentre(objective1XValue, objective1YValue, "");
         } else {
             drawLines(objective1XValue, objective1YValue, "");
         }
     }
     if(objective2Icon > 0){
-        if(objective2LineFromCentre){
+        if(objective2LineShort){
+            drawLinesShort(objective2XValue, objective2YValue, "");
+        } else if(objective2LineFromCentre){
             drawLinesFromCentre(objective2XValue, objective2YValue, "");
         } else {
             drawLines(objective2XValue, objective2YValue, "");
@@ -1634,7 +1656,9 @@ function drawDeployment(){
     }
 
     if(objective3Icon > 0){
-        if(objective3LineFromCentre){
+        if(objective3LineShort){
+            drawLinesShort(objective3XValue, objective3YValue, "");
+        } else if(objective3LineFromCentre){
             drawLinesFromCentre(objective3XValue, objective3YValue, "");
         } else {
             drawLines(objective3XValue, objective3YValue, "");
@@ -1642,7 +1666,9 @@ function drawDeployment(){
     }
 
     if(objective4Icon > 0){
-        if(objective4LineFromCentre){
+        if(objective4LineShort){
+            drawLinesShort(objective4XValue, objective4YValue, "");
+        } else if(objective4LineFromCentre){
             drawLinesFromCentre(objective4XValue, objective4YValue, "");
         } else {
             drawLines(objective4XValue, objective4YValue, "");
@@ -1650,7 +1676,9 @@ function drawDeployment(){
     }
 
     if(objective5Icon > 0){
-        if(objective5LineFromCentre){
+        if(objective5LineShort){
+            drawLinesShort(objective5XValue, objective5YValue, "");
+        } else if(objective5LineFromCentre){
             drawLinesFromCentre(objective5XValue, objective5YValue, "");
         } else {
             drawLines(objective5XValue, objective5YValue, "");
@@ -1658,7 +1686,9 @@ function drawDeployment(){
     }
 
     if(objective6Icon > 0){
-        if(objective6LineFromCentre){
+        if(objective6LineShort){
+            drawLinesShort(objective6XValue, objective6YValue, "");
+        } else if(objective6LineFromCentre){
             drawLinesFromCentre(objective6XValue, objective6YValue, "");
         } else {
             drawLines(objective6XValue, objective6YValue, "");
