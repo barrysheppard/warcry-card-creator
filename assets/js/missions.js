@@ -937,129 +937,127 @@ function drawThickLine(ctx, x1, y1, x2, y2, thickness, color = "black", arrowSiz
     ctx.closePath();
 }
 
-
-
 function drawLines(XValue, YValue, Turn) {
-    if(XValue != 15){
-        if(XValue < 15) {
-            drawThickLine(getContext(), 0, YValue, XValue, YValue, 6, color="black")
+  let color = "black";
+  let labelOffsetY = (YValue > 5 && YValue < 12) || YValue > 16 ? -25 : 25;
+  let labelOffsetX = (XValue > 7 && XValue < 16) || XValue > 23 ? -25 : 25;
 
-            if(XValue!=0 && XValue!=30){
-                value = XValue.toString() + '"';
-                x = convertInchesToPixelsLine(XValue/2, YValue).x;
-                y = convertInchesToPixelsLine(XValue/2, YValue).y;
-                writeScaledBorder(value, x, y);
-            }
-        } else {
-            drawThickLine(getContext(), 30, YValue, XValue, YValue, 6, color="black")
-            if(XValue!=0 && XValue!=30){
-                value = (30-XValue).toString() + '"';
-                x = convertInchesToPixelsLine(15 + XValue/2, YValue).x;
-                y = convertInchesToPixelsLine(15 + XValue/2, YValue).y;
-                writeScaledBorder(value, x, y);
-            }
-        }
+  if (XValue != 15) {
+    if (XValue < 15) {
+      drawThickLine(getContext(), 0, YValue, XValue, YValue, 6, color);
+      if (XValue != 0) {
+        let value = XValue + '"';
+        let point = convertInchesToPixelsLine(XValue / 2, YValue);
+        writeScaledBorder(value, point.x, point.y + labelOffsetY);
+      }
+    } else {
+      drawThickLine(getContext(), 30, YValue, XValue, YValue, 6, color);
+      if (XValue != 30) {
+        let value = (30 - XValue) + '"';
+        let point = convertInchesToPixelsLine(15 + XValue / 2, YValue);
+        writeScaledBorder(value, point.x, point.y + labelOffsetY);
+      }
     }
-    if(YValue != 11){
-        if(YValue < 11) {
-            drawThickLine(getContext(), XValue, 0, XValue, YValue, 6, color="black")
-            if(YValue!=0 && YValue!=22){
-                value = YValue.toString() + '"';
-                x = convertInchesToPixelsLine(XValue, YValue/2).x;
-                y = convertInchesToPixelsLine(XValue, YValue/2).y;
-                writeScaledBorder(value, x, y);
-            }
-        } else {
-             drawThickLine(getContext(), XValue, 22, XValue, YValue, 6, color="black")
-             if(YValue!=0 && YValue!=22){
-                value = (22-YValue).toString() + '"';
-                x = convertInchesToPixelsLine(XValue, 11+YValue/2).x;
-                y = convertInchesToPixelsLine(XValue, 11+YValue/2).y;
-                writeScaledBorder(value, x, y);
-             }
-        }
-    }
-    if(Turn > 1) {
-        x = convertInchesToPixelsLine(XValue, YValue).x
-        value = "Rnd " + Turn.toString();
-        if(YValue<11){
-            y = convertInchesToPixelsLine(XValue, YValue).y + 40
-            writeScaledBorder(value, x, y)
+  }
 
-        } else {
-            y = convertInchesToPixelsLine(XValue, YValue).y - 40
-            writeScaledBorder(value, x, y)
-        }
-
+  if (YValue != 11) {
+    if (YValue < 11) {
+      drawThickLine(getContext(), XValue, 0, XValue, YValue, 6, color);
+      if (YValue != 0) {
+        let value = YValue + '"';
+        let point = convertInchesToPixelsLine(XValue, YValue / 2);
+        writeScaledBorder(value, point.x + labelOffsetX, point.y);
+      }
+    } else {
+      drawThickLine(getContext(), XValue, 22, XValue, YValue, 6, color);
+      if (YValue != 22) {
+        let value = (22 - YValue) + '"';
+        let point = convertInchesToPixelsLine(XValue, 11 + YValue / 2);
+        writeScaledBorder(value, point.x + labelOffsetX, point.y);
+      }
     }
+  }
+
+  if (Turn > 1) {
+    let point = convertInchesToPixelsLine(XValue, YValue);
+    let label = "Rnd " + Turn;
+    if (YValue < 11) {
+      writeScaledBorder(label, point.x, point.y + 40)
+    } else {
+      writeScaledBorder(label, point.x, point.y - 40)
+    }
+  }
 }
-function drawLinesFromCentre(XValue, YValue, Turn) {
-    if (XValue !== 15) {
-        if (XValue < 15) {
-            drawThickLine(getContext(), 15, YValue, XValue, YValue, 6, color = "black");
-            if (XValue !== 15) {
-                let value = (15 - XValue).toString() + '"';
-                let newX = 15 + (XValue - 15) / 2;
-                let x = convertInchesToPixelsLine(newX, YValue).x;
-                let y = convertInchesToPixelsLine(newX, YValue).y;
-                writeScaledBorder(value, x, y);
-            }
 
-        } else {
-            drawThickLine(getContext(), 15, YValue, XValue, YValue, 6, color = "black");
-            if (XValue !== 15) {
-                let value = (XValue-15).toString() + '"';
-                let newX = 15 + (XValue - 15) / 2;
-                let x = convertInchesToPixelsLine(newX, YValue).x;
-                let y = convertInchesToPixelsLine(newX, YValue).y;
-                writeScaledBorder(value, x, y);
-            }
-        }
+function drawLinesFromCentre(XValue, YValue, Turn) {
+  let color = "black";
+  let labelOffsetY = (YValue > 5 && YValue < 12) || YValue > 16 ? -25 : 25;
+  let labelOffsetX = (XValue > 7 && XValue < 16) || XValue > 23 ? -25 : 25;
+
+  if (XValue != 15) {
+    if (XValue < 15) {
+      drawThickLine(getContext(), 15, YValue, XValue, YValue, 6, color);
+      if (XValue != 15) {
+        let value = (15 - XValue) + '"';
+        let newX = 15 + (XValue - 15) / 2;
+        let point = convertInchesToPixelsLine(newX, YValue);
+        writeScaledBorder(value, point.x, point.y + labelOffsetY);
+      }
+    } else {
+      drawThickLine(getContext(), 15, YValue, XValue, YValue, 6, color);
+      if (XValue != 15) {
+        let value = (XValue-15) + '"';
+        let newX = 15 + (XValue - 15) / 2;
+        let point = convertInchesToPixelsLine(newX, YValue);
+        writeScaledBorder(value, point.x, point.y + labelOffsetY);
+      }
     }
-    if (YValue !== 11) {
-        if (YValue < 11) {
-            drawThickLine(getContext(), XValue, 11, XValue, YValue, 6, color = "black");
-            if (YValue !== 11) {
-                let value = (11 - YValue).toString() + '"';
-                let newY = 11 + (YValue - 11) / 2;
-                let x = convertInchesToPixelsLine(XValue, newY).x;
-                let y = convertInchesToPixelsLine(XValue, newY).y;
-                writeScaledBorder(value, x, y);
-            }
-        } else {
-            drawThickLine(getContext(), XValue, 11, XValue, YValue, 6, color = "black");
-            if (YValue !== 0 && YValue !== 22) {
-                let value = (YValue - 11).toString() + '"';
-                let newY = 11 + (YValue - 11) / 2;
-                let x = convertInchesToPixelsLine(XValue, newY).x;
-                let y = convertInchesToPixelsLine(XValue, newY).y;
-                writeScaledBorder(value, x, y);
-            }
-        }
+  }
+
+  if (YValue != 11) {
+    if (YValue < 11) {
+      drawThickLine(getContext(), XValue, 11, XValue, YValue, 6, color);
+      if (YValue != 11) {
+        let value = (11 - YValue) + '"';
+        let newY = 11 + (YValue - 11) / 2;
+        let point = convertInchesToPixelsLine(XValue, newY);
+        writeScaledBorder(value, point.x + labelOffsetX, point.y);
+      }
+    } else {
+      drawThickLine(getContext(), XValue, 11, XValue, YValue, 6, color);
+      if (YValue != 0 && YValue != 22) {
+        let value = (YValue - 11) + '"';
+        let newY = 11 + (YValue - 11) / 2;
+        let point = convertInchesToPixelsLine(XValue, newY);
+        writeScaledBorder(value, point.x + labelOffsetX, point.y);
+      }
     }
-    if (Turn > 1) {
-        let x = convertInchesToPixelsLine(XValue, YValue).x;
-        let value = "Rnd " + Turn.toString();
-        let y;
-        if (YValue < 11) {
-            y = convertInchesToPixelsLine(XValue, YValue).y + 40;
-        } else {
-            y = convertInchesToPixelsLine(XValue, YValue).y - 40;
-        }
-        writeScaledBorder(value, x, y);
+  }
+
+  if (Turn > 1) {
+    let label = "Rnd " + Turn;
+    let point = convertInchesToPixelsLine(XValue, YValue);
+    if (YValue < 11) {
+      writeScaledBorder(label, point.x, point.y + 40);
+    } else {
+      writeScaledBorder(label, point.x, point.y - 40);
     }
+  }
 }
 
 function drawLinesShort(XValue, YValue, Turn) {
   let color = "black";
-  if (XValue !== 15) {
+  let labelOffsetY = (YValue > 5 && YValue < 12) || YValue > 16 ? -25 : 25;
+  let labelOffsetX = (XValue > 7 && XValue < 16) || XValue > 23 ? -25 : 25;
+
+  if (XValue != 15) {
     if (XValue < 8) {
       // draw from edge
       drawThickLine(getContext(), 0, YValue, XValue, YValue, 6, color)
       if (XValue != 0) {
         let label = XValue + '"';
         let point = convertInchesToPixelsLine(XValue / 2, YValue);
-        writeScaledBorder(label, point.x, point.y);
+        writeScaledBorder(label, point.x, point.y + labelOffsetY);
       }
     } else if (XValue < 15) {
       // draw from centre
@@ -1067,33 +1065,33 @@ function drawLinesShort(XValue, YValue, Turn) {
       let label = (15 - XValue) + '"';
       let newX = 15 + (XValue - 15) / 2;
       let point = convertInchesToPixelsLine(newX, YValue);
-      writeScaledBorder(label, point.x, point.y);
+      writeScaledBorder(label, point.x, point.y + labelOffsetY);
     } else if (XValue < 23) {
       // draw from centre
       drawThickLine(getContext(), 15, YValue, XValue, YValue, 6, color);
       let label = (XValue - 15) + '"';
       let newX = 15 + (XValue - 15) / 2;
       let point = convertInchesToPixelsLine(newX, YValue);
-      writeScaledBorder(label, point.x, point.y);
+      writeScaledBorder(label, point.x, point.y + labelOffsetY);
     } else {
       // draw from edge
       drawThickLine(getContext(), 30, YValue, XValue, YValue, 6, color)
       if (XValue != 30) {
         let label = (30 - XValue) + '"';
         let point = convertInchesToPixelsLine(15 + XValue / 2, YValue);
-        writeScaledBorder(label, point.x, point.y);
+        writeScaledBorder(label, point.x, point.y + labelOffsetY);
       }
     }
   }
 
-  if (YValue !== 11) {
+  if (YValue != 11) {
     if (YValue < 6) {
       // draw from edge
       drawThickLine(getContext(), XValue, 0, XValue, YValue, 6, color)
       if (YValue != 0) {
         let label = YValue + '"';
         let point = convertInchesToPixelsLine(XValue, YValue / 2);
-        writeScaledBorder(label, point.x, point.y);
+        writeScaledBorder(label, point.x + labelOffsetX, point.y);
       }
     } else if (YValue < 11) {
       // draw from centre
@@ -1101,24 +1099,25 @@ function drawLinesShort(XValue, YValue, Turn) {
       let label = (11 - YValue) + '"';
       let newY = 11 + (YValue - 11) / 2;
       let point = convertInchesToPixelsLine(XValue, newY);
-      writeScaledBorder(label, point.x, point.y);
+      writeScaledBorder(label, point.x + labelOffsetX, point.y);
     } else if (YValue < 17) {
       // draw from centre
       drawThickLine(getContext(), XValue, 11, XValue, YValue, 6, color);
       let label = (YValue - 11) + '"';
       let newY = 11 + (YValue - 11) / 2;
       let point = convertInchesToPixelsLine(XValue, newY);
-      writeScaledBorder(label, point.x, point.y);
+      writeScaledBorder(label, point.x + labelOffsetX, point.y);
     } else {
       // draw from edge
       drawThickLine(getContext(), XValue, 22, XValue, YValue, 6, color)
       if (YValue != 22) {
         let label = (22 - YValue) + '"';
         let point = convertInchesToPixelsLine(XValue, 11 + YValue / 2);
-        writeScaledBorder(label, point.x, point.y);
+        writeScaledBorder(label, point.x + labelOffsetX, point.y);
       }
     }
   }
+
   if (Turn > 1) {
     let point = convertInchesToPixelsLine(XValue, YValue);
     let label = "Rnd " + Turn;
@@ -1129,7 +1128,6 @@ function drawLinesShort(XValue, YValue, Turn) {
     }
   }
 }
-
 
 function writeScaledBorder(value, startX, startY) {
     getContext().fillStyle = 'white';
