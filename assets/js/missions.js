@@ -335,7 +335,6 @@ function readControls() {
 }
 
 function render(missionData) {
-  console.log(missionData);
   if (missionData.customBackgroundUrl) {
     renderCustomBackground(missionData);
   } else {
@@ -474,7 +473,7 @@ async function writeControls(data) {
   render(data);
 }
 
-function defaultmissionData() {
+function defaultMissionData() {
   let data = new Object;
   data.name = "Warcry_Mission_Card";
   data.imageUrl = null;
@@ -554,66 +553,32 @@ function defaultmissionData() {
   data.white = false;
 
   data.textValue = "";
-console.log(data);
   return data;
 }
 
-function savemissionDataMap(newMap) {
-  window.localStorage.setItem("missionDataMap", JSON.stringify(newMap));
+function writeMissionData(data) {
+  window.localStorage.setItem("missionData", JSON.stringify(data));
 }
 
-function loadmissionDataMap() {
-  let storage = window.localStorage.getItem("missionDataMap");
-  if (storage != null) {
-    return JSON.parse(storage);
-  }
-  // Set up the map.
-  let map = new Object;
-  map["Warcry_Mission_Card"] = defaultmissionData();
-  savemissionDataMap(map);
-  return map;
-}
-
-function loadLatestmissionData() {
-  let latestFighterName = window.localStorage.getItem("latestFighterName");
-  if (latestFighterName == null) {
-    latestFighterName = "Warcry_Mission_Card";
-  }
-
-  let data = loadmissionData(latestFighterName);
-
-  if (data) {
-    console.log("Loaded data:");
-    console.log(data);
-  } else {
-    console.log("Failed to load data - loading default");
-    data = defaultCardData();
-  }
-
-  return data;
-}
-
-function saveLatestmissionData() {
-  let missionData = readControls();
-  if (!missionData.name) {
+function readMissionData() {
+  let storage = window.localStorage.getItem("missionData");
+  if (storage == null) {
     return;
   }
-
-  window.localStorage.setItem("latestFighterName", missionData.name);
-  //savemissionData(missionData);
+  return JSON.parse(storage);
 }
 
-function loadmissionData(missionDataName) {
-  if (!missionDataName) {
-    return null;
-  }
+function saveMissionData() {
+  writeMissionData(readControls());
+}
 
-  let map = loadmissionDataMap();
-  if (map[missionDataName]) {
-    return map[missionDataName];
+function loadMissionDataOrDefault() {
+  let data = readMissionData();
+  if (data == null) {
+    writeControls(defaultMissionData());
+  } else {
+    writeControls(data);
   }
-
-  return null;
 }
 
 function getBase64Image(img) {
@@ -662,7 +627,7 @@ function getLatestmissionDataName() {
 function onAnyChange() {
   let missionData = readControls();
   render(missionData);
-  saveLatestmissionData();
+  saveMissionData();
 }
 
 function onFighterImageUpload() {
@@ -670,7 +635,7 @@ function onFighterImageUpload() {
   setModelImage(image);
   let missionData = readControls();
   render(missionData);
-  saveLatestmissionData();
+  saveMissionData();
 }
 
 function onCopyFromRed() {
@@ -701,27 +666,7 @@ function onClearCache() {
 }
 
 function onResetToDefault() {
-  let missionData = defaultmissionData();
-  writeControls(missionData);
-}
-
-function refreshSaveSlots() {
-  // Remove all
-  $('select:not([data-clear-on-load="false"])').children('option').remove();
-
-  let missionDataName = readControls().name;
-
-  let map = loadmissionDataMap();
-
-  for (let [key, value] of Object.entries(map)) {
-    let selected = false;
-    if (missionDataName &&
-        key == missionDataName) {
-      selected = true;
-    }
-    let newOption = new Option(key, key, selected, selected);
-    $('#saveSlotsSelect').append(newOption);
-  }
+  writeControls(defaultMissionData());
 }
 
 async function onSaveClicked() {
@@ -856,7 +801,7 @@ function onCustomBackgroundUpload() {
   setCustomBackground(image);
   let missionData = readControls();
   render(missionData);
-  saveLatestmissionData();
+  saveMissionData();
 }
 
 function getCustomBackgroundUrl() {
@@ -1701,7 +1646,5 @@ function randomDeployment() {
 }
 
 window.onload = function() {
-  let missionData = loadLatestmissionData();
-  writeControls(missionData);
-  refreshSaveSlots();
+  loadMissionDataOrDefault();
 };
