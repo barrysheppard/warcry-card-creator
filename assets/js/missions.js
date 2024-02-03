@@ -773,12 +773,6 @@ function saveCardAsImage() {
   document.body.removeChild(element);
 }
 
-$(document).ready(function() {
-  let missionData = loadLatestmissionData();
-  writeControls(missionData);
-  refreshSaveSlots();
-});
-
 async function readJSONFile(file) {
   // Function will return a new Promise which will resolve or reject based on whether the JSON file is read and parsed successfully
   return new Promise((resolve, reject) => {
@@ -1688,3 +1682,9 @@ function randomDeployment() {
   onAnyChange();
 
 }
+
+window.onload = function() {
+  let missionData = loadLatestmissionData();
+  writeControls(missionData);
+  refreshSaveSlots();
+};
