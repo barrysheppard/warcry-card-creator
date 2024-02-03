@@ -592,6 +592,7 @@ function onSaveSlot() {
   let data = readControls();
   writeMissionData(name, data);
   updateSlotList();
+  document.getElementById("slotList").value = name;
 }
 
 function onLoadSlot() {
