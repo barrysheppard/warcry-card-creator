@@ -62,14 +62,17 @@ function getBackgroundImage() {
 }
 
 function drawBorder() {
-  if(!document.getElementById("removeBorder").checked){
+  if (!document.getElementById("removeBorder").checked) {
     getContext().drawImage(document.getElementById('card-border'), 0, 0, getCanvas().width, getCanvas().height);
   }
 }
 
 function scalePixelPosition(pixelPosition) {
   let scalingFactor = getScalingFactor(getCanvas(), getBackgroundImage());
-  let scaledPosition = { x: pixelPosition.x * scalingFactor.x, y: pixelPosition.y * scalingFactor.y };
+  let scaledPosition = {
+    x: pixelPosition.x * scalingFactor.x,
+    y: pixelPosition.y * scalingFactor.y
+  };
   return scaledPosition;
 }
 
@@ -88,37 +91,58 @@ function drawCardElementFromInputId(inputId, pixelPosition) {
 }
 
 function drawMissionName(value) {
-  startX = 1122/2;
+  startX = 1122 / 2;
   startY = 140;
   if (document.getElementById('background-list').value === 'bg-13') {
     getContext().font = '60px schoensperger';
   } else {
     getContext().font = '60px lithosblack';
   }
-  if (document.getElementById("white").checked){
+  if (document.getElementById("white").checked) {
     getContext().fillStyle = 'black';
   } else {
     getContext().fillStyle = 'white';
   }
   getContext().textAlign = "center";
   getContext().textBaseline = "middle";
-  writeScaled(value, { x: startX+2, y: startY });
-  writeScaled(value, { x: startX, y: startY+2 });
-  writeScaled(value, { x: startX+2, y: startY+2 });
-  writeScaled(value, { x: startX-2, y: startY });
-  writeScaled(value, { x: startX, y: startY-2 });
-  writeScaled(value, { x: startX-2, y: startY-2 });
+  writeScaled(value, {
+    x: startX + 2,
+    y: startY
+  });
+  writeScaled(value, {
+    x: startX,
+    y: startY + 2
+  });
+  writeScaled(value, {
+    x: startX + 2,
+    y: startY + 2
+  });
+  writeScaled(value, {
+    x: startX - 2,
+    y: startY
+  });
+  writeScaled(value, {
+    x: startX,
+    y: startY - 2
+  });
+  writeScaled(value, {
+    x: startX - 2,
+    y: startY - 2
+  });
 
-  if (document.getElementById("white").checked){
+  if (document.getElementById("white").checked) {
     getContext().fillStyle = 'white';
   } else {
     getContext().fillStyle = 'black';
   }
-  writeScaled(value, { x: startX, y: startY });
+  writeScaled(value, {
+    x: startX,
+    y: startY
+  });
 }
 
 function drawMissionType(value) {
-  startX = 1122/2;
+  startX = 1122 / 2;
   startY = 90;
   if (document.getElementById('background-list').value === 'bg-13') {
     getContext().font = '40px schoensperger';
@@ -126,26 +150,47 @@ function drawMissionType(value) {
     getContext().font = '40px lithosblack';
   }
 
-  if (document.getElementById("white").checked){
+  if (document.getElementById("white").checked) {
     getContext().fillStyle = 'black';
   } else {
     getContext().fillStyle = 'white';
   }
   getContext().textAlign = "center";
   getContext().textBaseline = "middle";
-  writeScaled(value, { x: startX+2, y: startY });
-  writeScaled(value, { x: startX, y: startY+2 });
-  writeScaled(value, { x: startX+2, y: startY+2 });
-  writeScaled(value, { x: startX-2, y: startY });
-  writeScaled(value, { x: startX, y: startY-2 });
-  writeScaled(value, { x: startX-2, y: startY-2 });
+  writeScaled(value, {
+    x: startX + 2,
+    y: startY
+  });
+  writeScaled(value, {
+    x: startX,
+    y: startY + 2
+  });
+  writeScaled(value, {
+    x: startX + 2,
+    y: startY + 2
+  });
+  writeScaled(value, {
+    x: startX - 2,
+    y: startY
+  });
+  writeScaled(value, {
+    x: startX,
+    y: startY - 2
+  });
+  writeScaled(value, {
+    x: startX - 2,
+    y: startY - 2
+  });
 
-  if (document.getElementById("white").checked){
+  if (document.getElementById("white").checked) {
     getContext().fillStyle = 'white';
   } else {
     getContext().fillStyle = 'black';
   }
-  writeScaled(value, { x: startX, y: startY });
+  writeScaled(value, {
+    x: startX,
+    y: startY
+  });
 }
 
 function getLabel(element) {
@@ -160,9 +205,10 @@ function drawImage(scaledPosition, scaledSize, image) {
   if (image != null) {
     if (image.complete) {
       getContext().drawImage(image, scaledPosition.x, scaledPosition.y, scaledSize.x, scaledSize.y);
-    }
-    else {
-      image.onload = function () { drawImage(scaledPosition, scaledSize, image); };
+    } else {
+      image.onload = function() {
+        drawImage(scaledPosition, scaledSize, image);
+      };
     }
   }
 }
@@ -170,7 +216,9 @@ function drawImage(scaledPosition, scaledSize, image) {
 function drawImageSrc(scaledPosition, scaledSize, imageSrc) {
   if (imageSrc != null) {
     let image = new Image();
-    image.onload = function () { drawImage(scaledPosition, scaledSize, image); };
+    image.onload = function() {
+      drawImage(scaledPosition, scaledSize, image);
+    };
     image.src = imageSrc;
   }
 }
@@ -178,8 +226,11 @@ function drawImageSrc(scaledPosition, scaledSize, imageSrc) {
 function drawModel(imageUrl, imageProps) {
   if (imageUrl != null) {
     let image = new Image();
-    image.onload = function () {
-      let position = scalePixelPosition({ x: imageProps.offsetX, y: imageProps.offsetY });
+    image.onload = function() {
+      let position = scalePixelPosition({
+        x: imageProps.offsetX,
+        y: imageProps.offsetY
+      });
       let scale = imageProps.scalePercent / 100.0;
       let width = image.width * scale;
       let height = image.height * scale;
@@ -265,7 +316,7 @@ function readControls() {
     });
   });
 
-  for (let i=1; i <= 6; i++) {
+  for (let i = 1; i <= 6; i++) {
     data["objective" + i + "XValue"] = document.getElementById("objective" + i + "X").value;
     data["objective" + i + "YValue"] = document.getElementById("objective" + i + "Y").value;
     data["objective" + i + "Icon"] = document.getElementById("objective" + i + "Icon").value;
@@ -325,14 +376,14 @@ function renderFighterImage(missionData) {
     const image = new Image();
     image.onload = function() {
       const position = scalePixelPosition({
-        x: 160+ missionData.imageProperties.offsetX,
+        x: 160 + missionData.imageProperties.offsetX,
         y: 160 + missionData.imageProperties.offsetY
       });
       const scale = missionData.imageProperties.scalePercent / 100.0;
       const width = image.width * scale;
       const height = image.height * scale;
       getContext().drawImage(image, position.x, position.y, width, height);
-      if(true){
+      if (true) {
         //drawFrame();
         drawOverlayTexts(missionData);
         drawIcons();
@@ -344,7 +395,7 @@ function renderFighterImage(missionData) {
   } else {
     // Drawn if no image, or when file is loaded but no image included
     removeDeployment = document.getElementById("removeDeployment").checked;
-    if(true){
+    if (true) {
       //drawFrame();
       drawOverlayTexts(missionData);
       drawIcons();
@@ -403,7 +454,7 @@ async function writeControls(data) {
     });
   });
 
-  for (let i=1; i <= 6; i++) {
+  for (let i = 1; i <= 6; i++) {
     document.getElementById("objective" + i + "X").value = data["objective" + i + "XValue"];
     document.getElementById("objective" + i + "Y").value = data["objective" + i + "YValue"];
     document.getElementById("objective" + i + "Icon").value = data["objective" + i + "Icon"];
@@ -527,8 +578,7 @@ function loadLatestmissionData() {
   if (data) {
     console.log("Loaded data:");
     console.log(data);
-  }
-  else {
+  } else {
     console.log("Failed to load data - loading default");
     data = defaultCardData();
   }
@@ -695,7 +745,7 @@ async function onSaveClicked() {
   downloadAnchorNode.setAttribute("href", dataStr);
   file_name = "warcry_mission_";
   if (data.missionType != "") {
-    file_name = file_name + data.missionType.replace(/ /g, "_")+  "_";
+    file_name = file_name + data.missionType.replace(/ /g, "_") + "_";
   }
   file_name = file_name + data.missionName.replace(/ /g, "_") + ".json";
   downloadAnchorNode.setAttribute("download", file_name);
@@ -711,7 +761,7 @@ function saveCardAsImage() {
 
   file_name = "warcry_mission_";
   if (data.missionType != "") {
-    file_name = file_name + data.missionType.replace(/ /g, "_")+  "_";
+    file_name = file_name + data.missionType.replace(/ /g, "_") + "_";
   }
   file_name = file_name + data.missionName.replace(/ /g, "_") + ".png";
 
@@ -722,7 +772,7 @@ function saveCardAsImage() {
   document.body.removeChild(element);
 }
 
-$(document).ready(function () {
+$(document).ready(function() {
   let missionData = loadLatestmissionData();
   writeControls(missionData);
   refreshSaveSlots();
@@ -750,8 +800,8 @@ async function fileChange(file) {
   // As readJSONFile is a promise, it must resolve before the contents can be read
   // in this case logged to the console
 
-  let saveJson = function (json) {
-    json.customBackgroundUrl =  null;
+  let saveJson = function(json) {
+    json.customBackgroundUrl = null;
     if (typeof json.customBackgroundProperties === "undefined") {
       json.customBackgroundProperties = getDefaultModelImageProperties();
     }
@@ -832,16 +882,16 @@ function drawOverlayTexts(missionData) {
   drawBorder();
 }
 
-function drawMap(){
+function drawMap() {
   getContext().drawImage(document.getElementById('map'), 0, 0, getCanvas().width, getCanvas().height);
 }
 
-function drawIcon(name, x, y){
+function drawIcon(name, x, y) {
   newCoord = convertInchesToPixels(x, y);
   getContext().drawImage(document.getElementById(name), newCoord.x, newCoord.y, 70, 70);
 }
 
-function convertInchesToPixels(x_inches, y_inches){
+function convertInchesToPixels(x_inches, y_inches) {
   // X start is 173 and end is 173+352+352.
   // in inches that 704 = 30 inches. 704/30 = 23.46
   // y start is 162 and end is 162+ 252
@@ -850,10 +900,13 @@ function convertInchesToPixels(x_inches, y_inches){
   startY = 162;
   x = startX + x_inches * 23.46;
   y = startY + y_inches * 22.9;
-  return { x, y };
+  return {
+    x,
+    y
+  };
 }
 
-function convertInchesToPixelsLine(x_inches, y_inches){
+function convertInchesToPixelsLine(x_inches, y_inches) {
   // X start is 173 and end is 173+352+352.
   // in inches that 704 = 30 inches. 704/30 = 23.46
   // y start is 162 and end is 162+ 252
@@ -863,7 +916,10 @@ function convertInchesToPixelsLine(x_inches, y_inches){
   x = startX + (x_inches * 23.7);
   y = startY + (y_inches * 22.9);
 
-  return { x, y };
+  return {
+    x,
+    y
+  };
 }
 
 function drawThickLine(ctx, x1, y1, x2, y2, thickness, color = "black", arrowSize = 10) {
@@ -996,7 +1052,7 @@ function drawLinesFromCentre(XValue, YValue, Turn) {
     } else {
       drawThickLine(getContext(), 15, YValue, XValue, YValue, 6, color);
       if (XValue != 15) {
-        let value = (XValue-15) + '"';
+        let value = (XValue - 15) + '"';
         let newX = 15 + (XValue - 15) / 2;
         let point = convertInchesToPixelsLine(newX, YValue);
         writeScaledBorder(value, point.x, point.y + labelOffsetY);
@@ -1123,21 +1179,21 @@ function drawBorderLine(XValue, YValue, Turn) {
     if (XValue < 15) {
       drawThickLine(getContext(), 0, 0, 15, 0, 6, color, arrowSize);
       // Left perpendicular cap
-      drawThickLine(getContext(), 0, 0-.4, 0, 0+.4, 6, color, arrowSize);
+      drawThickLine(getContext(), 0, 0 - .4, 0, 0 + .4, 6, color, arrowSize);
       // Right perpendicular cap
-      drawThickLine(getContext(), 15, 0-.4, 15, 0+.4, 6, color, arrowSize);
+      drawThickLine(getContext(), 15, 0 - .4, 15, 0 + .4, 6, color, arrowSize);
     } else if (XValue > 15) {
       drawThickLine(getContext(), 15, 0, 30, 0, 6, color, arrowSize);
       // Left perpendicular cap
-      drawThickLine(getContext(), 15, 0-.4, 15, 0+.4, 6, color, arrowSize);
+      drawThickLine(getContext(), 15, 0 - .4, 15, 0 + .4, 6, color, arrowSize);
       // Right perpendicular cap
-      drawThickLine(getContext(), 30, 0-.4, 30, 0+.4, 6, color, arrowSize);
+      drawThickLine(getContext(), 30, 0 - .4, 30, 0 + .4, 6, color, arrowSize);
     } else if (XValue == 15) {
       drawThickLine(getContext(), 0, 0, 30, 0, 6, color, arrowSize);
       // Left perpendicular cap
-      drawThickLine(getContext(), 0, 0-.4, 0, 0+.4, 6, color, arrowSize);
+      drawThickLine(getContext(), 0, 0 - .4, 0, 0 + .4, 6, color, arrowSize);
       // Right perpendicular cap
-      drawThickLine(getContext(), 30, 0-.4, 30, 0+.4, 6, color, arrowSize);
+      drawThickLine(getContext(), 30, 0 - .4, 30, 0 + .4, 6, color, arrowSize);
     }
   }
 
@@ -1145,21 +1201,21 @@ function drawBorderLine(XValue, YValue, Turn) {
     if (XValue < 15) {
       drawThickLine(getContext(), 0, 22, 15, 22, 6, color, arrowSize);
       // Left perpendicular cap
-      drawThickLine(getContext(), 0, 22-.4, 0, 22+.4, 6, color, arrowSize);
+      drawThickLine(getContext(), 0, 22 - .4, 0, 22 + .4, 6, color, arrowSize);
       // Right perpendicular cap
-      drawThickLine(getContext(), 15, 22-.4, 15, 22+.4, 6, color, arrowSize);
+      drawThickLine(getContext(), 15, 22 - .4, 15, 22 + .4, 6, color, arrowSize);
     } else if (XValue > 15) {
       drawThickLine(getContext(), 15, 22, 30, 22, 6, color, arrowSize);
       // Left perpendicular cap
-      drawThickLine(getContext(), 15, 22-.4, 15, 22+.4, 6, color, arrowSize);
+      drawThickLine(getContext(), 15, 22 - .4, 15, 22 + .4, 6, color, arrowSize);
       // Right perpendicular cap
-      drawThickLine(getContext(), 30, 22-.4, 30, 22+.4, 6, color, arrowSize);
+      drawThickLine(getContext(), 30, 22 - .4, 30, 22 + .4, 6, color, arrowSize);
     } else if (XValue == 15) {
       drawThickLine(getContext(), 0, 22, 30, 22, 6, color, arrowSize);
       // Left perpendicular cap
-      drawThickLine(getContext(), 0, 22-.4, 0, 22+.4, 6, color, arrowSize);
+      drawThickLine(getContext(), 0, 22 - .4, 0, 22 + .4, 6, color, arrowSize);
       // Right perpendicular cap
-      drawThickLine(getContext(), 30, 22-.4, 30, 22+.4, 6, color, arrowSize);
+      drawThickLine(getContext(), 30, 22 - .4, 30, 22 + .4, 6, color, arrowSize);
     }
   }
 
@@ -1167,21 +1223,21 @@ function drawBorderLine(XValue, YValue, Turn) {
     if (YValue < 11) {
       drawThickLine(getContext(), 0, 0, 0, 11, 6, color, arrowSize);
       // Top perpendicular cap
-      drawThickLine(getContext(), 0-.4, 0, 0+.4, 0, 6, color, arrowSize);
+      drawThickLine(getContext(), 0 - .4, 0, 0 + .4, 0, 6, color, arrowSize);
       // Bottom perpendicular cap
-      drawThickLine(getContext(), 0-.4, 11, 0+.4, 11, 6, color, arrowSize);
+      drawThickLine(getContext(), 0 - .4, 11, 0 + .4, 11, 6, color, arrowSize);
     } else if (YValue > 11) {
       drawThickLine(getContext(), 0, 11, 0, 22, 6, color, arrowSize);
       // Top perpendicular cap
-      drawThickLine(getContext(), 0-.4, 11, 0+.4, 11, 6, color, arrowSize);
+      drawThickLine(getContext(), 0 - .4, 11, 0 + .4, 11, 6, color, arrowSize);
       // Bottom perpendicular cap
-      drawThickLine(getContext(), 0-.4, 22, 0+.4, 22, 6, color, arrowSize);
+      drawThickLine(getContext(), 0 - .4, 22, 0 + .4, 22, 6, color, arrowSize);
     } else if (YValue == 11) {
       drawThickLine(getContext(), 0, 0, 0, 22, 6, color, arrowSize);
       // Top perpendicular cap
-      drawThickLine(getContext(), 0-.4, 0, 0+.4, 0, 6, color, arrowSize);
+      drawThickLine(getContext(), 0 - .4, 0, 0 + .4, 0, 6, color, arrowSize);
       // Bottom perpendicular cap
-      drawThickLine(getContext(), 0-.4, 22, 0+.4, 22, 6, color, arrowSize);
+      drawThickLine(getContext(), 0 - .4, 22, 0 + .4, 22, 6, color, arrowSize);
     }
   }
 
@@ -1190,21 +1246,21 @@ function drawBorderLine(XValue, YValue, Turn) {
       // Original line
       drawThickLine(getContext(), 30, 0, 30, 11, 6, color, arrowSize);
       // Top perpendicular cap
-      drawThickLine(getContext(), 30-.4, 0, 30+.4, 0, 6, color, arrowSize);
+      drawThickLine(getContext(), 30 - .4, 0, 30 + .4, 0, 6, color, arrowSize);
       // Bottom perpendicular cap
-      drawThickLine(getContext(), 30-.4, 11, 30+.4, 11, 6, color, arrowSize);
+      drawThickLine(getContext(), 30 - .4, 11, 30 + .4, 11, 6, color, arrowSize);
     } else if (YValue > 11) {
       drawThickLine(getContext(), 30, 11, 30, 22, 6, color, arrowSize);
       // Top perpendicular cap
-      drawThickLine(getContext(), 30-.4, 11, 30+.4, 11, 6, color, arrowSize);
+      drawThickLine(getContext(), 30 - .4, 11, 30 + .4, 11, 6, color, arrowSize);
       // Bottom perpendicular cap
-      drawThickLine(getContext(), 30-.4, 22, 30+.4, 22, 6, color, arrowSize);
+      drawThickLine(getContext(), 30 - .4, 22, 30 + .4, 22, 6, color, arrowSize);
     } else if (YValue == 11) {
       drawThickLine(getContext(), 30, 0, 30, 22, 6, color, arrowSize);
       // Top perpendicular cap
-      drawThickLine(getContext(), 30-.4, 0, 30+.4, 0, 6, color, arrowSize);
+      drawThickLine(getContext(), 30 - .4, 0, 30 + .4, 0, 6, color, arrowSize);
       // Bottom perpendicular cap
-      drawThickLine(getContext(), 30-.4, 22, 30+.4, 22, 6, color, arrowSize);
+      drawThickLine(getContext(), 30 - .4, 22, 30 + .4, 22, 6, color, arrowSize);
     }
   }
 
@@ -1231,45 +1287,84 @@ function drawTurnLabel(XValue, YValue, turn) {
 
 function writeScaledBorder(value, startX, startY) {
   getContext().fillStyle = 'white';
-  writeScaled(value, { x: startX+1, y: startY });
-  writeScaled(value, { x: startX, y: startY+1 });
-  writeScaled(value, { x: startX+1, y: startY+1 });
-  writeScaled(value, { x: startX-1, y: startY });
-  writeScaled(value, { x: startX, y: startY-1 });
-  writeScaled(value, { x: startX-1, y: startY-1 });
+  writeScaled(value, {
+    x: startX + 1,
+    y: startY
+  });
+  writeScaled(value, {
+    x: startX,
+    y: startY + 1
+  });
+  writeScaled(value, {
+    x: startX + 1,
+    y: startY + 1
+  });
+  writeScaled(value, {
+    x: startX - 1,
+    y: startY
+  });
+  writeScaled(value, {
+    x: startX,
+    y: startY - 1
+  });
+  writeScaled(value, {
+    x: startX - 1,
+    y: startY - 1
+  });
   getContext().fillStyle = 'black';
-  writeScaled(value, { x: startX, y: startY });
+  writeScaled(value, {
+    x: startX,
+    y: startY
+  });
 }
 
-function drawIcons(){
+function drawIcons() {
   isOrientationChecked = document.getElementById("orientation").checked;
-  if(isOrientationChecked){
+  if (isOrientationChecked) {
     // Orientation Runemark
-    if(document.getElementById("white").checked){
+    if (document.getElementById("white").checked) {
       imgElement = document.getElementById("orientation_icon_white");
     } else {
       imgElement = document.getElementById("orientation_icon");
     }
     imageSrc = imgElement.src;
-    position = scalePixelPosition({ x: 80, y: 75 });
-    size = scalePixelPosition({ x: 80, y: 80 });
+    position = scalePixelPosition({
+      x: 80,
+      y: 75
+    });
+    size = scalePixelPosition({
+      x: 80,
+      y: 80
+    });
     drawImageSrc(position, size, imageSrc);
 
-    position = scalePixelPosition({ x: 950, y: 75 });
-    size = scalePixelPosition({ x: 80, y: 80 });
+    position = scalePixelPosition({
+      x: 950,
+      y: 75
+    });
+    size = scalePixelPosition({
+      x: 80,
+      y: 80
+    });
     drawImageSrc(position, size, imageSrc);
   }
   isSymmetricalChecked = document.getElementById("symmetrical").checked;
-  if(isSymmetricalChecked){
+  if (isSymmetricalChecked) {
     // Symmetrical runemark
-    if(document.getElementById("white").checked){
+    if (document.getElementById("white").checked) {
       imgElement = document.getElementById("symmetrical_icon_white");
     } else {
       imgElement = document.getElementById("symmetrical_icon");
     }
     imageSrc = imgElement.src;
-    position = scalePixelPosition({ x: 80, y: 650 });
-    size = scalePixelPosition({ x: 80, y: 80 });
+    position = scalePixelPosition({
+      x: 80,
+      y: 650
+    });
+    size = scalePixelPosition({
+      x: 80,
+      y: 80
+    });
     drawImageSrc(position, size, imageSrc);
   }
 }
@@ -1298,8 +1393,7 @@ function splitWordWrap(context, text, fitWidth) {
         lineNum++;
         words = words.splice(idx - 1);
         idx = 1;
-      }
-      else {
+      } else {
         idx++;
       }
     }
@@ -1311,11 +1405,11 @@ function splitWordWrap(context, text, fitWidth) {
   return return_array;
 }
 
-function drawText(){
+function drawText() {
   cardText = document.getElementById("textValue").value;
 
   getContext().font = '32px Georgia, serif';
-  if(document.getElementById("white").checked){
+  if (document.getElementById("white").checked) {
     getContext().fillStyle = 'white';
   } else {
     getContext().fillStyle = 'black';
@@ -1409,7 +1503,7 @@ function drawDeployment() {
   let components = [];
 
   // Treasure and Objectives
-  for (let i=1; i <= 6; i++) {
+  for (let i = 1; i <= 6; i++) {
     let xValue = document.getElementById("objective" + i + "X").value;
     let yValue = document.getElementById("objective" + i + "Y").value;
     let icon = document.getElementById("objective" + i + "Icon").value;
@@ -1486,11 +1580,11 @@ function drawDeployment() {
 }
 
 function camelToSnake(str) {
-  return str.replace(/([a-zA-Z])(?=[A-Z])/g,'$1_').toLowerCase()
+  return str.replace(/([a-zA-Z])(?=[A-Z])/g, '$1_').toLowerCase()
 }
 
 function titelize(str) {
-  const b = str.substr(0,4).normalize();
+  const b = str.substr(0, 4).normalize();
   return b[0].toUpperCase() + b.substr(1) + str.substr(4);
 }
 
