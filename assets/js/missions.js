@@ -1,7 +1,7 @@
 const GROUPS = ["Shield", "Dagger", "Hammer"];
 const COLOURS = ["red", "blue"];
 
-const writeValue = function(ctx, value, position) {
+function writeValue(ctx, value, position) {
   if (!ctx || typeof ctx.fillText !== 'function') {
     throw new Error('Invalid canvas context');
   }
@@ -18,18 +18,18 @@ const writeValue = function(ctx, value, position) {
   ctx.fillText(value, scaledPosition.x, scaledPosition.y);
 };
 
-getScalingFactor = function (canvas, warcryCardOne) {
+function getScalingFactor(canvas, warcryCardOne) {
   return {
     x: canvas.width / warcryCardOne.width,
     y: canvas.height / warcryCardOne.height
   };
 }
 
-getCanvas = function () {
+function getCanvas() {
   return document.getElementById("canvas");
 }
 
-getContext = function () {
+function getContext() {
   return getCanvas().getContext("2d");
 }
 
@@ -61,33 +61,33 @@ function getBackgroundImage() {
   return document.getElementById(backgroundImageId);
 }
 
-drawBorder = function () {
+function drawBorder() {
   if(!document.getElementById("removeBorder").checked){
     getContext().drawImage(document.getElementById('card-border'), 0, 0, getCanvas().width, getCanvas().height);
   }
 }
 
-scalePixelPosition = function (pixelPosition) {
+function scalePixelPosition(pixelPosition) {
   var scalingFactor = getScalingFactor(getCanvas(), getBackgroundImage());
   var scaledPosition = { x: pixelPosition.x * scalingFactor.x, y: pixelPosition.y * scalingFactor.y };
   return scaledPosition;
 }
 
-writeScaled = function (value, pixelPos) {
+function writeScaled(value, pixelPos) {
   var scaledPos = scalePixelPosition(pixelPos);
   writeValue(getContext(), value, scaledPos);
 }
 
-drawCardElementFromInput = function (inputElement, pixelPosition) {
+function drawCardElementFromInput(inputElement, pixelPosition) {
   var value = inputElement.value;
   writeScaled(value, pixelPosition);
 }
 
-drawCardElementFromInputId = function (inputId, pixelPosition) {
+function drawCardElementFromInputId(inputId, pixelPosition) {
   drawCardElementFromInput(document.getElementById(inputId), pixelPosition);
 }
 
-drawMissionName = function (value) {
+function drawMissionName(value) {
   startX = 1122/2;
   startY = 140;
   if (document.getElementById('background-list').value === 'bg-13') {
@@ -117,7 +117,7 @@ drawMissionName = function (value) {
   writeScaled(value, { x: startX, y: startY });
 }
 
-drawMissionType = function (value) {
+function drawMissionType(value) {
   startX = 1122/2;
   startY = 90;
   if (document.getElementById('background-list').value === 'bg-13') {
@@ -283,7 +283,7 @@ function readControls() {
   return data;
 }
 
-const render = function(missionData) {
+function render(missionData) {
   if (missionData.customBackgroundUrl) {
     renderCustomBackground(missionData);
   } else {
@@ -291,7 +291,7 @@ const render = function(missionData) {
   }
 }
 
-const renderCustomBackground = function(missionData) {
+function renderCustomBackground(missionData) {
   const backgroundImage = new Image();
   backgroundImage.onload = function() {
     const position = scalePixelPosition({
@@ -311,7 +311,7 @@ const renderCustomBackground = function(missionData) {
   backgroundImage.src = missionData.customBackgroundUrl;
 };
 
-const renderDefaultBackground = function(missionData) {
+function renderDefaultBackground(missionData) {
   getContext().drawImage(getBackgroundImage(), 0, 0, getCanvas().width, getCanvas().height);
   drawBorder();
   renderFighterImage(missionData);
@@ -320,7 +320,7 @@ const renderDefaultBackground = function(missionData) {
   drawIcons();
 };
 
-const renderFighterImage = function(missionData) {
+function renderFighterImage(missionData) {
   if (missionData.imageUrl) {
     const image = new Image();
     image.onload = function() {
@@ -616,13 +616,13 @@ function validateInput(input) {
   return regex.test(input);
 }
 
-onAnyChange = function () {
+function onAnyChange() {
   var missionData = readControls();
   render(missionData);
   saveLatestmissionData();
 }
 
-onFighterImageUpload = function () {
+function onFighterImageUpload() {
   image = getModelImage();
   setModelImage(image);
   var missionData = readControls();
@@ -816,7 +816,7 @@ function setCustomBackground(image) {
   $("#customBackgroundUrl")[0].value = image;
 }
 
-onCustomBackgroundUpload = function () {
+function onCustomBackgroundUpload() {
   image = getCustomBackground();
   setCustomBackground(image);
   var missionData = readControls();
