@@ -864,14 +864,9 @@ function getCustomBackgroundUrl() {
 }
 
 function drawOverlayTexts(missionData) {
-  const {
-    missionName,
-    missionType
-  } = missionData;
-
   // These are the texts to overlay
-  drawMissionName(missionName);
-  drawMissionType(missionType);
+  drawMissionName(missionData.missionName);
+  drawMissionType(missionData.missionType);
 
   drawBorder();
 }
