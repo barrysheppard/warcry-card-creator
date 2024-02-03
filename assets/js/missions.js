@@ -1268,7 +1268,19 @@ function drawTurnLabel(XValue, YValue, turn) {
   } else if (XValue == 30) {
     xOffset = 50;
   }
-  if (YValue == 0 || (YValue > 5 && YValue < 12) || (YValue > 16 && YValue < 22)) {
+  if (XValue == 0) {
+  writeScaledBorder(label, point.x - 20 + xOffset, point.y);
+  } else if (XValue == 30) {
+  writeScaledBorder(label, point.x + 20 + xOffset, point.y);
+  } else if (YValue == 0 && XValue == 0) {
+    writeScaledBorder(label, point.x + xOffset + 120, point.y - 20);
+  } else if (YValue == 0 && XValue < 16) {
+    writeScaledBorder(label, point.x + xOffset + 60, point.y - 20);
+  } else if (YValue == 0 && XValue == 30) {
+    writeScaledBorder(label, point.x + xOffset - 120, point.y - 20);
+  } else if (YValue == 0 && XValue > 15) {
+    writeScaledBorder(label, point.x + xOffset - 60, point.y - 20);
+  } else if ((YValue > 5 && YValue < 12) || (YValue > 16 && YValue < 22)) {
     writeScaledBorder(label, point.x + xOffset, point.y - 40);
   } else {
     writeScaledBorder(label, point.x + xOffset, point.y + 40);
