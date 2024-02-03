@@ -61,6 +61,11 @@ function getBackgroundImage() {
   return document.getElementById(backgroundImageId);
 }
 
+function getMapImage() {
+  const mapImageId = document.getElementById('map-list').value || "map";
+  return document.getElementById(mapImageId);
+}
+
 function drawBorder() {
   if (!document.getElementById("removeBorder").checked) {
     getContext().drawImage(document.getElementById('card-border'), 0, 0, getCanvas().width, getCanvas().height);
@@ -285,6 +290,7 @@ function readControls() {
   data.missionName = document.getElementById("missionName").value;
   data.missionType = document.getElementById("missionType").value;
   data.bgselected = document.getElementById('background-list').value;
+  data.map = document.getElementById('map-list').value;
 
   COLOURS.forEach(colour => {
     data["remove" + titelize(colour) + "Deployment"] = document.getElementById("remove" + titelize(colour) + "Deployment").checked;
@@ -425,6 +431,7 @@ async function writeControls(data) {
   // check and uncheck if needed
 
   document.getElementById('background-list').value = data.bgselected;
+  document.getElementById('map-list').value = data.map;
 
   COLOURS.forEach(colour => {
     document.getElementById("remove" + titelize(colour) + "Deployment").checked = data["remove" + titelize(colour) + "Deployment"];
@@ -867,7 +874,7 @@ function drawOverlayTexts(missionData) {
 }
 
 function drawMap() {
-  getContext().drawImage(document.getElementById('map'), 0, 0, getCanvas().width, getCanvas().height);
+  getContext().drawImage(getMapImage(), 0, 0, getCanvas().width, getCanvas().height);
 }
 
 function drawIcon(name, x, y) {
