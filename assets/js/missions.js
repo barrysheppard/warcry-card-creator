@@ -492,19 +492,19 @@ function defaultmissionData() {
   data.blueHammerYValue = 17;
   data.blueHammerLine = false;
   data.blueHammerTurn = 1;
-  data.blueHammerRenderMode = 'edge';
+  data.blueHammerRenderMode = 'short';
 
   data.blueShieldXValue = 15;
   data.blueShieldYValue = 15;
   data.blueShieldLine = false;
   data.blueShieldTurn = 1;
-  data.blueShieldRenderMode = 'edge';
+  data.blueShieldRenderMode = 'short';
 
   data.blueDaggerXValue = 6;
   data.blueDaggerYValue = 17;
   data.blueDaggerLine = false;
   data.blueDaggerTurn = 1;
-  data.blueDaggerRenderMode = 'edge';
+  data.blueDaggerRenderMode = 'short';
 
   data.removeBlueDeployment = false;
 
@@ -512,19 +512,19 @@ function defaultmissionData() {
   data.redHammerYValue = 5;
   data.redHammerLine = false;
   data.redHammerTurn = 1;
-  data.redHammerRenderMode = 'edge';
+  data.redHammerRenderMode = 'short';
 
   data.redShieldXValue = 15;
   data.redShieldYValue = 7;
   data.redShieldLine = false;
   data.redShieldTurn = 1;
-  data.redShieldRenderMode = 'edge';
+  data.redShieldRenderMode = 'short';
 
   data.redDaggerXValue = 6
   data.redDaggerYValue = 5;
   data.redDaggerLine = false;
   data.redDaggerTurn = 1;
-  data.redDaggerRenderMode = 'edge';
+  data.redDaggerRenderMode = 'short';
 
   data.removeRedDeployment = false;
 
