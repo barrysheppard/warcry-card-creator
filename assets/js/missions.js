@@ -983,13 +983,7 @@ function drawLines(XValue, YValue, Turn) {
   }
 
   if (Turn > 1) {
-    let point = convertInchesToPixelsLine(XValue, YValue);
-    let label = "Rnd " + Turn;
-    if (YValue < 11) {
-      writeScaledBorder(label, point.x, point.y + 40)
-    } else {
-      writeScaledBorder(label, point.x, point.y - 40)
-    }
+    drawTurnLabel(XValue, YValue, Turn);
   }
 }
 
@@ -1043,13 +1037,7 @@ function drawLinesFromCentre(XValue, YValue, Turn) {
   }
 
   if (Turn > 1) {
-    let label = "Rnd " + Turn;
-    let point = convertInchesToPixelsLine(XValue, YValue);
-    if (YValue < 11) {
-      writeScaledBorder(label, point.x, point.y + 40);
-    } else {
-      writeScaledBorder(label, point.x, point.y - 40);
-    }
+    drawTurnLabel(XValue, YValue, Turn);
   }
 }
 
@@ -1131,13 +1119,121 @@ function drawLinesShort(XValue, YValue, Turn) {
   }
 
   if (Turn > 1) {
-    let point = convertInchesToPixelsLine(XValue, YValue);
-    let label = "Rnd " + Turn;
-    if ((YValue > 5 && YValue < 12) || YValue > 16) {
-      writeScaledBorder(label, point.x, point.y - 40);
-    } else {
-      writeScaledBorder(label, point.x, point.y + 40);
+    drawTurnLabel(XValue, YValue, Turn);
+  }
+}
+
+function drawBorderLine(XValue, YValue, Turn) {
+  let color = "black";
+  let arrowSize = 0;
+
+  if (YValue == 0) {
+    if (XValue < 15) {
+      drawThickLine(getContext(), 0, 0, 15, 0, 6, color, arrowSize);
+      // Left perpendicular cap
+      drawThickLine(getContext(), 0, 0-.4, 0, 0+.4, 6, color, arrowSize);
+      // Right perpendicular cap
+      drawThickLine(getContext(), 15, 0-.4, 15, 0+.4, 6, color, arrowSize);
+    } else if (XValue > 15) {
+      drawThickLine(getContext(), 15, 0, 30, 0, 6, color, arrowSize);
+      // Left perpendicular cap
+      drawThickLine(getContext(), 15, 0-.4, 15, 0+.4, 6, color, arrowSize);
+      // Right perpendicular cap
+      drawThickLine(getContext(), 30, 0-.4, 30, 0+.4, 6, color, arrowSize);
+    } else if (XValue == 15) {
+      drawThickLine(getContext(), 0, 0, 30, 0, 6, color, arrowSize);
+      // Left perpendicular cap
+      drawThickLine(getContext(), 0, 0-.4, 0, 0+.4, 6, color, arrowSize);
+      // Right perpendicular cap
+      drawThickLine(getContext(), 30, 0-.4, 30, 0+.4, 6, color, arrowSize);
     }
+  }
+
+  if (YValue == 22) {
+    if (XValue < 15) {
+      drawThickLine(getContext(), 0, 22, 15, 22, 6, color, arrowSize);
+      // Left perpendicular cap
+      drawThickLine(getContext(), 0, 22-.4, 0, 22+.4, 6, color, arrowSize);
+      // Right perpendicular cap
+      drawThickLine(getContext(), 15, 22-.4, 15, 22+.4, 6, color, arrowSize);
+    } else if (XValue > 15) {
+      drawThickLine(getContext(), 15, 22, 30, 22, 6, color, arrowSize);
+      // Left perpendicular cap
+      drawThickLine(getContext(), 15, 22-.4, 15, 22+.4, 6, color, arrowSize);
+      // Right perpendicular cap
+      drawThickLine(getContext(), 30, 22-.4, 30, 22+.4, 6, color, arrowSize);
+    } else if (XValue == 15) {
+      drawThickLine(getContext(), 0, 22, 30, 22, 6, color, arrowSize);
+      // Left perpendicular cap
+      drawThickLine(getContext(), 0, 22-.4, 0, 22+.4, 6, color, arrowSize);
+      // Right perpendicular cap
+      drawThickLine(getContext(), 30, 22-.4, 30, 22+.4, 6, color, arrowSize);
+    }
+  }
+
+  if (XValue == 0) {
+    if (YValue < 11) {
+      drawThickLine(getContext(), 0, 0, 0, 11, 6, color, arrowSize);
+      // Top perpendicular cap
+      drawThickLine(getContext(), 0-.4, 0, 0+.4, 0, 6, color, arrowSize);
+      // Bottom perpendicular cap
+      drawThickLine(getContext(), 0-.4, 11, 0+.4, 11, 6, color, arrowSize);
+    } else if (YValue > 11) {
+      drawThickLine(getContext(), 0, 11, 0, 22, 6, color, arrowSize);
+      // Top perpendicular cap
+      drawThickLine(getContext(), 0-.4, 11, 0+.4, 11, 6, color, arrowSize);
+      // Bottom perpendicular cap
+      drawThickLine(getContext(), 0-.4, 22, 0+.4, 22, 6, color, arrowSize);
+    } else if (YValue == 11) {
+      drawThickLine(getContext(), 0, 0, 0, 22, 6, color, arrowSize);
+      // Top perpendicular cap
+      drawThickLine(getContext(), 0-.4, 0, 0+.4, 0, 6, color, arrowSize);
+      // Bottom perpendicular cap
+      drawThickLine(getContext(), 0-.4, 22, 0+.4, 22, 6, color, arrowSize);
+    }
+  }
+
+  if (XValue == 30) {
+    if (YValue < 11) {
+      // Original line
+      drawThickLine(getContext(), 30, 0, 30, 11, 6, color, arrowSize);
+      // Top perpendicular cap
+      drawThickLine(getContext(), 30-.4, 0, 30+.4, 0, 6, color, arrowSize);
+      // Bottom perpendicular cap
+      drawThickLine(getContext(), 30-.4, 11, 30+.4, 11, 6, color, arrowSize);
+    } else if (YValue > 11) {
+      drawThickLine(getContext(), 30, 11, 30, 22, 6, color, arrowSize);
+      // Top perpendicular cap
+      drawThickLine(getContext(), 30-.4, 11, 30+.4, 11, 6, color, arrowSize);
+      // Bottom perpendicular cap
+      drawThickLine(getContext(), 30-.4, 22, 30+.4, 22, 6, color, arrowSize);
+    } else if (YValue == 11) {
+      drawThickLine(getContext(), 30, 0, 30, 22, 6, color, arrowSize);
+      // Top perpendicular cap
+      drawThickLine(getContext(), 30-.4, 0, 30+.4, 0, 6, color, arrowSize);
+      // Bottom perpendicular cap
+      drawThickLine(getContext(), 30-.4, 22, 30+.4, 22, 6, color, arrowSize);
+    }
+  }
+
+  if (Turn > 1) {
+    drawTurnLabel(XValue, YValue, Turn);
+  }
+}
+
+function drawTurnLabel(XValue, YValue, turn) {
+  let point = convertInchesToPixelsLine(XValue, YValue);
+  let label = "Rnd " + turn;
+  let xOffset = 0;
+  if (XValue == 0) {
+    xOffset = -50;
+  } else if (XValue == 30) {
+    xOffset = 50;
+  }
+  if (YValue == 0 || (YValue > 5 && YValue < 12) || (YValue > 16 && YValue < 22)) {
+    writeScaledBorder(label, point.x + xOffset, point.y - 40);
+  } else {
+    writeScaledBorder(label, point.x + xOffset, point.y + 40);
   }
 }
 
@@ -1152,113 +1248,6 @@ function writeScaledBorder(value, startX, startY) {
     getContext().fillStyle = 'black';
     writeScaled(value, { x: startX, y: startY });
 }
-
-function drawBorderLine(XValue, YValue, Turn) {
-
-    if(YValue == 0){
-        if(XValue < 15){
-            drawThickLine(getContext(), 0, 0, 15, 0, 6, color="black", arrowSize=0)
-            // Left perpendicular cap
-            drawThickLine(getContext(), 0, 0-.4, 0, 0+.4, 6, color="black", arrowSize=0);
-            // Right perpendicular cap
-            drawThickLine(getContext(), 15, 0-.4, 15, 0+.4, 6, color="black", arrowSize=0);
-        } else if (XValue > 15){
-            drawThickLine(getContext(), 15, 0, 30, 0, 6, color="black", arrowSize=0);
-            // Left perpendicular cap
-            drawThickLine(getContext(), 15, 0-.4, 15, 0+.4, 6, color="black", arrowSize=0);
-            // Right perpendicular cap
-            drawThickLine(getContext(), 30, 0-.4, 30, 0+.4, 6, color="black", arrowSize=0);
-        } else if (XValue == 15){
-            drawThickLine(getContext(), 0, 0, 30, 0, 6, color="black", arrowSize=0);
-            // Left perpendicular cap
-            drawThickLine(getContext(), 0, 0-.4, 0, 0+.4, 6, color="black", arrowSize=0);
-            // Right perpendicular cap
-            drawThickLine(getContext(), 30, 0-.4, 30, 0+.4, 6, color="black", arrowSize=0);
-        }
-    }
-
-    if(YValue == 22){
-        if(XValue < 15){
-            drawThickLine(getContext(), 0, 22, 15, 22, 6, color="black", arrowSize=0)
-            // Left perpendicular cap
-            drawThickLine(getContext(), 0, 22-.4, 0, 22+.4, 6, color="black", arrowSize=0);
-            // Right perpendicular cap
-            drawThickLine(getContext(), 15, 22-.4, 15, 22+.4, 6, color="black", arrowSize=0);
-        } else if (XValue > 15){
-            drawThickLine(getContext(), 15, 22, 30, 22, 6, color="black", arrowSize=0)
-            // Left perpendicular cap
-            drawThickLine(getContext(), 15, 22-.4, 15, 22+.4, 6, color="black", arrowSize=0);
-            // Right perpendicular cap
-            drawThickLine(getContext(), 30, 22-.4, 30, 22+.4, 6, color="black", arrowSize=0);
-        } else if (XValue == 15){
-            drawThickLine(getContext(), 0, 22, 30, 22, 6, color="black", arrowSize=0)
-            // Left perpendicular cap
-            drawThickLine(getContext(), 0, 22-.4, 0, 22+.4, 6, color="black", arrowSize=0);
-            // Right perpendicular cap
-            drawThickLine(getContext(), 30, 22-.4, 30, 22+.4, 6, color="black", arrowSize=0);
-        }
-    }
-
-    if(XValue == 0){
-        if(YValue < 11){
-            drawThickLine(getContext(), 0, 0, 0, 11, 6, color="black", arrowSize=0)
-            // Top perpendicular cap
-            drawThickLine(getContext(), 0-.4, 0, 0+.4, 0, 6, color="black", arrowSize=0);
-            // Bottom perpendicular cap
-            drawThickLine(getContext(), 0-.4, 11, 0+.4, 11, 6, color="black", arrowSize=0);
-        } else if (YValue > 11){
-            drawThickLine(getContext(), 0, 11, 0, 22, 6, color="black", arrowSize=0)
-            // Top perpendicular cap
-            drawThickLine(getContext(), 0-.4, 11, 0+.4, 11, 6, color="black", arrowSize=0);
-            // Bottom perpendicular cap
-            drawThickLine(getContext(), 0-.4, 22, 0+.4, 22, 6, color="black", arrowSize=0);
-        } else if (YValue == 11){
-            drawThickLine(getContext(), 0, 0, 0, 22, 6, color="black", arrowSize=0)
-            // Top perpendicular cap
-            drawThickLine(getContext(), 0-.4, 0, 0+.4, 0, 6, color="black", arrowSize=0);
-            // Bottom perpendicular cap
-            drawThickLine(getContext(), 0-.4, 22, 0+.4, 22, 6, color="black", arrowSize=0);
-        }
-    }
-
-    if(XValue == 30){
-        if(YValue < 11){
-            // Original line
-            drawThickLine(getContext(), 30, 0, 30, 11, 6, color="black", arrowSize=0);
-            // Top perpendicular cap
-            drawThickLine(getContext(), 30-.4, 0, 30+.4, 0, 6, color="black", arrowSize=0);
-            // Bottom perpendicular cap
-            drawThickLine(getContext(), 30-.4, 11, 30+.4, 11, 6, color="black", arrowSize=0);
-        } else if (YValue > 11){
-            drawThickLine(getContext(), 30, 11, 30, 22, 6, color="black", arrowSize=0)
-            // Top perpendicular cap
-            drawThickLine(getContext(), 30-.4, 11, 30+.4, 11, 6, color="black", arrowSize=0);
-            // Bottom perpendicular cap
-            drawThickLine(getContext(), 30-.4, 22, 30+.4, 22, 6, color="black", arrowSize=0);
-        } else if (YValue == 11){
-            drawThickLine(getContext(), 30, 0, 30, 22, 6, color="black", arrowSize=0)
-            // Top perpendicular cap
-            drawThickLine(getContext(), 30-.4, 0, 30+.4, 0, 6, color="black", arrowSize=0);
-            // Bottom perpendicular cap
-            drawThickLine(getContext(), 30-.4, 22, 30+.4, 22, 6, color="black", arrowSize=0);
-        }
-    }
-
-    if(Turn > 1) {
-        x = convertInchesToPixelsLine(XValue, YValue).x
-        value = "Rnd " + Turn.toString()
-        if(YValue<11){
-            y = convertInchesToPixelsLine(XValue, YValue).y + 40
-            writeScaledBorder(value, x, y);
-        } else {
-            y = convertInchesToPixelsLine(XValue, YValue).y - 40
-            writeScaledBorder(value, x, y);
-        }
-
-    }
-
-}
-
 
 function drawIcons(){
 
