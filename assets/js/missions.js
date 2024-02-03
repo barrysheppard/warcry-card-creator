@@ -448,7 +448,7 @@ async function writeControls(data) {
     document.getElementById("remove" + titelize(colour) + "Deployment").checked = data["remove" + titelize(colour) + "Deployment"];
 
     GROUPS.forEach(group => {
-      document.getElementById(colour + group + "RenderMode").value = data[colour + group + "RenderMode"] || "edge";
+      document.getElementById(colour + group + "RenderMode").value = data[colour + group + "RenderMode"] || "short";
       document.getElementById(colour + group + "X").value = data[colour + group + "XValue"];
       document.getElementById(colour + group + "Y").value = data[colour + group + "YValue"];
       document.getElementById(colour + group + "Turn").value = data[colour + group + "Turn"];
@@ -459,7 +459,7 @@ async function writeControls(data) {
     document.getElementById("objective" + i + "X").value = data["objective" + i + "XValue"];
     document.getElementById("objective" + i + "Y").value = data["objective" + i + "YValue"];
     document.getElementById("objective" + i + "Icon").value = data["objective" + i + "Icon"];
-    document.getElementById("objective" + i + "RenderMode").value = data["objective" + i + "RenderMode"] || "edge";
+    document.getElementById("objective" + i + "RenderMode").value = data["objective" + i + "RenderMode"] || "short";
   }
 
   document.getElementById("removeBorder").checked = data.removeBorder;
