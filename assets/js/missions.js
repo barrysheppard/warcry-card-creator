@@ -335,6 +335,7 @@ function readControls() {
 }
 
 function render(missionData) {
+  console.log(missionData);
   if (missionData.customBackgroundUrl) {
     renderCustomBackground(missionData);
   } else {
@@ -491,16 +492,19 @@ function defaultmissionData() {
   data.blueHammerYValue = 17;
   data.blueHammerLine = false;
   data.blueHammerTurn = 1;
+  data.blueHammerRenderMode = 'edge';
 
   data.blueShieldXValue = 15;
   data.blueShieldYValue = 15;
   data.blueShieldLine = false;
   data.blueShieldTurn = 1;
+  data.blueShieldRenderMode = 'edge';
 
   data.blueDaggerXValue = 6;
   data.blueDaggerYValue = 17;
   data.blueDaggerLine = false;
   data.blueDaggerTurn = 1;
+  data.blueDaggerRenderMode = 'edge';
 
   data.removeBlueDeployment = false;
 
@@ -508,16 +512,19 @@ function defaultmissionData() {
   data.redHammerYValue = 5;
   data.redHammerLine = false;
   data.redHammerTurn = 1;
+  data.redHammerRenderMode = 'edge';
 
   data.redShieldXValue = 15;
   data.redShieldYValue = 7;
   data.redShieldLine = false;
   data.redShieldTurn = 1;
+  data.redShieldRenderMode = 'edge';
 
   data.redDaggerXValue = 6
   data.redDaggerYValue = 5;
   data.redDaggerLine = false;
   data.redDaggerTurn = 1;
+  data.redDaggerRenderMode = 'edge';
 
   data.removeRedDeployment = false;
 
@@ -547,7 +554,7 @@ function defaultmissionData() {
   data.white = false;
 
   data.textValue = "";
-
+console.log(data);
   return data;
 }
 
@@ -1643,4 +1650,41 @@ function onJoystickKeyPress(input) {
   }
 
   onAnyChange();
+}
+
+function randomDeployment() {
+  document.getElementById("redHammerX").value = Math.floor(Math.random() * 31);;
+  document.getElementById("redHammerY").value = Math.floor(Math.random() * 23);;
+
+  document.getElementById("redShieldX").value = Math.floor(Math.random() * 31);;
+  document.getElementById("redShieldY").value = Math.floor(Math.random() * 23);;
+
+  document.getElementById("redDaggerX").value = Math.floor(Math.random() * 31);;
+  document.getElementById("redDaggerY").value = Math.floor(Math.random() * 23);;
+
+  options = [1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 3];
+  document.getElementById("redHammerTurn").value = options[Math.floor(Math.random() * options.length)];
+  document.getElementById("redShieldTurn").value = options[Math.floor(Math.random() * options.length)];
+  document.getElementById("redDaggerTurn").value = options[Math.floor(Math.random() * options.length)];
+
+  if (document.getElementById("redHammerX").value == 0 || document.getElementById("redHammerY").value == 0) {
+    document.getElementById("redHammerRenderMode").value = 'line';
+  } else {
+    document.getElementById("redHammerRenderMode").value = 'edge';
+  }
+  if (document.getElementById("redShieldX").value == 0 || document.getElementById("redShieldY").value == 0) {
+    document.getElementById("redShieldRenderMode").value = 'line';
+  } else {
+    document.getElementById("redShieldRenderMode").value = 'edge';
+  }
+  if (document.getElementById("redDaggerX").value == 0 || document.getElementById("redDaggerY").value == 0) {
+    document.getElementById("redDaggerRenderMode").value = 'line';
+  } else {
+    document.getElementById("redDaggerRenderMode").value = 'edge';
+  }
+  document.getElementById("symmetrical").checked = true;
+
+  onCopyFromRed();
+  onAnyChange();
+
 }
