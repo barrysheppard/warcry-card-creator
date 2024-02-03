@@ -49,6 +49,7 @@ function getBackgroundImage() {
         'bg-15': 'bg-green',
         'bg-16': 'bg-red',
         'bg-17': 'bg-dark-arcane',
+        'bg-18': 'bg-white',
     };
 
     const selectedOption = document.getElementById('background-list').value;
