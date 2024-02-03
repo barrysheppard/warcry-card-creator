@@ -68,18 +68,18 @@ function drawBorder() {
 }
 
 function scalePixelPosition(pixelPosition) {
-  var scalingFactor = getScalingFactor(getCanvas(), getBackgroundImage());
-  var scaledPosition = { x: pixelPosition.x * scalingFactor.x, y: pixelPosition.y * scalingFactor.y };
+  let scalingFactor = getScalingFactor(getCanvas(), getBackgroundImage());
+  let scaledPosition = { x: pixelPosition.x * scalingFactor.x, y: pixelPosition.y * scalingFactor.y };
   return scaledPosition;
 }
 
 function writeScaled(value, pixelPos) {
-  var scaledPos = scalePixelPosition(pixelPos);
+  let scaledPos = scalePixelPosition(pixelPos);
   writeValue(getContext(), value, scaledPos);
 }
 
 function drawCardElementFromInput(inputElement, pixelPosition) {
-  var value = inputElement.value;
+  let value = inputElement.value;
   writeScaled(value, pixelPosition);
 }
 
@@ -169,7 +169,7 @@ function drawImage(scaledPosition, scaledSize, image) {
 
 function drawImageSrc(scaledPosition, scaledSize, imageSrc) {
   if (imageSrc != null) {
-    var image = new Image();
+    let image = new Image();
     image.onload = function () { drawImage(scaledPosition, scaledSize, image); };
     image.src = imageSrc;
   }
@@ -177,12 +177,12 @@ function drawImageSrc(scaledPosition, scaledSize, imageSrc) {
 
 function drawModel(imageUrl, imageProps) {
   if (imageUrl != null) {
-    var image = new Image();
+    let image = new Image();
     image.onload = function () {
-      var position = scalePixelPosition({ x: imageProps.offsetX, y: imageProps.offsetY });
-      var scale = imageProps.scalePercent / 100.0;
-      var width = image.width * scale;
-      var height = image.height * scale;
+      let position = scalePixelPosition({ x: imageProps.offsetX, y: imageProps.offsetY });
+      let scale = imageProps.scalePercent / 100.0;
+      let width = image.width * scale;
+      let height = image.height * scale;
       getContext().drawImage(image, position.x, position.y, width, height);
       //URL.revokeObjectURL(image.src);
     };
@@ -191,12 +191,12 @@ function drawModel(imageUrl, imageProps) {
 }
 
 function getName() {
-  //var textInput = $("#saveNameInput")[0];
+  //let textInput = $("#saveNameInput")[0];
   return "Warcry_Mission_Card";
 }
 
 function setName(name) {
-  //var textInput = $("#saveNameInput")[0];
+  //let textInput = $("#saveNameInput")[0];
   //textInput.value = name;
 }
 
@@ -205,7 +205,7 @@ function setModelImage(image) {
 }
 
 function getModelImage() {
-  var imageSelect = $("#imageSelect")[0];
+  let imageSelect = $("#imageSelect")[0];
 
   if (imageSelect.files.length > 0) {
     return URL.createObjectURL(imageSelect.files[0]);
@@ -228,7 +228,7 @@ function setModelImageProperties(modelImageProperties) {
 }
 
 function getFighterImageUrl() {
-  var imageSelect = $("#missionImageUrl")[0].value;
+  let imageSelect = $("#missionImageUrl")[0].value;
   // if (imageSelect.files.length > 0) {
   //return URL.createObjectURL(imageSelect.files[0]);
   // }
@@ -244,7 +244,7 @@ function getDefaultModelImageProperties() {
 }
 
 function readControls() {
-  var data = new Object;
+  let data = new Object;
   data.name = getName();
   data.imageUrl = getFighterImageUrl();
   data.imageProperties = getModelImageProperties();
@@ -423,7 +423,7 @@ async function writeControls(data) {
 }
 
 function defaultmissionData() {
-  var data = new Object;
+  let data = new Object;
   data.name = "Warcry_Mission_Card";
   data.imageUrl = null;
   data.imageProperties = getDefaultModelImageProperties();
@@ -505,24 +505,24 @@ function savemissionDataMap(newMap) {
 }
 
 function loadmissionDataMap() {
-  var storage = window.localStorage.getItem("missionDataMap");
+  let storage = window.localStorage.getItem("missionDataMap");
   if (storage != null) {
     return JSON.parse(storage);
   }
   // Set up the map.
-  var map = new Object;
+  let map = new Object;
   map["Warcry_Mission_Card"] = defaultmissionData();
   savemissionDataMap(map);
   return map;
 }
 
 function loadLatestmissionData() {
-  var latestFighterName = window.localStorage.getItem("latestFighterName");
+  let latestFighterName = window.localStorage.getItem("latestFighterName");
   if (latestFighterName == null) {
     latestFighterName = "Warcry_Mission_Card";
   }
 
-  var data = loadmissionData(latestFighterName);
+  let data = loadmissionData(latestFighterName);
 
   if (data) {
     console.log("Loaded data:");
@@ -537,7 +537,7 @@ function loadLatestmissionData() {
 }
 
 function saveLatestmissionData() {
-  var missionData = readControls();
+  let missionData = readControls();
   if (!missionData.name) {
     return;
   }
@@ -551,7 +551,7 @@ function loadmissionData(missionDataName) {
     return null;
   }
 
-  var map = loadmissionDataMap();
+  let map = loadmissionDataMap();
   if (map[missionDataName]) {
     return map[missionDataName];
   }
@@ -560,14 +560,14 @@ function loadmissionData(missionDataName) {
 }
 
 function getBase64Image(img) {
-  var canvas = document.createElement("canvas");
+  let canvas = document.createElement("canvas");
   canvas.width = img.width;
   canvas.height = img.height;
 
-  var ctx = canvas.getContext("2d");
+  let ctx = canvas.getContext("2d");
   ctx.drawImage(img, 0, 0);
 
-  var dataURL = canvas.toDataURL("image/png");
+  let dataURL = canvas.toDataURL("image/png");
 
   return dataURL;
 }
@@ -584,7 +584,7 @@ async function getBase64ImgFromUrl(imgUrl) {
   let imgpromise = onload2promise(img); // see comment of T S why you should do it this way.
   img.src = imgUrl;
   await imgpromise;
-  var imgData = getBase64Image(img);
+  let imgData = getBase64Image(img);
   return imgData;
 }
 
@@ -605,19 +605,19 @@ function getLatestmissionDataName() {
 window.onload = function () {
   //window.localStorage.clear();
 
-  var missionData = loadLatestmissionData();
+  let missionData = loadLatestmissionData();
   writeControls(missionData);
   refreshSaveSlots();
 }
 
 function validateInput(input) {
   // Only allow letters, spaces, and hyphens
-  var regex = /^[a-zA-Z\s:-]+$/;
+  let regex = /^[a-zA-Z\s:-]+$/;
   return regex.test(input);
 }
 
 function onAnyChange() {
-  var missionData = readControls();
+  let missionData = readControls();
   render(missionData);
   saveLatestmissionData();
 }
@@ -625,7 +625,7 @@ function onAnyChange() {
 function onFighterImageUpload() {
   image = getModelImage();
   setModelImage(image);
-  var missionData = readControls();
+  let missionData = readControls();
   render(missionData);
   saveLatestmissionData();
 }
@@ -658,7 +658,7 @@ function onClearCache() {
 }
 
 function onResetToDefault() {
-  var missionData = defaultmissionData();
+  let missionData = defaultmissionData();
   writeControls(missionData);
 }
 
@@ -666,17 +666,17 @@ function refreshSaveSlots() {
   // Remove all
   $('select:not([data-clear-on-load="false"])').children('option').remove();
 
-  var missionDataName = readControls().name;
+  let missionDataName = readControls().name;
 
-  var map = loadmissionDataMap();
+  let map = loadmissionDataMap();
 
   for (let [key, value] of Object.entries(map)) {
-    var selected = false;
+    let selected = false;
     if (missionDataName &&
         key == missionDataName) {
       selected = true;
     }
-    var newOption = new Option(key, key, selected, selected);
+    let newOption = new Option(key, key, selected, selected);
     $('#saveSlotsSelect').append(newOption);
   }
 }
@@ -696,10 +696,10 @@ async function onSaveClicked() {
   //data.imageUrl = null;
 
   // need to be explicit due to sub arrays
-  var exportObj = JSON.stringify(data);
+  let exportObj = JSON.stringify(data);
 
-  var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(exportObj);
-  var downloadAnchorNode = document.createElement('a');
+  let dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(exportObj);
+  let downloadAnchorNode = document.createElement('a');
   downloadAnchorNode.setAttribute("href", dataStr);
   file_name = "warcry_mission_";
   if (data.missionType != "") {
@@ -714,7 +714,7 @@ async function onSaveClicked() {
 
 function saveCardAsImage() {
   data = readControls();
-  var element = document.createElement('a');
+  let element = document.createElement('a');
   element.setAttribute('href', document.getElementById('canvas').toDataURL('image/png'));
 
   file_name = "warcry_mission_";
@@ -731,8 +731,8 @@ function saveCardAsImage() {
 }
 
 $(document).ready(function () {
-  var c = document.getElementById('canvas');
-  var ctx = c.getContext('2d');
+  let c = document.getElementById('canvas');
+  let ctx = c.getContext('2d');
   ctx.beginPath();
   ctx.arc(95, 50, 40, 0, 2 * Math.PI);
   // ctx.stroke();
@@ -760,7 +760,7 @@ async function fileChange(file) {
   // As readJSONFile is a promise, it must resolve before the contents can be read
   // in this case logged to the console
 
-  var saveJson = function (json) {
+  let saveJson = function (json) {
     json.customBackgroundUrl =  null;
     if (typeof json.customBackgroundProperties === "undefined") {
       json.customBackgroundProperties = getDefaultModelImageProperties();
@@ -805,7 +805,7 @@ function setCustomBackgroundProperties(customBackgroundProperties) {
 }
 
 function getCustomBackground() {
-  var imageSelect = $("#customBackgroundSelect")[0];
+  let imageSelect = $("#customBackgroundSelect")[0];
   if (imageSelect.files.length > 0) {
     return URL.createObjectURL(imageSelect.files[0]);
   }
@@ -819,13 +819,13 @@ function setCustomBackground(image) {
 function onCustomBackgroundUpload() {
   image = getCustomBackground();
   setCustomBackground(image);
-  var missionData = readControls();
+  let missionData = readControls();
   render(missionData);
   saveLatestmissionData();
 }
 
 function getCustomBackgroundUrl() {
-  var imageSelect = $("#customBackgroundUrl")[0].value;
+  let imageSelect = $("#customBackgroundUrl")[0].value;
   return imageSelect;
 }
 
@@ -1287,19 +1287,19 @@ function drawIcons(){
 function splitWordWrap(context, text, fitWidth) {
   // this was modified from the print version to only return the text array
   return_array = [];
-  var lines = text.split('\n');
+  let lines = text.split('\n');
   lineNum = 0;
-  for (var i = 0; i < lines.length; i++) {
+  for (let i = 0; i < lines.length; i++) {
     fitWidth = fitWidth || 0;
     if (fitWidth <= 0) {
       return_array.push(lines[i]);
       lineNum++;
     }
-    var words = lines[i].split(' ');
-    var idx = 1;
+    let words = lines[i].split(' ');
+    let idx = 1;
     while (words.length > 0 && idx <= words.length) {
-      var str = words.slice(0, idx).join(' ');
-      var w = context.measureText(str).width;
+      let str = words.slice(0, idx).join(' ');
+      let w = context.measureText(str).width;
       if (w > fitWidth) {
         if (idx == 1) {
           idx = 2;
@@ -1506,7 +1506,7 @@ function titelize(str) {
 
 function drawArrow(context, startX, startY, endX, endY, arrowSize = 10, color = "black") {
   // Calculate the angle of the line
-  var angle = Math.atan2(endY - startY, endX - startX);
+  let angle = Math.atan2(endY - startY, endX - startX);
 
   // Draw the main line
   context.beginPath();
