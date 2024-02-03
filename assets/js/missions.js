@@ -61,14 +61,11 @@ function getBackgroundImage() {
   return document.getElementById(backgroundImageId);
 }
 
-
-
 drawBorder = function () {
   if(!document.getElementById("removeBorder").checked){
     getContext().drawImage(document.getElementById('card-border'), 0, 0, getCanvas().width, getCanvas().height);
   }
 }
-
 
 scalePixelPosition = function (pixelPosition) {
   var scalingFactor = getScalingFactor(getCanvas(), getBackgroundImage());
@@ -118,8 +115,6 @@ drawMissionName = function (value) {
     getContext().fillStyle = 'black';
   }
   writeScaled(value, { x: startX, y: startY });
-
-
 }
 
 drawMissionType = function (value) {
@@ -161,7 +156,6 @@ function getImage(element) {
   return $(element).find("img")[0];
 }
 
-
 function drawImage(scaledPosition, scaledSize, image) {
   if (image != null) {
     if (image.complete) {
@@ -180,7 +174,6 @@ function drawImageSrc(scaledPosition, scaledSize, imageSrc) {
     image.src = imageSrc;
   }
 }
-
 
 function drawModel(imageUrl, imageProps) {
   if (imageUrl != null) {
@@ -206,7 +199,6 @@ function setName(name) {
   //var textInput = $("#saveNameInput")[0];
   //textInput.value = name;
 }
-
 
 function setModelImage(image) {
   $("#missionImageUrl")[0].value = image;
@@ -235,9 +227,6 @@ function setModelImageProperties(modelImageProperties) {
   $("#imageScalePercent")[0].value = modelImageProperties.scalePercent;
 }
 
-
-
-
 function getFighterImageUrl() {
   var imageSelect = $("#missionImageUrl")[0].value;
   // if (imageSelect.files.length > 0) {
@@ -253,8 +242,6 @@ function getDefaultModelImageProperties() {
     scalePercent: 100
   };
 }
-
-
 
 function readControls() {
   var data = new Object;
@@ -296,17 +283,12 @@ function readControls() {
   return data;
 }
 
-
 const render = function(missionData) {
-
   if (missionData.customBackgroundUrl) {
     renderCustomBackground(missionData);
   } else {
     renderDefaultBackground(missionData);
   }
-
-
-
 }
 
 const renderCustomBackground = function(missionData) {
@@ -336,9 +318,7 @@ const renderDefaultBackground = function(missionData) {
   drawDeployment();
   drawText();
   drawIcons();
-
 };
-
 
 const renderFighterImage = function(missionData) {
   if (missionData.imageUrl) {
@@ -372,8 +352,6 @@ const renderFighterImage = function(missionData) {
     drawBorder();
   }
 };
-
-
 
 async function writeControls(data) {
   //setName("Warcry_Mission_Card"); // Always default, trying to move away from this
@@ -630,7 +608,6 @@ window.onload = function () {
   var missionData = loadLatestmissionData();
   writeControls(missionData);
   refreshSaveSlots();
-
 }
 
 function validateInput(input) {
@@ -759,7 +736,6 @@ $(document).ready(function () {
   ctx.beginPath();
   ctx.arc(95, 50, 40, 0, 2 * Math.PI);
   // ctx.stroke();
-
 });
 
 async function readJSONFile(file) {
@@ -811,10 +787,7 @@ async function fileChange(file) {
     writeControls(json);
   };
 
-  readJSONFile(file).then(json =>
-                          saveJson(json)
-                         );
-
+  readJSONFile(file).then(json => saveJson(json));
 }
 
 function getCustomBackgroundProperties() {
@@ -867,7 +840,6 @@ function drawOverlayTexts(missionData) {
   drawMissionType(missionType);
 
   drawBorder();
-
 }
 
 function drawMap(){
@@ -1280,7 +1252,6 @@ function writeScaledBorder(value, startX, startY) {
 }
 
 function drawIcons(){
-
   isOrientationChecked = document.getElementById("orientation").checked;
   if(isOrientationChecked){
     // Orientation Runemark
@@ -1312,10 +1283,6 @@ function drawIcons(){
     drawImageSrc(position, size, imageSrc);
   }
 }
-
-
-
-
 
 function splitWordWrap(context, text, fitWidth) {
   // this was modified from the print version to only return the text array
@@ -1350,15 +1317,11 @@ function splitWordWrap(context, text, fitWidth) {
       return_array.push(words.join(' '));
       lineNum++;
     }
-
   }
   return return_array;
 }
 
-
-
 function drawText(){
-
   cardText = document.getElementById("textValue").value;
 
   getContext().font = '32px Georgia, serif';
@@ -1367,7 +1330,6 @@ function drawText(){
   } else {
     getContext().fillStyle = 'black';
   }
-
 
   getContext().textAlign = "left";
   getContext().textBaseline = "middle";
@@ -1434,7 +1396,6 @@ function drawText(){
     // Reset x-coordinate position for the next line
     xPosition = 180;
   }
-
 }
 
 function drawDeployment() {
@@ -1627,7 +1588,6 @@ function onJoystickKeyPress(input) {
   default:
     return;
   }
-
 
   onAnyChange();
 }
