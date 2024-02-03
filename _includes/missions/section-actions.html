@@ -1,39 +1,48 @@
-<div class="card-body" style="margin-bottom:100px">
-
-  <div class="mt-4">
-    <div class="btn-group" role="group">
-      <button class="btn btn-success" id="saveCanvasButton" onclick="onExportToImage()">
-        Export image
+<div class="card" style="margin-bottom:100px">
+  <div class="card-header" id="missionsHeadingActions">
+    <h2 class="h5 mb-0">
+      <button class="btn btn-link" data-toggle="collapse" data-target="#missionsCollapseActions"
+              aria-expanded="false" aria-controls="missionsCollapseActions">
+        Load / Save / Export
       </button>
-      <button class="btn btn-success" id="saveButton" onclick="onExportToFile()">
-        Export file
-      </button>
-      <label for="loadbutton" class="btn btn-success" style="margin-bottom:0">
-        Import file
-        <input class="form-control-file" id="loadbutton" oninput="fileChange(this.files[0])" type="file" style="display:none">
-      </label>
-      <button class="btn btn-warning" id="clearCacheButton" onclick="onResetToDefault()">
-        Reset
-      </button>
-    </div>
+    </h2>
   </div>
-
-  <div class="mt-4">
-    <div class="btn-group" role="group">
-      <button class="btn btn-success" onclick="onSaveSlot()">
-        Save
-      </button>
-      <button class="btn btn-success" onclick="onLoadSlot()">
-        Load
-      </button>
-      <button class="btn btn-warning" onclick="onDeleteSlot()">
-        Delete
-      </button>
+  <div id="missionsCollapseActions" class="card-body collapse show">
+    <div class="mt-4">
+      <div class="btn-group" role="group">
+        <button class="btn btn-success" id="saveCanvasButton" onclick="onExportToImage()">
+          Export image
+        </button>
+        <button class="btn btn-success" id="saveButton" onclick="onExportToFile()">
+          Export file
+        </button>
+        <label for="loadbutton" class="btn btn-success" style="margin-bottom:0">
+          Import file
+          <input class="form-control-file" id="loadbutton" oninput="fileChange(this.files[0])" type="file" style="display:none">
+        </label>
+        <button class="btn btn-warning" id="clearCacheButton" onclick="onResetToDefault()">
+          Reset
+        </button>
+      </div>
     </div>
-  </div>
 
-  <div class="mt-4">
-    <select size="8" class="form-control" id="slotList">
-    </select>
+    <div class="mt-4">
+      <div class="btn-group" role="group">
+        <button class="btn btn-success" onclick="onSaveSlot()">
+          Save
+        </button>
+        <button class="btn btn-success" onclick="onLoadSlot()">
+          Load
+        </button>
+        <button class="btn btn-warning" onclick="onDeleteSlot()">
+          Delete
+        </button>
+      </div>
+    </div>
+
+    <div class="mt-4">
+      <select size="8" class="form-control" id="slotList">
+      </select>
+    </div>
   </div>
 </div>
