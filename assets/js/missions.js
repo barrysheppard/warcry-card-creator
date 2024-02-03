@@ -431,7 +431,7 @@ async function writeControls(data) {
   // check and uncheck if needed
 
   document.getElementById('background-list').value = data.bgselected;
-  document.getElementById('map-list').value = data.map;
+  document.getElementById('map-list').value = data.map || "map";
 
   COLOURS.forEach(colour => {
     document.getElementById("remove" + titelize(colour) + "Deployment").checked = data["remove" + titelize(colour) + "Deployment"];
@@ -487,6 +487,7 @@ function defaultMissionData() {
   data.missionType = "Deployment";
 
   data.bgselected = "bg-07";
+  data.map = "map";
 
   data.blueHammerXValue = 24;
   data.blueHammerYValue = 17;
