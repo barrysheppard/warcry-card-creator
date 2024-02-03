@@ -602,14 +602,6 @@ function getLatestmissionDataName() {
   return "latestmissionData";
 }
 
-window.onload = function () {
-  //window.localStorage.clear();
-
-  let missionData = loadLatestmissionData();
-  writeControls(missionData);
-  refreshSaveSlots();
-}
-
 function validateInput(input) {
   // Only allow letters, spaces, and hyphens
   let regex = /^[a-zA-Z\s:-]+$/;
@@ -731,11 +723,9 @@ function saveCardAsImage() {
 }
 
 $(document).ready(function () {
-  let c = document.getElementById('canvas');
-  let ctx = c.getContext('2d');
-  ctx.beginPath();
-  ctx.arc(95, 50, 40, 0, 2 * Math.PI);
-  // ctx.stroke();
+  let missionData = loadLatestmissionData();
+  writeControls(missionData);
+  refreshSaveSlots();
 });
 
 async function readJSONFile(file) {
