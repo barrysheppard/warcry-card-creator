@@ -885,10 +885,10 @@ function convertInchesToPixels(x_inches, y_inches) {
   // in inches that 704 = 30 inches. 704/30 = 23.46
   // y start is 162 and end is 162+ 252
   // in inches that 504 is 22 inches. 504/22 = 22.9
-  startX = 173;
-  startY = 162;
-  x = startX + x_inches * 23.46;
-  y = startY + y_inches * 22.9;
+  const startX = 173;
+  const startY = 162;
+  const x = startX + x_inches * 23.46;
+  const y = startY + y_inches * 22.9;
   return {
     x,
     y
@@ -900,10 +900,10 @@ function convertInchesToPixelsLine(x_inches, y_inches) {
   // in inches that 704 = 30 inches. 704/30 = 23.46
   // y start is 162 and end is 162+ 252
   // in inches that 504 is 22 inches. 504/22 = 22.9
-  startX = 205;
-  startY = 200;
-  x = startX + (x_inches * 23.7);
-  y = startY + (y_inches * 22.9);
+  const startX = 205;
+  const startY = 200;
+  const x = startX + (x_inches * 23.7);
+  const y = startY + (y_inches * 22.9);
 
   return {
     x,
@@ -1308,7 +1308,8 @@ function writeScaledBorder(value, startX, startY) {
 }
 
 function drawIcons() {
-  isOrientationChecked = document.getElementById("orientation").checked;
+  const isOrientationChecked = document.getElementById("orientation").checked;
+  let imgElement, position, size, imageSrc;
   if (isOrientationChecked) {
     // Orientation Runemark
     if (document.getElementById("white").checked) {
@@ -1337,7 +1338,7 @@ function drawIcons() {
     });
     drawImageSrc(position, size, imageSrc);
   }
-  isSymmetricalChecked = document.getElementById("symmetrical").checked;
+  const isSymmetricalChecked = document.getElementById("symmetrical").checked;
   if (isSymmetricalChecked) {
     // Symmetrical runemark
     if (document.getElementById("white").checked) {
@@ -1360,9 +1361,9 @@ function drawIcons() {
 
 function splitWordWrap(context, text, fitWidth) {
   // this was modified from the print version to only return the text array
-  return_array = [];
+  let return_array = [];
   let lines = text.split('\n');
-  lineNum = 0;
+  let lineNum = 0;
   for (let i = 0; i < lines.length; i++) {
     fitWidth = fitWidth || 0;
     if (fitWidth <= 0) {
@@ -1395,7 +1396,7 @@ function splitWordWrap(context, text, fitWidth) {
 }
 
 function drawText() {
-  cardText = document.getElementById("textValue").value;
+  const cardText = document.getElementById("textValue").value;
 
   getContext().font = '32px Georgia, serif';
   if (document.getElementById("white").checked) {
@@ -1407,11 +1408,11 @@ function drawText() {
   getContext().textAlign = "left";
   getContext().textBaseline = "middle";
 
-  font_size = 32;
-  lineHeight = font_size;
+  const font_size = 32;
+  const lineHeight = font_size;
   getContext().font = font_size + 'px Georgia, serif';
 
-  text_array = (splitWordWrap(getContext(), cardText, 800));
+  let text_array = (splitWordWrap(getContext(), cardText, 800));
 
   let xPosition = 180; // Initialize x-coordinate position
 
