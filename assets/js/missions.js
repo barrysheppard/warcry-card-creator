@@ -694,9 +694,7 @@ function onAnyChange() {
 function onFighterImageUpload() {
   image = getModelImage();
   setModelImage(image);
-  let missionData = readControls();
-  render(missionData);
-  saveMissionData();
+  onAnyChange();
 }
 
 function onCopyFromRed() {
@@ -855,9 +853,7 @@ function setCustomBackground(image) {
 function onCustomBackgroundUpload() {
   image = getCustomBackground();
   setCustomBackground(image);
-  let missionData = readControls();
-  render(missionData);
-  saveMissionData();
+  onAnyChange();
 }
 
 function getCustomBackgroundUrl() {
