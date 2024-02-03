@@ -193,14 +193,6 @@ function drawMissionType(value) {
   });
 }
 
-function getLabel(element) {
-  return $(element).prop("labels")[0];
-}
-
-function getImage(element) {
-  return $(element).find("img")[0];
-}
-
 function drawImage(scaledPosition, scaledSize, image) {
   if (image != null) {
     if (image.complete) {
@@ -239,16 +231,6 @@ function drawModel(imageUrl, imageProps) {
     };
     image.src = imageUrl;
   }
-}
-
-function getName() {
-  //let textInput = $("#saveNameInput")[0];
-  return "Warcry_Mission_Card";
-}
-
-function setName(name) {
-  //let textInput = $("#saveNameInput")[0];
-  //textInput.value = name;
 }
 
 function setModelImage(image) {
@@ -296,7 +278,6 @@ function getDefaultModelImageProperties() {
 
 function readControls() {
   let data = new Object;
-  data.name = getName();
   data.imageUrl = getFighterImageUrl();
   data.imageProperties = getModelImageProperties();
   data.customBackgroundUrl = getCustomBackgroundUrl();
@@ -475,7 +456,6 @@ async function writeControls(data) {
 
 function defaultMissionData() {
   let data = new Object;
-  data.name = "Warcry_Mission_Card";
   data.imageUrl = null;
   data.imageProperties = getDefaultModelImageProperties();
   data.base64Image = null;
@@ -692,7 +672,7 @@ function onAnyChange() {
 }
 
 function onFighterImageUpload() {
-  image = getModelImage();
+  let image = getModelImage();
   setModelImage(image);
   onAnyChange();
 }
