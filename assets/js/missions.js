@@ -1498,6 +1498,8 @@ function drawDeployment() {
     } else {
       drawLines(component.xValue, component.yValue, component.label);
     }
+  });
+  components.forEach(component => {
     drawIcon(component.iconName, component.xValue, component.yValue);
   });
 }
