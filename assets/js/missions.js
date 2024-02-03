@@ -980,62 +980,69 @@ function convertInchesToPixelsLine(x_inches, y_inches){
 
     return { x, y };
 }
+
 function drawThickLine(ctx, x1, y1, x2, y2, thickness, color = "black", arrowSize = 10) {
-    // Calculate the angle of the line from start to end
-    var angle = Math.atan2(y2 - y1, x2 - x1);
+  // Calculate the angle of the line from start to end
+  const angle = Math.atan2(y2 - y1, x2 - x1);
 
-    start = convertInchesToPixelsLine(x1, y1);
-    end = convertInchesToPixelsLine(x2, y2);
+  const start = convertInchesToPixelsLine(x1, y1);
+  const end = convertInchesToPixelsLine(x2, y2);
 
-    ctx.beginPath();
-    ctx.moveTo(start.x, start.y);
-    ctx.lineTo(end.x, end.y);
+  // Shorten line, so it doesn't interfere with the arrow head
+  // This is really crude, but I don't know the math. Something-something cos/sin.
+  // Since all angles are 90dgr, we can essentially end up with one of 4 numbers,
+  // namely [-1, 0, 1, 2]
+  const direction = (2 * angle / Math.PI).toFixed();
+  const xOffset = (direction == 1 || direction == -1 ? 0 : (-1 * (direction - 1))) * arrowSize;
+  const yOffset = (direction == 0 || direction == 2 ? 0 : direction) * arrowSize;
 
-    // Save the current stroke style and line width
-    var originalStrokeStyle = ctx.strokeStyle;
-    var originalLineWidth = ctx.lineWidth;
+  ctx.beginPath();
+  ctx.moveTo(start.x + xOffset, start.y + yOffset);
+  ctx.lineTo(end.x, end.y);
 
-    // Set the new stroke style and line width
-    ctx.strokeStyle = color;
-    ctx.lineWidth = thickness;
+  // Save the current stroke style and line width
+  const originalStrokeStyle = ctx.strokeStyle;
+  const originalLineWidth = ctx.lineWidth;
 
-    // Draw the line with the new thickness and color
-    ctx.stroke();
+  // Set the new stroke style and line width
+  ctx.strokeStyle = color;
+  ctx.lineWidth = thickness;
 
-    // Draw the arrowhead at the start of the line
-    ctx.save();
-    ctx.translate(start.x, start.y);
-    ctx.rotate(angle + Math.PI); // Reverse the angle
-    ctx.beginPath();
-    ctx.moveTo(0, 0);
-    ctx.lineTo(-arrowSize, arrowSize);
-    ctx.lineTo(-arrowSize, -arrowSize);
-    ctx.closePath();
-    ctx.fillStyle = color;
-    ctx.fill();
-    ctx.restore();
+  // Draw the line with the new thickness and color
+  ctx.stroke();
 
-    // Draw the arrowhead at the end of the line
-    ctx.save();
-    ctx.translate(end.x, end.y);
-    ctx.rotate(angle); // Use the original angle
-    ctx.beginPath();
-    ctx.moveTo(0, 0);
-    ctx.lineTo(-arrowSize, arrowSize);
-    ctx.lineTo(-arrowSize, -arrowSize);
-    ctx.closePath();
-    ctx.fillStyle = color;
-    ctx.fill();
-    ctx.restore();
+  // Draw the arrowhead at the start of the line
+  ctx.save();
+  ctx.translate(start.x, start.y);
+  ctx.rotate(angle + Math.PI); // Reverse the angle
+  ctx.beginPath();
+  ctx.moveTo(0, 0);
+  ctx.lineTo(-arrowSize, arrowSize);
+  ctx.lineTo(-arrowSize, -arrowSize);
+  ctx.closePath();
+  ctx.fillStyle = color;
+  ctx.fill();
+  ctx.restore();
 
-    // Restore the original stroke style and line width
-    ctx.strokeStyle = originalStrokeStyle;
-    ctx.lineWidth = originalLineWidth;
+  // Draw the arrowhead at the end of the line
+  ctx.save();
+  ctx.translate(end.x, end.y);
+  ctx.rotate(angle); // Use the original angle
+  ctx.beginPath();
+  ctx.moveTo(0, 0);
+  ctx.lineTo(-arrowSize, arrowSize);
+  ctx.lineTo(-arrowSize, -arrowSize);
+  ctx.closePath();
+  ctx.fillStyle = color;
+  ctx.fill();
+  ctx.restore();
 
-    ctx.closePath();
+  // Restore the original stroke style and line width
+  ctx.strokeStyle = originalStrokeStyle;
+  ctx.lineWidth = originalLineWidth;
+
+  ctx.closePath();
 }
-
-
 
 function drawLines(XValue, YValue, Turn) {
     if(XValue != 15){
