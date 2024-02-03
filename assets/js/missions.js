@@ -652,12 +652,6 @@ function getLatestmissionDataName() {
   return "latestmissionData";
 }
 
-function validateInput(input) {
-  // Only allow letters, spaces, and hyphens
-  let regex = /^[a-zA-Z\s:-]+$/;
-  return regex.test(input);
-}
-
 function onAnyChange() {
   let missionData = readControls();
   render(missionData);
