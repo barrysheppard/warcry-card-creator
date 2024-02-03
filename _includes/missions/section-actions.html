@@ -26,22 +26,30 @@
       </div>
     </div>
 
-    <div class="mt-4">
-      <div class="btn-group" role="group">
-        <button class="btn btn-success" onclick="onSaveSlot()">
-          Save
-        </button>
-        <button class="btn btn-success" onclick="onLoadSlot()">
-          Load
-        </button>
-        <button class="btn btn-warning" onclick="onDeleteSlot()">
-          Delete
-        </button>
+    <div class="mt-4 row">
+      <div class="col-sm-6">
+        <div class="btn-group" role="group">
+          <input class="form-control" type="text" id="saveName" name="saveName" value="">
+          <button class="btn btn-success" onclick="onSaveSlot()">
+            Save
+          </button>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="btn-group" role="group">
+          <button class="btn btn-success" onclick="onLoadSlot()">
+            Load
+          </button>
+          <button class="btn btn-warning" onclick="onDeleteSlot()">
+            Delete
+          </button>
+        </div>
       </div>
     </div>
 
     <div class="mt-4">
-      <select size="8" class="form-control" id="slotList">
+      <select size="8" class="form-control" id="slotList" oninput="onSlotListChange()">
       </select>
     </div>
   </div>

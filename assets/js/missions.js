@@ -417,8 +417,10 @@ async function writeControls(data) {
   setModelImageProperties(data.imageProperties);
   setCustomBackground(data.customBackgroundUrl);
   setCustomBackgroundProperties(data.customBackgroundProperties);
-  $("#missionName")[0].value = data.missionName;
-  $("#missionType")[0].value = data.missionType;
+  document.getElementById("missionName").value = data.missionName;
+  document.getElementById("missionType").value = data.missionType;
+
+  document.getElementById("saveName").value = data.missionName;
 
   // check and uncheck if needed
 
@@ -452,6 +454,18 @@ async function writeControls(data) {
 
   // render the updated info
   render(data);
+}
+
+function onMissionNameChange() {
+  document.getElementById("saveName").value = document.getElementById("missionName").value;
+  onAnyChange();
+}
+
+function onSlotListChange() {
+  let selectedValue = document.getElementById("slotList").value;
+  if (selectedValue) {
+    document.getElementById("saveName").value = selectedValue;
+  }
 }
 
 function defaultMissionData() {
@@ -570,12 +584,13 @@ function enumerateMissionSlots(includeDefault = false) {
 }
 
 function onSaveSlot() {
-  let data = readControls();
-  if (!data.missionName) {
-    alert("Error: Card has no name");
+  let name = document.getElementById("saveName").value;
+  if (!name) {
+    alert("Error: No name");
     return;
   }
-  writeMissionData(data.missionName, data);
+  let data = readControls();
+  writeMissionData(name, data);
   updateSlotList();
 }
 
@@ -592,6 +607,7 @@ function onLoadSlot() {
   }
 
   writeControls(data);
+  document.getElementById("saveName").value = selectedName;
 }
 
 function onDeleteSlot() {
