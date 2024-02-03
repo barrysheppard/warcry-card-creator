@@ -1552,7 +1552,7 @@ function onJoystickKeyPress(input) {
     return;
   }
 
-  if ((event.keyCode < 37 || event.keyCode > 40) && event.keyCode != 32 && event.keyCode != 9) {
+  if ((event.keyCode < 37 || event.keyCode > 40) && event.keyCode != 32 && event.keyCode != 9 && event.keyCode != 187) {
     return;
   }
 
@@ -1562,6 +1562,7 @@ function onJoystickKeyPress(input) {
   let scopeName = input.id.replace(/Joystick/, "");
   let xField = document.getElementById(scopeName + "X");
   let yField = document.getElementById(scopeName + "Y");
+  let iconField = document.getElementById(scopeName + "Icon");
   let renderModeField = document.getElementById(scopeName + "RenderMode");
   let numberOfOptions = renderModeField.options.length;
   let joysticks = Array.from(document.querySelectorAll('input[type="radio"][name="joystick"]'));
@@ -1579,11 +1580,17 @@ function onJoystickKeyPress(input) {
     }
     document.getElementById("redCollapse").classList.add("show");
     document.getElementById("blueCollapse").classList.add("show");
+    document.getElementById("objectiveCollapse").classList.add("show");
     joysticks[index].focus();
     joysticks[index].checked = true;
     break;
   case 32: // spacebar
     renderModeField.selectedIndex = (renderModeField.selectedIndex + 1) % numberOfOptions;
+    break;
+  case 187: // plus (+)
+    if (iconField) {
+      iconField.value = Math.min(10, parseInt(iconField.value) + 1);
+    }
     break;
   case 37: // left
     xField.value = Math.max(0, parseInt(xField.value) - 1);
