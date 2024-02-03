@@ -653,6 +653,26 @@ onFighterImageUpload = function () {
     saveLatestmissionData();
 }
 
+function onCopyFromRed() {
+  document.getElementById("blueHammerX").value = 30 - document.getElementById("redHammerX").value;
+  document.getElementById("blueHammerY").value = 22 - document.getElementById("redHammerY").value;
+
+  document.getElementById("blueShieldX").value = 30 - document.getElementById("redShieldX").value;
+  document.getElementById("blueShieldY").value = 22 - document.getElementById("redShieldY").value;
+
+  document.getElementById("blueDaggerX").value = 30 - document.getElementById("redDaggerX").value;
+  document.getElementById("blueDaggerY").value = 22 - document.getElementById("redDaggerY").value;
+
+  document.getElementById("blueHammerTurn").value = document.getElementById("redHammerTurn").value;
+  document.getElementById("blueShieldTurn").value = document.getElementById("redShieldTurn").value;
+  document.getElementById("blueDaggerTurn").value = document.getElementById("redDaggerTurn").value;
+
+  document.getElementById("blueHammerRenderMode").value = document.getElementById("redHammerRenderMode").value;
+  document.getElementById("blueShieldRenderMode").value = document.getElementById("redShieldRenderMode").value;
+  document.getElementById("blueDaggerRenderMode").value = document.getElementById("redDaggerRenderMode").value;
+
+  onAnyChange();
+}
 
 function onClearCache() {
     window.localStorage.clear();
