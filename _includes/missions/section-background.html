@@ -36,7 +36,17 @@
                   </select>
                 </div>
               </div>
-            
+
+            <div class="form-check">
+                <input class="form-check-input" id="removeDeployment" onchange="onAnyChange()" type="checkbox">
+                <label class="form-check-label" for="removeDeployment">Remove Deployment Map</label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" id="removeBorder" onchange="onAnyChange()" type="checkbox">
+                <label class="form-check-label" for="removeBorder">Remove border to add bleed area for printing</label>
+            </div>
+
               <div style="display: none;">
             <div class="row">
                 <div class="form-check form-check-inline">
@@ -158,27 +168,27 @@
                         Custom Background</button>
                 </h2>
             </div>
-        
+
             <div class="collapse" id="customBackgroundCollapse">
                 <div class="card-body">
-        
+
                     <div class="form-group">
                         <label for="customBackgroundSelect">Load image</label>
                         <input class="form-control-file" id="customBackgroundSelect" oninput="onCustomBackgroundUpload()" type="file">
                     </div>
-        
+
                     <input type="hidden" id="customBackgroundUrl" name="customBackgroundUrl" value="">
-        
+
                     <div class="form-group">
                         <label for="customBackgroundOffsetX">X offset (&#8596;)</label>
                         <input class="form-control" id="customBackgroundOffsetX" oninput="onAnyChange()" type="number" value="0" />
                     </div>
-        
+
                     <div class="form-group">
                         <label for="customBackgroundOffsetY">Y offset (&#8597;)</label>
                         <input class="form-control" id="customBackgroundOffsetY" oninput="onAnyChange()" type="number" value="0" />
                     </div>
-        
+
                     <div class="form-group">
                         <label for="customBackgroundScalePercent">Scale (%)</label>
                         <input class="form-control" id="customBackgroundScalePercent" min="0" max="300" oninput="onAnyChange()"

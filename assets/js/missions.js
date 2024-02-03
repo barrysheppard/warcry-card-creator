@@ -556,29 +556,90 @@ function defaultMissionData() {
   return data;
 }
 
-function writeMissionData(data) {
-  window.localStorage.setItem("missionData", JSON.stringify(data));
+function writeMissionData(name, data) {
+  let slots = readMissionSlots();
+  if (data == null) {
+    delete slots[name];
+  } else {
+    slots[name] = data;
+  }
+  window.localStorage.setItem("missionDataSlots", JSON.stringify(slots));
 }
 
-function readMissionData() {
-  let storage = window.localStorage.getItem("missionData");
-  if (storage == null) {
-    return;
-  }
-  return JSON.parse(storage);
+function readMissionData(name) {
+  let slots = readMissionSlots();
+  return slots[name];
 }
 
 function saveMissionData() {
-  writeMissionData(readControls());
+  writeMissionData("default", readControls());
 }
 
 function loadMissionDataOrDefault() {
-  let data = readMissionData();
-  if (data == null) {
-    writeControls(defaultMissionData());
-  } else {
-    writeControls(data);
+  let data = readMissionData("default") || defaultMissionData();
+  writeControls(data);
+}
+
+function readMissionSlots() {
+  let raw = window.localStorage.getItem("missionDataSlots");
+  return raw ? JSON.parse(raw) : {};
+}
+
+function enumerateMissionSlots(includeDefault = false) {
+  return Object.keys(readMissionSlots()).filter(x => includeDefault || x != "default");
+}
+
+function onSaveSlot() {
+  let data = readControls();
+  if (!data.missionName) {
+    alert("Error: Card has no name");
+    return;
   }
+  writeMissionData(data.missionName, data);
+  updateSlotList();
+}
+
+function onLoadSlot() {
+  let slotList = document.getElementById("slotList");
+  let selectedName = slotList.value;
+  if (!selectedName) {
+    return;
+  }
+
+  let data = readMissionData(selectedName);
+  if (!data) {
+    return;
+  }
+
+  writeControls(data);
+}
+
+function onDeleteSlot() {
+  let slotList = document.getElementById("slotList");
+  let selectedName = slotList.value;
+  if (!selectedName) {
+    return;
+  }
+
+  writeMissionData(selectedName, null);
+  updateSlotList();
+}
+
+function updateSlotList() {
+  let slotList = document.getElementById("slotList");
+  let shouldContain = enumerateMissionSlots(false);
+  let contains = Array.from(slotList.options).map(o => o.value);
+
+  Array.from(slotList.options).forEach(option => {
+    if (!shouldContain.includes(option.value)) {
+      slotList.removeChild(option);
+    }
+  });
+  shouldContain.forEach(value => {
+    if (!contains.includes(value)) {
+      slotList.add(new Option(value, value));
+    }
+  });
 }
 
 function getBase64Image(img) {
@@ -659,17 +720,12 @@ function onCopyFromRed() {
   onAnyChange();
 }
 
-function onClearCache() {
-  window.localStorage.clear();
-  location.reload();
-  return false;
-}
-
 function onResetToDefault() {
   writeControls(defaultMissionData());
+  onAnyChange();
 }
 
-async function onSaveClicked() {
+async function onExportToFile() {
   data = readControls();
 
   // weird situation where when no image is saved, but json is then saved
@@ -700,7 +756,7 @@ async function onSaveClicked() {
   downloadAnchorNode.remove();
 }
 
-function saveCardAsImage() {
+function onExportToImage() {
   data = readControls();
   let element = document.createElement('a');
   element.setAttribute('href', document.getElementById('canvas').toDataURL('image/png'));
@@ -1647,4 +1703,5 @@ function randomDeployment() {
 
 window.onload = function() {
   loadMissionDataOrDefault();
+  updateSlotList();
 };
