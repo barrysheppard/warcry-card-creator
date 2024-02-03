@@ -1586,7 +1586,9 @@ function onJoystickKeyPress(input) {
     return;
   }
 
-  if ((event.keyCode < 37 || event.keyCode > 40) && event.keyCode != 32 && event.keyCode != 9 && event.keyCode != 187) {
+  const keyCodes = [37, 38, 39, 40, 32, 9, 187, 189];
+
+  if (!keyCodes.includes(event.keyCode)) {
     return;
   }
 
@@ -1596,6 +1598,7 @@ function onJoystickKeyPress(input) {
   let scopeName = input.id.replace(/Joystick/, "");
   let xField = document.getElementById(scopeName + "X");
   let yField = document.getElementById(scopeName + "Y");
+  let turnField = document.getElementById(scopeName + "Turn");
   let iconField = document.getElementById(scopeName + "Icon");
   let renderModeField = document.getElementById(scopeName + "RenderMode");
   let numberOfOptions = renderModeField.options.length;
@@ -1623,7 +1626,21 @@ function onJoystickKeyPress(input) {
     break;
   case 187: // plus (+)
     if (iconField) {
-      iconField.value = Math.min(10, parseInt(iconField.value) + 1);
+      iconField.value = (parseInt(iconField.value) + 1) % 11;
+    }
+    if (turnField) {
+      turnField.value = Math.max(1, (parseInt(turnField.value) + 1) % 6);
+    }
+    break;
+  case 189: // plus (-)
+    if (iconField) {
+      iconField.value = (parseInt(iconField.value) + 10) % 11;
+    }
+    if (turnField) {
+      turnField.value = (parseInt(turnField.value) + 5) % 6;
+      if (turnField.value == 0) {
+        turnField.value = 5;
+      }
     }
     break;
   case 37: // left
