@@ -1504,27 +1504,6 @@ function titelize(str) {
   return b[0].toUpperCase() + b.substr(1) + str.substr(4);
 }
 
-function drawArrow(context, startX, startY, endX, endY, arrowSize = 10, color = "black") {
-  // Calculate the angle of the line
-  let angle = Math.atan2(endY - startY, endX - startX);
-
-  // Draw the main line
-  context.beginPath();
-  context.moveTo(startX, startY);
-  context.lineTo(endX, endY);
-  context.strokeStyle = color;
-  context.lineWidth = 2;
-  context.stroke();
-
-  // Draw the arrowhead
-  context.beginPath();
-  context.moveTo(endX - arrowSize * Math.cos(angle - Math.PI / 6), endY - arrowSize * Math.sin(angle - Math.PI / 6));
-  context.lineTo(endX, endY);
-  context.lineTo(endX - arrowSize * Math.cos(angle + Math.PI / 6), endY - arrowSize * Math.sin(angle + Math.PI / 6));
-  context.fillStyle = color;
-  context.fill();
-}
-
 function onJoystickKeyPress(input) {
   let event = window.event;
   const modifierKey = event.altKey || event.ctrlKey || event.metaKey || event.shiftKey;
