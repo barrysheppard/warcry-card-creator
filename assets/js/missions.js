@@ -1563,3 +1563,71 @@ function drawArrow(context, startX, startY, endX, endY, arrowSize = 10, color = 
     context.fillStyle = color;
     context.fill();
 }
+
+function onJoystickKeyPress(input) {
+  let event = window.event;
+  const modifierKey = event.altKey || event.ctrlKey || event.metaKey || event.shiftKey;
+
+  if (modifierKey && !(event.keyCode == 9 && event.shiftKey)) {
+    return;
+  }
+
+  if ((event.keyCode < 37 || event.keyCode > 40) && event.keyCode != 32 && event.keyCode != 9 && event.keyCode != 187) {
+    return;
+  }
+
+  event.preventDefault();
+  event.stopPropagation();
+
+  let scopeName = input.id.replace(/Joystick/, "");
+  let xField = document.getElementById(scopeName + "X");
+  let yField = document.getElementById(scopeName + "Y");
+  let iconField = document.getElementById(scopeName + "Icon");
+  let renderModeField = document.getElementById(scopeName + "RenderMode");
+  let numberOfOptions = renderModeField.options.length;
+  let joysticks = Array.from(document.querySelectorAll('input[type="radio"][name="joystick"]'));
+
+  switch (event.keyCode) {
+  case 9: // tab
+    let index;
+    if (event.shiftKey) {
+      index = joysticks.indexOf(input) - 1;
+      if (index < 0) {
+        index = joysticks.length - 1;
+      }
+    } else {
+      index = (joysticks.indexOf(input) + 1) % joysticks.length;
+    }
+    document.getElementById("redCollapse").classList.add("show");
+    document.getElementById("blueCollapse").classList.add("show");
+    document.getElementById("objectiveCollapse").classList.add("show");
+    joysticks[index].focus();
+    joysticks[index].checked = true;
+    break;
+  case 32: // spacebar
+    renderModeField.selectedIndex = (renderModeField.selectedIndex + 1) % numberOfOptions;
+    break;
+  case 187: // plus (+)
+    if (iconField) {
+      iconField.value = Math.min(10, parseInt(iconField.value) + 1);
+    }
+    break;
+  case 37: // left
+    xField.value = Math.max(0, parseInt(xField.value) - 1);
+    break;
+  case 38: // up
+    yField.value = Math.max(0, parseInt(yField.value) - 1);
+    break;
+  case 39: // right
+    xField.value = Math.min(30, parseInt(xField.value) + 1);
+    break;
+  case 40: // down
+    yField.value = Math.min(22, parseInt(yField.value) + 1);
+    break;
+  default:
+    return;
+  }
+
+
+  onAnyChange();
+}
