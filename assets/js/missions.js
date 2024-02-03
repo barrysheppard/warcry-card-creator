@@ -667,6 +667,10 @@ function onCopyFromRed() {
   document.getElementById("blueShieldTurn").value = document.getElementById("redShieldTurn").value;
   document.getElementById("blueDaggerTurn").value = document.getElementById("redDaggerTurn").value;
 
+  document.getElementById("blueHammerRenderMode").value = document.getElementById("redHammerRenderMode").value;
+  document.getElementById("blueShieldRenderMode").value = document.getElementById("redShieldRenderMode").value;
+  document.getElementById("blueDaggerRenderMode").value = document.getElementById("redDaggerRenderMode").value;
+
   onAnyChange();
 }
 
