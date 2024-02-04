@@ -1674,8 +1674,6 @@ function onJoystickKeyPress(input) {
 }
 
 function randomDeployment() {
-  // TODO: Objectives
-  // TODO: Collission detection. Currently, points might end up in the same spot, which makes no sense.
   let name = generateName();
   document.getElementById("missionName").value = name;
   document.getElementById("saveName").value = name;
@@ -1706,38 +1704,63 @@ function randomDeployment() {
     }
   }
 
-  document.getElementById("redHammerX").value = generateX();
-  document.getElementById("redHammerY").value = generateY();
-
-  document.getElementById("redShieldX").value = generateX();
-  document.getElementById("redShieldY").value = generateY();
-
-  document.getElementById("redDaggerX").value = generateX();
-  document.getElementById("redDaggerY").value = generateY();
-
-  options = [1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 3];
-  document.getElementById("redHammerTurn").value = options[Math.floor(Math.random() * options.length)];
-  document.getElementById("redShieldTurn").value = options[Math.floor(Math.random() * options.length)];
-  document.getElementById("redDaggerTurn").value = options[Math.floor(Math.random() * options.length)];
-
-  if (document.getElementById("redHammerX").value == 0 || document.getElementById("redHammerY").value == 0) {
-    document.getElementById("redHammerRenderMode").value = 'line';
-  } else {
-    document.getElementById("redHammerRenderMode").value = 'short';
+  const populateDeployment = function(scope) {
+    const turnOptions = [1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 3];
+    let x = generateX();
+    let y = generateY();
+    document.getElementById(scope + "X").value = x;
+    document.getElementById(scope + "Y").value = y;
+    let turn = turnOptions[Math.floor(Math.random() * turnOptions.length)];
+    document.getElementById(scope + "Turn").value = turn;
+    document.getElementById(scope + "RenderMode").value = (x == 0 || y == 0) ? 'line' : 'short';
+    return {
+      x: x,
+      y: y,
+      turn: turn
+    }
   }
-  if (document.getElementById("redShieldX").value == 0 || document.getElementById("redShieldY").value == 0) {
-    document.getElementById("redShieldRenderMode").value = 'line';
-  } else {
-    document.getElementById("redShieldRenderMode").value = 'short';
+
+  const pointsOverlap = function(p1, p2) {
+    const distX = Math.abs(p1[0] - p2[0]);
+    const distY = Math.abs(p1[1] - p2[1]);
+    return distX < 3 && distY < 3;
   }
-  if (document.getElementById("redDaggerX").value == 0 || document.getElementById("redDaggerY").value == 0) {
-    document.getElementById("redDaggerRenderMode").value = 'line';
-  } else {
-    document.getElementById("redDaggerRenderMode").value = 'short';
+
+  const allPoints = function() {
+    return COLOURS.flatMap(colour => {
+      return GROUPS.map(group => {
+        return [
+          parseInt(document.getElementById(colour + group + "X").value),
+          parseInt(document.getElementById(colour + group + "Y").value)
+        ];
+      });
+    });
   }
+
+  const hasConflicts = function() {
+    let points = allPoints();
+    return points.filter(point => {
+      if (points.filter(p2 => pointsOverlap(point, p2)).length > 1) {
+        return true;
+      }
+      return false;
+    }).length > 0;
+  }
+
+  while (true) {
+    let hasRnd1 = false;
+    GROUPS.forEach(group => {
+      let deployment = populateDeployment("red" + group);
+      hasRnd1 = hasRnd1 || deployment.turn == 1;
+    });
+    onCopyFromRed();
+
+    if (hasRnd1 && !hasConflicts()) {
+      break;
+    }
+  }
+
   document.getElementById("symmetrical").checked = true;
-
-  onCopyFromRed();
   onAnyChange();
 }
 
