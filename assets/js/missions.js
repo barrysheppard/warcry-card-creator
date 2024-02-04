@@ -52,7 +52,7 @@ function getBackgroundImage() {
     'bg-15': 'bg-green',
     'bg-16': 'bg-red',
     'bg-17': 'bg-dark-arcane',
-    'bg-18': 'bg-white',
+    'bg-18': 'bg-transparent',
   };
 
   const selectedOption = document.getElementById('background-list').value;
@@ -322,6 +322,7 @@ function readControls() {
 }
 
 function render(missionData) {
+  getContext().clearRect(0, 0, canvas.width, canvas.height);
   if (missionData.customBackgroundUrl) {
     renderCustomBackground(missionData);
   } else {
