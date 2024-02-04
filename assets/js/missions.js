@@ -193,14 +193,6 @@ function drawMissionType(value) {
   });
 }
 
-function getLabel(element) {
-  return $(element).prop("labels")[0];
-}
-
-function getImage(element) {
-  return $(element).find("img")[0];
-}
-
 function drawImage(scaledPosition, scaledSize, image) {
   if (image != null) {
     if (image.complete) {
@@ -239,16 +231,6 @@ function drawModel(imageUrl, imageProps) {
     };
     image.src = imageUrl;
   }
-}
-
-function getName() {
-  //let textInput = $("#saveNameInput")[0];
-  return "Warcry_Mission_Card";
-}
-
-function setName(name) {
-  //let textInput = $("#saveNameInput")[0];
-  //textInput.value = name;
 }
 
 function setModelImage(image) {
@@ -296,7 +278,6 @@ function getDefaultModelImageProperties() {
 
 function readControls() {
   let data = new Object;
-  data.name = getName();
   data.imageUrl = getFighterImageUrl();
   data.imageProperties = getModelImageProperties();
   data.customBackgroundUrl = getCustomBackgroundUrl();
@@ -335,7 +316,6 @@ function readControls() {
 }
 
 function render(missionData) {
-  console.log(missionData);
   if (missionData.customBackgroundUrl) {
     renderCustomBackground(missionData);
   } else {
@@ -437,8 +417,10 @@ async function writeControls(data) {
   setModelImageProperties(data.imageProperties);
   setCustomBackground(data.customBackgroundUrl);
   setCustomBackgroundProperties(data.customBackgroundProperties);
-  $("#missionName")[0].value = data.missionName;
-  $("#missionType")[0].value = data.missionType;
+  document.getElementById("missionName").value = data.missionName;
+  document.getElementById("missionType").value = data.missionType;
+
+  document.getElementById("saveName").value = data.missionName;
 
   // check and uncheck if needed
 
@@ -474,9 +456,20 @@ async function writeControls(data) {
   render(data);
 }
 
-function defaultmissionData() {
+function onMissionNameChange() {
+  document.getElementById("saveName").value = document.getElementById("missionName").value;
+  onAnyChange();
+}
+
+function onSlotListChange() {
+  let selectedValue = document.getElementById("slotList").value;
+  if (selectedValue) {
+    document.getElementById("saveName").value = selectedValue;
+  }
+}
+
+function defaultMissionData() {
   let data = new Object;
-  data.name = "Warcry_Mission_Card";
   data.imageUrl = null;
   data.imageProperties = getDefaultModelImageProperties();
   data.base64Image = null;
@@ -492,19 +485,19 @@ function defaultmissionData() {
   data.blueHammerYValue = 17;
   data.blueHammerLine = false;
   data.blueHammerTurn = 1;
-  data.blueHammerRenderMode = 'edge';
+  data.blueHammerRenderMode = 'short';
 
   data.blueShieldXValue = 15;
   data.blueShieldYValue = 15;
   data.blueShieldLine = false;
   data.blueShieldTurn = 1;
-  data.blueShieldRenderMode = 'edge';
+  data.blueShieldRenderMode = 'short';
 
   data.blueDaggerXValue = 6;
   data.blueDaggerYValue = 17;
   data.blueDaggerLine = false;
   data.blueDaggerTurn = 1;
-  data.blueDaggerRenderMode = 'edge';
+  data.blueDaggerRenderMode = 'short';
 
   data.removeBlueDeployment = false;
 
@@ -512,19 +505,19 @@ function defaultmissionData() {
   data.redHammerYValue = 5;
   data.redHammerLine = false;
   data.redHammerTurn = 1;
-  data.redHammerRenderMode = 'edge';
+  data.redHammerRenderMode = 'short';
 
   data.redShieldXValue = 15;
   data.redShieldYValue = 7;
   data.redShieldLine = false;
   data.redShieldTurn = 1;
-  data.redShieldRenderMode = 'edge';
+  data.redShieldRenderMode = 'short';
 
   data.redDaggerXValue = 6
   data.redDaggerYValue = 5;
   data.redDaggerLine = false;
   data.redDaggerTurn = 1;
-  data.redDaggerRenderMode = 'edge';
+  data.redDaggerRenderMode = 'short';
 
   data.removeRedDeployment = false;
 
@@ -554,66 +547,96 @@ function defaultmissionData() {
   data.white = false;
 
   data.textValue = "";
-console.log(data);
   return data;
 }
 
-function savemissionDataMap(newMap) {
-  window.localStorage.setItem("missionDataMap", JSON.stringify(newMap));
-}
-
-function loadmissionDataMap() {
-  let storage = window.localStorage.getItem("missionDataMap");
-  if (storage != null) {
-    return JSON.parse(storage);
-  }
-  // Set up the map.
-  let map = new Object;
-  map["Warcry_Mission_Card"] = defaultmissionData();
-  savemissionDataMap(map);
-  return map;
-}
-
-function loadLatestmissionData() {
-  let latestFighterName = window.localStorage.getItem("latestFighterName");
-  if (latestFighterName == null) {
-    latestFighterName = "Warcry_Mission_Card";
-  }
-
-  let data = loadmissionData(latestFighterName);
-
-  if (data) {
-    console.log("Loaded data:");
-    console.log(data);
+function writeMissionData(name, data) {
+  let slots = readMissionSlots();
+  if (data == null) {
+    delete slots[name];
   } else {
-    console.log("Failed to load data - loading default");
-    data = defaultCardData();
+    slots[name] = data;
   }
-
-  return data;
+  window.localStorage.setItem("missionDataSlots", JSON.stringify(slots));
 }
 
-function saveLatestmissionData() {
-  let missionData = readControls();
-  if (!missionData.name) {
+function readMissionData(name) {
+  let slots = readMissionSlots();
+  return slots[name];
+}
+
+function saveMissionData() {
+  writeMissionData("default", readControls());
+}
+
+function loadMissionDataOrDefault() {
+  let data = readMissionData("default") || defaultMissionData();
+  writeControls(data);
+}
+
+function readMissionSlots() {
+  let raw = window.localStorage.getItem("missionDataSlots");
+  return raw ? JSON.parse(raw) : {};
+}
+
+function enumerateMissionSlots(includeDefault = false) {
+  return Object.keys(readMissionSlots()).filter(x => includeDefault || x != "default");
+}
+
+function onSaveSlot() {
+  let name = document.getElementById("saveName").value;
+  if (!name) {
+    alert("Error: No name");
+    return;
+  }
+  let data = readControls();
+  writeMissionData(name, data);
+  updateSlotList();
+  document.getElementById("slotList").value = name;
+}
+
+function onLoadSlot() {
+  let slotList = document.getElementById("slotList");
+  let selectedName = slotList.value;
+  if (!selectedName) {
     return;
   }
 
-  window.localStorage.setItem("latestFighterName", missionData.name);
-  //savemissionData(missionData);
+  let data = readMissionData(selectedName);
+  if (!data) {
+    return;
+  }
+
+  writeControls(data);
+  document.getElementById("saveName").value = selectedName;
 }
 
-function loadmissionData(missionDataName) {
-  if (!missionDataName) {
-    return null;
+function onDeleteSlot() {
+  let slotList = document.getElementById("slotList");
+  let selectedName = slotList.value;
+  if (!selectedName) {
+    return;
   }
 
-  let map = loadmissionDataMap();
-  if (map[missionDataName]) {
-    return map[missionDataName];
-  }
+  writeMissionData(selectedName, null);
+  updateSlotList();
+}
 
-  return null;
+function updateSlotList() {
+  let slotList = document.getElementById("slotList");
+  let shouldContain = enumerateMissionSlots(false);
+  let contains = Array.from(slotList.options).map(o => o.value);
+
+  Array.from(slotList.options).forEach(option => {
+    if (!shouldContain.includes(option.value)) {
+      slotList.removeChild(option);
+    }
+  });
+  shouldContain.forEach(value => {
+    if (!contains.includes(value)) {
+      slotList.add(new Option(value, value));
+    }
+  });
 }
 
 function getBase64Image(img) {
@@ -662,15 +685,13 @@ function getLatestmissionDataName() {
 function onAnyChange() {
   let missionData = readControls();
   render(missionData);
-  saveLatestmissionData();
+  saveMissionData();
 }
 
 function onFighterImageUpload() {
-  image = getModelImage();
+  let image = getModelImage();
   setModelImage(image);
-  let missionData = readControls();
-  render(missionData);
-  saveLatestmissionData();
+  onAnyChange();
 }
 
 function onCopyFromRed() {
@@ -694,37 +715,12 @@ function onCopyFromRed() {
   onAnyChange();
 }
 
-function onClearCache() {
-  window.localStorage.clear();
-  location.reload();
-  return false;
-}
-
 function onResetToDefault() {
-  let missionData = defaultmissionData();
-  writeControls(missionData);
+  writeControls(defaultMissionData());
+  onAnyChange();
 }
 
-function refreshSaveSlots() {
-  // Remove all
-  $('select:not([data-clear-on-load="false"])').children('option').remove();
-
-  let missionDataName = readControls().name;
-
-  let map = loadmissionDataMap();
-
-  for (let [key, value] of Object.entries(map)) {
-    let selected = false;
-    if (missionDataName &&
-        key == missionDataName) {
-      selected = true;
-    }
-    let newOption = new Option(key, key, selected, selected);
-    $('#saveSlotsSelect').append(newOption);
-  }
-}
-
-async function onSaveClicked() {
+async function onExportToFile() {
   data = readControls();
 
   // weird situation where when no image is saved, but json is then saved
@@ -755,7 +751,7 @@ async function onSaveClicked() {
   downloadAnchorNode.remove();
 }
 
-function saveCardAsImage() {
+function onExportToImage() {
   data = readControls();
   let element = document.createElement('a');
   element.setAttribute('href', document.getElementById('canvas').toDataURL('image/png'));
@@ -854,9 +850,7 @@ function setCustomBackground(image) {
 function onCustomBackgroundUpload() {
   image = getCustomBackground();
   setCustomBackground(image);
-  let missionData = readControls();
-  render(missionData);
-  saveLatestmissionData();
+  onAnyChange();
 }
 
 function getCustomBackgroundUrl() {
@@ -1713,7 +1707,6 @@ function randomDeployment() {
 }
 
 window.onload = function() {
-  let missionData = loadLatestmissionData();
-  writeControls(missionData);
-  refreshSaveSlots();
+  loadMissionDataOrDefault();
+  updateSlotList();
 };
