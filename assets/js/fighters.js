@@ -2,7 +2,7 @@ const writeValue = function(ctx, value, position) {
     if (!ctx || typeof ctx.fillText !== 'function') {
       throw new Error('Invalid canvas context');
     }
-  
+
     const canvas = getCanvas();
     const backgroundImage = getBackgroundImage();
     const scale = getScalingFactor(canvas, backgroundImage);
@@ -10,7 +10,7 @@ const writeValue = function(ctx, value, position) {
       x: position.x / scale.x,
       y: position.y / scale.y
     };
-  
+
     ctx.scale(scale.x, scale.y);
     ctx.fillText(value, scaledPosition.x, scaledPosition.y);
   };
@@ -147,8 +147,8 @@ drawFighterName = function (value) {
         getContext().font = '44px schoensperger';
     } else {
         getContext().font = '44px rodchenkoctt';
-    }    
-    
+    }
+
     getContext().fillStyle = 'white';
     getContext().textAlign = "center";
     getContext().textBaseline = "middle";
@@ -161,37 +161,37 @@ drawFighterName = function (value) {
 
     getContext().fillStyle = 'black';
     writeScaled(value, { x: startX, y: startY });
-    
+
 }
 
 function scaleFontSizeToFit(text, maxWidth, startingFontSize) {
     const canvas = document.createElement('canvas');
     const context = canvas.getContext('2d');
     let fontSize = startingFontSize;
-  
+
     let textWidth; // Define textWidth here
-  
+
     do {
       context.font = fontSize + 'px sans-serif'; // Change the font family as needed
       textWidth = context.measureText(text).width; // Calculate textWidth
       fontSize--;
     } while (textWidth > maxWidth && fontSize > 0);
-  
+
     return fontSize;
   }
-  
+
   function drawFighterName2(value) {
     const startX = 850;
     const startY = 725;
     maxWidth = 450;
     const font = scaleFontSizeToFit(value, maxWidth, 44);
-  
+
     if (document.getElementById('background-list').value === 'bg-13') {
       getContext().font = font + 'px schoensperger';
     } else {
       getContext().font = font + 'px rodchenkoctt';
     }
-  
+
     getContext().fillStyle = 'white';
     getContext().textAlign = 'center';
     getContext().textBaseline = 'middle';
@@ -201,11 +201,11 @@ function scaleFontSizeToFit(text, maxWidth, startingFontSize) {
     writeScaled(value, { x: startX - 2, y: startY });
     writeScaled(value, { x: startX, y: startY - 2 });
     writeScaled(value, { x: startX - 2, y: startY - 2 });
-  
+
     getContext().fillStyle = 'black';
     writeScaled(value, { x: startX, y: startY });
-  }  
-  
+  }
+
 
 drawToughness = function (value) {
     getContext().font = "60px rodchenkoctt";
@@ -745,7 +745,7 @@ const render = function(fighterData) {
       renderDefaultBackground(fighterData);
     }
   };
-  
+
 const renderCustomBackground = function(fighterData) {
     const backgroundImage = new Image();
     const removeTextAndFrame = document.getElementById("removeTextAndFrame").checked;
@@ -769,11 +769,11 @@ const renderCustomBackground = function(fighterData) {
             }
         };
         renderFighterImage(fighterData);
-        
+
     };
     backgroundImage.src = fighterData.customBackgroundUrl;
 };
-  
+
 const renderDefaultBackground = function(fighterData) {
     const removeTextAndFrame = document.getElementById("removeTextAndFrame").checked;
     getContext().drawImage(getBackgroundImage(), 0, 0, getCanvas().width, getCanvas().height);
@@ -783,7 +783,7 @@ const renderDefaultBackground = function(fighterData) {
     drawBorder();
     renderFighterImage(fighterData);
 };
-  
+
 const renderFighterImage = function(fighterData) {
     const removeTextAndFrame = document.getElementById("removeTextAndFrame").checked;
     if (fighterData.imageUrl) {
@@ -814,7 +814,7 @@ const renderFighterImage = function(fighterData) {
     }
 };
 
-  
+
 
 function drawOverlayTexts(fighterData) {
     const {
@@ -831,28 +831,28 @@ function drawOverlayTexts(fighterData) {
       weapon2,
       tagRunemarks,
     } = fighterData;
-  
+
     // Set default values for the checkboxes
     const subfactionCheckbox = document.getElementById('subfaction-runemarks/none/blank.gif');
     const deploymentCheckbox = document.getElementById('checkbox-assets/img/blank2.gif');
-  
+
     const showSubfactionRunemark = subfactionCheckbox.checked;
     const showDeploymentRunemark = deploymentCheckbox.checked;
-  
+
     // These are the texts to overlay
     drawFighterName(fighterName);
     drawFighterName2(fighterName2);
     drawFactionRunemark(factionRunemark);
     drawBorder();
-  
+
     // Draw subfaction runemark if enabled
-    if (!(document.getElementById('subfaction-runemarks/none/blank.gif').checked) 
+    if (!(document.getElementById('subfaction-runemarks/none/blank.gif').checked)
         && fighterData.subfactionRunemark != null
         && !document.getElementById("bladebornRunemark").checked
         ) {
         drawSubfactionRunemark(subfactionRunemark);
     }
-  
+
     // Draw deployment runemark if enabled
     if (!(document.getElementById('checkbox-assets/img/blank2.gif').checked) && fighterData.deploymentRunemark != null) {
         drawDeploymentRunemark(fighterData.deploymentRunemark);
@@ -861,7 +861,7 @@ function drawOverlayTexts(fighterData) {
     drawWounds(wounds);
     drawToughness(toughness);
     drawPointCost(pointCost);
-  
+
     // Determine which weapon(s) to draw and their positions
     if (weapon1.enabled && weapon2.enabled) {
       drawWeapon(weapon2, { x: 68, y: 520 }); // Default was x:29, y:397
@@ -871,8 +871,8 @@ function drawOverlayTexts(fighterData) {
     } else if (weapon2.enabled) {
       drawWeapon(weapon2, { x: 68, y: 550 }); // Default was x:29, y:463
     }
-  
-    if (!(document.getElementById('subfaction-runemarks/none/blank.gif').checked) 
+
+    if (!(document.getElementById('subfaction-runemarks/none/blank.gif').checked)
           && fighterData.subfactionRunemark != null
           && document.getElementById("bladebornRunemark").checked
           ) {
@@ -885,7 +885,7 @@ function drawOverlayTexts(fighterData) {
       drawTagRunemark(i, tagRunemarks[i]);
     }
   }
-  
+
 
 async function writeControls(fighterData) {
     //setName("Warcry_Fighter_Card"); // Always default, trying to move away from this
@@ -1103,8 +1103,6 @@ function getLatestFighterDataName() {
 }
 
 window.onload = function () {
-    //window.localStorage.clear();
-
     var fighterData = loadLatestFighterData();
     writeControls(fighterData);
     refreshSaveSlots();
@@ -1112,14 +1110,14 @@ window.onload = function () {
     getFighterList()
         // log response or catch error of fetch promise
         .then((data) => updateFighterListDropdown(data))
-    
+
         var queryString = window.location.search;
         var urlParams = new URLSearchParams(queryString);
-        
+
         var id = urlParams.get('id');
         var fighter = urlParams.get('fighter');
         var warband = urlParams.get('warband');
-        
+
         if (id && id.trim() !== '') {
             loadFighterById(id);
         } else if (fighter && fighter.trim() !== '' && validateInput(warband)) {
@@ -1270,7 +1268,9 @@ function addToImageCheckboxSelector(imgSrc, grid, bgColor) {
 }
 
 function onClearCache() {
-    window.localStorage.clear();
+    window.localStorage.removeItem("fighterDataMap");
+    window.localStorage.removeItem("latestFighterName");
+
     location.reload();
     return false;
 }
@@ -1314,17 +1314,17 @@ async function onSaveClicked() {
     //data.imageUrl = null;
 
     // need to be explicit due to sub arrays
-    var exportObj = JSON.stringify(data, ['name', 'imageUrl', 
-        'imageProperties', 'offsetX', 'offsetY', 'scalePercent', 
+    var exportObj = JSON.stringify(data, ['name', 'imageUrl',
+        'imageProperties', 'offsetX', 'offsetY', 'scalePercent',
         'factionRunemark', 'subfactionRunemark', 'deploymentRunemark', 'fighterName', 'fighterName2',
-        'toughness', 'wounds', 'move', 'pointCost', 'tagRunemarks', 
+        'toughness', 'wounds', 'move', 'pointCost', 'tagRunemarks',
         'weapon1', 'attacks', 'damageBase', 'damageCrit',
-        'enabled', 'rangeMax', 'rangeMin', 'runemark', 'strength', 
+        'enabled', 'rangeMax', 'rangeMin', 'runemark', 'strength',
         'weapon2', 'attacks', 'damageBase', 'damageCrit',
         'enabled', 'rangeMax', 'rangeMin', 'runemark', 'strength',
-        'bg01', 'bg02', 'bg03', 'bg04', 'bg05', 'bg06', 'bg07', 'bg08', 'bg09', 'bg10', 
+        'bg01', 'bg02', 'bg03', 'bg04', 'bg05', 'bg06', 'bg07', 'bg08', 'bg09', 'bg10',
         'bg11','bg12','bg13', 'bg14', 'bg15', 'bg16', 'bgselected',
-        'customBackgroundUrl', 'customBackgroundProperties','customBackgroundOffsetX', 
+        'customBackgroundUrl', 'customBackgroundProperties','customBackgroundOffsetX',
         'customBackgroundOffsetY', 'customBackgroundScalePercent',
         'base64CustomBackground', 'base64Image'], 4);
 
@@ -1338,7 +1338,7 @@ async function onSaveClicked() {
     } else {
         file_name = file_name + "_" + data.fighterName2.replace(/ /g, "_").trim() + ".json";
     }
-    
+
     downloadAnchorNode.setAttribute("download", file_name);
     document.body.appendChild(downloadAnchorNode); // required for firefox
     downloadAnchorNode.click();
@@ -1368,7 +1368,7 @@ $(document).ready(function () {
     ctx.beginPath();
     ctx.arc(95, 50, 40, 0, 2 * Math.PI);
     // ctx.stroke();
-    
+
 });
 
 async function readJSONFile(file) {
@@ -1420,7 +1420,7 @@ async function fileChange(file) {
 
 
         writeControls(json);
-        
+
     };
 
     readJSONFile(file).then(json =>
@@ -1488,7 +1488,7 @@ async function loadFighterById(id) {
       .then(data => {
         // Find the fighter with the matching id
         const fighter = data.find(f => f._id === id);
-        
+
         // Check if fighter is found
         if (fighter) {
           // Call saveFighterFromList with the fighter as input
@@ -1501,7 +1501,7 @@ async function loadFighterById(id) {
         console.log("Error loading fighters:", error);
       });
   }
-  
+
 
 async function loadFighterByName(name, warband) {
     let response = await fetch("https://krisling049.github.io/warcry_data/fighters.jsonn");
@@ -1517,7 +1517,7 @@ async function loadFighterByName(name, warband) {
         return fullName.toLowerCase().includes(name.toLowerCase());
       }
     });
-  
+
     if (filteredData.length == 1) {
       saveFighterFromList(filteredData[0]);
     } else if (filteredData.length > 1) {
@@ -1540,8 +1540,8 @@ async function loadFighterByName(name, warband) {
     }
     updateStats();
   }
-  
-  
+
+
 
 function saveFighterFromList(fighter){
 
@@ -1560,7 +1560,7 @@ function saveFighterFromList(fighter){
 
     fighterName = fighter.name;
     fighterName2 = " ";
-  
+
     if (fighter.name.length > 20) {
       const lastSpaceIndex = fighter.name.lastIndexOf(" ", 20);
       if (lastSpaceIndex !== -1) {
@@ -1623,7 +1623,7 @@ function saveFighterFromList(fighter){
 }
 
 function getFactionRunemark(warband){
-    if(warband == "Beasts of Chaos") {runemark = "runemarks/white/factions-chaos-beasts-of-chaos.svg"} 
+    if(warband == "Beasts of Chaos") {runemark = "runemarks/white/factions-chaos-beasts-of-chaos.svg"}
     else if(warband == "Chaos Legionnaires") {runemark = "runemarks/white/factions-chaos-chaos-legionnaires.svg";}
     else if(warband == "Corvus Cabal") {runemark = "runemarks/white/factions-chaos-corvus-cabal.svg";}
     else if(warband == "Cypher Lords") {runemark = "runemarks/white/factions-chaos-cypher-lords.svg";}
@@ -1690,11 +1690,11 @@ function getFactionRunemark(warband){
     else if(warband == "Cities of Sigmar: Castelite Hosts") {runemark = "runemarks/white/factions-order-cities-of-sigmar-castelite-hosts.svg";}
     else if(warband == "Cities of Sigmar: Dispossessed") {runemark = "runemarks/white/factions-order-cities-of-sigmar-dispossessed.svg";}
     else if(warband == "Cities of Sigmar: Darkling Covens") {runemark = "runemarks/white/factions-order-cities-of-sigmar-darkling-covens.svg";}
-    
+
     else { runemark = "runemarks/white/factions-chaos-everchosen.svg";}
     console.log(warband)
     console.log(runemark)
-    
+
     return runemark;
 }
 
@@ -1731,7 +1731,7 @@ function getRunemarks(runemarks){
     if (runemarks.includes("elite")){
         tagRunemarks.push('runemarks/black/fighters-elite.svg');
     }
-    if (runemarks.includes("icon bearer")){ 
+    if (runemarks.includes("icon bearer")){
         tagRunemarks.push('runemarks/black/fighters-icon-bearer.svg');
     }
     if (runemarks.includes("mount")){
@@ -1781,7 +1781,7 @@ function getRunemarks(runemarks){
 
 
 function getWeaponRunemark(weaponSymbol){
-    if(weaponSymbol == "axe") {runemark = "runemarks/black/weapons-axe.svg"} 
+    if(weaponSymbol == "axe") {runemark = "runemarks/black/weapons-axe.svg"}
     else if(weaponSymbol == "bident") {runemark = "runemarks/black/weapons-bident.svg";}
     else if(weaponSymbol == "blast") {runemark = "runemarks/black/weapons-blast.svg";}
     else if(weaponSymbol == "claws") {runemark = "runemarks/black/weapons-claws.svg";}
@@ -1962,13 +1962,13 @@ function calculateAverageDamage(attacks, strength, damage, crit, toughness) {
 function estimatePoints() {
     var fighterData = readControls();
     var adjustment = document.getElementById("adjustment").value;
-    var averageDamage1T4 = calculateAverageDamage(fighterData.weapon1.attacks, fighterData.weapon1.strength, 
+    var averageDamage1T4 = calculateAverageDamage(fighterData.weapon1.attacks, fighterData.weapon1.strength,
                                                 fighterData.weapon1.damageBase, fighterData.weapon1.damageCrit, 4);
-    var averageDamage2T4 = calculateAverageDamage(fighterData.weapon2.attacks, fighterData.weapon2.strength, 
+    var averageDamage2T4 = calculateAverageDamage(fighterData.weapon2.attacks, fighterData.weapon2.strength,
                                                 fighterData.weapon2.damageBase, fighterData.weapon2.damageCrit, 4);
 
     var pointsPerDamage = 25;
-    var pointsPerWound = 25/3;         
+    var pointsPerWound = 25/3;
 
     // To select the primary weapon we can't just do max damage, we need to adjust by range scaling.
     weapon1range_percentage = 0;
@@ -2020,7 +2020,7 @@ function estimatePoints() {
     basepoints = Math.round((points_for_wounds + points_for_damage)/2);
     // Calculate the adjustment percentage based on the difference from the baseline
     percentage = parseInt(adjustment);
-    
+
     if (fighterData.move > 4) {
         move_percentage = 5
         move_percentage +=  (fighterData.move - 4) * 5
@@ -2041,7 +2041,7 @@ function estimatePoints() {
     if(fighterData.tagRunemarks.includes("runemarks/black/fighters-fly.svg")){
         fly_percentage = 10;
     }
-    
+
     percentage += move_percentage;
     percentage += toughness_percentage;
     percentage += weaponrange_percentage;
@@ -2056,15 +2056,15 @@ function estimatePoints() {
     var resultText = `Estimated points: ${points}
 
         `;
-    var resultTextDetails = `Base ${basepoints} points with ${percentage}% adjustment: 
+    var resultTextDetails = `Base ${basepoints} points with ${percentage}% adjustment:
 
         Base:
         - Base from Wounds : ${Math.round(points_for_wounds)} pts
         - Base from Weapon1 : ${Math.round(averageDamage1T4 * pointsPerDamage)} pts
         - Base from Weapon2 : ${Math.round(averageDamage2T4 * pointsPerDamage)} pts
 
-        Adjustment:    
-        - Movement : ${move_percentage}%    
+        Adjustment:
+        - Movement : ${move_percentage}%
         - Toughness : ${toughness_percentage}%
         - Weapon range : ${weaponrange_percentage}%
         - Fly : ${fly_percentage}%

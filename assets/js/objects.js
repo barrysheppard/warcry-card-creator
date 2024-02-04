@@ -64,7 +64,7 @@ getBackgroundImage = function () {
         return document.getElementById('warcry_object_mordheim');
     }
 
-    
+
 }
 
 drawBackground = function () {
@@ -128,7 +128,7 @@ drawObjectName = function (value) {
         getContext().font = font_size + 'px schoensperger';
     } else {
         getContext().font = font_size + 'px lithosblack';
-    }    
+    }
     getContext().fillStyle = colourBorder;
     writeScaled(value, { x: x_pos +2, y: y_pos+2 });
     writeScaled(value, { x: x_pos -2, y: y_pos-2 });
@@ -479,7 +479,6 @@ function getLatestCardDataName() {
 }
 
 window.onload = function () {
-    //window.localStorage.clear();
     var cardData = loadLatestCardData();
     writeControls(cardData);
     refreshSaveSlots();
@@ -516,7 +515,8 @@ function addToImageCheckboxSelector(imgSrc, grid, bgColor) {
 }
 
 function onClearCache() {
-    window.localStorage.clear();
+    window.localStorage.removeItem("cardDataMap");
+    window.localStorage.removeItem("latestObjectName");
     location.reload();
     return false;
 }

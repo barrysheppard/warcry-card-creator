@@ -138,7 +138,7 @@ function drawAbility(id, pixelPosition) {
             var title = '[Quad] ' + name + ': ';
         }
     }
-    
+
     // idea here is to check the number of runemarks being used per row
     // then adjust the text size to account.
     // would need to check cardData.tagRunemarksOne
@@ -232,11 +232,11 @@ function calculateFontSizeToFit(maxWidth, startingFontSize, minFontSize, text) {
     do {
         context.font = fontSize + 'px Georgia, serif';
         const textWidth = context.measureText(text).width;
-        
+
         if (textWidth <= maxWidth) {
             break; // If the text fits, exit the loop
         }
-        
+
         fontSize--; // Reduce the font size if text width is greater than maxWidth
     } while (fontSize > minFontSize);
 
@@ -587,7 +587,7 @@ function drawTagRunemark(index, runemark, row) {
         if (tripleCheck) {
             positions = positions.map(({x, y}) => ({x: x - 90, y}));
         } else {
-            positions = positions.map(({x, y}) => ({x: x - 90, y}));   
+            positions = positions.map(({x, y}) => ({x: x - 90, y}));
         }
     }
 
@@ -614,7 +614,7 @@ function drawTagRunemark(index, runemark, row) {
     var image = new Image();
     image.onload = function () {
         drawImage(position, size, image);
-    
+
         // write the runemark name underneath
         if (document.getElementById('runemark-names').checked){
             value = runemark.slice(25);
@@ -622,7 +622,7 @@ function drawTagRunemark(index, runemark, row) {
             if (value == "leader"){
                 value = "hero";
             }
-            if (tripleCheck) { 
+            if (tripleCheck) {
                 if (document.getElementById('bg-09').checked){
                     getContext().font = '22px schoensperger';
                 } else {
@@ -634,11 +634,11 @@ function drawTagRunemark(index, runemark, row) {
                 } else {
                     getContext().font = '20px rodchenkoctt';
                 }
-            }  
+            }
             getContext().fillStyle = 'white';
             getContext().textAlign = "center";
             getContext().textBaseline = "middle";
-            if (tripleCheck) { 
+            if (tripleCheck) {
                 x_value = positions[index].x + 100/2;
                 y_value = positions[index].y + 110;
             } else {
@@ -779,7 +779,7 @@ function getTagRunemarkId(runemark, ability) {
     // the id starts with the ability number in text form, one to seven lower case
     var result = ability;
     // the second part is One to Twentyfive each starting with a capital
-    // each runemark is in order, so we can get the second part based on 
+    // each runemark is in order, so we can get the second part based on
     if (runemark == "runemarks/black/fighters-agile.svg") {
         result = result + "One"
     }
@@ -1000,7 +1000,8 @@ function onTagRunemarkFileSelect() {
 }
 
 function onClearCache() {
-    window.localStorage.clear();
+    window.localStorage.removeItem("cardDataMap");
+    window.localStorage.removeItem("latestAbilitiesName");
     location.reload();
     return false;
 }
@@ -1608,14 +1609,14 @@ window.onload = function () {
     getAbilityList()
         // log response or catch error of fetch promise
         .then((data) => updateAbilityListDropdown(data))
-    
+
         var queryString = window.location.search;
         var urlParams = new URLSearchParams(queryString);
-        
+
         var id = urlParams.get('id');
         var ability = urlParams.get('ability');
         var warband = urlParams.get('warband');
-        
+
         if (id && id.trim() !== '') {
             loadAbilityById(id);
         } else if (ability && ability.trim() !== '' && validateInput(warband)) {
@@ -1696,7 +1697,7 @@ function updateAbilityListDropdown(data){
     const sortedData = data.sort((a, b) => {
         if (a.warband === b.warband) {
           const costOrder = { reaction: 1, double: 2, triple: 3, quad: 4 };
-      
+
           if (a.cost in costOrder && b.cost in costOrder) {
             return costOrder[a.cost] - costOrder[b.cost];
           } else if (a.cost in costOrder) {
@@ -1705,10 +1706,10 @@ function updateAbilityListDropdown(data){
             return 1;
           }
         }
-      
+
         return a.warband.localeCompare(b.warband);
       });
-      
+
 
     for (let i = 1; i <= 7; i++) {
       $.each(sortedData, function(index, option) {
@@ -1748,7 +1749,7 @@ async function getAbilityList(){
       }).sort((a, b) => {
         if (a.warband === b.warband) {
           const costOrder = { Reaction: 1, Double: 2, Triple: 3, Quad: 4 };
-      
+
           if (a.cost in costOrder && b.cost in costOrder) {
             return costOrder[a.cost] - costOrder[b.cost];
           } else if (a.cost in costOrder) {
@@ -1757,28 +1758,28 @@ async function getAbilityList(){
             return 1;
           }
         }
-      
+
         return a.warband.localeCompare(b.warband);
       });
-      
-          
+
+
     return sortedData;
 }
 
 function saveAbilityFromList(ability, abilityNumber){
-    
+
     var data = readControls();
     // change from just runemark name to full path
 
     runemarks =  getRunemarks(ability.runemarks);
-    
+
     dynamicAbilityName = "ability" + abilityNumber + "Name";
     dynamicAbilityText = "ability" + abilityNumber + "Text";
     dynamicAbilityReactionChecked = "ability" + abilityNumber + "ReactionChecked";
     dynamicAbilityDoubleChecked = "ability" + abilityNumber + "DoubleChecked";
     dynamicAbilityTripleChecked = "ability" + abilityNumber + "TripleChecked";
     dynamicAbilityQuadChecked = "ability" + abilityNumber + "QuadChecked";
-    
+
     data[dynamicAbilityName] = ability.name;
     data[dynamicAbilityText] = ability.description;
     data[dynamicAbilityReactionChecked] = false;
@@ -1837,7 +1838,7 @@ function getRunemarks(runemarks){
     if (runemarks.includes("elite")){
         tagRunemarks.push('runemarks/black/fighters-elite.svg');
     }
-    if (runemarks.includes("icon bearer")){ 
+    if (runemarks.includes("icon bearer")){
         tagRunemarks.push('runemarks/black/fighters-icon-bearer.svg');
     }
     if (runemarks.includes("mount")){
