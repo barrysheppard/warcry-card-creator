@@ -1637,15 +1637,17 @@ function onJoystickKeyPress(input) {
     break;
   case 187: // plus (+)
     if (iconField) {
-      iconField.value = (parseInt(iconField.value) + 1) % 11;
+      const max = parseInt(iconField.max) + 1;
+      iconField.value = (parseInt(iconField.value) + 1) % max;
     }
     if (turnField) {
       turnField.value = Math.max(1, (parseInt(turnField.value) + 1) % 6);
     }
     break;
-  case 189: // plus (-)
+  case 189: // minus (-)
     if (iconField) {
-      iconField.value = (parseInt(iconField.value) + 10) % 11;
+      const max = parseInt(iconField.max) + 1;
+      iconField.value = (parseInt(iconField.value) + max - 1) % max;
     }
     if (turnField) {
       turnField.value = (parseInt(turnField.value) + 5) % 6;
