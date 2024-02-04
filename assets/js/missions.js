@@ -584,11 +584,7 @@ function enumerateMissionSlots(includeDefault = false) {
 }
 
 function onSaveSlot() {
-  let name = document.getElementById("saveName").value;
-  if (!name) {
-    alert("Error: No name");
-    return;
-  }
+  let name = document.getElementById("saveName").value || generateName();
   let data = readControls();
   writeMissionData(name, data);
   updateSlotList();
@@ -1670,14 +1666,42 @@ function onJoystickKeyPress(input) {
 }
 
 function randomDeployment() {
-  document.getElementById("redHammerX").value = Math.floor(Math.random() * 31);;
-  document.getElementById("redHammerY").value = Math.floor(Math.random() * 23);;
+  document.getElementById("missionName").value = generateName();
 
-  document.getElementById("redShieldX").value = Math.floor(Math.random() * 31);;
-  document.getElementById("redShieldY").value = Math.floor(Math.random() * 23);;
+  const generateX = function() {
+    let val = Math.floor(Math.random() * 31);
+    if (val < 3) {
+      return 0;
+    } else if (val > 27) {
+      return 30;
+    } else if (val < 18 && val > 12) {
+      return 15;
+    } else {
+      return val;
+    }
+  }
 
-  document.getElementById("redDaggerX").value = Math.floor(Math.random() * 31);;
-  document.getElementById("redDaggerY").value = Math.floor(Math.random() * 23);;
+  const generateY = function() {
+    let val = Math.floor(Math.random() * 23);
+    if (val < 3) {
+      return 0;
+    } else if (val > 19) {
+      return 22;
+    } else if (val < 14 && val > 8) {
+      return 11;
+    } else {
+      return val;
+    }
+  }
+
+  document.getElementById("redHammerX").value = generateX();
+  document.getElementById("redHammerY").value = generateY();
+
+  document.getElementById("redShieldX").value = generateX();
+  document.getElementById("redShieldY").value = generateY();
+
+  document.getElementById("redDaggerX").value = generateX();
+  document.getElementById("redDaggerY").value = generateY();
 
   options = [1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 3];
   document.getElementById("redHammerTurn").value = options[Math.floor(Math.random() * options.length)];
@@ -1687,23 +1711,44 @@ function randomDeployment() {
   if (document.getElementById("redHammerX").value == 0 || document.getElementById("redHammerY").value == 0) {
     document.getElementById("redHammerRenderMode").value = 'line';
   } else {
-    document.getElementById("redHammerRenderMode").value = 'edge';
+    document.getElementById("redHammerRenderMode").value = 'short';
   }
   if (document.getElementById("redShieldX").value == 0 || document.getElementById("redShieldY").value == 0) {
     document.getElementById("redShieldRenderMode").value = 'line';
   } else {
-    document.getElementById("redShieldRenderMode").value = 'edge';
+    document.getElementById("redShieldRenderMode").value = 'short';
   }
   if (document.getElementById("redDaggerX").value == 0 || document.getElementById("redDaggerY").value == 0) {
     document.getElementById("redDaggerRenderMode").value = 'line';
   } else {
-    document.getElementById("redDaggerRenderMode").value = 'edge';
+    document.getElementById("redDaggerRenderMode").value = 'short';
   }
   document.getElementById("symmetrical").checked = true;
 
   onCopyFromRed();
   onAnyChange();
+}
 
+// I stole these word lists from https://www.chaoticanwriter.com/random-name-generators/fantasy-landscape-name-generator/
+const wordlist1 = ["Uncanny", "Blessed", "Clawing", "Kings", "Lords", "Ladys", "Roaring", "Blissful", "Sacred", "Soaring", "High", "Ancients", "Elders", "Fables", "Dead", "Skull", "Skyward", "Sword", "Shielding", "Hammer", "Blistering", "Queens", "Emperors", "Frozen", "Winters", "Summers", "Autumns", "Springs", "Feral", "Hunters", "Forsaken", "Ashen", "Battle", "Beggers", "Broken", "Crows", "Ravens", "Culling", "Death", "Dusken", "Watchers", "Edens", "Ember", "Aether", "Ether", "Far", "Fire", "Fallen", "Hills", "Horizons", "Iron", "Moon", "Moons", "North", "South", "East", "West", "Northern", "Southern", "Eastern", "Western", "Central", "Middle", "Wayward", "Oaken", "Black", "Blue", "Violet", "Shimmering", "Shade", "Doom", "Wolfs", "White", "Wind", "Forgotten", "Myths", "Legends", "Lonely", "Old", "Dragons", "Beasts", "Wishers", "Wanderers", "Dark", "Thundering", "Slavers", "Masters", "Amber", "Blest", "Clouded", "Dying", "Ever", "Fae", "Greater", "Lesser", "Mist", "Woven", "River", "Royal", "Fifth", "Twelfth", "Thirteenth", "Shadow", "Shallow", "Over", "Under", "Lower", "Upper", "Higher", "Two", "Eternity", "Mirror", "Story", "Song", "Birdsong", "Vangard", "Uncharted", "Third", "Seventh", "Monarchs", "Barons", "Vassals", "Knights", "Abbey", "Guilders", "Razors", "Pikes", "Spear", "Alewives", "Bandits", "Sailors", "Castle", "Holy", "Unholy", "Stargazers", "Warriors", "Bishop", "Candle", "Honor", "Forlorn", "Haunted", "Sorrow", "Scorched", "Solar", "Primal", "Dust", "Clay", "Dread", "Dark", "Heart", "Blind", "Prime", "Vagrant", "Devils", "Nights", "Tyrants", "Maidens", "Sellsword", "Slayers", "Silent", "Miners", "Titans", "Cardinal", "Serpent", "Azure", "Ebon", "Wilder", "Wretched", "Sanguine", "Lancers", "Dirge", "Spine", "Hungering", "Rebel", "Scythe", "Edge", "Ice", "Earth", "Wind", "Spirit", "Anima", "Labyrinth", "Storm", "Briar", "Singing", "Dagger", "Mourning", "Wraiths", "Valor", "Jester", "Ruined", "Hellfire", "Bleak", "Rose", "Groveling", "Seers", "Wolfbane", "Dragonscale", "Coral", "Misty", "Blackened", "Hidden", "Lions", "Stags", "Winding", "Witchy", "Pine", "Elm", "Cradle", "Traitors", "Dream", "Burning", "Spell", "Moonlit", "Sunlit", "Moonless", "Sunless", "Lightless", "Darkness", "Darkly", "Blight", "Bright", "Redeemers", "Judgement", "Courage", "Mead", "Bitter", "Sleeping", "Enchanted", "Eldar", "Daemon", "Aegis", "Imperial", "Virtue", "Spade", "Plowshare", "Ignis", "Glacies", "Glacier", "Tempest", "Desolate", "Endless", "Eternal", "Unending", "Leaping", "Indigo", "Buckler", "Needle", "Arrow", "Splintered", "Sacred", "Divine", "Arcane", "Seekers", "Widows", "Liars", "Mad", "Archon", "Praetor", "Dracona", "Heavens", "Swordbearer", "Shiledbearer", "Swordmaiden", "Shieldmaiden", "Magisters", "Regents", "Revenant", "Arch", "Vicar", "Viceroy", "Duchess", "Marquis", "Margrave", "Baronet", "Dame", "Herald", "Gentry", "Thane", "Journeyman", "Falcon", "Blade", "Mage", "Dragoon", "Blasted", "Emerald", "Crimson", "Cerulean", "Twisting", "Shining", "Frozen", "Rotting", "Rotten", "Obsidian", "Severed", "Warring", "Bronze", "Golden", "Silver", "Copper", "Gloaming", "Billowing", "Angel", "Blighted", "Junkers", "Muddled", "Remnant", "Turmoils", "Swollen", "Flooded", "Angular", "Ballast", "Cracked", "Shattered", "Jagged", "Wounded", "Godforsaken", "Wildling", "Basalt", "Granite", "Bluestone", "Druidstone", "Temple", "Ardent", "Meteor", "Colonial", "Shivering", "Wobbling", "Trembling", "Windswept", "Locust", "Evergreen", "Primeval", "Gemstone", "Diamond"];
+
+const wordlist2 = ["Arch", "Archipelago", "Atoll", "Ayre", "Badlands", "Bank", "Barren", "Barrens", "Barrier", "Basin", "Bay", "Baymouth", "Bayou", "Beach", "Berg", "Bight", "Billow", "Bluffs", "Bog", "Boil", "Bornhardt", "Bottoms", "Boulder", "Bowl", "Braid", "Branch", "Brine", "Brook", "Bryn", "Burg", "Burn", "Caldera", "Canal", "Canyon", "Cape", "Capstone", "Cascade", "Cave", "Cavern", "Cay", "Channel", "Chasm", "Chasmata", "Cirque", "Cliff", "Climb", "Coast", "Corona", "Cove", "Crater", "Creek", "Crescent", "Crest", "Crevasse", "Decay", "Deep", "Dell", "Dells", "Delta", "Depths", "Desert", "Desert", "Dome", "Dorsa", "Downs", "Drain", "Drink", "Drop", "Drylands", "Dunes", "Dusts", "Earth", "Everglade", "Evermount", "Everpeak", "Expanse", "Eyes", "Falls", "Fen", "Fenland", "Fields", "Fires", "Firth", "Fissure", "Fjords", "Flatlands", "Flats", "Flood", "Floodplain", "Foreland", "Forest", "Fragments", "Fray", "Frost", "Furrow", "Garden", "Geyser", "Glacier", "Glen", "Gorge", "Green", "Greenwood", "Groove", "Grotto", "Ground", "Grounds", "Grove", "Gulf", "Gully", "Gultch", "Half-Isle", "Hands", "Head", "Headland", "Heath", "Heights", "Hells", "Highlands", "Hill", "Hillcrest", "Hills", "Hole", "Hollow", "Horn", "Hotsprings", "Icelands", "Infenus", "Inferno", "Inlet", "Iris", "Island", "Islands", "Isle", "Isles", "Islet", "Jungle", "Karst", "Kettle", "Knee", "Lagoon", "Lake", "Lakes", "Lands", "Limb", "Linea", "Loch", "Lowlands", "Maculae", "Maelstrom", "Magma", "Main", "Marais", "Mare", "Marine", "Mark", "Marsh", "Marshes", "Marshes", "Marshlands", "Meander", "Meer", "Mesa", "Mire", "Mons", "Montes", "Moor", "Moorland", "Moraine", "Morass", "Mound", "Mount", "Mountain", "Mountains", "Mouth", "Muck", "Mudflats", "Neck", "Oasis", "Ocean", "Ocean", "Overlook", "Palm", "Pan", "Pass", "Passage", "Path", "Peak", "Peninsula", "Pines", "Pinnacle", "Pit", "Place", "Plain", "Plana", "Planes", "Planitia", "Plate", "Plateau", "Point", "Pond", "Pool", "Prairie", "Pyres", "Quag", "Quagmire", "Rainforest", "Range", "Rapid", "Rapids", "Ravine", "Reach", "Recess", "Reef", "Reefs", "Regio", "Ridge", "Ridge", "Rise", "River", "River Delta", "Riverbed", "Riverlands", "Rivulet", "Rocks", "Ruin", "Run", "Salt Marsh", "Salts", "Sand Dunes", "Sands", "Sands", "Sea", "Sea", "Seas", "See", "Shaft", "Shelf", "Shield", "Shoal", "Shoulder", "Skog", "Skov", "Sliver", "Slope", "Snow", "Snowfield", "Snowlands", "Sound", "Spine", "Spires", "Spit", "Spring", "Stacks", "Steppe", "Stepstones", "Stones", "Stoneway", "Strait", "Strand", "Strath", "Stream", "Swamp", "Swamp", "Sweep", "Swell", "Table", "Teeth", "Terra", "Terrace", "Terrae", "Thicket", "Throat", "Tides", "Timberland", "Torrent", "Towhead", "Tract", "Trenches", "Tributary", "Tundra", "Vale", "Vales", "Valley", "Vent", "Void", "Volcano", "Wald", "Wastes", "Waterfall", "Waters", "Watershed", "Waves", "Wetlands", "Wilderlands", "Wilderness", "Wilds", "Wood", "Wood", "Woodlands", "Yeoland", "Frontier", "Wells", "Camp", "Chalet", "Fort", "Ruins", "Rubble", "Ashland", "Ashlands", "Shipwreck", "Decay", "Rotland", "Rotlands", "Swampland", "Swamplands", "Bogland", "Boglands", "Blights", "Gloryland", "Cairn", "Shambles", "Bombsite", "Wreckage", "Scrapyard", "Remains", "Dig", "Archeological Site", "Spoils", "Tangle", "Expedition", "Excavation", "Historical Site", "Hold", "Research Site", "Monument", "Monolyth", "Obelisk", "Ringstones", "Headstones", "Cemetery", "Masoleum", "Crypt", "Crypts", "Tomb", "Tomblands", "Shrine", "Temple", "Marker", "Pillar", "Tablet", "Megalith", "Edifice", "Tombstone", "Cross", "Crossing", "Pylon", "Pylons", "Chamber", "Burial Site", "Burial Chamber", "Dome", "Rock", "Rockyard", "Rocklands", "Cromlech", "Rest", "Spindle", "Fulcrum", "Wyrd", "Knee", "Weld", "Crossroads", "Anchor", "Crux", "Crucible", "Lock", "Gate", "Reach", "Braid", "Ballast", "Basket", "Ruggedlands", "Breach", "Portal", "Wound", "Crag", "Solitude", "Outback", "Dusklands", "Brushland", "Vastness", "Deluge", "Overflow", "Quicksand", "Bombard", "Dross", "Dregs", "Coil", "Peaks", "Gullion"];
+
+const wordlist3 = ["the Uncanny", "the Blessed", "Claws", "Kings", "Lords", "Ladys", "Roars", "Bliss", "the Sacred", "Soaring", "Ancients", "Elders", "Fables", "the Dead", "Skulls", "Swords", "Shields", "the Hammer", "Queens", "Emperors", "Winters", "Summers", "Autumns", "Springs", "Hunters", "the Forsaken", "Ash", "Battles", "Beggars", "Crows", "Ravens", "Culling", "Death", "Dusk", "Watchers", "Eden", "Embers", "Aether", "Ether", "Flame", "the Fallen", "Horizons", "Iron", "Moons", "the Northwind", "the Southseas", "the Eastlands", "the Westlands", "the North", "Shimmering", "Shade", "Doom", "Wolfsbane", "the Winds", "the Forgotten", "Myths", "Legends", "Dragons", "Beasts", "Wishes", "Wanderers", "Darkness", "Thunder", "Amber", "the Blest", "Clouds", "the Dying", "Fae", "Mist", "Rivers", "Royalty", "Shadow", "Shallows", "Eternity", "Mirrors", "Stories", "Songs", "Birdsong", "the Vanguard", "Monarchs", "Barons", "Vassals", "Knights", "the Abbey", "Guilders", "Razors", "Pikes", "Spears", "Alewives", "Bandits", "Sailors", "Castles", "Holiness", "Unholiness", "Stargazers", "Warriors", "Bishops", "Candles", "Honor", "the Forlorn", "the Haunted", "Sorrow", "the Sun", "Dust", "Clay", "Dread", "Hearts", "Clubs", "Spades", "Diamonds", "the Blind", "Vagrants", "Devils", "Nights", "Tyrants", "Maidens", "Sellswords", "Slayers", "Silence", "Miners", "Titans", "Serpent", "the Wild", "the Wretched", "the Sanguine", "Lancers", "Hunger", "Laughter", "Slaughter", "Rebels", "Scythes", "Ice", "Earth", "Wind", "Spirit", "Anima", "Labyrinths", "Storms", "Singing", "Daggers", "Mourning", "Wraiths", "Valor", "Jesters", "Ruins", "Hellfire", "Bleakness", "Roses", "Groveling", "Seers", "Dragonscales", "Corals", "Mists", "Blackness", "the Hidden", "Lions", "Stags", "Winds", "the Witch", "Pines", "Elms", "the Cradle", "Traitors", "Dreams", "Burning", "Spells", "Moonlight", "Sunlight", "Moons", "Suns", "Light", "Dark", "Brilliance", "Redeemers", "Judgement", "Courage", "Mead", "Sleep", "Enchantment", "the Elders", "Daemons", "the Aegis", "the Empire", "Virtue", "Spades", "Plowshares", "Ignis", "Glacies", "Glaciers", "the Tempest", "Desolation", "the Endless", "Eternity", "Leaping", "Needles", "Arrows", "Splinters", "the Sacred", "the Divine", "the Arcane", "Seekers", "Widows", "Liars", "Madness", "Archons", "Praetors", "Heavens", "Swordbearers", "Shiledbearers", "Swordmaidens", "Shieldmaidens", "Magisters", "Regents", "Revenants", "Arches", "Vicars", "Viceroys", "the Duchess", "the Marquis", "Margraves", "Baronets", "Dames", "Heralds", "Gentry", "Thanes", "Journeymen", "Falcons", "Blades", "Mages", "Dragoons", "Emeralds", "Crimson", "Cerulean", "Shining", "Rotting", "Rot", "Obsidian", "Wars", "Bronze", "Gold", "Silver", "Copper", "Gloaming", "Billowing", "Angels", "Blight", "Junkers", "Remnants", "Turmoils", "Despair", "Hope", "Floods", "Wounds", "Wildlings", "Basalt", "Granite", "Bluestone", "Druidstone", "Temples", "Meteors", "Shivering", "Trembling", "Locusts", "Primevals", "Diamonds"];
+
+function pickOne(wordlist) {
+  return wordlist[parseInt(Math.random() * wordlist.length)];
+}
+
+function generateName() {
+  switch (Math.floor(Math.random() * 3)) {
+  case 0:
+    return"The " + pickOne(wordlist1) + " " + pickOne(wordlist2);
+  case 1:
+    return pickOne(wordlist1) + " " + pickOne(wordlist2);
+  case 2:
+    return pickOne(wordlist2) + " of " + pickOne(wordlist3);
+  }
 }
 
 window.onload = function() {
