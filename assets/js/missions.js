@@ -33,7 +33,7 @@ function getContext() {
   return getCanvas().getContext("2d");
 }
 
-function getBackgroundImage() {
+function getBackgroundImage(bgName) {
   const backgroundMap = {
     'bg-01': 'bg-dark-102',
     'bg-02': 'bg-dark-112',
@@ -52,22 +52,21 @@ function getBackgroundImage() {
     'bg-15': 'bg-green',
     'bg-16': 'bg-red',
     'bg-17': 'bg-dark-arcane',
-    'bg-18': 'bg-transparent',
+    'bg-transparent': 'bg-transparent',
   };
 
-  const selectedOption = document.getElementById('background-list').value;
-  const backgroundImageId = backgroundMap[selectedOption];
+  bgName = bgName || document.getElementById('background-list').value;
+  const backgroundImageId = backgroundMap[bgName];
 
   return document.getElementById(backgroundImageId);
 }
 
-function getMapImage() {
-  const mapImageId = document.getElementById('map-list').value || "map";
-  return document.getElementById(mapImageId);
+function getMapImage(mapName) {
+  return document.getElementById(mapName || "map");
 }
 
-function drawBorder() {
-  if (!document.getElementById("removeBorder").checked) {
+function drawBorder(removeBorder) {
+  if (!removeBorder) {
     getContext().drawImage(document.getElementById('card-border'), 0, 0, getCanvas().width, getCanvas().height);
   }
 }
@@ -95,15 +94,16 @@ function drawCardElementFromInputId(inputId, pixelPosition) {
   drawCardElementFromInput(document.getElementById(inputId), pixelPosition);
 }
 
-function drawMissionName(value) {
-  startX = 1122 / 2;
-  startY = 140;
-  if (document.getElementById('background-list').value === 'bg-13') {
+function drawMissionName(missionData) {
+  let value = missionData.missionName;
+  let startX = 1122 / 2;
+  let startY = 140;
+  if (missionData.bgselected === 'bg-13') {
     getContext().font = '60px schoensperger';
   } else {
     getContext().font = '60px lithosblack';
   }
-  if (document.getElementById("white").checked) {
+  if (missionData.white) {
     getContext().fillStyle = 'black';
   } else {
     getContext().fillStyle = 'white';
@@ -135,7 +135,7 @@ function drawMissionName(value) {
     y: startY - 2
   });
 
-  if (document.getElementById("white").checked) {
+  if (missionData.white) {
     getContext().fillStyle = 'white';
   } else {
     getContext().fillStyle = 'black';
@@ -146,16 +146,17 @@ function drawMissionName(value) {
   });
 }
 
-function drawMissionType(value) {
+function drawMissionType(missionData) {
+  let value = missionData.missionType;
   startX = 1122 / 2;
   startY = 90;
-  if (document.getElementById('background-list').value === 'bg-13') {
+  if (missionData.bgselected === 'bg-13') {
     getContext().font = '40px schoensperger';
   } else {
     getContext().font = '40px lithosblack';
   }
 
-  if (document.getElementById("white").checked) {
+  if (missionData.white) {
     getContext().fillStyle = 'black';
   } else {
     getContext().fillStyle = 'white';
@@ -187,7 +188,7 @@ function drawMissionType(value) {
     y: startY - 2
   });
 
-  if (document.getElementById("white").checked) {
+  if (missionData.white) {
     getContext().fillStyle = 'white';
   } else {
     getContext().fillStyle = 'black';
@@ -312,6 +313,8 @@ function readControls() {
 
   data.removeBorder = document.getElementById("removeBorder").checked;
   data.removeDeployment = document.getElementById("removeDeployment").checked;
+  data.removeRedDeployment = document.getElementById("removeRedDeployment").checked;
+  data.removeBlueDeployment = document.getElementById("removeBlueDeployment").checked;
   data.symmetrical = document.getElementById("symmetrical").checked;
   data.orientation = document.getElementById("orientation").checked;
   data.white = document.getElementById("white").checked;
@@ -342,21 +345,21 @@ function renderCustomBackground(missionData) {
     const height = backgroundImage.height * scale / 100;
     getContext().drawImage(backgroundImage, position.x, position.y, width, height);
     renderFighterImage(missionData);
-    drawDeployment();
-    drawText();
-    drawIcons();
+    drawDeployment(missionData);
+    drawText(missionData);
+    drawIcons(missionData);
 
   };
   backgroundImage.src = missionData.customBackgroundUrl;
 };
 
 function renderDefaultBackground(missionData) {
-  getContext().drawImage(getBackgroundImage(), 0, 0, getCanvas().width, getCanvas().height);
-  drawBorder();
+  getContext().drawImage(getBackgroundImage(missionData.bgselected), 0, 0, getCanvas().width, getCanvas().height);
+  drawBorder(missionData.removeBorder);
   renderFighterImage(missionData);
-  drawDeployment();
-  drawText();
-  drawIcons();
+  drawDeployment(missionData);
+  drawText(missionData);
+  drawIcons(missionData);
 };
 
 function renderFighterImage(missionData) {
@@ -374,10 +377,10 @@ function renderFighterImage(missionData) {
       if (true) {
         //drawFrame();
         drawOverlayTexts(missionData);
-        drawIcons();
+        drawIcons(missionData);
 
       }
-      drawBorder();
+      drawBorder(missionData.removeBorder);
     };
     image.src = missionData.imageUrl;
   } else {
@@ -386,9 +389,9 @@ function renderFighterImage(missionData) {
     if (true) {
       //drawFrame();
       drawOverlayTexts(missionData);
-      drawIcons();
+      drawIcons(missionData);
     }
-    drawBorder();
+    drawBorder(missionData.removeBorder);
   }
 };
 
@@ -454,6 +457,8 @@ async function writeControls(data) {
 
   document.getElementById("removeBorder").checked = data.removeBorder;
   document.getElementById("removeDeployment").checked = data.removeDeployment;
+  document.getElementById("removeRedDeployment").checked = data.removeRedDeployment;
+  document.getElementById("removeBlueDeployment").checked = data.removeBlueDeployment;
   document.getElementById("symmetrical").checked = data.symmetrical;
   document.getElementById("orientation").checked = data.orientation;
   document.getElementById("white").checked = data.white;
@@ -551,6 +556,8 @@ function defaultMissionData() {
 
   data.removeBorder = false;
   data.removeDeployment = false;
+  data.removeRedDeployment = false;
+  data.removeBlueDeployment = false;
   data.symmetrical = false;
   data.orientation = true;
   data.white = false;
@@ -756,32 +763,50 @@ async function onExportToFile() {
   downloadAnchorNode.remove();
 }
 
+function onExportMapToImage() {
+  let data = readControls();
+
+  data.missionName = "";
+  data.missionType = "";
+  data.customBackgroundUrl = null;
+  data.bgselected = 'bg-transparent';
+  data.removeBorder = true;
+  data.symmetrical = false;
+  data.orientation = false;
+
+  render(data);
+
+  const offset = 80;
+  let imageData = getContext().getImageData(0, offset, getCanvas().width, getCanvas().height - offset);
+  let tmpCanvas = document.createElement('canvas');
+  tmpCanvas.width = 1122;
+  tmpCanvas.height = 822 - offset;
+  document.body.appendChild(tmpCanvas);
+  let tmpContext = tmpCanvas.getContext('2d');
+  tmpContext.putImageData(imageData, 0, 0);
+  downloadImageData(tmpCanvas, "warcry-mission-map.png");
+  document.body.removeChild(tmpCanvas);
+
+  render(readControls());
+}
+
 function onExportToImage() {
   let data = readControls();
+  let fileName = "warcry_mission_";
+  if (data.missionType != "") {
+    fileName = fileName + data.missionType.replace(/ /g, "_") + "_";
+  }
+  fileName = fileName + data.missionName.replace(/ /g, "_") + ".png";
+
+  downloadImageData(getCanvas(), fileName);
+}
+
+function downloadImageData(canvas, fileName) {
   let element = document.createElement('a');
 
-  if (data.missionName == "" && data.missionType == "") {
-    const offset = 80;
-    let imageData = getContext().getImageData(0, offset, getCanvas().width, getCanvas().height - offset);
-    let tmpCanvas = document.createElement('canvas');
-    tmpCanvas.width = 1122;
-    tmpCanvas.height = 822 - offset;
-    document.body.appendChild(tmpCanvas);
-    let tmpContext = tmpCanvas.getContext('2d');
-    tmpContext.putImageData(imageData, 0, 0);
-    element.setAttribute('href', tmpCanvas.toDataURL('image/png'));
-    document.body.removeChild(tmpCanvas);
-  } else {
-    element.setAttribute('href', document.getElementById('canvas').toDataURL('image/png'));
-  }
+  element.setAttribute('href', canvas.toDataURL('image/png'));
 
-  file_name = "warcry_mission_";
-  if (data.missionType != "") {
-    file_name = file_name + data.missionType.replace(/ /g, "_") + "_";
-  }
-  file_name = file_name + data.missionName.replace(/ /g, "_") + ".png";
-
-  element.setAttribute("download", file_name);
+  element.setAttribute("download", fileName);
   element.style.display = 'none';
   document.body.appendChild(element);
   element.click();
@@ -879,14 +904,14 @@ function getCustomBackgroundUrl() {
 
 function drawOverlayTexts(missionData) {
   // These are the texts to overlay
-  drawMissionName(missionData.missionName);
-  drawMissionType(missionData.missionType);
+  drawMissionName(missionData);
+  drawMissionType(missionData);
 
-  drawBorder();
+  drawBorder(missionData.removeBorder);
 }
 
-function drawMap() {
-  getContext().drawImage(getMapImage(), 0, 0, getCanvas().width, getCanvas().height);
+function drawMap(missionData) {
+  getContext().drawImage(getMapImage(missionData.map), 0, 0, getCanvas().width, getCanvas().height);
 }
 
 function drawIcon(name, x, y) {
@@ -1235,12 +1260,12 @@ function writeScaledBorder(value, startX, startY) {
   });
 }
 
-function drawIcons() {
-  const isOrientationChecked = document.getElementById("orientation").checked;
+function drawIcons(missionData) {
+  const isOrientationChecked = missionData.orientation;
   let imgElement, position, size, imageSrc;
   if (isOrientationChecked) {
     // Orientation Runemark
-    if (document.getElementById("white").checked) {
+    if (missionData.white) {
       imgElement = document.getElementById("orientation_icon_white");
     } else {
       imgElement = document.getElementById("orientation_icon");
@@ -1266,10 +1291,10 @@ function drawIcons() {
     });
     drawImageSrc(position, size, imageSrc);
   }
-  const isSymmetricalChecked = document.getElementById("symmetrical").checked;
+  const isSymmetricalChecked = missionData.symmetrical;
   if (isSymmetricalChecked) {
     // Symmetrical runemark
-    if (document.getElementById("white").checked) {
+    if (missionData.white) {
       imgElement = document.getElementById("symmetrical_icon_white");
     } else {
       imgElement = document.getElementById("symmetrical_icon");
@@ -1323,11 +1348,11 @@ function splitWordWrap(context, text, fitWidth) {
   return return_array;
 }
 
-function drawText() {
-  const cardText = document.getElementById("textValue").value;
+function drawText(missionData) {
+  const cardText = missionData.textValue;
 
   getContext().font = '32px Georgia, serif';
-  if (document.getElementById("white").checked) {
+  if (missionData.white) {
     getContext().fillStyle = 'white';
   } else {
     getContext().fillStyle = 'black';
@@ -1400,16 +1425,16 @@ function drawText() {
   }
 }
 
-function drawDeployment() {
-  const removeDeployment = document.getElementById("removeDeployment").checked;
-  const removeBlueDeployment = document.getElementById("removeBlueDeployment").checked;
-  const removeRedDeployment = document.getElementById("removeRedDeployment").checked;
+function drawDeployment(missionData) {
+  const removeDeployment = missionData.removeDeployment;
+  const removeBlueDeployment = missionData.removeBlueDeployment;
+  const removeRedDeployment = missionData.removeRedDeployment;
 
   if (removeDeployment) {
     return;
   }
 
-  drawMap();
+  drawMap(missionData);
 
   // prepare text for line drawing
   // Draw the text in the middle of the line
@@ -1422,12 +1447,12 @@ function drawDeployment() {
 
   // Treasure and Objectives
   for (let i = 1; i <= 6; i++) {
-    let xValue = document.getElementById("objective" + i + "X").value;
-    let yValue = document.getElementById("objective" + i + "Y").value;
-    let icon = document.getElementById("objective" + i + "Icon").value;
+    let xValue = missionData["objective" + i + "XValue"];
+    let yValue = missionData["objective" + i + "YValue"];
+    let icon = missionData["objective" + i + "Icon"];
     let label = "";
     let iconName = "objective_" + icon;
-    let renderMode = document.getElementById("objective" + i + "RenderMode").value;
+    let renderMode = missionData["objective" + i + "RenderMode"];
 
     if (icon > 0) {
       components.push({
@@ -1453,10 +1478,10 @@ function drawDeployment() {
   }
 
   deployments.forEach(deployment => {
-    let xValue = document.getElementById(deployment + "X").value;
-    let yValue = document.getElementById(deployment + "Y").value;
-    let label = document.getElementById(deployment + "Turn").value;
-    let renderMode = document.getElementById(deployment + "RenderMode").value;
+    let xValue = missionData[deployment + "XValue"];
+    let yValue = missionData[deployment + "YValue"];
+    let label = missionData[deployment + "Turn"];
+    let renderMode = missionData[deployment + "RenderMode"];
     let iconName = camelToSnake(deployment);
 
     components.push({

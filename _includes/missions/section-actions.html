@@ -9,9 +9,19 @@
   <div id="missionsCollapseActions" class="card-body collapse show">
     <div class="mt-4">
       <div class="btn-group" role="group">
-        <button class="btn btn-success" id="saveCanvasButton" onclick="onExportToImage()">
-          Export image
-        </button>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Export image
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a href="#" class="dropdown-item" id="saveCanvasButton" onclick="onExportToImage()">
+              Export card
+            </a>
+            <a href="#" class="dropdown-item" id="saveCanvasMapButton" onclick="onExportMapToImage()">
+              Export map
+            </a>
+          </div>
+        </div>
         <button class="btn btn-success" id="saveButton" onclick="onExportToFile()">
           Export file
         </button>
