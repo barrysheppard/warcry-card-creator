@@ -1666,6 +1666,8 @@ function onJoystickKeyPress(input) {
 }
 
 function randomDeployment() {
+  // TODO: Objectives
+  // TODO: Collission detection. Currently, points might end up in the same spot, which makes no sense.
   let name = generateName();
   document.getElementById("missionName").value = name;
   document.getElementById("saveName").value = name;
