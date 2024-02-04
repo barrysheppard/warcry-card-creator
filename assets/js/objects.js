@@ -384,11 +384,11 @@ function defaultCardData() {
 }
 
 function saveCardDataMap(newMap) {
-    window.localStorage.setItem("cardDataMap", JSON.stringify(newMap));
+    window.localStorage.setItem("cardObjectDataMap", JSON.stringify(newMap));
 }
 
 function loadCardDataMap() {
-    var storage = window.localStorage.getItem("cardDataMap");
+    var storage = window.localStorage.getItem("cardObjectDataMap");
     if (storage != null) {
         return JSON.parse(storage);
     }
@@ -515,7 +515,7 @@ function addToImageCheckboxSelector(imgSrc, grid, bgColor) {
 }
 
 function onClearCache() {
-    window.localStorage.removeItem("cardDataMap");
+    window.localStorage.removeItem("cardObjectDataMap");
     window.localStorage.removeItem("latestObjectName");
     location.reload();
     return false;
