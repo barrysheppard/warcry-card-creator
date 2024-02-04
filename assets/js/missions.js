@@ -266,7 +266,7 @@ function setModelImageProperties(modelImageProperties) {
   document.getElementById("imageScalePercent").value = modelImageProperties.scalePercent;
 }
 
-function getFighterImageUrl() {
+function getTerrainImageUrl() {
   let imageSelect = document.getElementById("missionImageUrl").value;
   // if (imageSelect.files.length > 0) {
   //return URL.createObjectURL(imageSelect.files[0]);
@@ -284,7 +284,7 @@ function getDefaultModelImageProperties() {
 
 function readControls() {
   let data = new Object;
-  data.imageUrl = getFighterImageUrl();
+  data.imageUrl = getTerrainImageUrl();
   data.imageProperties = getModelImageProperties();
   data.customBackgroundUrl = getCustomBackgroundUrl();
   data.customBackgroundProperties = getCustomBackgroundProperties();
@@ -344,7 +344,7 @@ function renderCustomBackground(missionData) {
     const width = backgroundImage.width * scale / 100;
     const height = backgroundImage.height * scale / 100;
     getContext().drawImage(backgroundImage, position.x, position.y, width, height);
-    renderFighterImage(missionData);
+    renderTerrainImage(missionData);
     drawDeployment(missionData);
     drawText(missionData);
     drawIcons(missionData);
@@ -356,13 +356,13 @@ function renderCustomBackground(missionData) {
 function renderDefaultBackground(missionData) {
   getContext().drawImage(getBackgroundImage(missionData.bgselected), 0, 0, getCanvas().width, getCanvas().height);
   drawBorder(missionData.removeBorder);
-  renderFighterImage(missionData);
+  renderTerrainImage(missionData);
   drawDeployment(missionData);
   drawText(missionData);
   drawIcons(missionData);
 };
 
-function renderFighterImage(missionData) {
+function renderTerrainImage(missionData) {
   if (missionData.imageUrl) {
     const image = new Image();
     image.onload = function() {
@@ -700,7 +700,7 @@ function onAnyChange() {
   saveMissionData();
 }
 
-function onFighterImageUpload() {
+function onTerrainImageUpload() {
   let image = getModelImage();
   setModelImage(image);
   onAnyChange();
