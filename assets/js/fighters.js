@@ -1030,7 +1030,7 @@ function loadLatestFighterData() {
     }
     else {
         console.log("Failed to load data - loading default");
-        data = defaultCardData();
+        data = defaultFighterData();
     }
 
     return data;
