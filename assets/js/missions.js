@@ -1717,7 +1717,9 @@ function randomDeployment() {
     document.getElementById(scope + "Y").value = y;
     let turn = turnOptions[Math.floor(Math.random() * turnOptions.length)];
     document.getElementById(scope + "Turn").value = turn;
-    document.getElementById(scope + "RenderMode").value = (x == 0 || y == 0) ? 'line' : 'short';
+
+    let onLine = (x == 0 && y != 0 && y != 22) || (y == 0 && x != 0 && x != 30) || (x == 30 && y != 0 && y != 22) || (y == 22 && x != 0 && x != 30);
+    document.getElementById(scope + "RenderMode").value = onLine ? 'line' : 'short';
     return {
       x: x,
       y: y,
