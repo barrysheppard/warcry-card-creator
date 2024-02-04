@@ -1666,7 +1666,9 @@ function onJoystickKeyPress(input) {
 }
 
 function randomDeployment() {
-  document.getElementById("missionName").value = generateName();
+  let name = generateName();
+  document.getElementById("missionName").value = name;
+  document.getElementById("saveName").value = name;
 
   const generateX = function() {
     let val = Math.floor(Math.random() * 31);
