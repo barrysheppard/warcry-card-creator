@@ -374,23 +374,15 @@ function renderTerrainImage(missionData) {
       const width = image.width * scale;
       const height = image.height * scale;
       getContext().drawImage(image, position.x, position.y, width, height);
-      if (true) {
-        //drawFrame();
-        drawOverlayTexts(missionData);
-        drawIcons(missionData);
-
-      }
+      drawOverlayTexts(missionData);
+      drawIcons(missionData);
       drawBorder(missionData.removeBorder);
     };
     image.src = missionData.imageUrl;
   } else {
     // Drawn if no image, or when file is loaded but no image included
-    removeDeployment = document.getElementById("removeDeployment").checked;
-    if (true) {
-      //drawFrame();
-      drawOverlayTexts(missionData);
-      drawIcons(missionData);
-    }
+    drawOverlayTexts(missionData);
+    drawIcons(missionData);
     drawBorder(missionData.removeBorder);
   }
 };
@@ -906,8 +898,6 @@ function drawOverlayTexts(missionData) {
   // These are the texts to overlay
   drawMissionName(missionData);
   drawMissionType(missionData);
-
-  drawBorder(missionData.removeBorder);
 }
 
 function drawMap(missionData) {
