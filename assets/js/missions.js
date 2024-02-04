@@ -1678,6 +1678,11 @@ function randomDeployment() {
   document.getElementById("missionName").value = name;
   document.getElementById("saveName").value = name;
 
+  // Remove objectives
+  for (let i = 1; i <= 6; i++) {
+    document.getElementById("objective" + i + "Icon").value = 0;
+  }
+
   const generateX = function() {
     let val = Math.floor(Math.random() * 31);
     if (val < 3) {
