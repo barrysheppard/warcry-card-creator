@@ -1713,6 +1713,25 @@ function randomDeployment() {
     const turnOptions = [1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 3];
     let x = generateX();
     let y = generateY();
+
+    if (x == 0 || x == 30) {
+      if (y > 0 && y < 11) {
+        y = 6;
+      }
+      if (y > 11 && y < 22) {
+        y = 16;
+      }
+    }
+
+    if (y == 0 || y == 22) {
+      if (x > 0 && x < 15) {
+        x = 7;
+      }
+      if (x > 15 && x < 30) {
+        x = 23;
+      }
+    }
+
     document.getElementById(scope + "X").value = x;
     document.getElementById(scope + "Y").value = y;
     let turn = turnOptions[Math.floor(Math.random() * turnOptions.length)];
