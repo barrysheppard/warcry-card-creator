@@ -756,9 +756,23 @@ async function onExportToFile() {
 }
 
 function onExportToImage() {
-  data = readControls();
+  let data = readControls();
   let element = document.createElement('a');
-  element.setAttribute('href', document.getElementById('canvas').toDataURL('image/png'));
+
+  if (data.missionName == "" && data.missionType == "") {
+    const offset = 80;
+    let imageData = getContext().getImageData(0, offset, getCanvas().width, getCanvas().height - offset);
+    let tmpCanvas = document.createElement('canvas');
+    tmpCanvas.width = 1122;
+    tmpCanvas.height = 822 - offset;
+    document.body.appendChild(tmpCanvas);
+    let tmpContext = tmpCanvas.getContext('2d');
+    tmpContext.putImageData(imageData, 0, 0);
+    element.setAttribute('href', tmpCanvas.toDataURL('image/png'));
+    document.body.removeChild(tmpCanvas);
+  } else {
+    element.setAttribute('href', document.getElementById('canvas').toDataURL('image/png'));
+  }
 
   file_name = "warcry_mission_";
   if (data.missionType != "") {
