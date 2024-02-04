@@ -973,117 +973,15 @@ function drawThickLine(ctx, x1, y1, x2, y2, thickness, color = "black", arrowSiz
   ctx.closePath();
 }
 
-function drawLines(XValue, YValue, Turn) {
+function drawLines(XValue, YValue, turn, mode = "auto") {
   let color = "black";
   let labelOffsetY = (YValue > 5 && YValue < 12) || YValue > 16 ? -25 : 25;
   let labelOffsetX = (XValue > 7 && XValue < 16) || XValue > 23 ? -25 : 25;
+  const forceEdge = mode == "edge";
+  const forceCentre = mode == "centre";
 
   if (XValue != 15) {
-    if (XValue < 15) {
-      drawThickLine(getContext(), 0, YValue, XValue, YValue, 6, color);
-      if (XValue != 0) {
-        let value = XValue + '"';
-        let point = convertInchesToPixelsLine(XValue / 2, YValue);
-        writeScaledBorder(value, point.x, point.y + labelOffsetY);
-      }
-    } else {
-      drawThickLine(getContext(), 30, YValue, XValue, YValue, 6, color);
-      if (XValue != 30) {
-        let value = (30 - XValue) + '"';
-        let point = convertInchesToPixelsLine(15 + XValue / 2, YValue);
-        writeScaledBorder(value, point.x, point.y + labelOffsetY);
-      }
-    }
-  }
-
-  if (YValue != 11) {
-    if (YValue < 11) {
-      drawThickLine(getContext(), XValue, 0, XValue, YValue, 6, color);
-      if (YValue != 0) {
-        let value = YValue + '"';
-        let point = convertInchesToPixelsLine(XValue, YValue / 2);
-        writeScaledBorder(value, point.x + labelOffsetX, point.y);
-      }
-    } else {
-      if (XValue == 15) {
-        // Special case - mirrow label placement on centre line
-        labelOffsetX = labelOffsetX * -1;
-      }
-      drawThickLine(getContext(), XValue, 22, XValue, YValue, 6, color);
-      if (YValue != 22) {
-        let value = (22 - YValue) + '"';
-        let point = convertInchesToPixelsLine(XValue, 11 + YValue / 2);
-        writeScaledBorder(value, point.x + labelOffsetX, point.y);
-      }
-    }
-  }
-
-  if (Turn > 1) {
-    drawTurnLabel(XValue, YValue, Turn);
-  }
-}
-
-function drawLinesFromCentre(XValue, YValue, Turn) {
-  let color = "black";
-  let labelOffsetY = (YValue > 5 && YValue < 12) || YValue > 16 ? -25 : 25;
-  let labelOffsetX = (XValue > 7 && XValue < 16) || XValue > 23 ? -25 : 25;
-
-  if (XValue != 15) {
-    if (XValue < 15) {
-      drawThickLine(getContext(), 15, YValue, XValue, YValue, 6, color);
-      if (XValue != 15) {
-        let value = (15 - XValue) + '"';
-        let newX = 15 + (XValue - 15) / 2;
-        let point = convertInchesToPixelsLine(newX, YValue);
-        writeScaledBorder(value, point.x, point.y + labelOffsetY);
-      }
-    } else {
-      drawThickLine(getContext(), 15, YValue, XValue, YValue, 6, color);
-      if (XValue != 15) {
-        let value = (XValue - 15) + '"';
-        let newX = 15 + (XValue - 15) / 2;
-        let point = convertInchesToPixelsLine(newX, YValue);
-        writeScaledBorder(value, point.x, point.y + labelOffsetY);
-      }
-    }
-  }
-
-  if (YValue != 11) {
-    if (YValue < 11) {
-      drawThickLine(getContext(), XValue, 11, XValue, YValue, 6, color);
-      if (YValue != 11) {
-        let value = (11 - YValue) + '"';
-        let newY = 11 + (YValue - 11) / 2;
-        let point = convertInchesToPixelsLine(XValue, newY);
-        writeScaledBorder(value, point.x + labelOffsetX, point.y);
-      }
-    } else {
-      if (XValue == 15) {
-        // Special case - mirrow label placement on centre line
-        labelOffsetX = labelOffsetX * -1;
-      }
-      drawThickLine(getContext(), XValue, 11, XValue, YValue, 6, color);
-      if (YValue != 22) {
-        let value = (YValue - 11) + '"';
-        let newY = 11 + (YValue - 11) / 2;
-        let point = convertInchesToPixelsLine(XValue, newY);
-        writeScaledBorder(value, point.x + labelOffsetX, point.y);
-      }
-    }
-  }
-
-  if (Turn > 1) {
-    drawTurnLabel(XValue, YValue, Turn);
-  }
-}
-
-function drawLinesShort(XValue, YValue, Turn) {
-  let color = "black";
-  let labelOffsetY = (YValue > 5 && YValue < 12) || YValue > 16 ? -25 : 25;
-  let labelOffsetX = (XValue > 7 && XValue < 16) || XValue > 23 ? -25 : 25;
-
-  if (XValue != 15) {
-    if (XValue < 8) {
+    if ((XValue < 8 && !forceCentre) || (forceEdge && XValue < 15)) {
       // draw from edge
       drawThickLine(getContext(), 0, YValue, XValue, YValue, 6, color)
       if (XValue != 0) {
@@ -1091,14 +989,14 @@ function drawLinesShort(XValue, YValue, Turn) {
         let point = convertInchesToPixelsLine(XValue / 2, YValue);
         writeScaledBorder(label, point.x, point.y + labelOffsetY);
       }
-    } else if (XValue < 15) {
+    } else if (XValue < 15 || (forceCentre && XValue < 15)) {
       // draw from centre
       drawThickLine(getContext(), 15, YValue, XValue, YValue, 6, color);
       let label = (15 - XValue) + '"';
       let newX = 15 + (XValue - 15) / 2;
       let point = convertInchesToPixelsLine(newX, YValue);
       writeScaledBorder(label, point.x, point.y + labelOffsetY);
-    } else if (XValue < 23) {
+    } else if ((XValue < 23 && !forceEdge) || (forceCentre && XValue > 15)) {
       // draw from centre
       drawThickLine(getContext(), 15, YValue, XValue, YValue, 6, color);
       let label = (XValue - 15) + '"';
@@ -1121,7 +1019,7 @@ function drawLinesShort(XValue, YValue, Turn) {
       // Special case - mirrow label placement on centre line
       labelOffsetX = labelOffsetX * -1;
     }
-    if (YValue < 6) {
+    if ((YValue < 6 && !forceCentre) || (forceEdge && YValue < 11)) {
       // draw from edge
       drawThickLine(getContext(), XValue, 0, XValue, YValue, 6, color)
       if (YValue != 0) {
@@ -1136,7 +1034,7 @@ function drawLinesShort(XValue, YValue, Turn) {
       let newY = 11 + (YValue - 11) / 2;
       let point = convertInchesToPixelsLine(XValue, newY);
       writeScaledBorder(label, point.x + labelOffsetX, point.y);
-    } else if (YValue < 17) {
+    } else if ((YValue < 17 && !forceEdge) || (forceCentre && YValue > 11)) {
       // draw from centre
       drawThickLine(getContext(), XValue, 11, XValue, YValue, 6, color);
       let label = (YValue - 11) + '"';
@@ -1154,12 +1052,12 @@ function drawLinesShort(XValue, YValue, Turn) {
     }
   }
 
-  if (Turn > 1) {
-    drawTurnLabel(XValue, YValue, Turn);
+  if (turn > 1) {
+    drawTurnLabel(XValue, YValue, turn);
   }
 }
 
-function drawBorderLine(XValue, YValue, Turn) {
+function drawBorderLine(XValue, YValue, turn) {
   let color = "black";
   let arrowSize = 0;
 
@@ -1252,8 +1150,8 @@ function drawBorderLine(XValue, YValue, Turn) {
     }
   }
 
-  if (Turn > 1) {
-    drawTurnLabel(XValue, YValue, Turn);
+  if (turn > 1) {
+    drawTurnLabel(XValue, YValue, turn);
   }
 }
 
@@ -1516,19 +1414,13 @@ function drawDeployment() {
     let iconName = "objective_" + icon;
     let renderMode = document.getElementById("objective" + i + "RenderMode").value;
 
-    let renderLine = renderMode == "line";
-    let renderShort = renderMode == "short";
-    let renderFromCentre = renderMode == "centre";
-
     if (icon > 0) {
       components.push({
         xValue: xValue,
         yValue: yValue,
         iconName: iconName,
         label: label,
-        renderLine: renderLine,
-        renderFromCentre: renderFromCentre,
-        renderShort: renderShort
+        renderMode: renderMode
       });
     }
   }
@@ -1550,11 +1442,6 @@ function drawDeployment() {
     let yValue = document.getElementById(deployment + "Y").value;
     let label = document.getElementById(deployment + "Turn").value;
     let renderMode = document.getElementById(deployment + "RenderMode").value;
-
-    let renderLine = renderMode == "line";
-    let renderShort = renderMode == "short";
-    let renderFromCentre = renderMode == "centre";
-
     let iconName = camelToSnake(deployment);
 
     components.push({
@@ -1562,21 +1449,15 @@ function drawDeployment() {
       yValue: yValue,
       iconName: iconName,
       label: label,
-      renderLine: renderLine,
-      renderFromCentre: renderFromCentre,
-      renderShort: renderShort
+      renderMode: renderMode
     });
   });
 
   components.forEach(component => {
-    if (component.renderLine) {
+    if (component.renderMode == "line") {
       drawBorderLine(component.xValue, component.yValue, component.label);
-    } else if (component.renderShort) {
-      drawLinesShort(component.xValue, component.yValue, component.label);
-    } else if (component.renderFromCentre) {
-      drawLinesFromCentre(component.xValue, component.yValue, component.label);
     } else {
-      drawLines(component.xValue, component.yValue, component.label);
+      drawLines(component.xValue, component.yValue, component.label, component.renderMode);
     }
   });
   components.forEach(component => {
