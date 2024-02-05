@@ -325,65 +325,59 @@ function readControls() {
 }
 
 function render(missionData) {
-  getContext().clearRect(0, 0, canvas.width, canvas.height);
-  if (missionData.customBackgroundUrl) {
-    renderCustomBackground(missionData);
-  } else {
-    renderDefaultBackground(missionData);
-  }
-}
-
-function renderCustomBackground(missionData) {
-  const backgroundImage = new Image();
-  backgroundImage.onload = function() {
-    const position = scalePixelPosition({
-      x: missionData.customBackgroundProperties.offsetX,
-      y: missionData.customBackgroundProperties.offsetY
+  return new Promise((resolve, reject) => {
+    getContext().clearRect(0, 0, canvas.width, canvas.height);
+    let promise;
+    if (missionData.customBackgroundUrl) {
+      promise = renderCustomBackground(missionData);
+    } else {
+      promise = renderDefaultBackground(missionData);
+    }
+    promise.then(function() {
+      drawBorder(missionData.removeBorder);
+      drawMap(missionData);
+      renderImage(missionData.imageUrl, missionData.imageProperties).then(function() {
+        drawOverlayTexts(missionData);
+        drawDeployment(missionData);
+        drawText(missionData);
+        drawIcons(missionData);
+        drawBorder(missionData.removeBorder);
+        resolve();
+      });
     });
-    const scale = missionData.customBackgroundProperties.scalePercent;
-    const width = backgroundImage.width * scale / 100;
-    const height = backgroundImage.height * scale / 100;
-    getContext().drawImage(backgroundImage, position.x, position.y, width, height);
-    renderTerrainImage(missionData);
-    drawDeployment(missionData);
-    drawText(missionData);
-    drawIcons(missionData);
-  };
-  backgroundImage.src = missionData.customBackgroundUrl;
-};
+  });
+}
 
 function renderDefaultBackground(missionData) {
   getContext().drawImage(getBackgroundImage(missionData.bgselected), 0, 0, getCanvas().width, getCanvas().height);
-  drawBorder(missionData.removeBorder);
-  renderTerrainImage(missionData);
-  drawDeployment(missionData);
-  drawText(missionData);
-  drawIcons(missionData);
+  return Promise.resolve();
 };
 
-function renderTerrainImage(missionData) {
-  if (missionData.imageUrl) {
-    const image = new Image();
-    image.onload = function() {
-      const position = scalePixelPosition({
-        x: 160 + missionData.imageProperties.offsetX,
-        y: 160 + missionData.imageProperties.offsetY
-      });
-      const scale = missionData.imageProperties.scalePercent / 100.0;
-      const width = image.width * scale;
-      const height = image.height * scale;
-      getContext().drawImage(image, position.x, position.y, width, height);
-      drawOverlayTexts(missionData);
-      drawIcons(missionData);
-      drawBorder(missionData.removeBorder);
-    };
-    image.src = missionData.imageUrl;
-  } else {
-    // Drawn if no image, or when file is loaded but no image included
-    drawOverlayTexts(missionData);
-    drawIcons(missionData);
-    drawBorder(missionData.removeBorder);
-  }
+function renderCustomBackground(missionData) {
+  return renderImage(missionData.customBackgroundUrl, missionData.customBackgroundProperties);
+};
+
+function renderImage(imageUrl, imageProperties) {
+  return new Promise((resolve, reject) => {
+    if (imageUrl) {
+      const image = new Image();
+      image.onload = function() {
+        const position = scalePixelPosition({
+          x: 160 + imageProperties.offsetX,
+          y: 160 + imageProperties.offsetY
+        });
+        const scale = imageProperties.scalePercent / 100.0;
+        const width = image.width * scale;
+        const height = image.height * scale;
+        getContext().drawImage(image, position.x, position.y, width, height);
+        resolve();
+      };
+      image.src = imageUrl;
+    } else {
+      // Drawn if no image, or when file is loaded but no image included
+      resolve();
+    }
+  });
 };
 
 async function writeControls(data) {
@@ -765,20 +759,19 @@ function onExportMapToImage() {
   data.symmetrical = false;
   data.orientation = false;
 
-  render(data);
-
-  const offset = 80;
-  let imageData = getContext().getImageData(0, offset, getCanvas().width, getCanvas().height - offset);
-  let tmpCanvas = document.createElement('canvas');
-  tmpCanvas.width = 1122;
-  tmpCanvas.height = 822 - offset;
-  document.body.appendChild(tmpCanvas);
-  let tmpContext = tmpCanvas.getContext('2d');
-  tmpContext.putImageData(imageData, 0, 0);
-  downloadImageData(tmpCanvas, "warcry-mission-map.png");
-  document.body.removeChild(tmpCanvas);
-
-  render(readControls());
+  render(data).then(function() {
+    const offset = 80;
+    let imageData = getContext().getImageData(0, offset, getCanvas().width, getCanvas().height - offset);
+    let tmpCanvas = document.createElement('canvas');
+    tmpCanvas.width = 1122;
+    tmpCanvas.height = 822 - offset;
+    document.body.appendChild(tmpCanvas);
+    let tmpContext = tmpCanvas.getContext('2d');
+    tmpContext.putImageData(imageData, 0, 0);
+    downloadImageData(tmpCanvas, "warcry-mission-map.png");
+    document.body.removeChild(tmpCanvas);
+    render(readControls());
+  });
 }
 
 function onExportToImage() {
@@ -1422,8 +1415,6 @@ function drawDeployment(missionData) {
   if (removeDeployment) {
     return;
   }
-
-  drawMap(missionData);
 
   // prepare text for line drawing
   // Draw the text in the middle of the line
