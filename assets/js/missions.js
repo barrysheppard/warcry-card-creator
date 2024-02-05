@@ -742,7 +742,7 @@ function onCopyFromRed() {
   onAnyChange();
 }
 
-function onResetToDefault() {
+function resetToDefault() {
   writeControls(defaultMissionData());
   onAnyChange();
 }
