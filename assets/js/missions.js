@@ -25,12 +25,36 @@ function getScalingFactor(canvas, warcryCardOne) {
   };
 }
 
+let _canvas = null;
+
 function getCanvas() {
-  return document.getElementById("canvas");
+  return _canvas || document.getElementById("canvas");
 }
 
 function getContext() {
   return getCanvas().getContext("2d");
+}
+
+function beginCanvasBuffer() {
+  let currentCanvas = getCanvas();
+  let tmpCanvas = document.createElement("canvas");
+  tmpCanvas.width = currentCanvas.width;
+  tmpCanvas.height = currentCanvas.height;
+  tmpCanvas.style.display = "none";
+  document.body.appendChild(tmpCanvas);
+  _canvas = tmpCanvas;
+  return currentCanvas;
+}
+
+function commitCanvasBuffer(targetCanvas) {
+  let currentCanvas = getCanvas();
+  let currentContext = currentCanvas.getContext("2d");
+  let targetContext = targetCanvas.getContext("2d");
+  let imageData = currentContext.getImageData(0, 0, currentCanvas.width, currentCanvas.height);
+
+  targetContext.putImageData(imageData, 0, 0);
+  _canvas = targetCanvas;
+  document.body.removeChild(currentCanvas);
 }
 
 function getBackgroundImage(bgName) {
@@ -326,6 +350,7 @@ function readControls() {
 
 function render(missionData) {
   return new Promise((resolve, reject) => {
+    let canvas = beginCanvasBuffer();
     getContext().clearRect(0, 0, canvas.width, canvas.height);
     let promise;
     if (missionData.customBackgroundUrl) {
@@ -342,6 +367,7 @@ function render(missionData) {
         drawText(missionData);
         drawIcons(missionData);
         drawBorder(missionData.removeBorder);
+        commitCanvasBuffer(canvas);
         resolve();
       });
     });
