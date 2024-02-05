@@ -349,7 +349,8 @@ function render(missionData) {
 }
 
 function renderDefaultBackground(missionData) {
-  getContext().drawImage(getBackgroundImage(missionData.bgselected), 0, 0, getCanvas().width, getCanvas().height);
+  let image = getBackgroundImage(missionData.bgselected);
+  getContext().drawImage(image, 0, 0, getCanvas().width, getCanvas().height);
   return Promise.resolve();
 };
 
@@ -551,11 +552,13 @@ function defaultMissionData() {
   return data;
 }
 
-function writeMissionData(name, data) {
+async function writeMissionData(name, data) {
   let slots = readMissionSlots();
   if (data == null) {
     delete slots[name];
   } else {
+    data.base64Image = await handleImageUrlFromDisk(data.imageUrl)
+    data.base64CustomBackground = await handleImageUrlFromDisk(data.customBackgroundUrl)
     slots[name] = data;
   }
   window.localStorage.setItem("missionDataSlots", JSON.stringify(slots));
@@ -805,7 +808,9 @@ async function readJSONFile(file) {
     // Specify what the FileReader should do on the successful read of a file
     fileReader.onload = event => {
       // If successfully read, resolve the Promise with JSON parsed contents of the file
-      resolve(JSON.parse(event.target.result))
+      resolve(JSON.parse(event.target.result));
+
+      saveMissionData();
     };
     // If the file is not successfully read, reject with the error
     fileReader.onerror = error => reject(error);
