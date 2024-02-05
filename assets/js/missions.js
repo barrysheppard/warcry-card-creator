@@ -46,9 +46,10 @@ function beginCanvasBuffer() {
   return currentCanvas;
 }
 
-function commitCanvasBuffer(targetCanvas) {
+function commitCanvasBuffer() {
   let currentCanvas = getCanvas();
   let currentContext = currentCanvas.getContext("2d");
+  let targetCanvas = document.getElementById("canvas");
   let targetContext = targetCanvas.getContext("2d");
   let imageData = currentContext.getImageData(0, 0, currentCanvas.width, currentCanvas.height);
 
@@ -350,7 +351,7 @@ function readControls() {
 
 function render(missionData) {
   return new Promise((resolve, reject) => {
-    let canvas = beginCanvasBuffer();
+    beginCanvasBuffer();
     getContext().clearRect(0, 0, canvas.width, canvas.height);
     let promise;
     if (missionData.customBackgroundUrl) {
@@ -367,7 +368,7 @@ function render(missionData) {
         drawText(missionData);
         drawIcons(missionData);
         drawBorder(missionData.removeBorder);
-        commitCanvasBuffer(canvas);
+        commitCanvasBuffer();
         resolve();
       });
     });
