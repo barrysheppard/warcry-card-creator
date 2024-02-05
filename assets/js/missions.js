@@ -348,7 +348,6 @@ function renderCustomBackground(missionData) {
     drawDeployment(missionData);
     drawText(missionData);
     drawIcons(missionData);
-
   };
   backgroundImage.src = missionData.customBackgroundUrl;
 };
@@ -1474,13 +1473,15 @@ function drawDeployment(missionData) {
     let renderMode = missionData[deployment + "RenderMode"];
     let iconName = camelToSnake(deployment);
 
-    components.push({
-      xValue: xValue,
-      yValue: yValue,
-      iconName: iconName,
-      label: label,
-      renderMode: renderMode
-    });
+    if (parseInt(label) != 0) {
+      components.push({
+        xValue: xValue,
+        yValue: yValue,
+        iconName: iconName,
+        label: label,
+        renderMode: renderMode
+      });
+    }
   });
 
   components.forEach(component => {
