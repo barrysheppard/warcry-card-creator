@@ -722,6 +722,11 @@ function onTerrainImageUpload() {
 }
 
 function onCopyFromRed() {
+  copyFromRed();
+  onAnyChange();
+}
+
+function copyFromRed() {
   document.getElementById("blueHammerX").value = 30 - document.getElementById("redHammerX").value;
   document.getElementById("blueHammerY").value = 22 - document.getElementById("redHammerY").value;
 
@@ -738,8 +743,6 @@ function onCopyFromRed() {
   document.getElementById("blueHammerRenderMode").value = document.getElementById("redHammerRenderMode").value;
   document.getElementById("blueShieldRenderMode").value = document.getElementById("redShieldRenderMode").value;
   document.getElementById("blueDaggerRenderMode").value = document.getElementById("redDaggerRenderMode").value;
-
-  onAnyChange();
 }
 
 function resetToDefault() {
@@ -1720,12 +1723,13 @@ function randomDeployment() {
       let deployment = populateDeployment("red" + group);
       hasRnd1 = hasRnd1 || deployment.turn == 1;
     });
-    onCopyFromRed();
+    copyFromRed();
 
     if (hasRnd1 && !hasConflicts()) {
       break;
     }
   }
+
 
   document.getElementById("symmetrical").checked = true;
   onAnyChange();
