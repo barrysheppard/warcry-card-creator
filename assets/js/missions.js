@@ -928,6 +928,11 @@ function drawOverlayTexts(missionData) {
 }
 
 function drawMap(missionData) {
+  const removeDeployment = missionData.removeDeployment;
+
+  if (removeDeployment) {
+    return;
+  }
   getContext().drawImage(getMapImage(missionData.map), 0, 0, getCanvas().width, getCanvas().height);
 }
 
