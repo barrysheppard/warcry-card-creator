@@ -818,6 +818,30 @@ function onExportToImage() {
   downloadImageData(getCanvas(), fileName);
 }
 
+function onExportToImageNoBorder() {
+  let data = readControls();
+  data.removeBorder = true;
+
+  let fileName = "warcry_mission_";
+  if (data.missionType != "") {
+    fileName = fileName + data.missionType.replace(/ /g, "_") + "_";
+  }
+  fileName = fileName + data.missionName.replace(/ /g, "_") + "_no_border.png";
+
+  render(data).then(function() {
+    let imageData = getContext().getImageData(0, 0, getCanvas().width, getCanvas().height);
+    let tmpCanvas = document.createElement('canvas');
+    tmpCanvas.width = 1122;
+    tmpCanvas.height = 822;
+    document.body.appendChild(tmpCanvas);
+    let tmpContext = tmpCanvas.getContext('2d');
+    tmpContext.putImageData(imageData, 0, 0);
+    downloadImageData(tmpCanvas, fileName);
+    document.body.removeChild(tmpCanvas);
+    render(readControls());
+  });
+}
+
 function downloadImageData(canvas, fileName) {
   let element = document.createElement('a');
 
