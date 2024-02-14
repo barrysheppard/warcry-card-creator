@@ -1,7 +1,7 @@
 const GROUPS = ["Shield", "Dagger", "Hammer"];
 const COLOURS = ["red", "blue"];
 
-function writeValue(ctx, value, position) {
+function writeValue(ctx, value, position, angle = 0) {
   if (!ctx || typeof ctx.fillText !== 'function') {
     throw new Error('Invalid canvas context');
   }
@@ -14,9 +14,16 @@ function writeValue(ctx, value, position) {
     y: position.y / scale.y
   };
 
-  ctx.scale(scale.x, scale.y);
-  ctx.fillText(value, scaledPosition.x, scaledPosition.y);
+  ctx.save(); // Save the current transformation state
+  ctx.translate(scaledPosition.x, scaledPosition.y); // Move the origin to the position
+  ctx.rotate(angle * Math.PI / 180); // Rotate by the specified angle
+  ctx.scale(scale.x, scale.y); // Apply scaling factor
+
+  ctx.fillText(value, 0, 0); // Text is now drawn at (0, 0) relative to the rotated position
+
+  ctx.restore(); // Restore the previous transformation state
 };
+
 
 function getScalingFactor(canvas, warcryCardOne) {
   return {
@@ -55,7 +62,13 @@ function commitCanvasBuffer() {
 
   targetContext.putImageData(imageData, 0, 0);
   _canvas = targetCanvas;
-  document.body.removeChild(currentCanvas);
+
+    // Check if currentCanvas is a child of document.body before removing it
+    if (currentCanvas.parentNode === document.body) {
+      document.body.removeChild(currentCanvas);
+    } else {
+      console.warn("currentCanvas is not a child of document.body");
+    }
 }
 
 function getBackgroundImage(bgName) {
@@ -105,9 +118,9 @@ function scalePixelPosition(pixelPosition) {
   return scaledPosition;
 }
 
-function writeScaled(value, pixelPos) {
+function writeScaled(value, pixelPos, angle = 0) {
   let scaledPos = scalePixelPosition(pixelPos);
-  writeValue(getContext(), value, scaledPos);
+  writeValue(getContext(), value, scaledPos, angle);
 }
 
 function drawCardElementFromInput(inputElement, pixelPosition) {
@@ -1146,6 +1159,7 @@ function drawLines(XValue, YValue, turn, mode = "auto") {
 function drawBorderLine(XValue, YValue, turn) {
   let color = "black";
   let arrowSize = 0;
+  let angle = 0;
 
   if (YValue == 0) {
     if (XValue < 15) {
@@ -1236,12 +1250,13 @@ function drawBorderLine(XValue, YValue, turn) {
     }
   }
 
+
   if (turn > 1) {
-    drawTurnLabel(XValue, YValue, turn);
+    drawTurnLabel(XValue, YValue, turn, angle);
   }
 }
 
-function drawTurnLabel(XValue, YValue, turn) {
+function drawTurnLabel(XValue, YValue, turn, angle = 0) {
   let point = convertInchesToPixelsLine(XValue, YValue);
   let label = "Rnd " + turn;
   let xOffset = 0;
@@ -1251,59 +1266,61 @@ function drawTurnLabel(XValue, YValue, turn) {
     xOffset = 50;
   }
   if (XValue == 0) {
-    writeScaledBorder(label, point.x - 20 + xOffset, point.y);
+    angle = 90;
+    writeScaledBorder(label, point.x -40, point.y, angle);
   } else if (XValue == 30) {
-    writeScaledBorder(label, point.x + 20 + xOffset, point.y);
+    angle = -90;
+    writeScaledBorder(label, point.x + xOffset -5, point.y, angle);
   } else if (YValue == 0 && XValue == 0) {
-    writeScaledBorder(label, point.x + xOffset + 120, point.y - 20);
+    writeScaledBorder(label, point.x + xOffset + 120, point.y - 20, angle);
   } else if (YValue == 0 && XValue < 16) {
-    writeScaledBorder(label, point.x + xOffset + 70, point.y - 20);
+    writeScaledBorder(label, point.x + xOffset + 70, point.y - 20, angle);
   } else if (YValue == 0 && XValue == 30) {
-    writeScaledBorder(label, point.x + xOffset - 120, point.y - 20);
+    writeScaledBorder(label, point.x + xOffset - 120, point.y - 20, angle);
   } else if (YValue == 0 && XValue > 15) {
-    writeScaledBorder(label, point.x + xOffset - 70, point.y - 20);
+    writeScaledBorder(label, point.x + xOffset - 70, point.y - 20, angle);
   } else if (YValue == 22 && XValue < 16) {
-    writeScaledBorder(label, point.x + xOffset + 70, point.y + 20);
+    writeScaledBorder(label, point.x + xOffset + 70, point.y + 20, angle);
   } else if (YValue == 22 && XValue > 15) {
-    writeScaledBorder(label, point.x + xOffset - 70, point.y + 20);
+    writeScaledBorder(label, point.x + xOffset - 70, point.y + 20, angle);
   } else if ((YValue > 5 && YValue < 12) || (YValue > 16 && YValue < 22)) {
-    writeScaledBorder(label, point.x + xOffset, point.y - 40);
+    writeScaledBorder(label, point.x + xOffset, point.y - 40, angle);
   } else {
-    writeScaledBorder(label, point.x + xOffset, point.y + 40);
+    writeScaledBorder(label, point.x + xOffset, point.y + 40, angle);
   }
 }
 
-function writeScaledBorder(value, startX, startY) {
+function writeScaledBorder(value, startX, startY, angle=0) {
   getContext().fillStyle = 'white';
   writeScaled(value, {
     x: startX + 1,
     y: startY
-  });
+  }, angle);
   writeScaled(value, {
     x: startX,
     y: startY + 1
-  });
+  }, angle);
   writeScaled(value, {
     x: startX + 1,
     y: startY + 1
-  });
+  }, angle);
   writeScaled(value, {
     x: startX - 1,
     y: startY
-  });
+  }, angle);
   writeScaled(value, {
     x: startX,
     y: startY - 1
-  });
+  }, angle);
   writeScaled(value, {
     x: startX - 1,
     y: startY - 1
-  });
+  }, angle);
   getContext().fillStyle = 'black';
   writeScaled(value, {
     x: startX,
     y: startY
-  });
+  }, angle);
 }
 
 function drawIcons(missionData) {
