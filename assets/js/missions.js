@@ -1,5 +1,5 @@
 const GROUPS = ["Shield", "Dagger", "Hammer"];
-const COLOURS = ["red", "blue"];
+const COLOURS = ["red", "blue", "green"];
 
 function writeValue(ctx, value, position, angle = 0) {
   if (!ctx || typeof ctx.fillText !== 'function') {
@@ -363,6 +363,7 @@ function readControls() {
 }
 
 function render(missionData) {
+  console.log(missionData);
   return new Promise((resolve, reject) => {
     beginCanvasBuffer();
     getContext().clearRect(0, 0, canvas.width, canvas.height);
@@ -464,13 +465,13 @@ async function writeControls(data) {
   document.getElementById('map-list').value = data.map || "map";
 
   COLOURS.forEach(colour => {
-    document.getElementById("remove" + titelize(colour) + "Deployment").checked = data["remove" + titelize(colour) + "Deployment"];
+    document.getElementById("remove" + titelize(colour) + "Deployment").checked = data["remove" + titelize(colour) + "Deployment"] || true;
 
     GROUPS.forEach(group => {
       document.getElementById(colour + group + "RenderMode").value = data[colour + group + "RenderMode"] || "short";
-      document.getElementById(colour + group + "X").value = data[colour + group + "XValue"];
-      document.getElementById(colour + group + "Y").value = data[colour + group + "YValue"];
-      document.getElementById(colour + group + "Turn").value = data[colour + group + "Turn"];
+      document.getElementById(colour + group + "X").value = data[colour + group + "XValue"] || 0;
+      document.getElementById(colour + group + "Y").value = data[colour + group + "YValue"]|| 0;
+      document.getElementById(colour + group + "Turn").value = data[colour + group + "Turn"]|| 0;
     });
   });
 
@@ -561,6 +562,28 @@ function defaultMissionData() {
 
   data.removeRedDeployment = false;
 
+  data.greenHammerXValue = 20;
+  data.greenHammerYValue = 19;
+  data.greenHammerLine = false;
+  data.greenHammerTurn = 1;
+  data.greenHammerRenderMode = 'short';
+  
+  data.greenShieldXValue = 15;
+  data.greenShieldYValue = 19;
+  data.greenShieldLine = false;
+  data.greenShieldTurn = 1;
+  data.greenShieldRenderMode = 'short';
+  
+  data.greenDaggerXValue = 10;
+  data.greenDaggerYValue = 19;
+  data.greenDaggerLine = false;
+  data.greenDaggerTurn = 1;
+  data.greenDaggerRenderMode = 'short';
+  
+  data.removeGreenDeployment = true;
+  
+
+
   data.objective1XValue = 0;
   data.objective1YValue = 0;
   data.objective1Icon = 0;
@@ -582,8 +605,6 @@ function defaultMissionData() {
 
   data.removeBorder = false;
   data.removeDeployment = false;
-  data.removeRedDeployment = false;
-  data.removeBlueDeployment = false;
   data.symmetrical = false;
   data.orientation = true;
   data.white = false;
@@ -1492,6 +1513,7 @@ function drawDeployment(missionData) {
   const removeDeployment = missionData.removeDeployment;
   const removeBlueDeployment = missionData.removeBlueDeployment;
   const removeRedDeployment = missionData.removeRedDeployment;
+  const removeGreenDeployment = missionData.removeGreenDeployment;
 
   if (removeDeployment) {
     return;
@@ -1536,6 +1558,11 @@ function drawDeployment(missionData) {
     GROUPS.forEach(group => {
       deployments.push("blue" + group);
     });
+  }
+    if (!removeGreenDeployment) {
+      GROUPS.forEach(group => {
+        deployments.push("green" + group);
+      });
   }
 
   deployments.forEach(deployment => {
@@ -1616,6 +1643,7 @@ function onJoystickKeyPress(input) {
     }
     document.getElementById("redCollapse").classList.add("show");
     document.getElementById("blueCollapse").classList.add("show");
+    document.getElementById("greenCollapse").classList.add("show");
     document.getElementById("objectiveCollapse").classList.add("show");
     joysticks[index].focus();
     joysticks[index].checked = true;
