@@ -1586,6 +1586,7 @@ function drawDeployment(missionData) {
   components.forEach(component => {
     if (component.renderMode == "line") {
       drawBorderLine(component.xValue, component.yValue, component.label);
+    } else if (component.renderMode == "none") {
     } else {
       drawLines(component.xValue, component.yValue, component.label, component.renderMode);
     }
