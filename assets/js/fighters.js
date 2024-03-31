@@ -86,8 +86,12 @@ getBackgroundImage = function () {
 
     } else if (selectedOption === 'bg-18') {
         return document.getElementById('bg-cursed-city');
+    }
+     else if (selectedOption === 'bg-19') {
+        return document.getElementById('bg-oldworld');
 
     }
+    
 }
 
 drawFrame = function(){
@@ -737,7 +741,7 @@ function drawDeploymentRunemark(image) {
     var size = scalePixelPosition({ x: 80, y: 80 });
     drawImageSrc(position, size, image);
 }
-
+/*
 const render = function(fighterData) {
     if (fighterData.customBackgroundUrl) {
       renderCustomBackground(fighterData);
@@ -745,6 +749,26 @@ const render = function(fighterData) {
       renderDefaultBackground(fighterData);
     }
   };
+*/
+
+  function render(fighterData) {
+    return new Promise((resolve, reject) => {
+      beginCanvasBuffer();
+      getContext().clearRect(0, 0, canvas.width, canvas.height);
+      let promise;
+      if (fighterData.customBackgroundUrl) {
+        promise = renderCustomBackground(fighterData);
+      } else {
+        promise = renderDefaultBackground(fighterData);
+      }
+      promise.then(function() {
+          commitCanvasBuffer();
+          resolve();
+        });
+      });
+  }
+
+
 
 const renderCustomBackground = function(fighterData) {
     const backgroundImage = new Image();
@@ -772,6 +796,7 @@ const renderCustomBackground = function(fighterData) {
 
     };
     backgroundImage.src = fighterData.customBackgroundUrl;
+    
 };
 
 const renderDefaultBackground = function(fighterData) {
@@ -782,6 +807,7 @@ const renderDefaultBackground = function(fighterData) {
     }
     drawBorder();
     renderFighterImage(fighterData);
+    return Promise.resolve();
 };
 
 const renderFighterImage = function(fighterData) {
@@ -931,6 +957,8 @@ async function writeControls(fighterData) {
     setSelectedTagRunemarks(fighterData.tagRunemarks);
     writeWeaponControls("#weapon1", fighterData.weapon1, "weapon1");
     writeWeaponControls("#weapon2", fighterData.weapon2, "weapon2");
+
+    document.getElementById("saveName").value = fighterData.fighterName + " " + fighterData.fighterName2;
 
     // check and uncheck if needed
     document.getElementById('bg-01').checked = fighterData.bg01;
@@ -1275,7 +1303,7 @@ function onClearCache() {
     return false;
 }
 
-function onResetToDefault() {
+function resetToDefault() {
     var fighterData = defaultFighterData();
     writeControls(fighterData);
 }
@@ -1299,7 +1327,7 @@ function refreshSaveSlots() {
     }
 }
 
-async function onSaveClicked() {
+async function onExportToFile() {
     data = readControls();
 
     // weird situation where when no image is saved, but json is then saved
@@ -1345,7 +1373,7 @@ async function onSaveClicked() {
     downloadAnchorNode.remove();
 }
 
-function saveCardAsImage() {
+function onExportToImage() {
     data = readControls();
     var element = document.createElement('a');
     element.setAttribute('href', document.getElementById('canvas').toDataURL('image/png'));
@@ -1361,6 +1389,31 @@ function saveCardAsImage() {
     element.click();
     document.body.removeChild(element);
 }
+
+
+function onExportToImageNoBorder() {
+    let data = readControls();
+    data.removeBorder = true;
+  
+    let fileName = "warcry_fighter_" + data.fighterName.replace(/ /g, "_");
+    if (data.fighterName2 == "" || data.fighterName2 == " ") {
+        fileName = fileName + "_no_border.png";
+    } else {
+        fileName = fileName +  "_" + data.fighterName2.replace(/ /g, "_") + "_no_border.png";
+    }  
+    render(data).then(function() {
+      let imageData = getContext().getImageData(0, 0, getCanvas().width, getCanvas().height);
+      let tmpCanvas = document.createElement('canvas');
+      tmpCanvas.width = 1122;
+      tmpCanvas.height = 822;
+      document.body.appendChild(tmpCanvas);
+      let tmpContext = tmpCanvas.getContext('2d');
+      tmpContext.putImageData(imageData, 0, 0);
+      downloadImageData(tmpCanvas, fileName);
+      document.body.removeChild(tmpCanvas);
+      render(readControls());
+    });
+  }
 
 $(document).ready(function () {
     var c = document.getElementById('canvas');
@@ -1690,6 +1743,14 @@ function getFactionRunemark(warband){
     else if(warband == "Cities of Sigmar: Castelite Hosts") {runemark = "runemarks/white/factions-order-cities-of-sigmar-castelite-hosts.svg";}
     else if(warband == "Cities of Sigmar: Dispossessed") {runemark = "runemarks/white/factions-order-cities-of-sigmar-dispossessed.svg";}
     else if(warband == "Cities of Sigmar: Darkling Covens") {runemark = "runemarks/white/factions-order-cities-of-sigmar-darkling-covens.svg";}
+    else if(warband == "Ulfenkarn") {runemark = "runemarks/white/factions-death-ulfenkarn.svg";}
+
+    else if(warband == "the thricefold discord") {runemark = "runemarks/white/factions-chaos-the-thricefold-discord.svg";}
+    else if(warband == "the skinnerkin") {runemark = "runemarks/white/factions-death-the-skinnerkin.svg";}
+    else if(warband == "zondaras gravebreakers") {runemark = "runemarks/white/factions-death-zondaras-gravebreakers.svg";}
+    else if(warband == "daggoks stab ladz") {runemark = "runemarks/white/factions-destruction-daggoks-stab-ladz.svg";}
+    else if(warband == "brethern of the bolt") {runemark = "runemarks/white/factions-order-brethern-of-the-bolt.svg";}
+    else if(warband == "cyrenis razors") {runemark = "runemarks/white/factions-order-cyrenis-razors.svg";}
 
     else { runemark = "runemarks/white/factions-chaos-everchosen.svg";}
     console.log(warband)
@@ -2075,3 +2136,138 @@ function estimatePoints() {
     document.getElementById('estimated_points_details').innerText = resultTextDetails;
 
 }
+
+
+
+// Moving over from the fighter updates
+
+
+function onfighterNameChange() {
+    document.getElementById("saveName").value = document.getElementById("fighterName").value;
+    onAnyChange();
+  }
+  
+  function onSlotListChange() {
+    let selectedValue = document.getElementById("slotList").value;
+    if (selectedValue) {
+      document.getElementById("saveName").value = selectedValue;
+    }
+  }
+
+  
+function onSaveSlot() {
+    let name = document.getElementById("saveName").value || generateName();
+    let data = readControls();
+    writefighterData(name, data);
+    updateSlotList();
+    document.getElementById("slotList").value = name;
+  }
+
+
+function onLoadSlot() {
+    let slotList = document.getElementById("slotList");
+    let selectedName = slotList.value;
+    if (!selectedName) {
+      return;
+    }
+  
+    let data = readControls(selectedName);
+    if (!data) {
+      return;
+    }
+  
+    writeControls(data);
+    document.getElementById("saveName").value = selectedName;
+  }
+  
+  function onDeleteSlot() {
+    let slotList = document.getElementById("slotList");
+    let selectedName = slotList.value;
+    if (!selectedName) {
+      return;
+    }
+  
+    writefighterData(selectedName, null);
+    updateSlotList();
+  }
+  
+  function updateSlotList() {
+    let slotList = document.getElementById("slotList");
+    let shouldContain = enumeratefighterSlots(false);
+    let contains = Array.from(slotList.options).map(o => o.value);
+  
+    Array.from(slotList.options).forEach(option => {
+      if (!shouldContain.includes(option.value)) {
+        slotList.removeChild(option);
+      }
+    });
+    shouldContain.forEach(value => {
+      if (!contains.includes(value)) {
+        slotList.add(new Option(value, value));
+      }
+    });
+  }
+  
+  async function writefighterData(name, data) {
+    let slots = readfighterSlots();
+    if (data == null) {
+      delete slots[name];
+    } else {
+      data.base64Image = await handleImageUrlFromDisk(data.imageUrl)
+      data.base64CustomBackground = await handleImageUrlFromDisk(data.customBackgroundUrl)
+      slots[name] = data;
+    }
+    window.localStorage.setItem("fighterDataSlots", JSON.stringify(slots));
+  }
+  
+  function enumeratefighterSlots(includeDefault = false) {
+    return Object.keys(readfighterSlots()).filter(x => includeDefault || x != "default");
+  }
+  
+ 
+function readfighterSlots() {
+    let raw = window.localStorage.getItem("fighterDataSlots");
+    return raw ? JSON.parse(raw) : {};
+  } 
+
+
+
+  function commitCanvasBuffer() {
+    let currentCanvas = getCanvas();
+    let currentContext = currentCanvas.getContext("2d");
+    let targetCanvas = document.getElementById("canvas");
+    let targetContext = targetCanvas.getContext("2d");
+    let imageData = currentContext.getImageData(0, 0, currentCanvas.width, currentCanvas.height);
+  
+    targetContext.putImageData(imageData, 0, 0);
+    _canvas = targetCanvas;
+    // Check if currentCanvas is a child of document.body before removing it
+    if (currentCanvas.parentNode === document.body) {
+        document.body.removeChild(currentCanvas);
+  }
+}
+  
+
+function beginCanvasBuffer() {
+    let currentCanvas = getCanvas();
+    let tmpCanvas = document.createElement("canvas");
+    tmpCanvas.width = currentCanvas.width;
+    tmpCanvas.height = currentCanvas.height;
+    tmpCanvas.style.display = "none";
+    document.body.appendChild(tmpCanvas);
+    _canvas = tmpCanvas;
+    return currentCanvas;
+  }
+
+
+  function downloadImageData(canvas, fileName) {
+    let element = document.createElement('a');
+  
+    element.setAttribute('href', canvas.toDataURL('image/png'));
+  
+    element.setAttribute("download", fileName);
+    element.style.display = 'none';
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
+  }

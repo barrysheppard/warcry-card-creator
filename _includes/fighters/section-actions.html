@@ -1,68 +1,111 @@
-<div class="form-group">
+
+<div class="card-header" id="fightersHeadingActions">
     
-</div>
+    <h2 class="h5 mb-0">
+      <button class="btn btn-link" >
+        Load / Save / Export
+      </button>
+    </h2>
+  </div>
+  <div id="fightersCollapseActions" class="card-body collapse show">
+    <div class="form-group form-check">
+        <input class="form-check-input" id="runemark-names" oninput="onAnyChange()" type="checkbox">
+        <label class="form-check-label" for="runemark-names">Show Runemark Names</label>
+    </div>
+    <div class="form-group form-check">
+        <input class="form-check-input" id="removeTextAndFrame" onchange="onAnyChange()" type="checkbox">
+        <label class="form-check-label" for="removeTextAndFrame">Remove Text and Frame</label>
+    </div>
+    <div class="form-group form-check">
+        <input class="form-check-input" id="removeBorder" onchange="onAnyChange()" type="checkbox">
+        <label class="form-check-label" for="removeBorder">Remove border to add bleed area for printing</label>
+    </div>
+    <div class="form-group form-check">
+        <input class="form-check-input" id="bladebornRunemark" onchange="onAnyChange()" type="checkbox">
+        <label class="form-check-label" for="bladebornRunemark">Show bladeborn runemark as normal runemark</label>
+    </div>
+    
+    <div class="mt-4">
+      <div class="btn-group" role="group">
+        <!--
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Export image
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a href="#" class="dropdown-item" id="saveCanvasButton" onclick="onExportToImage()">
+              Export card
+            </a>
+            
+            <a href="#" class="dropdown-item" id="saveCanvasMapButton" onclick="onExportToImageNoBorder()">
+              Export card No Border
+            </a>
+            
+          </div>
+        </div>
+        -->
+        <button class="btn btn-success" id="saveButton" onclick="onExportToImage()">
+          Export image
+        </button>
 
-<div class="form-group form-check">
-    <input class="form-check-input" id="runemark-names" oninput="onAnyChange()" type="checkbox">
-    <label class="form-check-label" for="runemark-names">Show Runemark Names</label>
-</div>
-<div class="form-group form-check">
-    <input class="form-check-input" id="removeTextAndFrame" onchange="onAnyChange()" type="checkbox">
-    <label class="form-check-label" for="removeTextAndFrame">Remove Text and Frame</label>
-</div>
-<div class="form-group form-check">
-    <input class="form-check-input" id="removeBorder" onchange="onAnyChange()" type="checkbox">
-    <label class="form-check-label" for="removeBorder">Remove border to add bleed area for printing</label>
-</div>
-<div class="form-group form-check">
-    <input class="form-check-input" id="bladebornRunemark" onchange="onAnyChange()" type="checkbox">
-    <label class="form-check-label" for="bladebornRunemark">Show bladeborn runemark as normal runemark.</label>
-</div>
+        <button class="btn btn-success" id="saveButton" onclick="onExportToFile()">
+          Export file
+        </button>
+        <label for="loadbutton" class="btn btn-success" style="margin-bottom:0">
+          Import file
+          <input class="form-control-file" id="loadbutton" oninput="fileChange(this.files[0])" type="file" style="display:none">
+        </label>
+      </div>
+      <div class="btn-group" role="group">
 
-<div class="mt-4">
-    <button type="submit" class="btn btn-success" id="saveCanvasButton" onclick="saveCardAsImage()">
-        Save card as image
-    </button>
-</div>
+        <button class="btn btn-warning" id="resetButton" onclick="resetToDefault()">
+          Reset
+        </button>
+      </div>
 
-<div class="mt-4">
-    <button type="submit" class="btn btn-success" id="saveButton" onclick="onSaveClicked()">
-        Save card as file
-    </button>
-</div>
+    </div>
 
-<div class="mt-4">
-    <label for="loadbutton">Load card file</label>
-    <input class="form-control-file" id="loadbutton" oninput="fileChange(this.files[0])" type="file">
-</div>
+    <div class="mt-4 row" style="visibility: hidden;">
+      <div class="col-sm-6">
+        <div class="btn-group" role="group">
+          <input class="form-control" type="text" id="saveName" name="saveName" value="">
+          <button class="btn btn-success" onclick="onSaveSlot()">
+            Save
+          </button>
+        </div>
+      </div>
 
-<div class="mt-4">
-    <button type="submit" class="btn btn-success" id="clearCacheButton" onclick="onClearCache()">
-        Reset all
-    </button>
-    <br><hr>
-</div>
-
-<div class="input-group mb-6 mt-2">
-
-    <select id="sel">
-
-    </select>
-<br><br>
-    <button type="submit" class="btn btn-success" id="loadFighterFromList" onclick="loadFighterFromList()">
-        Load Fighter from List
-    </button> <br>
-    This list contains errors, use it as a starting point but check everything.
-</div>
-
-<div class="mt-4">
-
-</div>
+      <div class="col-sm-6">
+        <div class="btn-group" role="group">
+          <button class="btn btn-success" onclick="onLoadSlot()">
+            Load
+          </button>
+          <button class="btn btn-warning" onclick="onDeleteSlot()">
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
 
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+    <div class="input-group mb-6 mt-2">
+
+        <select id="sel">
+    
+        </select>
+    <br><br>
+        <button type="submit" class="btn btn-success" id="loadFighterFromList" onclick="loadFighterFromList()">
+            Load Fighter from List
+        </button> <br>
+        This list contains errors, use it as a starting point but check everything.
+    </div>
+    
+    <div class="mt-4" style="visibility: hidden;">
+        <select size="8" class="form-control" id="slotList" oninput="onSlotListChange()">
+        </select>
+      </div>
+  
+  
+
+  </div>
+
