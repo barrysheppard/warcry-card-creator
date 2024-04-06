@@ -1745,12 +1745,8 @@ function getFactionRunemark(warband){
     else if(warband == "Cities of Sigmar: Darkling Covens") {runemark = "runemarks/white/factions-order-cities-of-sigmar-darkling-covens.svg";}
     else if(warband == "Ulfenkarn") {runemark = "runemarks/white/factions-death-ulfenkarn.svg";}
 
-    else if(warband == "the thricefold discord") {runemark = "runemarks/white/factions-chaos-the-thricefold-discord.svg";}
-    else if(warband == "the skinnerkin") {runemark = "runemarks/white/factions-death-the-skinnerkin.svg";}
-    else if(warband == "zondaras gravebreakers") {runemark = "runemarks/white/factions-death-zondaras-gravebreakers.svg";}
-    else if(warband == "daggoks stab ladz") {runemark = "runemarks/white/factions-destruction-daggoks-stab-ladz.svg";}
-    else if(warband == "brethern of the bolt") {runemark = "runemarks/white/factions-order-brethern-of-the-bolt.svg";}
-    else if(warband == "cyrenis razors") {runemark = "runemarks/white/factions-order-cyrenis-razors.svg";}
+    else if(warband == "Ydrilan Riverblades") {runemark = "runemarks/white/factions-order-ydrilan-riverblades.svg";}
+    else if(warband == "Pyregheists") {runemark = "runemarks/white/factions-death-pyregheists.svg";}
 
     else { runemark = "runemarks/white/factions-chaos-everchosen.svg";}
     console.log(warband)
