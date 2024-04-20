@@ -1909,6 +1909,13 @@ function getBladebornRunemark(bladeborn){
     else if(bladeborn == "The Shadeborn") {runemark = "runemarks/white/bladeborn-the-shadeborn.svg";}
     else if(bladeborn == "Gorechosen of Dromm") {runemark = "runemarks/white/bladeborn-gorechhosen-of-dromm.svg";}
     else if(bladeborn == "Skittershank's Clawpack") {runemark = "runemarks/white/bladeborn-skittershanks-clawpack.svg";}
+    else if(bladeborn == "Thricefold Discord") {runemark = "runemarks/white/bladeborn-the-thricefold-discord.svg";}
+    else if(bladeborn == "Brethren of the Bolt") {runemark = "runemarks/white/bladeborn-brethern-of-the-bolt.svg";}
+    else if(bladeborn == "Cyreni's Razors") {runemark = "runemarks/white/bladeborn-cyrenis-razors.svg";}
+    else if(bladeborn == "Daggok's Stab-ladz") {runemark = "runemarks/white/bladeborn-daggoks-stab-ladz.svg";}
+    else if(bladeborn == "Zondara's Gravebreakers") {runemark = "runemarks/white/bladeborn-zondaras-gravebreakers.svg";}
+    else if(bladeborn == "Skinnerkin") {runemark = "runemarks/white/bladeborn-the-skinnerkin.svg";}
+    
     else runemark = null;
     return runemark;
 }
