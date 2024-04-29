@@ -1729,7 +1729,6 @@ function randomDeployment() {
   }
 
   const populateDeployment = function(scope) {
-    const turnOptions = [1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 3];
     let x = generateX();
     let y = generateY();
 
@@ -1750,10 +1749,9 @@ function randomDeployment() {
         x = 23;
       }
     }
-
+    turn = 1;
     document.getElementById(scope + "X").value = x;
     document.getElementById(scope + "Y").value = y;
-    let turn = turnOptions[Math.floor(Math.random() * turnOptions.length)];
     document.getElementById(scope + "Turn").value = turn;
 
     let onLine = (x == 0 && y != 0 && y != 22) || (y == 0 && x != 0 && x != 30) || (x == 30 && y != 0 && y != 22) || (y == 22 && x != 0 && x != 30);
@@ -1798,13 +1796,26 @@ function randomDeployment() {
       let deployment = populateDeployment("red" + group);
       hasRnd1 = hasRnd1 || deployment.turn == 1;
     });
+
+    // randomly pick one battlegroup to have turn 2 deployment 
+    // Generate a random number between 0 and 2
+    let randomNumber = Math.floor(Math.random() * 3);
+
+    // Update based on the random number
+    if (randomNumber === 0) {
+        document.getElementById("redShieldTurn").value = 2;
+    } else if (randomNumber === 1) {
+        document.getElementById("redDaggerTurn").value = 2;
+    } else {
+        document.getElementById("redHammerTurn").value = 2;
+    }
+
     copyFromRed();
 
     if (hasRnd1 && !hasConflicts()) {
       break;
     }
   }
-
 
   document.getElementById("symmetrical").checked = true;
   onAnyChange();
