@@ -1653,6 +1653,9 @@ function saveFighterFromList(fighter){
         fighterData.weapon2.enabled = false;
     }
     fighterData.subfactionRunemark = getBladebornRunemark(fighter.bladeborn);
+    if (fighter.name == 'Grombrindal, the White Dwarf') {
+        fighterData.subfactionRunemark = "runemarks/white/bladeborn-grombrindal.svg";
+      }
     fighterData.deploymentRunemark = null;
     fighterData.bg01 = oldData.bg01;
     fighterData.bg02 = oldData.bg02;
@@ -1746,6 +1749,7 @@ function getFactionRunemark(warband){
     else if(warband == "Ulfenkarn") {runemark = "runemarks/white/factions-death-ulfenkarn.svg";}
     else if(warband == "Ydrilan Riverblades") {runemark = "runemarks/white/factions-order-ydrilan-riverblades.svg";}
     else if(warband == "Pyregheists") {runemark = "runemarks/white/factions-death-pyregheists.svg";}
+    else if(warband == "order") {runemark = "runemarks/white/grand-alliance-order.svg";}
 
     else { runemark = "runemarks/white/factions-chaos-everchosen.svg";}
     console.log(warband)
