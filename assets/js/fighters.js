@@ -1744,7 +1744,6 @@ function getFactionRunemark(warband){
     else if(warband == "Cities of Sigmar: Dispossessed") {runemark = "runemarks/white/factions-order-cities-of-sigmar-dispossessed.svg";}
     else if(warband == "Cities of Sigmar: Darkling Covens") {runemark = "runemarks/white/factions-order-cities-of-sigmar-darkling-covens.svg";}
     else if(warband == "Ulfenkarn") {runemark = "runemarks/white/factions-death-ulfenkarn.svg";}
-
     else if(warband == "Ydrilan Riverblades") {runemark = "runemarks/white/factions-order-ydrilan-riverblades.svg";}
     else if(warband == "Pyregheists") {runemark = "runemarks/white/factions-death-pyregheists.svg";}
 
@@ -1915,6 +1914,7 @@ function getBladebornRunemark(bladeborn){
     else if(bladeborn == "Daggok's Stab-ladz") {runemark = "runemarks/white/bladeborn-daggoks-stab-ladz.svg";}
     else if(bladeborn == "Zondara's Gravebreakers") {runemark = "runemarks/white/bladeborn-zondaras-gravebreakers.svg";}
     else if(bladeborn == "Skinnerkin") {runemark = "runemarks/white/bladeborn-the-skinnerkin.svg";}
+    else if(bladeborn == "Grombrindal") {runemark = "runemarks/white/bladeborn-grombrindal.svg";}
     
     else runemark = null;
     return runemark;
