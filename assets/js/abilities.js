@@ -26,7 +26,7 @@ function defaultCardData() {
     var cardData = new Object;
     cardData.name = "Warcry_Abliities"; // want to remove this eventually
 
-    cardData.cardTitle = 'Iron Golem';
+    cardData.cardTitle = 'Iron Golems';
     cardData.cardTranslationAbilities = 'Abilities';
     cardData.cardTranslationReaction = 'Reaction';
     cardData.cardTranslationDouble = 'Double';
@@ -38,31 +38,32 @@ function defaultCardData() {
     cardData.ability1checked = true;
     cardData.ability2checked = true;
     cardData.ability3checked = true;
-    cardData.ability4checked = true;
-    cardData.ability5checked = true;
-    cardData.ability6checked = true;
+    cardData.ability4checked = false;
+    cardData.ability5checked = false;
+    cardData.ability6checked = false;
     cardData.ability7checked = false;
 
-    cardData.ability1Name = 'First ability name';
-    cardData.ability2Name = 'Second ability name';
-    cardData.ability3Name = 'Third ability name';
+    cardData.ability1Name = "Clashing Iron"
+    cardData.ability2Name = "Spine-crushing Blow";
+    cardData.ability3Name = "Lead with Strength";
     cardData.ability4Name = 'Fourth ability name';
     cardData.ability5Name = 'Fifth ability name';
     cardData.ability6Name = 'Sixth ability name';
     cardData.ability7Name = 'Seventh ability name';
 
-    cardData.ability1Text = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
-    cardData.ability2Text = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
-    cardData.ability3Text = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
+    cardData.ability1Text = "A fighter can make this reaction after they are targeted by a melee attack action but before the hit rolls are made. Count up to two critical hits from that attack action as hits instead.";
+    cardData.ability2Text = "Until the end of this fighter's activation, add the value of this ability to the Strength characteristic of melee attack actions made by this fighter.";
+    cardData.ability3Text = "A fighter can only use this ability if an enemy fighter has been taken down by an attack action made by them this activation. This fighter makes a bonus move action or a bonus attack action.";
     cardData.ability4Text = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
     cardData.ability5Text = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
     cardData.ability6Text = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
     cardData.ability7Text = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
 
-    cardData.tagRunemarksOne = new Array;
-    cardData.tagRunemarksOne.push('runemarks/black/fighters-berserker.svg');
+    cardData.tagRunemarksOne = new Array;;
     cardData.tagRunemarksTwo = new Array;
+    cardData.tagRunemarksTwo.push("runemarks/black/fighters-brute.svg")
     cardData.tagRunemarksThree = new Array;
+    cardData.tagRunemarksThree.push("runemarks/black/fighters-leader.svg")
     cardData.tagRunemarksFour = new Array;
     cardData.tagRunemarksFive = new Array;
     cardData.tagRunemarksSix = new Array;
