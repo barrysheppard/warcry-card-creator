@@ -342,7 +342,7 @@ function readControls() {
     });
   });
 
-  for (let i = 1; i <= 6; i++) {
+  for (let i = 1; i <= 8; i++) {
     data["objective" + i + "XValue"] = document.getElementById("objective" + i + "X").value;
     data["objective" + i + "YValue"] = document.getElementById("objective" + i + "Y").value;
     data["objective" + i + "Icon"] = document.getElementById("objective" + i + "Icon").value;
@@ -475,7 +475,7 @@ async function writeControls(data) {
     });
   });
 
-  for (let i = 1; i <= 6; i++) {
+  for (let i = 1; i <= 8; i++) {
     document.getElementById("objective" + i + "X").value = data["objective" + i + "XValue"];
     document.getElementById("objective" + i + "Y").value = data["objective" + i + "YValue"];
     document.getElementById("objective" + i + "Icon").value = data["objective" + i + "Icon"];
@@ -602,6 +602,12 @@ function defaultMissionData() {
   data.objective6XValue = 0;
   data.objective6YValue = 0;
   data.objective6Icon = 0;
+  data.objective7XValue = 0;
+  data.objective7YValue = 0;
+  data.objective7Icon = 0;
+  data.objective8XValue = 0;
+  data.objective8YValue = 0;
+  data.objective8Icon = 0;
 
   data.removeBorder = false;
   data.removeDeployment = false;
@@ -1529,7 +1535,7 @@ function drawDeployment(missionData) {
   let components = [];
 
   // Treasure and Objectives
-  for (let i = 1; i <= 6; i++) {
+  for (let i = 1; i <= 8; i++) {
     let xValue = missionData["objective" + i + "XValue"];
     let yValue = missionData["objective" + i + "YValue"];
     let icon = missionData["objective" + i + "Icon"];

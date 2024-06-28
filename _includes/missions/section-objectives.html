@@ -140,6 +140,48 @@
             </div>
 
             <div class="form-group row">
+              <div class="col-sm-3">
+                <label for="objective7Joystick">Objective 7</label>
+                <input type="radio" name="joystick" id="objective7Joystick" onkeydown="onJoystickKeyPress(this)">
+              </div>
+              <div class="col-sm-3">
+                  <label for="objective7X">X</label><input class="form-control" type="number" id="objective7X" name="objective7X" value="0"
+                      min="0" max="30" oninput="onAnyChange()">
+              </div>
+              <div class="col-sm-3">
+                  <label for="objective7Y">Y</label>
+                  <input class="form-control" type="number" id="objective7Y" name="objective7Y" value="0"
+                      min="0" max="22" oninput="onAnyChange()">
+              </div>
+              <div class="col-sm-3">
+                  <label for="objective7Icon">Icon</label>
+                  <input class="form-control" type="number" id="objective7Icon" name="objective7Icon" value="0"
+                      min="0" max="11" oninput="onAnyChange()">
+              </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-sm-3">
+              <label for="objective8Joystick">Objective 8</label>
+              <input type="radio" name="joystick" id="objective8Joystick" onkeydown="onJoystickKeyPress(this)">
+            </div>
+            <div class="col-sm-3">
+                <label for="objective8X">X</label><input class="form-control" type="number" id="objective8X" name="objective8X" value="0"
+                    min="0" max="30" oninput="onAnyChange()">
+            </div>
+            <div class="col-sm-3">
+                <label for="objective8Y">Y</label>
+                <input class="form-control" type="number" id="objective8Y" name="objective8Y" value="0"
+                    min="0" max="22" oninput="onAnyChange()">
+            </div>
+            <div class="col-sm-3">
+                <label for="objective8Icon">Icon</label>
+                <input class="form-control" type="number" id="objective8Icon" name="objective8Icon" value="0"
+                    min="0" max="11" oninput="onAnyChange()">
+            </div>
+        </div>
+
+            <div class="form-group row">
                 <label for="objective1RenderMode" class="col-sm-6 col-form-label">Objective 1 render mode</label>
                 <div class="col-sm-3">
                   <select class="form-select" id="objective1RenderMode" name="objective1RenderMode" onchange="onAnyChange()">
@@ -211,6 +253,30 @@
                 </div>
             </div>
 
+
+          <div class="form-group row">
+              <label for="objective7RenderMode" class="col-sm-6 col-form-label">Objective 7 render mode</label>
+              <div class="col-sm-3">
+                <select class="form-select" id="objective7RenderMode" name="objective7RenderMode" onchange="onAnyChange()">
+                  <option value="edge">From Edges</option>
+                  <option value="centre">From Centre</option>
+                  <option value="short">Shortest Path</option>
+                  <option value="none">None</option>
+                </select>
+              </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="objective8RenderMode" class="col-sm-6 col-form-label">Objective 8 render mode</label>
+            <div class="col-sm-3">
+              <select class="form-select" id="objective8RenderMode" name="objective8RenderMode" onchange="onAnyChange()">
+                <option value="edge">From Edges</option>
+                <option value="centre">From Centre</option>
+                <option value="short">Shortest Path</option>
+                <option value="none">None</option>
+              </select>
+            </div>
+        </div>
 
             </div>
         </div>
