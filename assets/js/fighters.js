@@ -1750,6 +1750,8 @@ function getFactionRunemark(warband){
     else if(warband == "Ydrilan Riverblades") {runemark = "runemarks/white/factions-order-ydrilan-riverblades.svg";}
     else if(warband == "Pyregheists") {runemark = "runemarks/white/factions-death-pyregheists.svg";}
     else if(warband == "order") {runemark = "runemarks/white/grand-alliance-order.svg";}
+    else if(warband == "Twistweald") {runemark = "runemarks/white/factions-order-twistweald.svg";}
+    else if(warband == "Teratic Cohort") {runemark = "runemarks/white/factions-death-teratic_cohort.svg";}
 
     else { runemark = "runemarks/white/factions-chaos-everchosen.svg";}
     console.log(warband)
