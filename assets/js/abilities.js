@@ -1732,7 +1732,7 @@ function loadAbilityFromList(abilityNumber){
 
 async function getAbilityList(){
     // await response of fetch call
-    let response = await fetch("https://raw.githubusercontent.com/krisling049/warcry_data/main/data/abilities.json");
+    let response = await fetch("https://krisling049.github.io/warcry_data/abilities.json");
     // only proceed once promise is resolved
     let data = await response.json();
     // only proceed once second promise is resolved
