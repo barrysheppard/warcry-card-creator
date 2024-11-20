@@ -87,9 +87,17 @@ getBackgroundImage = function () {
     } else if (selectedOption === 'bg-18') {
         return document.getElementById('bg-cursed-city');
     }
-     else if (selectedOption === 'bg-19') {
-        return document.getElementById('bg-oldworld');
-
+    else if (selectedOption === 'bg-19') {
+       return document.getElementById('bg-oldworld');
+    }
+    else if (selectedOption === 'bg-20') {
+       return document.getElementById('bg-embergard');   
+    }
+    else if (selectedOption === 'bg-21') {
+       return document.getElementById('bg-grey');   
+    }
+    else if (selectedOption === 'bg-22') {
+       return document.getElementById('bg-gold');   
     }
     
 }
