@@ -1660,7 +1660,7 @@ function saveFighterFromList(fighter){
     } else {
         fighterData.weapon2.enabled = false;
     }
-    fighterData.subfactionRunemark = getBladebornRunemark(fighter.bladeborn);
+    fighterData.subfactionRunemark = getBladebornRunemark(fighter.subfaction);
     if (fighter.name == 'Grombrindal, the White Dwarf') {
         fighterData.subfactionRunemark = "runemarks/white/bladeborn-grombrindal.svg";
       }
