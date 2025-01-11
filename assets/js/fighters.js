@@ -1761,7 +1761,7 @@ function getFactionRunemark(warband){
     else if(warband == "Twistweald") {runemark = "runemarks/white/factions-order-twistweald.svg";}
     else if(warband == "Teratic Cohort") {runemark = "runemarks/white/factions-death-teratic_cohort.svg";}
     else if(warband == "Darkoath") {runemark = "runemarks/white/factions-chaos-darkoath.svg";}
-    else if(warband == "Stormcast Eternals Ruination Chamber") {runemark = "runemarks/white/factions-order-stormcast-eternals-runination.svg";}
+    else if(warband == "Stormcast Eternals Ruination Chamber") {runemark = "runemarks/white/factions-order-stormcast-eternals-ruination.svg";}
 
     else { runemark = "runemarks/white/factions-chaos-everchosen.svg";}
     console.log(warband)
