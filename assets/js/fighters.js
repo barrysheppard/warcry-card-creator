@@ -99,18 +99,15 @@ getBackgroundImage = function () {
     else if (selectedOption === 'bg-22') {
        return document.getElementById('bg-gold');   
     }
+    else if (selectedOption === 'bg-23') {
+       return document.getElementById('bg-skulls');   
+    }
     
 }
 
 drawFrame = function(){
-    // draw some black background circles to get a smooth look
-    startX = 454;
-    startY = 62;
-    // black border
-    var img = $("#circle_black")[0];
-    var position = scalePixelPosition({ x: startX, y: startY });
-    var size = scalePixelPosition({ x: 144, y: 144 });
-    getContext().drawImage(img, position.x, position.y, size.x, size.y);
+    
+    if(!document.getElementById("removeFaction").checked){
     // draw some black background circles to get a smooth look
     startX = 67;
     startY = 62;
@@ -119,9 +116,33 @@ drawFrame = function(){
     var position = scalePixelPosition({ x: startX, y: startY });
     var size = scalePixelPosition({ x: 144, y: 144 });
     getContext().drawImage(img, position.x, position.y, size.x, size.y);
+    }
 
-    getContext().drawImage(document.getElementById('warcry-fighter-frame'), 0, 0, getCanvas().width, getCanvas().height);
 
+    if(document.getElementById("removeCost").checked){
+        if(document.getElementById("removeFaction").checked){
+            getContext().drawImage(document.getElementById('warcry-fighter-frame-no-cost-no-faction'), 0, 0, getCanvas().width, getCanvas().height);
+        } else {
+            getContext().drawImage(document.getElementById('warcry-fighter-frame-no-cost'), 0, 0, getCanvas().width, getCanvas().height);
+        }
+    
+    } else {
+        // draw some black background circles to get a smooth look
+        startX = 454;
+        startY = 62;
+        // black border
+        var img = $("#circle_black")[0];
+        var position = scalePixelPosition({ x: startX, y: startY });
+        var size = scalePixelPosition({ x: 144, y: 144 });
+        getContext().drawImage(img, position.x, position.y, size.x, size.y);
+        if(document.getElementById("removeFaction").checked){
+            getContext().drawImage(document.getElementById('warcry-fighter-frame-no-cost-no-faction'), 0, 0, getCanvas().width, getCanvas().height);
+            getContext().drawImage(document.getElementById('warcry-fighter-frame-cost'), 0, 0, getCanvas().width, getCanvas().height);
+
+        } else {
+            getContext().drawImage(document.getElementById('warcry-fighter-frame'), 0, 0, getCanvas().width, getCanvas().height);
+        }
+    }
 }
 
 
@@ -876,7 +897,9 @@ function drawOverlayTexts(fighterData) {
     // These are the texts to overlay
     drawFighterName(fighterName);
     drawFighterName2(fighterName2);
-    drawFactionRunemark(factionRunemark);
+    if(!document.getElementById("removeFaction").checked){
+        drawFactionRunemark(factionRunemark);
+    }
     drawBorder();
 
     // Draw subfaction runemark if enabled
@@ -894,8 +917,9 @@ function drawOverlayTexts(fighterData) {
     drawMove(move);
     drawWounds(wounds);
     drawToughness(toughness);
-    drawPointCost(pointCost);
-
+    if(!document.getElementById("removeCost").checked){
+        drawPointCost(pointCost);
+    }
     // Determine which weapon(s) to draw and their positions
     if (weapon1.enabled && weapon2.enabled) {
       drawWeapon(weapon2, { x: 68, y: 520 }); // Default was x:29, y:397
