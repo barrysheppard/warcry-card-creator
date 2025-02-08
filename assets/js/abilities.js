@@ -1839,7 +1839,7 @@ function getRunemarks(runemarks){
     if (runemarks.includes("elite")){
         tagRunemarks.push('runemarks/black/fighters-elite.svg');
     }
-    if (runemarks.includes("icon bearer")){
+    if (runemarks.includes("icon-bearer")){
         tagRunemarks.push('runemarks/black/fighters-icon-bearer.svg');
     }
     if (runemarks.includes("mount")){
