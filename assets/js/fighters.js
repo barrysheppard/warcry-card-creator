@@ -2107,21 +2107,11 @@ function estimatePoints() {
         }
     }
 
-    weapon2points = averageDamage2T4 * pointsPerDamage *  (1 + weapon2range_percentage / 100);
+    primaryWeaponDamage1 = averageDamage1T4;
+    weaponrange_percentage1 = weapon1range_percentage;
+    primaryWeaponDamage2 = averageDamage2T4;
+    weaponrange_percentage2 = weapon2range_percentage;
 
-    if (weapon1points > weapon2points|| !fighterData.weapon2.enabled) {
-        primaryWeaponDamage = averageDamage1T4;
-        weaponrange_percentage = weapon1range_percentage;
-    } else if (weapon2points > weapon1points || !fighterData.weapon1.enabled){
-        primaryWeaponDamage = averageDamage2T4;
-        weaponrange_percentage = weapon2range_percentage;
-    }
-
-    points = 0;
-    points_for_wounds = pointsPerWound * fighterData.wounds;
-    points_for_damage = pointsPerDamage * primaryWeaponDamage;
-
-    basepoints = Math.round((points_for_wounds + points_for_damage)/2);
     // Calculate the adjustment percentage based on the difference from the baseline
     percentage = parseInt(adjustment);
 
@@ -2148,13 +2138,46 @@ function estimatePoints() {
 
     percentage += move_percentage;
     percentage += toughness_percentage;
-    percentage += weaponrange_percentage;
     percentage += fly_percentage;
     percentage += dualweapons_percentage;
 
-    percentage = Math.round(percentage)
+    // here we split to account for both weapons
+    percentage1 = percentage
+    percentage1 += weaponrange_percentage1;
+    percentage2 = percentage
+    percentage2 += weaponrange_percentage2;
+
+    percentage1 = Math.round(percentage1)
+    percentage2 = Math.round(percentage2)
+    
+
+    points = 0;
+    points_for_wounds = pointsPerWound * fighterData.wounds;
+    points_for_damage1 = pointsPerDamage * primaryWeaponDamage1;
+    points_for_damage2 = pointsPerDamage * primaryWeaponDamage2;
+
+    basepoints1 = Math.round((points_for_wounds + points_for_damage1)/2);
+    basepoints2 = Math.round((points_for_wounds + points_for_damage2)/2);
+    
+
+
     // Apply the adjustment to the points value
-    points = basepoints * (1 + percentage / 100);
+    points1 = basepoints1 * (1 + percentage1 / 100);
+    points2 = basepoints2 * (1 + percentage2 / 100);
+
+    if(points1 > points2) {
+        basepoints = basepoints1
+        points = points1
+        points_for_damage = points_for_damage1
+        percentage = percentage1
+        weaponrange_percentage = weaponrange_percentage1
+    } else {
+        basepoints = basepoints2
+        points = points2
+        points_for_damage = points_for_damage2
+        percentage = percentage2
+        weaponrange_percentage = weaponrange_percentage1
+    }
 
     points = Math.round(points / 5) * 5;
     var resultText = `Estimated points: ${points}
