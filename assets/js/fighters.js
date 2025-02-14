@@ -1957,6 +1957,7 @@ function getBladebornRunemark(bladeborn){
     else if(bladeborn == "Grombrindal") {runemark = "runemarks/white/bladeborn-grombrindal.svg";}
     else if(bladeborn == "Gladitorium") {runemark = "runemarks/white/bladeborn-gladitorium.svg";}
     else if(bladeborn == "Zikkit's Tunnelpack") {runemark = "runemarks/white/bladeborn-zikkits-tunnelpack.svg";}
+    else if(bladeborn == "Borgit's Beastgrabbaz") {runemark = "runemarks/white/bladeborn-borgits-beastgrabbaz.svg";}
 
     else runemark = null;
     return runemark;
