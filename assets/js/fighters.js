@@ -1955,7 +1955,9 @@ function getBladebornRunemark(bladeborn){
     else if(bladeborn == "Zondara's Gravebreakers") {runemark = "runemarks/white/bladeborn-zondaras-gravebreakers.svg";}
     else if(bladeborn == "Skinnerkin") {runemark = "runemarks/white/bladeborn-the-skinnerkin.svg";}
     else if(bladeborn == "Grombrindal") {runemark = "runemarks/white/bladeborn-grombrindal.svg";}
-    
+    else if(bladeborn == "Gladitorium") {runemark = "runemarks/white/bladeborn-gladitorium.svg";}
+    else if(bladeborn == "Zikkit's Tunnelpack") {runemark = "runemarks/white/bladeborn-zikkits-tunnelpack.svg";}
+
     else runemark = null;
     return runemark;
 }
