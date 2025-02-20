@@ -102,6 +102,9 @@ getBackgroundImage = function () {
     else if (selectedOption === 'bg-23') {
        return document.getElementById('bg-skulls');   
     }
+    else if (selectedOption === 'bg-24') {
+       return document.getElementById('bg-dark-black');   
+    }
     
 }
 
