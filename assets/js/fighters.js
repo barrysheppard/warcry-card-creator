@@ -105,7 +105,9 @@ getBackgroundImage = function () {
     else if (selectedOption === 'bg-24') {
        return document.getElementById('bg-dark-black');   
     }
-    
+    else if (selectedOption === 'bg-25') {
+        return document.getElementById('bg-frostgrave');   
+    }
 }
 
 drawFrame = function(){
