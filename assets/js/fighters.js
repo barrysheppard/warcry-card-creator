@@ -2079,8 +2079,8 @@ function estimatePoints() {
     var averageDamage2T4 = calculateAverageDamage(fighterData.weapon2.attacks, fighterData.weapon2.strength,
                                                 fighterData.weapon2.damageBase, fighterData.weapon2.damageCrit, 4);
 
-    var pointsPerDamage = 25;
-    var pointsPerWound = 25/3;
+    var pointsPerDamage = 25/2;
+    var pointsPerWound = 25/6;
 
     // To select the primary weapon we can't just do max damage, we need to adjust by range scaling.
     weapon1range_percentage = 0;
@@ -2121,7 +2121,7 @@ function estimatePoints() {
     weaponrange_percentage2 = weapon2range_percentage;
 
     // Calculate the adjustment percentage based on the difference from the baseline
-    percentage = parseInt(adjustment);
+    percentage = 0;
 
     if (fighterData.move > 4) {
         move_percentage = 5
@@ -2147,6 +2147,10 @@ function estimatePoints() {
     percentage += move_percentage;
     percentage += toughness_percentage;
     percentage += fly_percentage;
+
+    fighter_percentage = percentage;
+
+    percentage += parseInt(adjustment);
     percentage += dualweapons_percentage;
 
     // here we split to account for both weapons
@@ -2164,8 +2168,8 @@ function estimatePoints() {
     points_for_damage1 = pointsPerDamage * primaryWeaponDamage1;
     points_for_damage2 = pointsPerDamage * primaryWeaponDamage2;
 
-    basepoints1 = Math.round((points_for_wounds + points_for_damage1)/2);
-    basepoints2 = Math.round((points_for_wounds + points_for_damage2)/2);
+    basepoints1 = Math.round((points_for_wounds + points_for_damage1));
+    basepoints2 = Math.round((points_for_wounds + points_for_damage2));
     
 
 
@@ -2188,8 +2192,22 @@ function estimatePoints() {
     }
 
     points = Math.round(points / 5) * 5;
+    fighter_points = Math.round(points_for_wounds * (1 + fighter_percentage / 100) /5)*5;
+    weapon1_points = Math.round(averageDamage1T4 * pointsPerDamage * (1 + weaponrange_percentage1 / 100)/5)*5
+    weapon2_points = Math.round(averageDamage2T4 * pointsPerDamage * (1 + weaponrange_percentage2 / 100)/5)*5
     var resultText = `Estimated points: ${points}
+    - Core Stats : ${fighter_points}
+    - Weapon 1 : ${weapon1_points}`
+    if(fighterData.weapon2.enabled){
+        resultText = resultText + 
+   
+    `
+    - Weapon 2 : ${weapon2_points}`
+    }
+    resultText = resultText +  
+     `
 
+     
         `;
     var resultTextDetails = `Base ${basepoints} points with ${percentage}% adjustment:
 
@@ -2201,10 +2219,15 @@ function estimatePoints() {
         Adjustment:
         - Movement : ${move_percentage}%
         - Toughness : ${toughness_percentage}%
-        - Weapon range : ${weaponrange_percentage}%
         - Fly : ${fly_percentage}%
+        - Weapon range : ${weaponrange_percentage}%
         - Dual Weapons : ${dualweapons_percentage}%
         - Manual Adjustment : ${parseInt(adjustment)}%
+
+        Adjusted:
+        - Fighter : ${Math.round(points_for_wounds * (1 + fighter_percentage / 100))} pts
+        - Weapon 1 : ${Math.round(averageDamage1T4 * pointsPerDamage * (1 + weaponrange_percentage1 / 100))} pts
+        - Weapon 2 : ${Math.round(averageDamage2T4 * pointsPerDamage * (1 + weaponrange_percentage2 / 100))} pts
         `;
     document.getElementById('estimated_points').innerText = resultText;
     document.getElementById('estimated_points_details').innerText = resultTextDetails;
