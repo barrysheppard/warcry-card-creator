@@ -356,6 +356,7 @@ function readControls() {
   data.symmetrical = document.getElementById("symmetrical").checked;
   data.orientation = document.getElementById("orientation").checked;
   data.white = document.getElementById("white").checked;
+  data.groupStyle = document.getElementById("group-style").value;
 
   data.textValue = document.getElementById("textValue").value;
 
@@ -614,6 +615,7 @@ function defaultMissionData() {
   data.symmetrical = false;
   data.orientation = true;
   data.white = false;
+  data.groupStyle = "warcry";
 
   data.textValue = "";
   return data;
@@ -1520,6 +1522,7 @@ function drawDeployment(missionData) {
   const removeBlueDeployment = missionData.removeBlueDeployment;
   const removeRedDeployment = missionData.removeRedDeployment;
   const removeGreenDeployment = missionData.removeGreenDeployment;
+  const groupStyle = missionData.groupStyle;
 
   if (removeDeployment) {
     return;
@@ -1576,7 +1579,8 @@ function drawDeployment(missionData) {
     let yValue = missionData[deployment + "YValue"];
     let label = missionData[deployment + "Turn"];
     let renderMode = missionData[deployment + "RenderMode"];
-    let iconName = camelToSnake(deployment);
+    let iconName = camelToSnake(deployment) + (groupStyle === "abc" ? "_ABC" : "");
+    console.log(iconName);
 
     if (parseInt(label) != 0) {
       components.push({

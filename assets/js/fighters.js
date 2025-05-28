@@ -2079,65 +2079,104 @@ function estimatePoints() {
     var averageDamage2T4 = calculateAverageDamage(fighterData.weapon2.attacks, fighterData.weapon2.strength,
                                                 fighterData.weapon2.damageBase, fighterData.weapon2.damageCrit, 4);
 
-    var pointsPerDamage = 25/2;
-    var pointsPerWound = 25/6;
+    var pointsPerDamage = 11.36 // 25/2;
+    var pointsPerWound = 3.67 // 25/6;
 
-    // To select the primary weapon we can't just do max damage, we need to adjust by range scaling.
-    weapon1range_percentage = 0;
-    if (fighterData.weapon1.rangeMax > 1) {
-        if (fighterData.weapon1.rangeMax > 1 && fighterData.weapon1.rangeMax <= 3){
-            weapon1range_percentage = 10;
-        } else if (fighterData.weapon1.rangeMax > 3 && fighterData.weapon1.rangeMax <= 7) {
-            weapon1range_percentage = 30;
-        } else if (fighterData.weapon1.rangeMax > 7 && fighterData.weapon1.rangeMax <= 10) {
-            weapon1range_percentage = 40;
-        } else if (fighterData.weapon1.rangeMax > 10 && fighterData.weapon1.rangeMax <= 15) {
-            weapon1range_percentage = 50;
-        } else if (fighterData.weapon1.rangeMax > 15 ) {
-            weapon1range_percentage = 60;
-        }
+    dualweapons_percentage = 0;
+    if (fighterData.weapon1.enabled && fighterData.weapon2.enabled){
+        dualweapons_percentage = 10;
     }
 
-    weapon1points = averageDamage1T4 * pointsPerDamage *  (1 + weapon1range_percentage / 100);
+    maxRangePercentageMap = {
+        1:0,
+        2:5,
+        3:7,
+        4:13,
+        5:20,
+        6:24,
+        7:25,
+        8:35,
+        9:38,
+        10:41,
+        11:44,
+        12:46,
+        13:49,
+        14:52,
+        15:55,
+        16:58,
+        17:61,
+        18:64,
+        19:67,
+        20:70,
+        21:73,
+        22:74,
+        23:78,
+        24:80
+    };
 
-    weapon2range_percentage = 0;
-    if (fighterData.weapon2.rangeMax > 1) {
-        if (fighterData.weapon2.rangeMax > 1 && fighterData.weapon2.rangeMax <= 3){
-            weapon2range_percentage = 10;
-        } else if (fighterData.weapon2.rangeMax > 3 && fighterData.weapon2.rangeMax <= 7) {
-            weapon2range_percentage = 30;
-        } else if (fighterData.weapon2.rangeMax > 7 && fighterData.weapon2.rangeMax <= 10) {
-            weapon2range_percentage = 40;
-        } else if (fighterData.weapon2.rangeMax > 10 && fighterData.weapon2.rangeMax <= 15) {
-            weapon2range_percentage = 50;
-        } else if (fighterData.weapon2.rangeMax > 15 ) {
-            weapon2range_percentage = 60;
-        }
-    }
+    weapon1range_percentage = maxRangePercentageMap[fighterData.weapon1.rangeMax] ?? 0;
+    weapon2range_percentage = maxRangePercentageMap[fighterData.weapon2.rangeMax] ?? 0;
+
+    minRangePercentageMap = {
+        0: 0,
+        3: -5,
+        6: -10
+    };
+    
+    minRange1_percentage = minRangePercentageMap[fighterData.weapon1.rangeMin] ?? 0;
+    minRange2_percentage = minRangePercentageMap[fighterData.weapon2.rangeMin] ?? 0;
+
+
+    strengthPercentageMap = {
+        2: -24,
+        3: -11,
+        4: 0,
+        5: 9,
+        6: 18
+    };
+
+    strength1_percentage = strengthPercentageMap[fighterData.weapon1.strength] ?? 0;
+    strength2_percentage = strengthPercentageMap[fighterData.weapon2.strength] ?? 0;
+    
+    weapon1points = averageDamage1T4 * pointsPerDamage *  (1 + (weapon1range_percentage+minRange1_percentage+strength1_percentage) / 100);
+    weapon2points = averageDamage2T4 * pointsPerDamage *  (1 + (weapon2range_percentage+minRange2_percentage+strength2_percentage) / 100);
 
     primaryWeaponDamage1 = averageDamage1T4;
-    weaponrange_percentage1 = weapon1range_percentage;
+    weaponrange_percentage1 = weapon1range_percentage + minRange1_percentage
     primaryWeaponDamage2 = averageDamage2T4;
-    weaponrange_percentage2 = weapon2range_percentage;
+    weaponrange_percentage2 = weapon2range_percentage + minRange2_percentage
 
     // Calculate the adjustment percentage based on the difference from the baseline
     percentage = 0;
 
-    if (fighterData.move > 4) {
-        move_percentage = 5
-        move_percentage +=  (fighterData.move - 4) * 5
-    } else if (fighterData.move < 4) {
-        move_percentage =  -20
-    } else {
-        move_percentage =  0
-    }
+    movePercentageMap = {
+        1: -12,
+        2: -12,
+        3: -12,
+        4: 0,
+        5: 10,
+        6: 18,
+        7: 24,
+        8: 31,
+        9: 38,
+        10: 38,
+        11: 40,
+        12: 45
+    };
+    
+    move_percentage = movePercentageMap[fighterData.move] ?? 0;
 
-    toughness_percentage =  (fighterData.toughness - 4) * 5
-
-    dualweapons_percentage = 0;
-    if (fighterData.weapon1.enabled && fighterData.weapon2.enabled){
-        dualweapons_percentage = 5;
-    }
+    toughnessPercentageMap = {
+        1: -12,
+        2: -10,
+        3: -7.4,
+        4: 0,
+        5: 7.5,
+        6: 9,
+        7: 15,
+    };
+    
+    toughness_percentage = toughnessPercentageMap[fighterData.toughness] ?? 0;
 
     fly_percentage = 0;
     if(fighterData.tagRunemarks.includes("runemarks/black/fighters-fly.svg")){
@@ -2154,15 +2193,16 @@ function estimatePoints() {
     percentage += dualweapons_percentage;
 
     // here we split to account for both weapons
-    percentage1 = percentage
+    percentage1 = percentage;
     percentage1 += weaponrange_percentage1;
-    percentage2 = percentage
+    percentage1 += strength1_percentage;
+    percentage2 = percentage;
     percentage2 += weaponrange_percentage2;
-
+    percentage2 += strength2_percentage;
+    // round it out
     percentage1 = Math.round(percentage1)
     percentage2 = Math.round(percentage2)
     
-
     points = 0;
     points_for_wounds = pointsPerWound * fighterData.wounds;
     points_for_damage1 = pointsPerDamage * primaryWeaponDamage1;
@@ -2171,7 +2211,6 @@ function estimatePoints() {
     basepoints1 = Math.round((points_for_wounds + points_for_damage1));
     basepoints2 = Math.round((points_for_wounds + points_for_damage2));
     
-
 
     // Apply the adjustment to the points value
     points1 = basepoints1 * (1 + percentage1 / 100);
@@ -2188,13 +2227,15 @@ function estimatePoints() {
         points = points2
         points_for_damage = points_for_damage2
         percentage = percentage2
-        weaponrange_percentage = weaponrange_percentage1
+        weaponrange_percentage = weaponrange_percentage2
     }
 
     points = Math.round(points / 5) * 5;
     fighter_points = Math.round(points_for_wounds * (1 + fighter_percentage / 100) /5)*5;
-    weapon1_points = Math.round(averageDamage1T4 * pointsPerDamage * (1 + weaponrange_percentage1 / 100)/5)*5
-    weapon2_points = Math.round(averageDamage2T4 * pointsPerDamage * (1 + weaponrange_percentage2 / 100)/5)*5
+    weapon1_points = Math.round(averageDamage1T4 * pointsPerDamage * (1 + (weaponrange_percentage1)/ 100)/5)*5
+    weapon2_points = Math.round(averageDamage2T4 * pointsPerDamage * (1 + (weaponrange_percentage2) / 100)/5)*5
+
+
     var resultText = `Estimated points: ${points}
     - Core Stats : ${fighter_points}
     - Weapon 1 : ${weapon1_points}`
@@ -2211,23 +2252,28 @@ function estimatePoints() {
         `;
     var resultTextDetails = `Base ${basepoints} points with ${percentage}% adjustment:
 
-        Base:
+        Core Fighter:
         - Base from Wounds : ${Math.round(points_for_wounds)} pts
+            - Movement : ${move_percentage}%
+            - Toughness : ${toughness_percentage}%
+            - Fly : ${fly_percentage}%
+            - Manual Adjustment : ${parseInt(adjustment)}%
+        - Adjusted Core : ${Math.round(points_for_wounds * (1 + fighter_percentage / 100))} pts
+
+        Weapons
         - Base from Weapon1 : ${Math.round(averageDamage1T4 * pointsPerDamage)} pts
+            - Weapon 1 Strength: ${strength1_percentage}%
+            - Weapon Range: ${weaponrange_percentage1}%
+        - Adjusted Weapon 1 : ${Math.round(averageDamage1T4 * pointsPerDamage * (1 + weaponrange_percentage1 / 100))} pts
+
         - Base from Weapon2 : ${Math.round(averageDamage2T4 * pointsPerDamage)} pts
+            - Weapon 2 Strength: ${strength2_percentage}%
+            - Weapon 2 Range: ${weaponrange_percentage2}%
+        - Adjusted Weapon 2 : ${Math.round(averageDamage2T4 * pointsPerDamage * (1 + weaponrange_percentage2 / 100))} pts
 
-        Adjustment:
-        - Movement : ${move_percentage}%
-        - Toughness : ${toughness_percentage}%
-        - Fly : ${fly_percentage}%
-        - Weapon range : ${weaponrange_percentage}%
         - Dual Weapons : ${dualweapons_percentage}%
-        - Manual Adjustment : ${parseInt(adjustment)}%
 
-        Adjusted:
-        - Fighter : ${Math.round(points_for_wounds * (1 + fighter_percentage / 100))} pts
-        - Weapon 1 : ${Math.round(averageDamage1T4 * pointsPerDamage * (1 + weaponrange_percentage1 / 100))} pts
-        - Weapon 2 : ${Math.round(averageDamage2T4 * pointsPerDamage * (1 + weaponrange_percentage2 / 100))} pts
+
         `;
     document.getElementById('estimated_points').innerText = resultText;
     document.getElementById('estimated_points_details').innerText = resultTextDetails;
