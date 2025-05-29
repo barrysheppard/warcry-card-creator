@@ -1579,7 +1579,10 @@ function drawDeployment(missionData) {
     let yValue = missionData[deployment + "YValue"];
     let label = missionData[deployment + "Turn"];
     let renderMode = missionData[deployment + "RenderMode"];
-    let iconName = camelToSnake(deployment) + (groupStyle === "abc" ? "_ABC" : "");
+    let iconName = camelToSnake(deployment) + (groupStyle === "ABC" ? "_ABC" : 
+                                               groupStyle === "SHD" ? "_SHD" : 
+                                               groupStyle === "VRS" ? "_VRS" :
+                                                "");
     console.log(iconName);
 
     if (parseInt(label) != 0) {
