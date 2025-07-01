@@ -359,7 +359,7 @@ function readControls() {
   data.groupStyle = document.getElementById("group-style").value;
 
   data.textValue = document.getElementById("textValue").value;
-
+  data.textFontSize = document.getElementById("fontSize").valueAsNumber;
   return data;
 }
 
@@ -492,6 +492,8 @@ async function writeControls(data) {
   document.getElementById("white").checked = data.white;
 
   document.getElementById("textValue").value = data.textValue;
+  document.getElementById("fontSize").value = data.textFontSize || 14;
+
 
   // render the updated info
   render(data);
@@ -1453,7 +1455,7 @@ function drawText(missionData) {
   getContext().textAlign = "left";
   getContext().textBaseline = "middle";
 
-  const font_size = 32;
+const font_size = missionData.textFontSize || 32;
   const lineHeight = font_size;
   getContext().font = font_size + 'px Georgia, serif';
 
