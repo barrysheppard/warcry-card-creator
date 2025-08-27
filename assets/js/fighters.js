@@ -1966,6 +1966,11 @@ function getBladebornRunemark(bladeborn){
     else if(bladeborn == "Gladitorium") {runemark = "runemarks/white/bladeborn-gladitorium.svg";}
     else if(bladeborn == "Zikkit's Tunnelpack") {runemark = "runemarks/white/bladeborn-zikkits-tunnelpack.svg";}
     else if(bladeborn == "Borgit's Beastgrabbaz") {runemark = "runemarks/white/bladeborn-borgits-beastgrabbaz.svg";}
+    else if(bladeborn == "Grandfather's Gardeners") {runemark = "runemarks/white/bladeborn-grandfathers-gardeners.svg";}
+    else if(bladeborn == "The Emberwatch") {runemark = "runemarks/white/bladeborn-the-emberwatch.svg";}
+    else if(bladeborn == "Jaws of Itzl") {runemark = "runemarks/white/bladeborn-jaws-of-itzl.svg";}
+    else if(bladeborn == "The Blades of the Hollow King") {runemark = "runemarks/white/bladeborn-the-blades-of-the-hollow-king.svg";}
+    else if(bladeborn == "Knives of the Crone") {runemark = "runemarks/white/bladeborn-knives-of-the-crone.svg";}
 
     else runemark = null;
     return runemark;
