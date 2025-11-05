@@ -1971,6 +1971,10 @@ function getBladebornRunemark(bladeborn){
     else if(bladeborn == "Jaws of Itzl") {runemark = "runemarks/white/bladeborn-jaws-of-itzl.svg";}
     else if(bladeborn == "The Blades of the Hollow King") {runemark = "runemarks/white/bladeborn-the-blades-of-the-hollow-king.svg";}
     else if(bladeborn == "Knives of the Crone") {runemark = "runemarks/white/bladeborn-knives-of-the-crone.svg";}
+    else if(bladeborn == "Kurnoth's Heralds") {runemark = "runemarks/white/bladeborn-kurnothsheralds.svg";}
+    else if(bladeborn == "Kamandora's Blades") {runemark = "runemarks/white/bladeborn-kamandorasblades.svg";}
+    else if(bladeborn == "Blood of the Bull") {runemark = "runemarks/white/bladeborn-bloodofthebull.svg";}
+
 
     else runemark = null;
     return runemark;
