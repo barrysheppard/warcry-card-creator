@@ -1974,6 +1974,8 @@ function getBladebornRunemark(bladeborn){
     else if(bladeborn == "Kurnoth's Heralds") {runemark = "runemarks/white/bladeborn-kurnothsheralds.svg";}
     else if(bladeborn == "Kamandora's Blades") {runemark = "runemarks/white/bladeborn-kamandorasblades.svg";}
     else if(bladeborn == "Blood of the Bull") {runemark = "runemarks/white/bladeborn-bloodofthebull.svg";}
+    else if(bladeborn == "Thanateks Tithe") {runemark = "runemarks/white/bladeborn-thanateks-tithe.svg";}
+    else if(bladeborn == "Thyrielles Zephyrites") {runemark = "runemarks/white/bladeborn-thyrielles-zephyrites.svg";}
 
 
     else runemark = null;
